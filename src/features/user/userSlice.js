@@ -24,14 +24,11 @@ const userSlice = createSlice({
   // extraReducers: {},
 });
 
-export const {
-    setLoggedInUserRef,
-    setCurrentUserRole,
-    setAccessToken,
-} = userSlice.actions;
+export const { setLoggedInUserRef, setCurrentUserRole, setAccessToken } =
+  userSlice.actions;
 
-export const selectLoggedInUserRef = (state) => state?.user?.loggedInUserRef
-export const selectCurrentUserRole = (state) => state?.user?.currentUserRole
-export const selectAccessToken = (state) => state?.user?.accessToken
+export const selectLoggedInUserRef = (state) => state?.user?.loggedInUserRef;
+export const selectCurrentUserRole = (state) => state?.user?.currentUserRole;
+export const selectAccessToken = (state) => state?.user?.accessToken;
 
 export default userSlice.reducer;
