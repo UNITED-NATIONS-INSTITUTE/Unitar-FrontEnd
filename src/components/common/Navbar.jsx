@@ -25,9 +25,7 @@ const Nav = () => {
             </button>
           </Link>
         </div>
-        <div className="md:hidden">
-          <AiOutlineMenu size={25} />
-        </div>
+        <div className="md:hidden">{/* <AiOutlineMenu size={25} /> */}</div>
       </div>
     </div>
   );
