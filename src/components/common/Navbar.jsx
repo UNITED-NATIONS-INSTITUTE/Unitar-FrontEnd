@@ -25,7 +25,6 @@ const Navbar = () => {
             </button>
           </Link>
         </div>
-        <div className="md:hidden"></div>
       </div>
     </div>
   );
