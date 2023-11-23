@@ -25,7 +25,7 @@ const Hackathons = () => {
             Build4SDGs is a sustainable development startup based in africa
             working torwards SDGs
           </p>
-          <div className="flex gap">
+          <div className="flex gap-5">
             <button className="border border-blue-500 rounded-md text-blue-500 w-1/2 text-xs mt-4 py-1">
               View project
             </button>
