@@ -11,3 +11,9 @@ body {
 h2 {
   font-family: "Lexend Exa", sans-serif;
 }
+.left-side {
+  width: 15%;
+}
+.right-side {
+  flex: 1;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import Dashboard from "../participants/Dashboard";
+import SignUpPrompt from "./SignUpPrompt";
 
 const LandingPage = () => {
   return (
