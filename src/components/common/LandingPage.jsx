@@ -1,9 +1,10 @@
 import React from "react";
 import Navbar from "./Navbar";
+import LogIn from "./LogIn";
 const LandingPage = () => {
   return (
     <div>
-      <Navbar />
+      <LogIn />
     </div>
   );
 };
