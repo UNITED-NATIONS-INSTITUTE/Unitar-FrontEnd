@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/unitar-logo.png";
-const Nav = () => {
+const Navbar = () => {
   let [open, setOpen] = useState(false);
   return (
     <div className="shadow-md w-full fixed top-0 left-0 ">
-      <div className="md:flex items-center justify-between bg-white py-2 md:px-10 px-7">
+      <div className="md:flex items-center justify-between bg-white py-2 md:px-10 px-7 ">
         <div
           className="  cursor-pointer flex items-center  
       "
@@ -13,7 +13,7 @@ const Nav = () => {
           <img src={logo} alt="logo" />
         </div>
 
-        <div className="flex justify-between items-center gap-[120px] ">
+        <div className="flex justify-between items-center gap-[50px] ">
           <Link to="/login">
             <button className=" rounded-[8px] flex-col items-center justify-center gap-10 p-2 w-83 h-50 flex-shrink-0 rounded-10 border-2 border-blue-500">
               LogIn
@@ -25,12 +25,10 @@ const Nav = () => {
             </button>
           </Link>
         </div>
-        <div className="md:hidden" onClick={handleNav}>
-          <AiOutlineMenu size={25} />
-        </div>
+        <div className="md:hidden"></div>
       </div>
     </div>
   );
 };
 
-export default Nav;
+export default Navbar;
