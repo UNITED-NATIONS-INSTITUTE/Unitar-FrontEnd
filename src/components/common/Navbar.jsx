@@ -19,6 +19,7 @@ const Navbar = () => {
             </button>
           </Link>
           <Link to="/signup">
+            {/* TO DO: question if user wanna sign in as org or part, BY RAISING MODAL */}
             <button className="rounded-md px-4 py-2 text-white bg-custom-blue">
               Sign Up
             </button>
