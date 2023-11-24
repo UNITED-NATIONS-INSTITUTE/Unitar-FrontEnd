@@ -93,6 +93,8 @@ const LogIn = () => {
               <p className="mt-5 text-md text-gray-600">
                 Don't have a unitar account?
                 <Link to="/signup" className="text-custom-blue ml-1">
+                  {" "}
+                </Link>
                 {/* TO DO: question if user wanna sign in as org or part */}
                 <Link to="/org-signup" className="text-blue-500 ml-1">
                   Sign up here
