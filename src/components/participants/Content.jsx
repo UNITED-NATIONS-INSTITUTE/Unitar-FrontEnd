@@ -1,6 +1,5 @@
 import React from "react";
 import Hackathons from "./Hackathons";
-import Avatars from "./Avatars";
 
 const Content = () => {
   return (
