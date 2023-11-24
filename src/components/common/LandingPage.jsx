@@ -1,13 +1,11 @@
 import React from "react";
 import Dashboard from "../participants/ParticipantDashboard";
-import SignUpPrompt from "./SignUpPrompt";
 import Navbar from "./Navbar";
 import { LineChart } from "@mui/x-charts/LineChart";
 import man2 from "../../assets/man2.png";
 import man1 from "../../assets/man1.png";
 import frame from "../../assets/frame.png";
 import Banner from "./Banner";
-
 const LandingPage = () => {
   const months = ["Jan", "Feb", "March", "Apr", "May", "June"];
   const data = [100, 200, 300, 400, 500, 600];

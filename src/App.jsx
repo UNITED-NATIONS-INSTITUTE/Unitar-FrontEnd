@@ -13,17 +13,15 @@ const App = () => {
     // WRAP BROWSER ROUTER IN INDEX.
     <BrowserRouter>
       <Routes>
-      <Route path="*" element={<NoPage />} />
+        <Route path="*" element={<NoPage />} />
         {/* COMMON ROUTES */}
         <Route index element={<LandingPage />} />
         <Route path="/org-signup" element={<SignUp />} />
         <Route path="/part-signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
-        {/* TO DO: REPLACE THIS WITH MODAL */}
-        <Route path="/prompt" element={<SignUpPrompt />} />
         {/* PARTICIPANT */}
         {/* The parent element should be a Nav component that allows an outlet its the side. Thus refactor 24 below */}
-        <Route  path="/participant" element={<ParticipantDashboard />}> 
+        <Route path="/participant" element={<ParticipantDashboard />}>
           <Route index element={<ParticipantDashboard />} />
           <Route path="hackathons" element={<HackathonDashboard />} />
           {/* Other participant routes cascade here: if a subroute, wrap and cascade */}
