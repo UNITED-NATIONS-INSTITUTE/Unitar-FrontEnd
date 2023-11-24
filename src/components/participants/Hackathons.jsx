@@ -1,5 +1,5 @@
 import React from "react";
-import Avatars from "./Avatars";
+import Avatars from "../common/Avatars";
 
 const Hackathons = () => {
   const images = [

@@ -1,8 +1,8 @@
 import React from "react";
 import Hackathons from "./Hackathons";
-import UserProfile from "./UserProfile";
+import UserProfile from "../common/UserProfile";
 
-const Content = () => {
+const ParticipantsContent = () => {
   return (
     <div className="overflow-y-auto  ml-60">
       <div className="flex justify-between">
@@ -40,4 +40,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default ParticipantsContent;

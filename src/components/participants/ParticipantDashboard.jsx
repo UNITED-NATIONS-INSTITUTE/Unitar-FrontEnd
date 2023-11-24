@@ -1,16 +1,16 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import Content from "./Content";
+import ParticipantsContent from "./ParticipantsContent";
 
-const Dashboard = () => {
+const ParticipantDashboard = () => {
   return (
     <div className="flex min-h-screen">
       <Sidebar />
       <div className="bg-white p-8 right-side">
-        <Content />
+        <ParticipantsContent />
       </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default ParticipantDashboard;
