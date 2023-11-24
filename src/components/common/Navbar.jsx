@@ -21,16 +21,19 @@ const Navbar = () => {
             </button>
           </Link>
           <Link to="/signup">
-<<<<<<< HEAD
-            <button className="inline-flex rounded-[8px] flex-col items-center justify-center mr-4 gap-10 p-2 h-50 text-white flex-shrink-0  bg-custom-blue">
-=======
+
+            <button className="inline-flex rounded-[8px] flex-col items-center justify-center mr-4 gap-10 p-2 h-50 text-white flex-shrink-0 rounded-10 bg-custom-blue" />
+
+            {/* TO DO: question if user wanna sign in as org or part, BY RAISING MODAL */}
+            <button className="inline-flex rounded-[8px] flex-col items-center justify-center mr-4 gap-10 p-2 h-50 text-white flex-shrink-0 rounded-10 bg-blue-500">
+
+            <button className="inline-flex rounded-[8px] flex-col items-center justify-center mr-4 gap-10 p-2 h-50 text-white flex-shrink-0  bg-custom-blue"
 
             <button className="inline-flex rounded-[8px] flex-col items-center justify-center mr-4 gap-10 p-2 h-50 text-white flex-shrink-0 rounded-10 bg-custom-blue">
 
             {/* TO DO: question if user wanna sign in as org or part, BY RAISING MODAL */}
             <button className="inline-flex rounded-[8px] flex-col items-center justify-center mr-4 gap-10 p-2 h-50 text-white flex-shrink-0 rounded-10 bg-blue-500">
 
->>>>>>> 2de7c792246b58061f485af15cf88753563f744e
               Sign Up
             </button>
           </Link>
