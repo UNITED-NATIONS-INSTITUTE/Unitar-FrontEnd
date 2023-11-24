@@ -28,8 +28,8 @@ const LandingPage = () => {
             For Organisers
           </button>
         </div>
-        <div className="absolute rounded-full opacity-4 bg-[#00609E] filter bottom-[80px] right-[100px] bottom-10">
-          <img src={man2} />
+        <div className="absolute rounded-full opacity-4 bg-[#00609E] filter bottom-[80px] right-[100px] ">
+          <img src={man2} className="rounded-full" />
         </div>
       </div>{" "}
     </>
