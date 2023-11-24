@@ -5,6 +5,7 @@ import SignUp from "./components/common/SignUp";
 import LogIn from "./components/common/LogIn";
 import NoPage from "./components/common/NoPage";
 import SignUpPrompt from "./components/common/SignUpPrompt";
+import Dashboard from "./components/participants/Dashboard";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/prompt" element={<SignUpPrompt />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="*" element={<NoPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );

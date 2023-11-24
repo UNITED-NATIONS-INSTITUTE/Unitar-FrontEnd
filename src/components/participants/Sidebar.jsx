@@ -3,7 +3,7 @@ import logo from "../../assets/unitar-logo.svg";
 
 const Sidebar = () => {
   return (
-    <div className="bg-blue-100 left-side  p-5 h-screen fixed left-0 top-0 ">
+    <div className="bg-light-blue left-side  p-5 h-screen fixed left-0 top-0 ">
       <div className="flex gap-10">
         <img src={logo} alt="logo" width="100" height="54" />
         <img src="src/assets/back.svg" alt="back" width="20" height="20" />
