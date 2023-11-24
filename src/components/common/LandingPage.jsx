@@ -6,6 +6,7 @@ import { LineChart } from "@mui/x-charts/LineChart";
 import man2 from "../../assets/man2.png";
 import man1 from "../../assets/man1.png";
 import frame from "../../assets/frame.png";
+import Banner from "./Banner";
 
 const LandingPage = () => {
   const months = ["Jan", "Feb", "March", "Apr", "May", "June"];
@@ -43,7 +44,7 @@ const LandingPage = () => {
         <div className="absolute w-269 h-269 flex-shrink-0 rounded-full opacity-4 bg-blue-500 filter left-[150px]">
           <img src={man1} />
         </div>
-        <div className="absolute left-[400px] mt-[90px] flex flex-col justify-center items-center gap-4 p-4 w-[163px] transform -rotate-5 border-2 border-solid border-transparent rounded-10  ">
+        <div className="absolute left-[400px] mt-[20px] flex flex-col justify-center items-center gap-4 p-4 w-[163px] transform -rotate-5 border-2 border-solid border-transparent rounded-10  ">
           <img src={frame} />
         </div>
         {/* <div>
@@ -59,6 +60,7 @@ const LandingPage = () => {
           />
         </div> */}
       </div>{" "}
+      <Banner />
     </>
   );
 };
