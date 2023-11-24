@@ -5,6 +5,8 @@ import SignUp from "./components/common/SignUp";
 import LogIn from "./components/common/LogIn";
 import NoPage from "./components/common/NoPage";
 import SignUpPrompt from "./components/common/SignUpPrompt";
+import ParticipantDashboard from "./components/participants/ParticipantDashboard";
+import HackathonDashboard from "./components/hackathon/HackathonDashboard";
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
         <Route path="/prompt" element={<SignUpPrompt />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="*" element={<NoPage />} />
+        <Route path="/part-dashboard" element={<ParticipantDashboard />} />
+        <Route path="/hack-dashboard" element={<HackathonDashboard />} />
       </Routes>
     </BrowserRouter>
   );

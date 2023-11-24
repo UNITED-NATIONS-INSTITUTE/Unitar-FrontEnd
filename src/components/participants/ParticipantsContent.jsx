@@ -1,22 +1,31 @@
 import React from "react";
 import Hackathons from "./Hackathons";
+import UserProfile from "../common/UserProfile";
 
-const Content = () => {
+const ParticipantsContent = () => {
   return (
     <div className="overflow-y-auto  ml-60">
-      <h1 className="text-gray-600 font-bold">Dashboard</h1>
+      <div className="flex justify-between">
+        <h1 className="text-gray-600 font-bold">Dashboard</h1>
+        <UserProfile />
+      </div>
+
       <div className="flex mt-12">
         <div className="border bg-custom-blue rounded-md text-white pr-20 pt-5 mr-5">
           <span className="text-xs p-5">Total participants</span>
-          <p className="p-5">524</p>
+          <p className="p-5 font-bold">524</p>
         </div>
-        <div className="border bg-gray-200 rounded-md  pr-20  pt-5 mr-5">
+        <div className="border bg-custom-grey rounded-md  pr-20  pt-5 mr-5">
           <span className="text-xs p-5">Total projects</span>
-          <p className="p-5">50</p>
+          <p className="p-5 font-bold">50</p>
         </div>
-        <div className="border bg-gray-200 rounded-md  pr-20  pt-5 mr-5">
+        <div className="border bg-custom-grey rounded-md  pr-20  pt-5 mr-5">
+          <span className="text-xs p-5">Submitted projects</span>
+          <p className="p-5 font-bold">5</p>
+        </div>
+        <div className="border bg-custom-grey rounded-md  pr-20  pt-5 mr-5">
           <span className="text-xs p-5">Total organizers</span>
-          <p className="p-5">50</p>
+          <p className="p-5 font-bold">50</p>
         </div>
       </div>
       <div className="mt-10">
@@ -31,4 +40,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default ParticipantsContent;
