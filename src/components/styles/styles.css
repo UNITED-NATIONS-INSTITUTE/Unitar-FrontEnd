@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@200;400;600;700;800&family=Roboto:ital,wght@0,300;0,500;1,300;1,500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Lexend+Exa:wght@200;400;600;700;800&family=Roboto:ital,wght@0,300;0,500;1,300;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Lexend+Exa:wght@200;400;600;700;800&family=Lexend:wght@600&family=Roboto:ital,wght@0,300;0,500;1,300;1,500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,11 +9,19 @@ body {
   font-family: "Inter", sans-serif;
 }
 h2 {
-  font-family: "Lexend Exa", sans-serif;
+  font-family: "Lexend", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
 }
 .left-side {
   width: 15%;
 }
 .right-side {
   flex: 1;
+}
+.btn-login,
+.btn-org {
+  border: 2px solid #089bd9;
+  background-color: transparent;
+  color: #000;
 }

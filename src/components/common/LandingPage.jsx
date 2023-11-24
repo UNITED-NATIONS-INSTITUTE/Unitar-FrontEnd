@@ -1,5 +1,5 @@
 import React from "react";
-import Dashboard from "../participants/Dashboard";
+import Dashboard from "../participants/ParticipantDashboard";
 import SignUpPrompt from "./SignUpPrompt";
 import Navbar from "./Navbar";
 import { LineChart } from "@mui/x-charts/LineChart";

@@ -9,30 +9,27 @@ const Sidebar = () => {
         <img src={logo} alt="logo" width="100" height="54" />
         <img src="src/assets/back.svg" alt="back" width="20" height="20" />
       </div>
-      <button className="py-2 px-6 border bg-custom-blue rounded-md text-white mt-16  ">
-        <div className="flex gap-5">
-          <img
-            src="src/assets/dashboard.svg"
-            alt="icon"
-            width="20"
-            height="20"
-          />
-          <span>Dashboard</span>
-        </div>
-      </button>
-      <Link to="/hack-dashboard">
-        <button className="py-2 px-6 border rounded-md mt-5 hover:bg-custom-blue">
+
+      <Link to="/part-dashboard">
+        <button className="py-2 px-6 border rounded-md mt-16 hover:bg-custom-blue">
           <div className="flex gap-5">
             <img
-              src="/assets/hackathon.svg"
+              src="/assets/dashboard.svg"
               alt="icon"
               width="20"
               height="20"
             />
-            <span>Hackathon</span>
+            <span>Dashboard</span>
           </div>
         </button>
       </Link>
+      <button className="py-2 px-6 border bg-custom-blue rounded-md text-white mt-5  ">
+        <div className="flex gap-5">
+          <img src="/assets/hackathon.svg" alt="icon" width="20" height="20" />
+
+          <span>Hackathon</span>
+        </div>
+      </button>
     </div>
   );
 };

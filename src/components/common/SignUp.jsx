@@ -106,7 +106,7 @@ const SignUp = () => {
               </button>
               <p className="mt-5 text-md text-gray-600">
                 Already have a unitar account?
-                <Link to="/login" className="text-custom-blue ml-1">
+                <Link to="/login" className="text-blue-500 ml-1">
                   Sign in here
                 </Link>
               </p>

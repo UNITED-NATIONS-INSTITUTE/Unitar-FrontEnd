@@ -1,7 +1,7 @@
 import React from "react";
 import Avatars from "../common/Avatars";
 
-const Hackathons = () => {
+const OpenHackathon = () => {
   const images = [
     { name: "project #1", url: "image1.svg", description: "" },
     { name: "project #2", url: "image2.png" },
@@ -13,6 +13,7 @@ const Hackathons = () => {
       {images.map((image, index) => (
         <div key={index} className="flex flex-col iems-center mb-4">
           <img
+            className="rounded-md"
             key={index}
             src={`/assets/${image.url}`}
             alt={`image ${index + 1}`}
@@ -36,4 +37,5 @@ const Hackathons = () => {
     </div>
   );
 };
-export default Hackathons;
+
+export default OpenHackathon;
