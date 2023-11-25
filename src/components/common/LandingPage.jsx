@@ -1,16 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import { LineChart } from "@mui/x-charts/LineChart";
 import man2 from "../../assets/man2.png";
 import man1 from "../../assets/man1.png";
 import frame from "../../assets/frame.png";
 import Banner from "./Banner";
+import ForParticipants from "./ForParticipants";
+import { Link } from "react-router-dom";
 const LandingPage = () => {
-  const months = ["Jan", "Feb", "March", "Apr", "May", "June"];
-  const data = [100, 200, 300, 400, 500, 600];
   return (
-    <>
+    <div>
       <Navbar />
       <div id="main" className="w-full h-screen text-center  ">
         <div className="max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center">
@@ -25,7 +24,7 @@ const LandingPage = () => {
             </p>
           </div>
         </div>{" "}
-        <div className="flex gap-10 items-center justify-center md:w-full mt-[-200px] ">
+        <div className="flex gap-10 items-center justify-center md:w-full mt-[-250px] ">
           <Link to="/part-signup">
             {" "}
             <button className="bg-[#089BD9] rounded-[10px]  py-4 px-[20px] w-[239px]">
@@ -49,25 +48,32 @@ const LandingPage = () => {
         <div className="absolute w-269 h-269 flex-shrink-0  border-white border-4 rounded-full opacity-4 bg-blue-500  filter left-[150px]  bottom-[50px] ">
           <img src={man1} />
         </div>
-        <div className="absolute left-[400px] mt-[100px]  flex flex-col justify-center items-center gap-4 p-4 w-[163px] transform -rotate-5 border-2 border-solid border-transparent rounded-10  ">
+        <div className="absolute left-[400px] mt-[120px]  flex flex-col justify-center items-center gap-4 p-4 w-[163px] transform -rotate-5 border-2 border-solid border-transparent rounded-10  ">
           <img src={frame} />
         </div>
-        {/* <div>
-          <LineChart
-            xAxis={[{ data: months }]}
-            series={[
-              {
-                data: data,
-              },
-            ]}
-            width={500}
-            height={300}
-          />
-        </div> */}
-      </div>{" "}
+      </section>
       <Banner />
-    </>
+      <ForParticipants />
+    </div>
   );
 };
 
 export default LandingPage;
+
+//         {/* <div>
+//           <LineChart
+//             xAxis={[{ data: months }]}
+//             series={[
+//               {
+//                 data: data,
+//               },
+//             ]}
+//             width={500}
+//             height={300}
+//           />
+//         </div> */}
+//       </div>{" "}
+
+//     </>
+//   );
+//

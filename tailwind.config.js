@@ -14,12 +14,20 @@ export default {
         "custom-purple": "#A162F7",
       },
       screens: {
-        xs: "480px",
+        xs: "300px",
         ss: "620px",
         sm: "768px",
         md: "1060px",
         lg: "1200px",
         xl: "1700px",
+      },
+
+      fontFamily: {
+        "lexend-exa": ["Lexend Exa", "sans-serif"],
+      },
+
+      lineHeight: {
+        34: "34px",
       },
     },
   },

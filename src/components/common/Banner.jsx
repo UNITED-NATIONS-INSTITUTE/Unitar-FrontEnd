@@ -12,9 +12,9 @@ import {
 } from "../../assets";
 const Banner = () => {
   return (
-    <section className=" relative mt-[60px] w-full h-[472px] bg-[#1c272e] ">
+    <section className=" relative md:mt-[170px] w-full md:h-[472px] bg-[#1c272e] ">
       <p className=" text-center text-white font-lexend-exa text-24 font-semibold leading-34 tracking-wide pt-[100px]  ">
-        Brands we are collaborating with us
+        Brands that are collaborating with us
       </p>
       <div className="flex-wrap w-full gap-11 flex justify-center items-center flex-shrink-0 mt-10 ">
         <img src={waverio} /> <img src={square} />
@@ -29,7 +29,7 @@ const Banner = () => {
         <img src={natroma} />
       </div>
 
-      <div className="absolute right-0 bottom-[50px]">
+      <div className="lg:block xs:hidden absolute right-0 bottom-[50px]">
         <img src={shape} />
       </div>
     </section>
