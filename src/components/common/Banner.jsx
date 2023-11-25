@@ -8,10 +8,11 @@ import {
   waverio,
   virogan,
   natroma,
+  shape,
 } from "../../assets";
 const Banner = () => {
   return (
-    <section className=" my-4 w-full h-[472px] bg-[#1c272e] ">
+    <section className=" relative mt-[60px] w-full h-[472px] bg-[#1c272e] ">
       <p className=" text-center text-white font-lexend-exa text-24 font-semibold leading-34 tracking-wide pt-[100px]  ">
         Brands we are collaborating with us
       </p>
@@ -26,6 +27,10 @@ const Banner = () => {
         <img src={aromix} />
         <img src={fireli} />
         <img src={natroma} />
+      </div>
+
+      <div className="absolute right-0 bottom-[50px]">
+        <img src={shape} />
       </div>
     </section>
   );
