@@ -7,6 +7,7 @@ import NoPage from "./components/common/NoPage";
 import ParticipantDashboard from "./components/participants/ParticipantDashboard";
 import HackathonDashboard from "./components/hackathon/HackathonDashboard";
 import Profile from "./components/participants/Profile";
+import SubmitHackathon from "./components/hackathon/SubmitHackathon";
 
 const App = () => {
   return (
@@ -19,6 +20,8 @@ const App = () => {
         <Route path="/org-signup" element={<SignUp />} />
         <Route path="/part-signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
+        <Route path="/submit-hack" element={<SubmitHackathon />} />
+        <Route path="/profile" element={<Profile />} />
         {/* PARTICIPANT */}
         {/* The parent element should be a Nav component that allows an outlet its the side. Thus refactor 24 below */}
         <Route path="/participant" element={<ParticipantDashboard />}>

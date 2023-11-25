@@ -25,7 +25,7 @@ const LandingPage = () => {
             </p>
           </div>
         </div>{" "}
-        <div className="flex gap-10 items-center justify-center md:w-full mt-[-250px] ">
+        <div className="flex gap-10 items-center justify-center md:w-full mt-[-200px] ">
           <Link to="/part-signup">
             {" "}
             <button className="bg-[#089BD9] rounded-[10px]  py-4 px-[20px] w-[239px]">
@@ -49,7 +49,7 @@ const LandingPage = () => {
         <div className="absolute w-269 h-269 flex-shrink-0  border-white border-4 rounded-full opacity-4 bg-blue-500  filter left-[150px]  bottom-[50px] ">
           <img src={man1} />
         </div>
-        <div className="absolute left-[400px] mt-[120px]  flex flex-col justify-center items-center gap-4 p-4 w-[163px] transform -rotate-5 border-2 border-solid border-transparent rounded-10  ">
+        <div className="absolute left-[400px] mt-[100px]  flex flex-col justify-center items-center gap-4 p-4 w-[163px] transform -rotate-5 border-2 border-solid border-transparent rounded-10  ">
           <img src={frame} />
         </div>
         {/* <div>

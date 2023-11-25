@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import "react-phone-number-input/style.css";
-import PhoneInput from "react-phone-number-input";
+import React from "react";
+import { MuiTelInput } from "mui-tel-input";
 
 const ProfileInputs = () => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = React.useState("");
+  const handleChange = (newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <div className="flex flex-col text-gray-500">
@@ -11,44 +13,59 @@ const ProfileInputs = () => {
         <label className="mt-5 mb-2 text-sm">Username</label>
         <input
           type="text"
-          className="w-[300px] px-3 py-2 border border-grey-600 rounded text-xs"
+          className="w-[300px] px-3 py-2 border border-grey-600 rounded text-xs
+          focus:outline-none focus:border-custom-blue"
           placeholder="Amisi"
         />
-        <label className="mt-5 mb-2 text-sm">Email</label>
+        <label className="mt-5 mb-2 text-sm" name="email">
+          Email
+        </label>
         <input
           type="email"
-          className="w-[600px] px-3 py-2 border border-grey-600 rounded text-xs"
+          className="w-[600px] px-3 py-2 border border-grey-600 rounded text-xs
+          focus:outline-none focus:border-custom-blue"
           placeholder="amisicaves@gmail.com"
         />
-        <label className="mt-5 mb-2 text-sm">Phone number</label>
-        <PhoneInput
-          className="flex gap-10 w-[300px] text-md px-3 py-2 border border-grey-600 rounded-md"
-          placeholder="702345645"
+        <label className="mt-5 mb-2 text-sm" name="phoneNumber">
+          Phone number
+        </label>
+        <MuiTelInput
+          sx={{ width: "300px" }}
           value={value}
-          onChange={setValue}
+          onChange={handleChange}
+          defaultCountry="NG"
         />
         <div className="flex flex-row gap-5">
           <div className="flex flex-col">
-            <label className="mt-5 mb-2 text-sm">Lives in</label>
+            <label className="mt-5 mb-2 text-sm" name="address1">
+              Lives in
+            </label>
             <input
               type="text"
-              className="w-[300px] px-3 py-2 border border-grey-600 rounded text-xs"
+              className="w-[300px] px-3 py-2 border border-grey-600 rounded text-xs
+              focus:outline-none focus:border-custom-blue"
               placeholder="Lagos,Nigeria"
             />
           </div>
           <div className="flex flex-col">
-            <label className="mt-5 mb-2 text-sm">Street address</label>
+            <label className="mt-5 mb-2 text-sm" name="streetAddress">
+              Street address
+            </label>
             <input
               type="text"
-              className="w-[280px] px-3 py-2 border border-grey-600 rounded text-xs"
+              className="w-[280px] px-3 py-2 border border-grey-600 rounded text-xs
+              focus:outline-none focus:border-custom-blue"
               placeholder="Yoruba 45"
             />
           </div>
         </div>
-        <label className="mt-5 mb-2 text-sm">Password</label>
+        <label className="mt-5 mb-2 text-sm" name="password">
+          Password
+        </label>
         <input
           type="password"
-          className="w-[600px] px-3 py-2 border border-grey-600 rounded text-xs"
+          className="w-[600px] px-3 py-2 border border-grey-600 rounded text-xs
+          focus:outline-none focus:border-custom-blue"
           placeholder="**********"
         />
         <button
