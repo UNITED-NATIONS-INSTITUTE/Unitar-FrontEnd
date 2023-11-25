@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
-// import "react-phone-number-input/style.css";
-// import PhoneInput from "react-phone-number-input";
-=======
-import React from "react";
+//import "react-phone-number-input/style.css";
+//import PhoneInput from "react-phone-number-input";
+
 import { MuiTelInput } from "mui-tel-input";
->>>>>>> e594e3ce0eb52fe78d9b4f57b8fd3a059f8048be
 
 const ProfileInputs = () => {
   const [value, setValue] = React.useState("");
