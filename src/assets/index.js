@@ -7,6 +7,9 @@ import waverio from "./waverio.svg";
 import square from "./square.svg";
 import shape from "./shape.svg";
 import natroma from "./natroma.png";
+import group from "./group.svg";
+import menu from "./menu.svg";
+import close from "./close.svg";
 
 export {
   aromix,
@@ -17,5 +20,8 @@ export {
   waverio,
   square,
   shape,
+  group,
   natroma,
+  menu,
+  close,
 };
