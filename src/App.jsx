@@ -7,6 +7,7 @@ import NoPage from "./components/common/NoPage";
 import SignUpPrompt from "./components/common/SignUpPrompt";
 import ParticipantDashboard from "./components/participants/ParticipantDashboard";
 import HackathonDashboard from "./components/hackathon/HackathonDashboard";
+import Profile from "./components/participants/Profile";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="*" element={<NoPage />} />
         <Route path="/part-dashboard" element={<ParticipantDashboard />} />
         <Route path="/hack-dashboard" element={<HackathonDashboard />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );

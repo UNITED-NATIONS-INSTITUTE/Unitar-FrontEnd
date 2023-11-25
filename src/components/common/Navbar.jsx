@@ -4,7 +4,7 @@ import logo from "../../assets/unitar-logo.svg";
 
 const Navbar = () => {
   return (
-    <div className="w-full fixed top-0 left-0">
+    <div className="w-full">
       <div className="md:flex items-center justify-between py-2 md:px-10 px-7">
         <div className="cursor-pointer flex items-center">
           <img src={logo} alt="logo" />
