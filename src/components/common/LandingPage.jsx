@@ -25,7 +25,7 @@ const LandingPage = () => {
             </p>
           </div>
         </div>{" "}
-        <div className="flex gap-10 items-center justify-center md:w-full mt-[-180px]">
+        <div className="flex gap-10 items-center justify-center md:w-full mt-[-150px] ">
           <button className="bg-[#089BD9] rounded-[10px]  py-4 px-[20px] w-[239px]">
             For Participants
           </button>
@@ -33,16 +33,16 @@ const LandingPage = () => {
             For Organisers
           </button>
         </div>
-        <div className="absolute rounded-full  filter bottom-[200px]  right-[200px] ">
+        <div className="absolute rounded-full  filter bottom-[200px]  right-[180px]  ">
           <img
             src={man2}
-            className="rounded-full bg-[#00609E] opacity-4 w-[80px]"
+            className="rounded-full bg-[#00609E] border border-white border-4 opacity-4 w-[80px]"
           />
         </div>
-        <div className="absolute w-269 h-269 flex-shrink-0 rounded-full opacity-4 bg-blue-500 filter left-[150px]">
+        <div className="absolute w-269 h-269 flex-shrink-0 border border-white border-4 rounded-full opacity-4 bg-blue-500  filter left-[150px]">
           <img src={man1} />
         </div>
-        <div className="absolute left-[400px] mt-[20px] flex flex-col justify-center items-center gap-4 p-4 w-[163px] transform -rotate-5 border-2 border-solid border-transparent rounded-10  ">
+        <div className="absolute left-[400px] mt-[20px]  flex flex-col justify-center items-center gap-4 p-4 w-[163px] transform -rotate-5 border-2 border-solid border-transparent rounded-10  ">
           <img src={frame} />
         </div>
         {/* <div>
