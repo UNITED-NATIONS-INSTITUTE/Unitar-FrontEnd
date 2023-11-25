@@ -13,6 +13,7 @@ const Hackathons = () => {
       {images.map((image, index) => (
         <div key={index} className="flex flex-col iems-center mb-4">
           <img
+            className="rounded-md"
             key={index}
             src={`/assets/${image.url}`}
             alt={`image ${index + 1}`}

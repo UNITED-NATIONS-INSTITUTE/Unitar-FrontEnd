@@ -6,6 +6,9 @@ import LogIn from "./components/common/LogIn";
 import NoPage from "./components/common/NoPage";
 import ParticipantDashboard from "./components/participants/ParticipantDashboard";
 import HackathonDashboard from "./components/hackathon/HackathonDashboard";
+import Profile from "./components/participants/Profile";
+import SubmitHackathon from "./components/hackathon/SubmitHackathon";
+import HackathonDetailsPage from "./components/hackathon/HackathonDetailsPage";
 
 const App = () => {
   return (

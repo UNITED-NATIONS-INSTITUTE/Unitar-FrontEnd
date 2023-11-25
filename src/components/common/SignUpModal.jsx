@@ -26,13 +26,9 @@ const customStyles = {
 };
 
 const customButton = {
-  display: "inline-flex ",
   borderRadius: "8px",
-  flexDirection: "flex-column",
-  flexShrink: "0",
-  alignItems: "center",
-  justifyCenter: "center",
-  marginRight: "4px",
+
+  marginRight: "30px",
   gap: "10",
   padding: "8px",
   color: "#000",
