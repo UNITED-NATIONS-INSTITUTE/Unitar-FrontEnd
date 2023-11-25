@@ -11,6 +11,7 @@ export default {
       colors: {
         "custom-blue": "#089BD9",
         "custom-grey": "#EDEDED",
+        "custom-purple": "#A162F7",
       },
       screens: {
         xs: "480px",
