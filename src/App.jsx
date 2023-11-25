@@ -4,7 +4,6 @@ import LandingPage from "./components/common/LandingPage";
 import SignUp from "./components/common/SignUp";
 import LogIn from "./components/common/LogIn";
 import NoPage from "./components/common/NoPage";
-import SignUpPrompt from "./components/common/SignUpPrompt";
 import ParticipantDashboard from "./components/participants/ParticipantDashboard";
 import HackathonDashboard from "./components/hackathon/HackathonDashboard";
 

@@ -6,8 +6,7 @@ import {
   virogan,
   waverio,
   square,
-} from "../assets";
-
+} from "../../../assets";
 export const collaborators = [
   {
     id: "collaborator-1",
