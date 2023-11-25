@@ -11,52 +11,47 @@ const LandingPage = () => {
   return (
     <div>
       <Navbar />
-
-      <section id="home" className=" md:flex-row  sm:py-16 py-6">
-        <div className=" w-full h-full mx-auto p-2  justify-center">
-          <h1 className=" text-[12141D] items-center text-center font-lexend-exa sm:text-[50px] sm:font-bold leading-11 tracking-wider  ">
-            Unleashing Innovation, <br /> One Hackathon at a Time!{" "}
-          </h1>
-          <p className="text-center mt-7 lg:w-[588px] lg:ml-[350px] font-normal sm:font-medium">
-            Join a global community of thinkers, dreamers, and doers. Whether
-            you're here to conquer challenges or host groundbreaking hackathons,
-            this is where innovation takes center stage.{" "}
-          </p>
-
-          <div className="flex gap-10 items-center justify-center mt-6  xs:flex-row">
+      <div id="main" className="w-full h-screen text-center  ">
+        <div className="max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center">
+          <div className="mt-[60px]">
+            <h1 className=" text-[12141D] items-center text-center font-Lexend-Exa text-6xl font-extrabold leading-11 tracking-wider  ">
+              Unleashing Innovation, <br /> One Hackathon at a Time!
+            </h1>
+            <p className="text-center w-[588px] mt-7 ml-20 font-normal">
+              Join a global community of thinkers, dreamers, and doers. Whether
+              you're here to conquer challenges or host groundbreaking
+              hackathons, this is where innovation takes center stage.
+            </p>
+          </div>
+        </div>{" "}
+        <div className="flex gap-10 items-center justify-center md:w-full mt-[-250px] ">
+          <Link to="/part-signup">
             {" "}
-            <Link to="/part-signup">
-              {" "}
-              <button className="bg-[#089BD9] rounded-[10px]  py-4 px-[20px] lg:w-[239px]">
-                For Participants{" "}
-              </button>{" "}
-            </Link>{" "}
-            <Link to="org-signup">
-              {" "}
-              <button className="py-4 px-[20px]  rounded-[10px] border-2 lg:w-[239px] border-[#089BD9] ">
-                For Organisers{" "}
-              </button>{" "}
-            </Link>{" "}
-          </div>
+            <button className="bg-[#089BD9] rounded-[10px]  py-4 px-[20px] w-[239px]">
+              For Participants
+            </button>
+          </Link>
 
-          <div className="lg:block  xs:hidden absolute rounded-full  filter bottom-[180px] hidden right-[180px]  ">
-            <img
-              src={man2}
-              className="rounded-full bg-[#00609E]  border-white border-4 opacity-4 w-[80px]"
-            />
-            {/* <div className="absolute z-[3] -left-1/2 top-0 w-[50%] h-[50%] rounded-full white__gradient" />{" "}
-            <div className="absolute z-[0] w-[50%] h-[50%] -left-1/2 bottom-0 rounded-full pink__gradient" />{" "} */}
-          </div>
-
-          <div className="lg:block xs:hidden absolute w-269 h-269 flex-shrink-0  border-white border-4 rounded-full opacity-4 bg-blue-500  filter left-[150px]  bottom-[50px] ">
-            <img src={man1} />{" "}
-          </div>
-
-          <div className="lg:block xs:hidden absolute left-[400px] mt-[120px]  flex flex-col justify-center items-center gap-4 p-4 w-[163px] transform -rotate-5 border-2 border-solid border-transparent rounded-10  ">
-            <img src={frame} />
-          </div>
+          <Link to="org-signup">
+            {" "}
+            <button className="py-4 px-[20px]  rounded-[10px] border-2 w-[239px] border-[#089BD9] ">
+              For Organisers
+            </button>
+          </Link>
         </div>
-      </section>
+        <div className="absolute rounded-full  filter bottom-[230px]  right-[180px]  ">
+          <img
+            src={man2}
+            className="rounded-full bg-[#00609E]  border-white border-4 opacity-4 w-[80px]"
+          />
+        </div>
+        <div className="absolute w-269 h-269 flex-shrink-0  border-white border-4 rounded-full opacity-4 bg-blue-500  filter left-[150px]  bottom-[50px] ">
+          <img src={man1} />
+        </div>
+        <div className="absolute left-[400px] mt-[120px]  flex flex-col justify-center items-center gap-4 p-4 w-[163px] transform -rotate-5 border-2 border-solid border-transparent rounded-10  ">
+          <img src={frame} />
+        </div>
+      </div>
       <Banner />
       <ForParticipants />
     </div>

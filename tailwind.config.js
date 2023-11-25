@@ -12,6 +12,7 @@ export default {
         "custom-blue": "#089BD9",
         "custom-grey": "#EDEDED",
         "custom-purple": "#A162F7",
+        "custom-light-grey": "#9B9B9B",
       },
       screens: {
         xs: "300px",
