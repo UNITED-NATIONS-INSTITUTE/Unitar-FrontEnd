@@ -51,7 +51,7 @@ const LandingPage = () => {
         <div className="absolute left-[400px] mt-[120px]  flex flex-col justify-center items-center gap-4 p-4 w-[163px] transform -rotate-5 border-2 border-solid border-transparent rounded-10  ">
           <img src={frame} />
         </div>
-      </section>
+      </div>
       <Banner />
       <ForParticipants />
     </div>
