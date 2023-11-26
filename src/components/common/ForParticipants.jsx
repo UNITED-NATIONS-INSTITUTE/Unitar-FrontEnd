@@ -1,4 +1,6 @@
 import React from "react";
+import Forge from "./Forge";
+
 import {
   group,
   percentage,
@@ -106,6 +108,7 @@ const ForParticipants = () => {
           </div>
         </div>
       </div>
+      <Forge />
     </>
   );
 };
