@@ -28,7 +28,11 @@ import unlock from "./unlock.png";
 import background from "./background.png";
 import BG from "./BG.svg";
 import rect1 from "./rect1.png";
+import group9 from "./group9.svg";
+import init from "./init.svg";
 export {
+  init,
+  group9,
   rect1,
   BG,
   background,

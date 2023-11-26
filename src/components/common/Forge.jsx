@@ -1,5 +1,5 @@
 import React from "react";
-import { BG, rect1, background } from "../../assets";
+import { BG, rect1, background, group9 } from "../../assets";
 
 const Forge = () => {
   return (
@@ -19,6 +19,7 @@ const Forge = () => {
           src={rect1}
           className=" absolute  top-[191.74px]  right-[102.87px]  "
         />
+        <img src={group9} className=" absolute top-[205px] left-[602.13px] " />
       </div>
     </div>
   );
