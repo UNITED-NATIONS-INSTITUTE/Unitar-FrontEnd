@@ -42,7 +42,7 @@ const ProfileSidebar = () => {
       </Link>
       <button className="py-2  px-6 border rounded-md mt-5 hover:bg-custom-blue ">
         <div className="flex gap-5">
-          <img src="/assets/hackathon.svg" alt="icon" width="20" height="20" />
+          <img src="/assets/projects.svg" alt="icon" width="20" height="20" />
           <span>Submissions</span>
         </div>
       </button>

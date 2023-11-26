@@ -11,11 +11,24 @@ const SubmitHackDetails = () => {
   return (
     <div className="ml-60">
       <div className="flex justify-between">
-        <h1 className="mt-5 text-gray-600 font-bold mb-10 text-[20px]">
-          Hackathons
-        </h1>
+        <h1 className="mt-5 text-gray-600 font-bold text-[24px]">Hackathons</h1>
         <UserProfile />
       </div>
+      <p className="text-xs text-gray-500 flex mb-10 flex-row">
+        <span>Hackathons</span>
+        <img
+          src="/assets/chevron-right-solid.svg"
+          className="w-2 h-2 mt-[4px] m-1"
+          alt="chevron"
+        />
+        <span>Build4SDGs</span>
+        <img
+          src="/assets/chevron-right-solid.svg"
+          className="w-2 h-2 mt-[4px] m-1"
+          alt="chevron"
+        />
+        <span>Submit a project</span>
+      </p>
       <h3 className="text-sm font-semibold mb-3 text-[15px]">
         Submit a project
       </h3>
@@ -26,10 +39,9 @@ const SubmitHackDetails = () => {
           </label>
           <input
             type="text"
-            className="w-[500px] px-3  py-2 border border-grey-600 rounded text-xs
-            focus:outline-none focus:border-custom-blue"
+            className="w-[400px] px-3 py-2 border border-grey-600 rounded text-xs
+        focus:outline-none focus:border-custom-blue "
             placeholder=""
-            value=""
             required
           />
           <span className="text-xs text-gray-400 mt-2">
@@ -40,7 +52,7 @@ const SubmitHackDetails = () => {
           </label>
           <TextField
             id="outlined-multiline-static"
-            label="write something"
+            label=""
             multiline
             rows={4}
             defaultValue=""
