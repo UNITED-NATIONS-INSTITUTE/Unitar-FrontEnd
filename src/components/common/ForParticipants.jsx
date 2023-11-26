@@ -1,5 +1,6 @@
 import React from "react";
 import Forge from "./Forge";
+import { karen } from "../../assets/index";
 
 const ForParticipants = () => {
   return (
@@ -8,22 +9,22 @@ const ForParticipants = () => {
         <p className="text-center text-[1C272E] font-lexend-exa text-[24px] font-extrabold tracking-wider">
           For Participants
         </p>
-        <div className="flex items-center m-auto md:grid grid-cols-3">
-          <div className="col-span-2">
-            <div className="lg:mt-[115px] mt-5 mr-[20px]">
-              <h5 className="text-[#12141D] font-lexend-exa text-[28px] font-bold   ">
-                Unlock Your Potential
-              </h5>
-              <p className="mt-5 text-[#12141D] text-[18px] ">
-                Dive into a world of endless possibilities. Browse through a
-                diverse range of hackathons hosted by top-notch organizations.
-                Whether you're a coding prodigy, a design virtuoso, or a
-                problem-solving guru, there's a hackathon just for you.
-              </p>
-            </div>
+        <div className="lg:flex items-center justify-center mt-11 ">
+          <img src={karen} />
+          <div className="lg:mt-[115px] mt-5 mr-[20px]">
+            <h5 className="text-[#12141D] font-lexend-exa lg:text-[28px] lg:text-left text-[20px] text-center font-bold lg:ml-[100px]   ">
+              Unlock Your Potential
+            </h5>
+            <p className="mt-5 text-[#12141D] text-center lg:text-left  text-[18px] lg:ml-[100px] ">
+              Dive into a world of endless possibilities. Browse through a
+              diverse range of hackathons hosted by top-notch organizations.
+              Whether you're a coding prodigy, a design virtuoso, or a
+              problem-solving guru, there's a hackathon just for you.
+            </p>
           </div>
         </div>
       </div>
+
       <Forge />
     </>
   );

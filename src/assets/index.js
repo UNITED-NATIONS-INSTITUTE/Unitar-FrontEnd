@@ -6,7 +6,7 @@ import virogan from "./virogan.svg";
 import waverio from "./waverio.svg";
 import natroma from "./natroma.png";
 import man1 from "./man1.png";
-import karen from "./karen.jpg";
+import karen from "./karen.png";
 import man from "./man.jpg";
 import project from "./projectplanning.jpg";
 import woman from "./woman.jpg";
