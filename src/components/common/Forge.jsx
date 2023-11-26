@@ -1,22 +1,4 @@
 import React from "react";
-import {
-  BG,
-  rect1,
-  background,
-  group9,
-  init,
-  rect2,
-  four,
-  group10,
-  group11,
-  def,
-  ten,
-  group12,
-  ex,
-  group13,
-  gruop14,
-  twenty,
-} from "../../assets";
 
 const Forge = () => {
   return (
