@@ -10,6 +10,11 @@ import Sidebar from "./components/participants/Sidebar";
 import HackathonDetailsPage from "./components/hackathon/submitProject/HackathonDetailsPage";
 import HackathonDashboard from "./components/hackathon/hackathonDashboard/HackathonDashboard";
 import SubmitHackathon from "./components/hackathon/submitHackathon/SubmitHackathon";
+import OrgDashboard from "./components/organizers/OrgDashboard";
+import OrgSidebar from "./components/organizers/OrgSidebar";
+import OrgHackathonPage from "./components/organizers/OrgHackathonPage";
+import OrgSubmissionPage from "./components/organizers/OrgSubmissionPage";
+import CreateHackathon from "./components/organizers/createhackathon/CreateHackathon";
 
 const App = () => {
   return (
@@ -26,6 +31,7 @@ const App = () => {
         {/* PARTICIPANT */}
         {/* The parent element should be a Nav component that allows an outlet its the side. Thus refactor 24 below */}
         <Route path="participant" element={<Sidebar />}>
+          <Route index element={<ParticipantDashboard />} />
           <Route path="part-dashboard" element={<ParticipantDashboard />} />
           <Route path="hackathons" element={<HackathonDashboard />} />
           <Route path="hack-details" element={<HackathonDetailsPage />} />
@@ -33,6 +39,13 @@ const App = () => {
           {/* Other participant routes cascade here: if a subroute, wrap and cascade */}
         </Route>
         {/* ORGANIZER */}
+        <Route path="organizer" element={<OrgSidebar />}>
+          <Route index element={<OrgDashboard />} />
+          <Route path="org-dashboard" element={<OrgDashboard />} />
+          <Route path="org-hackathon" element={<OrgHackathonPage />} />
+          <Route path="org-submissions" element={<OrgSubmissionPage />} />
+        </Route>
+        <Route path="/create-hackathon" element={<CreateHackathon />} />
         ADMIN
       </Routes>
     </BrowserRouter>

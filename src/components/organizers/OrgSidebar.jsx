@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import logo from "../../assets/unitar-logo.svg";
 import { Link, Outlet } from "react-router-dom";
-
-const Sidebar = () => {
+const OrgSidebar = () => {
   const [activePage, setActivePage] = useState("Dashboard");
   const handleClickPage = (page) => {
     setActivePage(page);
   };
   return (
     <div className=" flex ">
-      <div className=" left-side bg-light-blue p-4 h-screen fixed left-0 top-0 w-[300px] ">
+      <div className="bg-light-blue left-side  p-5 h-screen fixed left-0 top-0 ">
         <div className="flex gap-10">
           <img src={logo} alt="logo" width="100" height="54" />
           <img src="/assets/back.svg" alt="back" width="20" height="20" />
         </div>
-        <Link to="/participant/part-dashboard">
+        <Link to="/organizer/org-dashboard">
           <button
             onClick={() => handleClickPage("Dashboard")}
             style={{
@@ -34,7 +33,8 @@ const Sidebar = () => {
             </div>
           </button>
         </Link>
-        <Link to="/participant/hackathons">
+
+        <Link to="/organizer/org-hackathon">
           <button
             onClick={() => handleClickPage("Hackathon")}
             style={{
@@ -54,10 +54,30 @@ const Sidebar = () => {
             </div>
           </button>
         </Link>
+        <Link to="/organizer/org-submissions">
+          <button
+            onClick={() => handleClickPage("Submission")}
+            style={{
+              backgroundColor:
+                activePage === "Submission" ? "#089BD9" : "inherit",
+            }}
+            className="py-2 px-6 border rounded-md mt-5 hover:bg-custom-blue"
+          >
+            <div className="flex gap-5">
+              <img
+                src="/assets/projects.svg"
+                alt="icon"
+                width="20"
+                height="20"
+              />
+              <span>Submissions</span>
+            </div>
+          </button>
+        </Link>
       </div>
       <Outlet />
     </div>
   );
 };
 
-export default Sidebar;
+export default OrgSidebar;

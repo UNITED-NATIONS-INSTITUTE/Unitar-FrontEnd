@@ -6,10 +6,9 @@ const HackProjectLinks = () => {
       <label className="mt-5 mb-2 text-xs">Project link</label>
       <input
         type="text"
-        className="w-[400px] px-3 py-2 border border-grey-400 rounded text-xs
+        className="w-[300px] px-3 py-2 border border-grey-600 rounded text-xs
         focus:outline-none focus:border-custom-blue "
-        placeholder="https://github.com/username"
-        value=""
+        placeholder=""
         required
       />
       <span className="text-gray-400 text-xs mt-2">Must be a url</span>
@@ -19,7 +18,7 @@ const HackProjectLinks = () => {
       </label>
       <input
         type="text"
-        className="w-[400px] px-3 py-2 border border-grey-600 rounded text-xs
+        className="w-[300px] px-3 py-2 border border-grey-600 rounded text-xs
         focus:outline-none focus:border-custom-blue "
         placeholder=""
         required
@@ -27,7 +26,7 @@ const HackProjectLinks = () => {
       <label className="mt-5 mb-2 text-xs">Project live link</label>
       <input
         type="text"
-        className="w-[400px] px-3 py-2 border border-grey-600 rounded text-xs
+        className="w-[300px] px-3 py-2 border border-grey-600 rounded text-xs
         focus:outline-none focus:border-custom-blue"
         placeholder=""
         required
@@ -35,14 +34,14 @@ const HackProjectLinks = () => {
       <label className="mt-5 mb-2 text-xs">Project Blog link(optional)</label>
       <input
         type="text"
-        className="w-[400px] px-3 py-2 border border-grey-600 rounded text-xs
+        className="w-[300px] px-3 py-2 border border-grey-600 rounded text-xs
         focus:outline-none focus:border-custom-blue"
         placeholder=""
       />
       <div className="flex justify-end">
         <button
           type="submit"
-          className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[100px] mt-[20px]"
+          className="  text-white mr-10 text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[100px] mt-[20px]"
         >
           Submit project
         </button>
