@@ -1,6 +1,7 @@
 import React from "react";
 import Forge from "./Forge";
 import { karen } from "../../assets/index";
+import Showcase from "./Showcase";
 
 const ForParticipants = () => {
   return (
@@ -26,6 +27,7 @@ const ForParticipants = () => {
       </div>
 
       <Forge />
+      <Showcase />
     </>
   );
 };

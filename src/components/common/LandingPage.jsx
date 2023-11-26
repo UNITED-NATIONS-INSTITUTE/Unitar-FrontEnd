@@ -5,6 +5,7 @@ import { frame, man1 } from "../../assets";
 import Banner from "./Banner";
 import ForParticipants from "./ForParticipants";
 import { Link } from "react-router-dom";
+import Showcase from "./Showcase";
 const LandingPage = () => {
   return (
     <div>
