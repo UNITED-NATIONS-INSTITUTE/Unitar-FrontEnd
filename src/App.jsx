@@ -40,7 +40,7 @@ const App = () => {
         <Route index element={<OrgDashboard />} />
         <Route path="dashboard" element={<OrgDashboard />} />
         <Route path="hackathons" element={<OrgHackathonPage />}>
-          <Route path="/create" element={<CreateHackathon />} />
+          <Route path="create" element={<CreateHackathon />} />
         </Route>
         <Route path="submissions" element={<OrgSubmissionPage />} />
       </Route>
