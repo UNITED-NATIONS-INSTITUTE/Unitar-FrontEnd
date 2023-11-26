@@ -25,7 +25,7 @@ const LandingPage = () => {
             </p>
           </div>
         </div>{" "}
-        <div className="flex gap-10 items-center justify-center md:w-full mt-[-250px] ">
+        <div className="flex gap-10 items-center justify-center md:w-full mt-[100px]">
           <Link to="/part-signup">
             {" "}
             <button className="bg-[#089BD9] rounded-[10px]  py-4 px-[20px] lg:w-[239px]">
@@ -54,12 +54,7 @@ const LandingPage = () => {
         </div>
       </div>
       <Banner />
-      <div>
-        <ForParticipants />{" "}
-      </div>
-      <div className="mt-[200px] bg-white">
-        <Forge />{" "}
-      </div>
+      <ForParticipants /> <Forge />{" "}
     </div>
   );
 };

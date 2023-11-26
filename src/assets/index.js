@@ -25,7 +25,12 @@ import cre2 from "./cre2.svg";
 import july from "./july.svg";
 import june from "./june.svg";
 import unlock from "./unlock.png";
+import background from "./background.png";
+import BG from "./BG.svg";
+
 export {
+  BG,
+  background,
   unlock,
   june,
   july,
