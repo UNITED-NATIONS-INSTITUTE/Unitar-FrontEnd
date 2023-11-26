@@ -1,12 +1,17 @@
 import React from "react";
-import logo from "../../assets/unitar-logo.svg";
+
 import { Link } from "react-router-dom";
 
 const ProfileSidebar = () => {
   return (
     <div className="bg-light-blue left-side  p-5 h-screen fixed left-0 top-0 ">
       <div className="flex gap-10">
-        <img src={logo} alt="logo" width="100" height="54" />
+        <img
+          src="src/assets/unitar-logo.svg"
+          alt="logo"
+          width="100"
+          height="54"
+        />
         <img src="src/assets/back.svg" alt="back" width="20" height="20" />
       </div>
       <Link to="/part-dashboard">

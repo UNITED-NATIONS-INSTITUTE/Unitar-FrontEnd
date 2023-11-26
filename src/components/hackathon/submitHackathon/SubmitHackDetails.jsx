@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import HackProjectLinks from "./HackProjectLinks";
 import { TextField } from "@mui/material";
-import UserProfile from "../common/UserProfile";
+import UserProfile from "../../common/UserProfile";
 
 const SubmitHackDetails = () => {
   const fileInputRef = useRef(null);
@@ -9,9 +9,9 @@ const SubmitHackDetails = () => {
     fileInputRef.current.click();
   };
   return (
-    <div className="overflow-y-auto  ml-60">
+    <div className="ml-60">
       <div className="flex justify-between">
-        <h1 className="mt-0 text-gray-600 font-bold mb-10 text-[20px] ">
+        <h1 className="mt-5 text-gray-600 font-bold mb-10 text-[20px]">
           Hackathons
         </h1>
         <UserProfile />

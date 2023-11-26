@@ -1,7 +1,7 @@
 import React from "react";
 import Avatars from "../common/Avatars";
 
-const OpenHackathon = () => {
+const HackathonsPage = () => {
   const images = [
     { name: "project #1", url: "image1.svg", description: "" },
     { name: "project #2", url: "image2.png" },
@@ -30,6 +30,7 @@ const OpenHackathon = () => {
             <button className="border border-blue-500 rounded-md text-blue-500 w-1/2 text-xs mt-4 py-1">
               View project
             </button>
+
             <Avatars />
           </div>
         </div>
@@ -37,5 +38,4 @@ const OpenHackathon = () => {
     </div>
   );
 };
-
-export default OpenHackathon;
+export default HackathonsPage;

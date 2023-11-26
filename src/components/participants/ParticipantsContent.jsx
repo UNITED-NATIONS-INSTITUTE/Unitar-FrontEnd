@@ -1,6 +1,6 @@
 import React from "react";
-import Hackathons from "./Hackathons";
 import UserProfile from "../common/UserProfile";
+import HackathonsPage from "./HackathonsPage";
 
 const ParticipantsContent = () => {
   return (
@@ -34,7 +34,7 @@ const ParticipantsContent = () => {
         <p className="text-gray-500 text-xs mt-2">
           Submitted projects are listed here
         </p>
-        <Hackathons />
+        <HackathonsPage />
       </div>
     </div>
   );
