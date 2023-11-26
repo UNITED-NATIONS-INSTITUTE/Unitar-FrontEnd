@@ -7,7 +7,6 @@ import frame from "../../assets/frame.png";
 import Banner from "./Banner";
 import ForParticipants from "./ForParticipants";
 import { Link } from "react-router-dom";
-import Forge from "./Forge";
 const LandingPage = () => {
   return (
     <div>
@@ -54,7 +53,7 @@ const LandingPage = () => {
         </div>
       </div>
       <Banner />
-      <ForParticipants /> <Forge />{" "}
+      <ForParticipants />
     </div>
   );
 };

@@ -27,8 +27,9 @@ import june from "./june.svg";
 import unlock from "./unlock.png";
 import background from "./background.png";
 import BG from "./BG.svg";
-
+import rect1 from "./rect1.png";
 export {
+  rect1,
   BG,
   background,
   unlock,
