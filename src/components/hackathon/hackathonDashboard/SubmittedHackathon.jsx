@@ -18,7 +18,7 @@ const SubmittedHackathon = () => {
           />
           <p className="mt-2 text-sm text-gray-500">{image.name}</p>
           <p className="mt-2 text-sm  font-bold">Build4SDGs</p>
-          <p className="mt-2 text-xs text-gray-500 ">
+          <p className="mt-2 text-xs text-gray-500 w-[250px]">
             Build4SDGs is a sustainable development startup based in africa
             working torwards SDGs
           </p>

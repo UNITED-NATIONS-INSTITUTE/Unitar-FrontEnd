@@ -7,11 +7,11 @@ const ForParticipants = () => {
   return (
     <>
       <div className="w-full p-2 relative bg-[#E2EDF1] ">
-        <p className="text-center text-[1C272E] font-lexend-exa text-[24px] font-extrabold tracking-wider">
+        <p className="text-center text-[1C272E] font-lexend-exa text-[24px] mt-[20px] font-bold tracking-wider">
           For Participants
         </p>
         <div className="lg:flex items-center justify-center mt-11 ">
-          <img src={karen} />
+          <img src="/assets/people.jpg" className="w-[700px] h-[700px]" />
           <div className="lg:mt-[115px] mt-5 mr-[20px]">
             <h5 className="text-[#12141D] font-lexend-exa lg:text-[28px] lg:text-left text-[20px] text-center font-bold lg:ml-[100px]   ">
               Unlock Your Potential

@@ -7,7 +7,7 @@ const HackathonContent = () => {
   return (
     <div className="overflow-y-auto  ml-60">
       <div className="flex justify-between">
-        <h1 className="text-gray-600 font-bold text-lg">Hackathons</h1>
+        <h1 className="text-gray-600 font-bold text-[24px]">Hackathons</h1>
         <UserProfile />
       </div>
       <span className="text-xs text-gray-600 font-bold">
