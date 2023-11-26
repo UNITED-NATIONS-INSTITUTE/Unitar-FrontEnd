@@ -8,7 +8,7 @@ const HackathonDetailsPage = () => {
     <div className="bg-white p-8  min-h-screen right-side">
       <div className="flex justify-between">
         <div></div>
-        <h1 className="mt-0 text-gray-600 font-bold mb-10 text-[20px] relative mr-[550px]">
+        <h1 className="mt-0 text-gray-600 font-bold  text-[20px] relative mr-[560px]">
           Hackathon
         </h1>
         <UserProfile />
@@ -17,7 +17,7 @@ const HackathonDetailsPage = () => {
         <span>Hackathons</span>
         <img
           src="/assets/chevron-right-solid.svg"
-          className="w-2 h-2 mt-[4px] m-1"
+          className="w-2 h-2 mt-[4px] "
           alt="chevron"
         />
         <span>Build4SDGs</span>
