@@ -13,7 +13,7 @@ import OrgDashboard from "./components/organizers/OrgDashboard";
 import OrgSidebar from "./components/organizers/OrgSidebar";
 import OrgHackathonPage from "./components/organizers/OrgHackathonPage";
 import OrgSubmissionPage from "./components/organizers/OrgSubmissionPage";
-import CreateHackathon from "./components/organizers/createhackathon/CreateHackathon";
+import CreateHackathon from "./components/organizers/createhackathon/CreateHackathon.jsx";
 // profile
 import ProfileDetails from "./components/common/profile/ProfileDetails";
 const App = () => {
@@ -42,7 +42,8 @@ const App = () => {
         <Route index element={<OrgDashboard />} />
         <Route path="profile" element={<ProfileDetails />} />
         <Route path="dashboard" element={<OrgDashboard />} />
-        <Route path="hackathons" element={<OrgHackathonPage />}>
+        <Route path="hackathons" element={null}>
+          <Route index element={<OrgHackathonPage />} />
           <Route path="create" element={<CreateHackathon />} />
         </Route>
         <Route path="submissions" element={<OrgSubmissionPage />} />
