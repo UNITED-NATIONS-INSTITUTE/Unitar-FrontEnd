@@ -19,17 +19,42 @@ import {
   unlock,
   ellipse6,
 } from "../../assets/index";
+
 const ForParticipants = () => {
   return (
     <>
-      <div className="w-full  p-2 relative bg-[#E2EDF1] ">
-        {" "}
+      <div className="w-full p-2 relative bg-[#E2EDF1] ">
         <p className="text-center text-[1C272E] font-lexend-exa text-[24px] font-extrabold tracking-wider">
           For Participants
         </p>
-        <div className="flex items-center  m-auto md:grid grid-cols-3">
+        <div className="flex items-center m-auto md:grid grid-cols-3">
           <div className="col-span-2">
-            <div className="absolute hidden lg:block  lg:top-[215px] lg:left-[357px] left-[70px]   ">
+            <div className="lg:mt-[115px] mt-5 mr-[20px]">
+              <h5 className="text-[#12141D] font-lexend-exa text-[28px] font-bold   ">
+                Unlock Your Potential
+              </h5>
+              <p className="mt-5 text-[#12141D] text-[18px] ">
+                Dive into a world of endless possibilities. Browse through a
+                diverse range of hackathons hosted by top-notch organizations.
+                Whether you're a coding prodigy, a design virtuoso, or a
+                problem-solving guru, there's a hackathon just for you.
+              </p>
+
+              <img src={unlock} alt="Unlock" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <Forge />
+    </>
+  );
+};
+
+export default ForParticipants;
+
+{
+  /* 
+<div className="absolute hidden lg:block  lg:top-[215px] lg:left-[357px] left-[70px]   ">
               <img src={group} />{" "}
             </div>
             <img
@@ -91,26 +116,5 @@ const ForParticipants = () => {
               src={june}
               className="lg:block xs:hidden  absolute top-[520px] left-[547.06px]"
             />
-          </div>
-
-          <div className="lg:mt-[115px]  mt-5 mr-[20px]">
-            <h5 className=" text-[#12141D] font-lexend-exa text-[28px] font-bold   ">
-              Unlock Your Potential
-            </h5>
-            <p className="mt-5 text-[#12141D] text-[18px] ">
-              Dive into a world of endless possibilities. Browse through a
-              diverse range of hackathons hosted by top-notch organizations.
-              Whether you're a coding prodigy, a design virtuoso, or a
-              problem-solving guru, there's a hackathon just for you.
-            </p>
-
-            {/* <img src={unlock} /> */}
-          </div>
-        </div>
-      </div>
-      <Forge />
-    </>
-  );
-};
-
-export default ForParticipants;
+          </div> */
+}

@@ -2,7 +2,7 @@ import React from "react";
 
 const HackProjectLinks = () => {
   return (
-    <div className="flex flex-col w-[446px]">
+    <div className="flex flex-col w-[446px]  ">
       <label className="mt-5 mb-2 text-xs">Project link</label>
       <input
         type="text"
@@ -42,7 +42,7 @@ const HackProjectLinks = () => {
       <div className="flex justify-end">
         <button
           type="submit"
-          className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[100px] mt-[20px]"
+          className="  text-white mr-10 text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[100px] mt-[20px]"
         >
           Submit project
         </button>

@@ -9,8 +9,8 @@ const SubmitHackDetails = () => {
     fileInputRef.current.click();
   };
   return (
-    <div className=" ml-60">
-      <div className="flex justify-between">
+    <div className="ml-[200px]">
+      <div className=" ">
         <h1 className="mt-5 text-gray-600 font-bold mb-10 text-[20px]">
           Hackathons
         </h1>
