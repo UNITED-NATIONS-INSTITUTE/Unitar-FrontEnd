@@ -1,5 +1,5 @@
 import React from "react";
-import UserProfile from "../common/UserProfile";
+import UserProfile from "../../common/UserProfile";
 import OpenHackathon from "./OpenHackathon";
 import SubmittedHackathon from "./SubmittedHackathon";
 

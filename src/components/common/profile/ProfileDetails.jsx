@@ -1,7 +1,8 @@
 import { Avatar } from "@mui/material";
 import React from "react";
-import UserProfile from "../common/UserProfile";
+
 import ProfileInputs from "./ProfileInputs";
+import UserProfile from "../UserProfile";
 
 const ProfileDetails = () => {
   return (

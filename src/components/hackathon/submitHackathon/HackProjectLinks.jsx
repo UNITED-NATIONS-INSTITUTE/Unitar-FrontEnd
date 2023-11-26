@@ -2,7 +2,7 @@ import React from "react";
 
 const HackProjectLinks = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-[448px]">
       <label className="mt-5 mb-2 text-xs">Project link</label>
       <input
         type="text"
