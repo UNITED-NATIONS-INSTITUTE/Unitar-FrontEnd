@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const HackDetailsPart2 = () => {
   const texts = [
@@ -48,17 +49,21 @@ const HackDetailsPart2 = () => {
         <p className="text-sm font-semibold mt-5">Goals</p>
         {texts.map((text, index) => (
           <ol>
-            <li className=" text-xs mt-5">{text}</li>
+            <li className=" text-xs mt-5" key={index}>
+              {text}
+            </li>
           </ol>
         ))}
       </div>
       <div className="flex justify-end">
-        <button
-          type="submit"
-          className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[150px] mt-[50px]"
-        >
-          Submit a project
-        </button>
+        <Link to="/participant/submit-project">
+          <button
+            type="submit"
+            className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[150px] mt-[50px]"
+          >
+            Submit a project
+          </button>
+        </Link>
       </div>
     </div>
   );
