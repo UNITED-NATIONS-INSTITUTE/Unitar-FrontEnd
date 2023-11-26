@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/unitar-logo.svg";
 import { Link, Outlet } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="flex ">
+    <div className=" flex ">
       <div className="bg-light-blue left-side  p-5 h-screen fixed left-0 top-0 ">
         <div className="flex gap-10">
           <img src={logo} alt="logo" width="100" height="54" />
