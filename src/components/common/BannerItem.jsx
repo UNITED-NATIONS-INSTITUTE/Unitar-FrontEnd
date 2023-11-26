@@ -3,6 +3,7 @@
 import React from "react";
 import FeatureBanner from "./FeatureBanner";
 import { icon1, icon2, icon3, icon4, icon5, icon6 } from "../../assets";
+import Footer from "./Footer";
 
 const BannerItem = () => {
   return (
@@ -45,6 +46,7 @@ const BannerItem = () => {
           text="  Access a wealth of resources, mentorship opportunities, and a dedicated support team to ensure a smooth experience for both participants and organizations."
         />
       </div>
+      <Footer />
     </div>
   );
 };

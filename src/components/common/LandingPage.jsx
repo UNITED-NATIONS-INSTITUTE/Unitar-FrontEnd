@@ -1,11 +1,12 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { LineChart } from "@mui/x-charts/LineChart";
-import { frame, man1 } from "../../assets";
+import { frame, man1, man2 } from "../../assets";
 import Banner from "./Banner";
 import ForParticipants from "./ForParticipants";
 import { Link } from "react-router-dom";
 import Showcase from "./Showcase";
+
 const LandingPage = () => {
   return (
     <div>
@@ -39,10 +40,10 @@ const LandingPage = () => {
           </Link>
         </div>
         <div className="absolute hidden lg:block rounded-full  filter bottom-[230px]  right-[180px]  ">
-          {/* <img
+          <img
             src={man2}
             className="rounded-full hidden lg:block  bg-[#00609E]  border-white border-4 opacity-4 w-[80px]"
-          /> */}
+          />
         </div>
         <div className="absolute hidden lg:block  w-269 h-269 flex-shrink-0  border-white border-4 rounded-full opacity-4 bg-blue-500  filter left-[150px]  bottom-[50px] ">
           <img src={man1} />
