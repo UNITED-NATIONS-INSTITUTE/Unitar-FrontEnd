@@ -11,7 +11,9 @@ const SubmitHackDetails = () => {
   return (
     <div className="ml-60">
       <div className="flex justify-between">
-        <h1 className="mt-5 text-gray-600 font-bold text-[24px]">Hackathons</h1>
+        <h1 className="mt-5 text-gray-600 font-bold mb-10 text-[20px]">
+          Hackathons
+        </h1>
         <UserProfile />
       </div>
       <p className="text-xs text-gray-500 flex mb-10 flex-row">

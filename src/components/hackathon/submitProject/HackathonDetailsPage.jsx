@@ -8,8 +8,8 @@ const HackathonDetailsPage = () => {
     <div className="bg-white p-8  min-h-screen right-side">
       <div className="flex justify-between">
         <div></div>
-        <h1 className="mt-0 text-gray-600 font-bold  text-[20px] relative mr-[550px]">
-          Hackathons
+        <h1 className="mt-0 text-gray-600 font-bold mb-10 text-[20px] relative mr-[550px]">
+          Hackathon
         </h1>
         <UserProfile />
       </div>
