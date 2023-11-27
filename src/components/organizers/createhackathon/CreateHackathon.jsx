@@ -1,6 +1,6 @@
+import { TextField } from "@mui/material";
 import React from "react";
-import CreateHackSidebar from "./CreateHackSidebar";
-import CreateHackathonContent from "./CreateHackathonContent";
+import UserProfile from "../../common/UserProfile";
 
 const CreateHackathon = () => {
   return (

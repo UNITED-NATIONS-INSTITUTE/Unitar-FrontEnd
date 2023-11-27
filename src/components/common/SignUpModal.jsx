@@ -56,11 +56,10 @@ export default function BasicModal() {
 
   return (
     <Box>
-      <Button onClick={handleOpen} sx={customButton}>
+      <button style={customButton} onClick={handleOpen}>
         {" "}
         Sign up
-      </Button>
-
+      </button>
       <Modal
         open={open}
         onClose={handleClose}

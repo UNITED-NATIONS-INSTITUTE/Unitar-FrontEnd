@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const CreateHackSidebar = () => {
+  const [activePage, setActivePage] = useState("Dashboard");
+  const handleClickPage = (page) => {
+    setActivePage(page);
+  };
   return (
     <div className=" flex ">
       <div className="bg-light-blue left-side  p-5 h-screen fixed left-0 top-0 ">
@@ -15,7 +19,14 @@ const CreateHackSidebar = () => {
           <img src="/assets/back.svg" alt="back" width="20" height="20" />
         </div>
         <Link to="/organizer/org-dashboard">
-          <button className="py-2 px-6 border rounded-md hover:bg-custom-blue mt-16  ">
+          <button
+            onClick={() => handleClickPage("Dashboard")}
+            style={{
+              backgroundColor:
+                activePage === "Dashboard" ? "#089BD9" : "inherit",
+            }}
+            className="py-2 px-6 border rounded-md hover:bg-custom-blue mt-16  "
+          >
             <div className="flex gap-5">
               <img
                 src="/assets/dashboard.svg"
@@ -29,7 +40,14 @@ const CreateHackSidebar = () => {
         </Link>
 
         <Link to="/organizer/org-hackathon">
-          <button className="py-2 px-6 border rounded-md mt-5 hover:bg-custom-blue">
+          <button
+            onClick={() => handleClickPage("Hackathon")}
+            style={{
+              backgroundColor:
+                activePage === "Hackathon" ? "#089BD9" : "inherit",
+            }}
+            className="py-2 px-6 border rounded-md mt-5 hover:bg-custom-blue"
+          >
             <div className="flex gap-5">
               <img
                 src="/assets/hackathon.svg"
