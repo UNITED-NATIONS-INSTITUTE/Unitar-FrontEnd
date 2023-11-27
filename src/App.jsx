@@ -44,8 +44,8 @@ const App = () => {
           <Route path="org-dashboard" element={<OrgDashboard />} />
           <Route path="org-hackathon" element={<OrgHackathonPage />} />
           <Route path="org-submissions" element={<OrgSubmissionPage />} />
+          <Route path="create-hackathon" element={<CreateHackathon />} />
         </Route>
-        <Route path="/create-hackathon" element={<CreateHackathon />} />
         ADMIN
       </Routes>
     </BrowserRouter>

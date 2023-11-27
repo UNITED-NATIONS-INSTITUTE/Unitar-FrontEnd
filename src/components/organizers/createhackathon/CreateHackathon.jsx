@@ -7,7 +7,9 @@ const CreateHackathon = () => {
     <div>
       <CreateHackSidebar />
       <div className="bg-white p-8 right-side min-h-screen">
-        <CreateHackathonContent />
+        <div className="ml-60">
+          <CreateHackathonContent />
+        </div>
       </div>
     </div>
   );

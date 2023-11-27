@@ -4,7 +4,7 @@ import UserProfile from "../../common/UserProfile";
 
 const CreateHackathonContent = () => {
   return (
-    <div className="ml-60">
+    <div>
       <div className="flex justify-between">
         <h1 className="text-gray-600 font-bold text-[24px]">Hackathons</h1>
         <UserProfile />
@@ -28,7 +28,7 @@ const CreateHackathonContent = () => {
               </label>
               <input
                 type="text"
-                className="w-[400px] px-3 py-2 border border-gray-400 rounded text-xs
+                className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
         focus:outline-none focus:border-custom-blue "
                 placeholder=""
                 required
@@ -41,7 +41,7 @@ const CreateHackathonContent = () => {
               </label>
               <input
                 type="text"
-                className="w-[400px] px-3 py-2 border border-gray-400 rounded text-xs
+                className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
         focus:outline-none focus:border-custom-blue "
                 placeholder=""
                 required
@@ -61,7 +61,7 @@ const CreateHackathonContent = () => {
               </label>
               <input
                 type="text"
-                className="w-[400px] px-3 py-2 border border-gray-400 rounded text-xs
+                className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
         focus:outline-none focus:border-custom-blue "
                 placeholder=""
                 required
@@ -88,7 +88,7 @@ const CreateHackathonContent = () => {
                 multiline
                 rows={4}
                 defaultValue=""
-                sx={{ width: "400px" }}
+                sx={{ width: "450px" }}
               />
               <label className="mt-5 mb-2 text-xs " name="projectName">
                 Hackathon project Goals
