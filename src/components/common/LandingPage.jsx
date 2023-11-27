@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./Navbar";
 import { LineChart } from "@mui/x-charts/LineChart";
 import { frame, man1, man2 } from "../../assets";
 import Banner from "./Banner";
 import ForParticipants from "./ForParticipants";
 import { Link } from "react-router-dom";
+
+import BasicModal from "./SignUpModal";
 import Showcase from "./Showcase";
 
+
 const LandingPage = () => {
+  const [openSignUpModal, setOpenSignUpModal] = useState(false)
+  const openModal = () => setOpenSignUpModal(true)
+  const closeModal = () => setOpenSignUpModal(false)
   return (
     <div>
+      <Navbar openModal={openModal}/>
+      <BasicModal openModal={openSignUpModal} handleClose={closeModal}/>
+      <div className="w-full h-screen text-center  ">
       <Navbar />
       <div className="w-full h-screen text-center relative ">
         <div className=" mx-auto p-2 flex justify-center">
