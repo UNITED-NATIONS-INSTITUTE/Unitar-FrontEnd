@@ -1,5 +1,6 @@
 import React from "react";
 import { project } from "../../assets";
+import Showcase from "./Showcase";
 
 const Forge = () => {
   return (
