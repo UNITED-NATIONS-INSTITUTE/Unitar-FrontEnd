@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
-      <img src={logo} alt="logo" className="w-[124px] h-[32px]" />{" "}
+      <img src={logo} alt="logo" className="ml-5" />{" "}
       <div className=" sm:flex hidden justify-end items-center flex-1 gap-10">
         <Link to="/login">
           <button className=" btn-login  rounded-[8px]  mr-4  p-2 h-50 text-white text-[18px] ">
