@@ -11,7 +11,7 @@ const CreateHackSidebar = () => {
       <div className="bg-light-blue left-side  p-5 h-screen fixed left-0 top-0 ">
         <div className="flex gap-10">
           <img
-            src="src/assets/unitar-logo.svg"
+            src="/assets/unitar-logo.svg"
             alt="logo"
             width="100"
             height="54"

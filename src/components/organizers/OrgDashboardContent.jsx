@@ -1,6 +1,5 @@
 import React from "react";
 import UserProfile from "../common/UserProfile";
-import HackathonsPage from "../participants/HackathonsPage";
 import OrgHackathons from "./OrgHackathons";
 
 const OrgDashboardContent = () => {

@@ -14,14 +14,19 @@ const PartLandingPage = () => {
         </h1>
         <p className="text-center text-gray-600 mt-2">Start Buiding Today!</p>
         <div className="flex flex-row items-center justify-center mt-10 gap-5">
-          <input
-            type="text"
-            placeholder="Search hackathon"
-            className="border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:border-custom-blue"
-          />
-          <button className="text-white  bg-custom-blue px-4 py-2 rounded-md ">
-            Search
-          </button>
+          <form>
+            <input
+              type="text"
+              placeholder="Search hackathon"
+              className="border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:border-custom-blue"
+            />
+            <button
+              type="submit"
+              className="text-white  bg-custom-blue px-4 py-2 rounded-md "
+            >
+              Search
+            </button>
+          </form>
         </div>
         <p className="mt-5 font-semibold text-gray-700">Hackathons</p>
         <p className="mt-1 text-gray-600">Submitted projects are listed here</p>

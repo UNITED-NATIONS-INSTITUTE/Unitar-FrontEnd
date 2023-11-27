@@ -4,7 +4,7 @@ import UserProfile from "../../common/UserProfile";
 
 const CreateHackathonContent = () => {
   return (
-    <div>
+    <div className="ml-60">
       <div className="flex justify-between">
         <h1 className="text-gray-600 font-bold text-[24px]">Hackathons</h1>
         <UserProfile />
