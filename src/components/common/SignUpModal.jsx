@@ -39,13 +39,30 @@ const customButton = {
   "&:hover": { backgroundColor: "inherit" },
 };
 
-export default function BasicModal({ openModal, handleClose }) {
+export default function BasicModal() {
   const navigate = useNavigate();
-  
+  const [choice, setChoice] = useState("");
+
+  const handleChoice = (selectedChoice) => {
+    setChoice(selectedChoice);
+    if (selectedChoice === "ORGANIZER") {
+      navigate("/org-signup"); //navigate to org sign in
+    } else if (selectedChoice === "PARTICIPANT") {
+      navigate("/part-signup"); //navigate to participant sign in
+    }
+  };
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <Box>
+      <button style={customButton} onClick={handleOpen}>
+        {" "}
+        Sign up
+      </button>
       <Modal
-        open={openModal}
+        open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
@@ -58,16 +75,16 @@ export default function BasicModal({ openModal, handleClose }) {
               </Typography>
               <Box className="flex space-x-4 mt-[100px]">
                 <button
-                  onClick={() => navigate("/part-signup")}
+                  onClick={() => handleChoice("PARTICIPANT")}
                   className="flex-1 bg-custom-blue text-white py-2 rounded hover:bg-blue-600 text-[16px]  "
                 >
-                  Participant SignUp
+                  for participants
                 </button>
                 <button
-                  onClick={() => navigate("/org-signup")}
+                  onClick={() => handleChoice("ORGANIZER")}
                   className="flex-1 btn-org  py-2 rounded hover:bg-blue-500 text-[16px] "
                 >
-                  Organizer SignUp
+                  for organizers
                 </button>
               </Box>
             </Box>
