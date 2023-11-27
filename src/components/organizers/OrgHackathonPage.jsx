@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import HackathonsPage from "../participants/HackathonsPage";
 import UserProfile from "../common/UserProfile";
 import { Link } from "react-router-dom";
@@ -12,11 +13,9 @@ const OrgHackathonPage = () => {
             <h1 className="text-gray-600 font-bold  text-[24px]">Hackathons</h1>
             <UserProfile />
           </div>
-          <Link to="/organizer/create-hackathon">
-            <button className="text-xs  bg-custom-blue rounded-lg mt-10 mb-5 border w-[150px] text-white font-semibold p-3">
-              Create a hackathon
-            </button>
-          </Link>
+          <button className="text-xs bg-custom-blue rounded-lg mt-10 mb-5 border w-[150px] text-white font-semibold p-3">
+            Create a hackathon
+          </button>
           <span className="text-gray-600 font-semibold text-sm ">
             Our Hackathons
           </span>

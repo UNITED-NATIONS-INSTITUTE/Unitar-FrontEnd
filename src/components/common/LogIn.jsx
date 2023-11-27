@@ -9,9 +9,13 @@ import {
 } from "../../features/user/userSlice";
 import { requestToken } from "../../api/security/security";
 import jwt_decode from "jwt-decode";
+import BasicModal from "./SignUpModal";
 const LogIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [openSignUpModal, setOpenSignUpModal] = useState(false);
+  const openModal = () => setOpenSignUpModal(true);
+  const closeModal = () => setOpenSignUpModal(false);
   const [values, setValues] = useState({
     username: "",
     password: "",
@@ -60,7 +64,8 @@ const LogIn = () => {
   };
   return (
     <div>
-      <Navbar />
+      <Navbar openModal={openModal} />
+      <BasicModal openModal={openSignUpModal} handleClose={closeModal} />
       <div className="min-h-screen flex items-center justify-center">
         <div className="bg-white p-8 rounded shadow-md w-100 border border-custom-blue">
           <h2 className="mb-6 font-semibold">
@@ -92,7 +97,10 @@ const LogIn = () => {
               </button>
               <p className="mt-5 text-md text-gray-600">
                 Don't have a unitar account?
-                <Link to="/prompt" className="text-blue-500 ml-1">
+                <Link
+                  onClick={() => openModal()}
+                  className="text-blue-500 ml-1"
+                >
                   Sign up here
                 </Link>
               </p>
