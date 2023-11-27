@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/unitar-logo.svg";
 
 const Navbar = ({ openModal }) => {
-
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
       <img src={logo} alt="logo" className="w-[124px] h-[32px]" />{" "}
@@ -32,7 +31,7 @@ const Navbar = ({ openModal }) => {
             <button className=" rounded-[8px]  mr-4  p-2 h-50 text-white text-[18px] ">
               Login
             </button>
-          </div>
+          </Link>
         </div>
       </div>
     </nav>
