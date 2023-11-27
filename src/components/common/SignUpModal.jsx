@@ -27,7 +27,6 @@ const customStyles = {
 
 const customButton = {
   borderRadius: "8px",
-
   marginRight: "30px",
   gap: "10",
   padding: "8px",
