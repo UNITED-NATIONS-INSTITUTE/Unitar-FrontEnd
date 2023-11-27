@@ -11,7 +11,7 @@ const Footer = () => {
     <div className="bg-white text-[#12141D]">
       <div className="text-center lg:text-3xl pt-11 font-semibold font-lexend-exa">
         Ignite innovation today - <br /> sign up now for the ultimate <br />{" "}
-        hackathon
+        hackathon experience
       </div>
       <div className="flex items-center justify-center mt-4">
         <button className="bg-[#089BD9] text-white p-[16px] text-center h-[55px] w-[192px] rounded-[5px]">
