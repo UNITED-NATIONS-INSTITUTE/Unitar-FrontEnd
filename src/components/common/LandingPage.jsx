@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import Navbar from "./Navbar";
+import React from "react";
+// import Navbar from "./Navbar";
+import Navbar from "../LandingPages/Navbar";
+import { LineChart } from "@mui/x-charts/LineChart";
 import { frame, man1, man2 } from "../../assets";
 import Banner from "./Banner";
 import ForParticipants from "./ForParticipants";
