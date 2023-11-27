@@ -2,7 +2,7 @@ import React from "react";
 import Avatars from "../common/Avatars";
 import { useNavigate } from "react-router-dom";
 
-const HackathonsPage = () => {
+const OrgHackathons = () => {
   const navigate = useNavigate();
   const images = [
     { name: "project #1", url: "image1.svg", description: "" },
@@ -30,7 +30,7 @@ const HackathonsPage = () => {
           </p>
           <div className="flex gap-5">
             <button
-              onClick={() => navigate("/participant/hack-details")}
+              onClick={() => navigate("/organizer/view-project")}
               className="border border-blue-500 rounded-md text-blue-500 w-[100px] text-xs mt-4 py-1"
             >
               View project
@@ -42,4 +42,4 @@ const HackathonsPage = () => {
     </div>
   );
 };
-export default HackathonsPage;
+export default OrgHackathons;

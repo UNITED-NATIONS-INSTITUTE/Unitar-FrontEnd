@@ -1,6 +1,7 @@
 import React from "react";
 import UserProfile from "../common/UserProfile";
 import HackathonsPage from "../participants/HackathonsPage";
+import OrgHackathons from "./OrgHackathons";
 
 const OrgDashboardContent = () => {
   return (
@@ -33,7 +34,7 @@ const OrgDashboardContent = () => {
         <p className="text-gray-500 text-xs mt-2">
           Submitted projects are listed here
         </p>
-        <HackathonsPage />
+        <OrgHackathons />
       </div>
     </div>
   );

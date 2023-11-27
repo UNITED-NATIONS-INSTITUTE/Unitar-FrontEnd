@@ -1,5 +1,13 @@
 import React from "react";
+<<<<<<< HEAD
 import ParticipantsOverview from "../LandingPages/ParticipantsOverview";
+=======
+import Navbar from "./Navbar";
+import { frame, man1, man2 } from "../../assets";
+import Banner from "./Banner";
+import ForParticipants from "./ForParticipants";
+import { useNavigate } from "react-router-dom";
+>>>>>>> 5d0985eeb391c0d47db55621541f77e297fc6974
 
 const LandingPage = () => {
   return (

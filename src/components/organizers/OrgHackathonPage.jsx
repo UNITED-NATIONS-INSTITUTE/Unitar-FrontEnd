@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import HackathonsPage from "../participants/HackathonsPage";
 import UserProfile from "../common/UserProfile";
 import { Link } from "react-router-dom";
+import OrgHackathons from "./OrgHackathons";
 
 const OrgHackathonPage = () => {
   return (
@@ -20,7 +21,7 @@ const OrgHackathonPage = () => {
             Our Hackathons
           </span>
         </div>
-        <HackathonsPage />
+        <OrgHackathons />
       </div>
     </div>
   );

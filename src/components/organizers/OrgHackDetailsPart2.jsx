@@ -1,8 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
-const HackDetailsPart2 = () => {
-  const navigate = useNavigate();
+const OrgHackDetailsPart2 = () => {
   const texts = [
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -56,17 +54,8 @@ const HackDetailsPart2 = () => {
           </ol>
         ))}
       </div>
-      <div className="flex justify-end">
-        <button
-          onClick={() => navigate("/participant/submit-project")}
-          type="submit"
-          className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[150px] mt-[50px]"
-        >
-          Submit a project
-        </button>
-      </div>
     </div>
   );
 };
 
-export default HackDetailsPart2;
+export default OrgHackDetailsPart2;
