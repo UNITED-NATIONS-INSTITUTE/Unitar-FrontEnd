@@ -3,7 +3,7 @@ import Header from "./Header";
 
 const Overview = () => {
   return (
-    <div className="w-[3/4] bg-white min-h-screen">
+    <div className="w-[950px] ml-10 bg-white min-h-screen">
       <Header />
       <div className=" bg-white p-4">
         <h3 className="text-[#2563EB] text-[16px] font-semibold ">Overview</h3>

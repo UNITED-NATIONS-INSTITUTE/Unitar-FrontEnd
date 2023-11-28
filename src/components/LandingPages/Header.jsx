@@ -9,18 +9,18 @@ import { bell, credits, def, over, proj, sharp, teams } from "../../assets";
 
 const Header = () => {
   return (
-    <div>
+    <div className="mt-10 mr-10">
       <div className="overflow-x-hidden right-side  rounded-xl bg-hero-pattern bg-header-pattern  bg-no-repeat bg-cover bg-center  h-[164px]">
         <p className="pt-6 text-white ml-6">Pages / Hackathons</p>
         <p className=" text-white ml-6 ">Hackathon </p>
-        <div className=" relative bottom-11 rounded-lg ml-[550px] flex items-center gap-5 ">
+        <div className=" relative bottom-11 rounded-lg flex justify-end gap-5 ">
           <Paper
             component="form"
             sx={{
               p: "2px 4px",
               display: "flex",
               alignItems: "center",
-              width: 300,
+              width: 250,
               borderRadius: "20px",
             }}
           >
@@ -45,19 +45,19 @@ const Header = () => {
             ></IconButton>
           </Paper>
 
-          <div className="flex items-center  gap-5">
-            <p className="flex items-center">
+          <div className="flex  gap-10 pr-10">
+            <div className="flex items-center gap-2">
               {" "}
-              <img src={def} className="ml-4" />{" "}
-              <span className="text-white text-xs"> Sign In </span>
-            </p>
+              <img src={def} className="" />{" "}
+              <p className="text-white text-xs"> SignIn </p>
+            </div>
 
             <img src={sharp} className="" />
             <img src={bell} />
           </div>
         </div>
       </div>
-      <div className="h-[113px] rounded-[15px] relative bottom-[50px]  bg-header-bottom  bg-no-repeat bg-cover bg-center ">
+      <div className="h-[113px] rounded-[15px] w-[850px] ml-[30px] relative bottom-[50px]  bg-header-bottom  bg-no-repeat bg-cover bg-center ">
         <div className="flex justify-between">
           <div className="flex items-center gap-6">
             {" "}
@@ -72,7 +72,7 @@ const Header = () => {
             </p>
           </div>
 
-          <div className="flex-row flex gap-5 mr-6">
+          <div className="flex-row flex gap-5 pr-5">
             {" "}
             <div className="flex items-center ">
               <img src={over} />

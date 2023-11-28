@@ -5,7 +5,11 @@ import OverviewSidebar from "./OverviewSidebar";
 const ProjectOverview = () => {
   return (
     <div className="flex">
-      <OverviewSidebar />
+      <div className="overflow-y-auto ">
+        {" "}
+        <OverviewSidebar />{" "}
+      </div>
+
       <Overview />
     </div>
   );
