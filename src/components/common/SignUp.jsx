@@ -56,7 +56,7 @@ const SignUp = () => {
     <div>
       <Navbar />
 
-      <div className="min-h-screen flex items-center justify-center mt-16">
+      <div className="min-h-screen flex items-center justify-center mt-16 bg-light-blue">
         <div className="bg-white p-8 rounded shadow-md w-100 border border-custom-blue overflow-y-auto ">
           <h2 className="mb-6 font-semibold">
             Sign up to UNITAR hackathon platform
