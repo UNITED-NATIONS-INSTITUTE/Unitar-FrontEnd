@@ -1,9 +1,11 @@
 import React from "react";
-import Navbar from "./Navbar";
+
 import { frame, man1, man2 } from "../../assets";
 import Banner from "./Banner";
 import ForParticipants from "./ForParticipants";
 import { useNavigate } from "react-router-dom";
+
+import Navbar from "./Navbar";
 
 const LandingPage = () => {
   const navigate = useNavigate();

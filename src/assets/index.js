@@ -16,7 +16,7 @@ import close from "./close.svg";
 import menu from "./menu.svg";
 import shape from "./shape.svg";
 import square from "./square.svg";
-import woman from "./woman.png";
+import woman from "./woman.jpg";
 import icon1 from "./icon1.png";
 import icon2 from "./icon2.svg";
 import icon3 from "./icon3.svg";
