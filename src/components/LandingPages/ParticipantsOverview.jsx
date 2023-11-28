@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/unitar-logo.svg";
 import {
@@ -15,17 +15,8 @@ import {
   circle,
   need,
 } from "../../assets";
-import Header from "./Header";
 
 const ParticipantsOverview = () => {
-  const [activeMenu, setActiveMenu] = useState(true);
-  const [screenSize, setScreenSize] = useState(null);
-
-  const handleCloseSidebar = () => {
-    if (activeMenu && screenSize <= 900) {
-      setActiveMenu(false);
-    }
-  };
   return (
     <>
       <div className=" h-[1077.5px] w-[246.5px] md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10 bg-[#fff]">
@@ -40,7 +31,6 @@ const ParticipantsOverview = () => {
               style={({ isActive }) => ({
                 backgroundColor: isActive ? "#089BD9" : "",
               })}
-              // className={({ isActive }) => (isActive ? activeLink : normalLink)}
             >
               {" "}
               <div className="mt-6 flex items-center ml-6">
