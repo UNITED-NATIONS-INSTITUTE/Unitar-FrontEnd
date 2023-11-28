@@ -3,15 +3,13 @@ import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import DirectionsIcon from "@mui/icons-material/Directions";
 import { bell, credits, def, over, proj, sharp, teams } from "../../assets";
 
 const Header = () => {
   return (
     <div>
-      <div className="ml-40 overflow-x-hidden right-side  rounded-xl bg-hero-pattern bg-header-pattern  bg-no-repeat bg-cover bg-center  h-[164px]">
+      <div className="overflow-x-hidden right-side  rounded-xl bg-hero-pattern bg-header-pattern  bg-no-repeat bg-cover bg-center  h-[164px]">
         <p className="pt-6 text-white ml-6">Pages / Hackathons</p>
         <p className=" text-white ml-6 ">Hackathon </p>
         <div className=" relative bottom-11 rounded-lg ml-[550px] flex items-center gap-5 ">
@@ -58,7 +56,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="h-[113px] w-[1000px] rounded-[15px] relative left-[200px] bottom-[50px]  bg-header-bottom  bg-no-repeat bg-cover bg-center ">
+      <div className="h-[113px] rounded-[15px] relative bottom-[50px]  bg-header-bottom  bg-no-repeat bg-cover bg-center ">
         <div className="flex justify-between">
           <div className="flex items-center gap-6">
             {" "}

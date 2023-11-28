@@ -17,6 +17,7 @@ import CreateHackathon from "./components/organizers/createhackathon/CreateHacka
 import PartLandingPage from "./components/LandingPages/partlandingpage/PartLandingPage";
 import OrgViewProject from "./components/organizers/OrgViewProject";
 import OrgLandingPage from "./components/LandingPages/orglandingpage/OrgLandingPage";
+import ProjectOverview from "./components/LandingPages/ProjectOverview.jsx";
 // profile
 
 const App = () => {
@@ -51,6 +52,8 @@ const App = () => {
       <Route path="/create-hackathon" element={<CreateHackathon />} />
       <Route path="/part-landingpage" element={<PartLandingPage />} />
       <Route path="/org-landingpage" element={<OrgLandingPage />} />
+
+      <Route path="/overview" element={<ProjectOverview />} />
     </Routes>
   );
 };
