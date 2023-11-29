@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { createUserAccount } from "../../api/security/security";
 import { useNavigate, useLocation } from "react-router-dom";
 const SignUp = () => {
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -38,11 +41,25 @@ const SignUp = () => {
       .then((res) => {
         if (res.status === 201) {
           // TO DO: SHOW SUCCESS MODAL, THEN TIMEOUT AND NAVIGATE TO LOG IN
-          navigate("/login");
+          setSuccessMessage("Account created successfully!");
+          // Clear the form
+          setValues({
+            username: "",
+            email: "",
+            password: "",
+            password_confirmation: "",
+          });
+
+          // Navigate to login page after a timeout
+          setTimeout(() => {
+            navigate("/login");
+          }, 3000); // 3000 milliseconds (3 seconds)
         }
       })
       .catch((err) => {
         // TO DO: SHOW ERROR MODAL
+        setErrorMessage("Error creating account. Please try again.");
+
         setValues({
           username: "",
           email: "",
@@ -61,6 +78,19 @@ const SignUp = () => {
           <h2 className="mb-6 font-semibold">
             Sign up to UNITAR hackathon platform
           </h2>
+          {/* Display success message */}
+          {successMessage && (
+            <div className="mt-4 text-green-600 mb-4 border p-5 rounded border-green-600">
+              {successMessage}
+            </div>
+          )}
+
+          {/* Display error message */}
+          {errorMessage && (
+            <div className="mt-4 text-red-600 mb-4 border p-5 rounded border-red-600">
+              {errorMessage}
+            </div>
+          )}
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="mb-4">
               <label className="block text-md mb-2">Username</label>
