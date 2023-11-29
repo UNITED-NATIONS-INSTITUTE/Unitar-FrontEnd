@@ -14,7 +14,7 @@ const Sidebar = () => {
           <img src={logo} alt="logo" width="100" height="54" />
           <img src="/assets/back.svg" alt="back" width="20" height="20" />
         </div>
-        <Link to="/participant/part-dashboard">
+        <Link to="/participant/dashboard">
           <button
             onClick={() => handleClickPage("Dashboard")}
             style={{
