@@ -15,7 +15,6 @@ import OrgSidebar from "./components/organizers/OrgSidebar";
 import OrgHackathonPage from "./components/organizers/OrgHackathonPage";
 import OrgSubmissionPage from "./components/organizers/OrgSubmissionPage";
 import CreateHackathon from "./components/organizers/createhackathon/CreateHackathon";
-
 const App = () => {
   return (
     <Routes>
@@ -25,9 +24,9 @@ const App = () => {
       <Route path="/org-signup" element={<SignUp />} />
       <Route path="/part-signup" element={<SignUp />} />
       <Route path="/login" element={<LogIn />} />
-      <Route path="/profile" element={<Profile />} />
       {/* PARTICIPANT */}
       <Route path="participant" element={<Sidebar />}>
+        <Route path="profile" element={<Profile />} />
         <Route index element={<ParticipantDashboard />} />
         <Route path="dashboard" element={<ParticipantDashboard />} />
         <Route path="hackathons" element={<HackathonDashboard />}>
