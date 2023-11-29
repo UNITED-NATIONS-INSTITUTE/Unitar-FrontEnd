@@ -18,6 +18,7 @@ import PartLandingPage from "./components/LandingPages/partlandingpage/PartLandi
 import OrgViewProject from "./components/organizers/OrgViewProject";
 import OrgLandingPage from "./components/LandingPages/orglandingpage/OrgLandingPage";
 import OrgSubmissions from "./components/organizers/OrgSubmissions";
+import ProjectOverview from "./components/LandingPages/ProjectOverview.jsx";
 // profile
 
 const App = () => {
@@ -54,6 +55,8 @@ const App = () => {
 
       <Route path="/part-landingpage" element={<PartLandingPage />} />
       <Route path="/org-landingpage" element={<OrgLandingPage />} />
+
+      <Route path="/overview" element={<ProjectOverview />} />
     </Routes>
   );
 };

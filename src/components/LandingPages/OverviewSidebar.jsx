@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/unitar-logo.svg";
 import {
@@ -16,10 +16,10 @@ import {
   need,
 } from "../../assets";
 
-const ParticipantsOverview = () => {
+const OverviewSidebar = () => {
   return (
     <>
-      <div className=" h-[1077.5px]  w-[246.5px]  overflow-y-auto pb-10 bg-[#fff]">
+      <div className=" bg-white  p-4  h-screen left-0 top-0 w-[1/4] ">
         <>
           <div className="flex justify-between items-center">
             <img src={logo} />
@@ -30,6 +30,7 @@ const ParticipantsOverview = () => {
             style={({ isActive }) => ({
               backgroundColor: isActive ? "#089BD9" : "",
             })}
+            // className={({ isActive }) => (isActive ? activeLink : normalLink)}
           >
             {" "}
             <div className="mt-6 flex items-center ml-6">
@@ -101,4 +102,4 @@ const ParticipantsOverview = () => {
   );
 };
 
-export default ParticipantsOverview;
+export default OverviewSidebar;

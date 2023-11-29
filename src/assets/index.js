@@ -45,7 +45,9 @@ import credits from "./credits.jpg";
 import proj from "./proj.svg";
 import over from "./over.svg";
 import teams from "./teams.svg";
+import overlay from "./overlay.svg";
 export {
+  overlay,
   proj,
   over,
   teams,
