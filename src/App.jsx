@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import LandingPage from "./components/common/LandingPage";
 import SignUp from "./components/common/SignUp";
 import LogIn from "./components/common/LogIn";
@@ -14,10 +14,17 @@ import OrgSidebar from "./components/organizers/OrgSidebar";
 import OrgHackathonPage from "./components/organizers/OrgHackathonPage";
 import OrgSubmissionPage from "./components/organizers/OrgSubmissionPage";
 import CreateHackathon from "./components/organizers/createhackathon/CreateHackathon.jsx";
+import PartLandingPage from "./components/LandingPages/partlandingpage/PartLandingPage";
+import OrgViewProject from "./components/organizers/OrgViewProject";
+import OrgLandingPage from "./components/LandingPages/orglandingpage/OrgLandingPage";
+import OrgSubmissions from "./components/organizers/OrgSubmissions";
+import ProjectOverview from "./components/LandingPages/ProjectOverview.jsx";
 // profile
-import ProfileDetails from "./components/common/profile/ProfileDetails";
+
 const App = () => {
   return (
+    // WRAP BROWSER ROUTER IN INDEX.
+
     <Routes>
       <Route path="*" element={<NoPage />} />
       {/* COMMON ROUTES */}
@@ -25,30 +32,31 @@ const App = () => {
       <Route path="/org-signup" element={<SignUp />} />
       <Route path="/part-signup" element={<SignUp />} />
       <Route path="/login" element={<LogIn />} />
-
       {/* PARTICIPANT */}
+      {/* The parent element should be a Nav component that allows an outlet its the side. Thus refactor 24 below */}
       <Route path="participant" element={<Sidebar />}>
         <Route index element={<ParticipantDashboard />} />
-        <Route path="profile" element={<ProfileDetails />} />
-        <Route path="dashboard" element={<ParticipantDashboard />} />
-        <Route path="hackathons" element={null}>
-          <Route index element={<HackathonDashboard />} />
-          <Route path="detail" element={<HackathonDetailsPage />} />
-          <Route path="submit" element={<SubmitHackathon />} />
-        </Route>
+        <Route path="part-dashboard" element={<ParticipantDashboard />} />
+        <Route path="hackathons" element={<HackathonDashboard />} />
+        <Route path="hack-details" element={<HackathonDetailsPage />} />
+        <Route path="submit-project" element={<SubmitHackathon />} />
+        {/* Other participant routes cascade here: if a subroute, wrap and cascade */}
       </Route>
       {/* ORGANIZER */}
       <Route path="organizer" element={<OrgSidebar />}>
         <Route index element={<OrgDashboard />} />
-        <Route path="profile" element={<ProfileDetails />} />
-        <Route path="dashboard" element={<OrgDashboard />} />
-        <Route path="hackathons" element={null}>
-          <Route index element={<OrgHackathonPage />} />
-          <Route path="create" element={<CreateHackathon />} />
-        </Route>
-        <Route path="submissions" element={<OrgSubmissionPage />} />
+        <Route path="org-dashboard" element={<OrgDashboard />} />
+        <Route path="org-hackathon" element={<OrgHackathonPage />} />
+        <Route path="create-hackathon" element={<CreateHackathon />} />
+        <Route path="org-submissions" element={<OrgSubmissionPage />} />
+        <Route path="submissions" element={<OrgSubmissions />} />
+        <Route path="view-project" element={<OrgViewProject />} />
       </Route>
-      {/* ADMIN */}
+
+      <Route path="/part-landingpage" element={<PartLandingPage />} />
+      <Route path="/org-landingpage" element={<OrgLandingPage />} />
+
+      <Route path="/overview" element={<ProjectOverview />} />
     </Routes>
   );
 };

@@ -30,6 +30,13 @@ export default {
       lineHeight: {
         34: "34px",
       },
+
+      backgroundImage: {
+        "header-pattern":
+          "url(' https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/139/original/Rectangle_40.jpg?1701100078')",
+        "header-bottom":
+          "url(' https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/140/original/Rectangle_41.jpg?1701100194')",
+      },
     },
   },
   plugins: [],

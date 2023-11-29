@@ -66,7 +66,7 @@ const LogIn = () => {
     <div>
       <Navbar openModal={openModal} />
       <BasicModal openModal={openSignUpModal} handleClose={closeModal} />
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-light-blue">
         <div className="bg-white p-8 rounded shadow-md w-100 border border-custom-blue">
           <h2 className="mb-6 font-semibold">
             Login to unitar hackathon platform

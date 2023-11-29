@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const HackDetailsPart2 = () => {
+  const navigate = useNavigate();
   const texts = [
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -56,14 +57,13 @@ const HackDetailsPart2 = () => {
         ))}
       </div>
       <div className="flex justify-end">
-        <Link to="/participant/submit-project">
-          <button
-            type="submit"
-            className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[150px] mt-[50px]"
-          >
-            Submit a project
-          </button>
-        </Link>
+        <button
+          onClick={() => navigate("/participant/submit-project")}
+          type="submit"
+          className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[150px] mt-[50px]"
+        >
+          Submit a project
+        </button>
       </div>
     </div>
   );

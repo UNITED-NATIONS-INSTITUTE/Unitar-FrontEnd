@@ -1,18 +1,16 @@
-import React, { useState } from "react";
-import Navbar from "./Navbar";
-import { LineChart } from "@mui/x-charts/LineChart";
+import React from "react";
+
 import { frame, man1, man2 } from "../../assets";
 import Banner from "./Banner";
 import ForParticipants from "./ForParticipants";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import BasicModal from "./SignUpModal";
-import Showcase from "./Showcase";
 
 const LandingPage = () => {
   const [openSignUpModal, setOpenSignUpModal] = useState(false);
   const openModal = () => setOpenSignUpModal(true);
   const closeModal = () => setOpenSignUpModal(false);
+  const navigate = useNavigate();
   return (
     <div>
       <Navbar openModal={openModal} />
@@ -32,19 +30,19 @@ const LandingPage = () => {
             </div>
           </div>{" "}
           <div className="flex gap-10 items-center justify-center md:w-full mt-[100px]">
-            <Link to="/part-signup">
-              {" "}
-              <button className="bg-[#089BD9] rounded-[10px]  py-4 px-[20px] lg:w-[239px]">
-                For Participants
-              </button>
-            </Link>
+            <button
+              onClick={() => navigate("/part-signup")}
+              className="bg-[#089BD9] rounded-[10px]  py-4 px-[20px] lg:w-[239px]"
+            >
+              For Participants
+            </button>
 
-            <Link to="org-signup">
-              {" "}
-              <button className="py-4 px-[20px]  rounded-[10px] border-2 lg:w-[239px] border-[#089BD9] ">
-                For Organisers
-              </button>
-            </Link>
+            <button
+              onClick={() => navigate("/part-signup")}
+              className="py-4 px-[20px]  rounded-[10px] border-2 lg:w-[239px] border-[#089BD9] "
+            >
+              For Organisers
+            </button>
           </div>
           <div className="absolute hidden lg:block rounded-full  filter bottom-[230px]  right-[180px]  ">
             <img
