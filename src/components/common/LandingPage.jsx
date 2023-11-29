@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { frame, man1, man2 } from "../../assets";
+import { frame, man1, man2, views } from "../../assets";
 import Banner from "./Banner";
 import ForParticipants from "./ForParticipants";
 import { useNavigate } from "react-router-dom";
@@ -55,6 +55,9 @@ const LandingPage = () => {
           </div>
           <div className="absolute lg:flex  left-[400px] mt-[120px]  hidden  flex-col justify-center items-center gap-4 p-4 w-[163px] transform -rotate-5 border-2 border-solid border-transparent rounded-10  ">
             <img src={frame} />
+          </div>
+          <div className="absolute  left-[760px] mt-[36px]   w-[400px]  rounded-10  ">
+            <img src={views} />
           </div>
         </div>
         <Banner />

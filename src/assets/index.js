@@ -46,7 +46,9 @@ import proj from "./proj.svg";
 import over from "./over.svg";
 import teams from "./teams.svg";
 import overlay from "./overlay.svg";
+import views from "./views.svg";
 export {
+  views,
   overlay,
   proj,
   over,
