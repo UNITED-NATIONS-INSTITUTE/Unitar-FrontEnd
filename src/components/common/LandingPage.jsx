@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { frame, man1, man2 } from "../../assets";
 import Banner from "./Banner";
 import ForParticipants from "./ForParticipants";
 import { useNavigate } from "react-router-dom";
-
-
+import Navbar from "./Navbar";
+import BasicModal from "./SignUpModal";
 const LandingPage = () => {
   const [openSignUpModal, setOpenSignUpModal] = useState(false);
   const openModal = () => setOpenSignUpModal(true);
