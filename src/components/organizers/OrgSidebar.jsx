@@ -7,7 +7,6 @@ const OrgSidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const pathnameArray = location.pathname.split("/");
-  console.log(activePage);
   useEffect(() => {
     if (pathnameArray[2] === undefined || pathnameArray[2] === "dashboard") {
       setActivePage("dashboard");
@@ -57,7 +56,7 @@ const OrgSidebar = () => {
               width="20"
               height="20"
             />
-            <span>Hackathon</span>
+            <span>Hackathons</span>
           </div>
         </button>
         <button
