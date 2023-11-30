@@ -11,28 +11,27 @@ const OrgDashboard = () => {
         </div>
         <div className="flex mt-12">
           <div className="border bg-custom-blue rounded-md text-white pr-20 pt-5 mr-5">
-            <span className="text-xs p-5">Total participants</span>
+            <span className="text-xs p-5">Participants on Platform</span>
             <p className="p-5 font-bold">524</p>
           </div>
           <div className="border bg-custom-grey rounded-md  pr-20  pt-5 mr-5">
-            <span className="text-xs p-5">Total projects</span>
+            <span className="text-xs p-5">Your Hackathons</span>
             <p className="p-5 font-bold">50</p>
           </div>
           <div className="border bg-custom-grey rounded-md  pr-20  pt-5 mr-5">
-            <span className="text-xs p-5">Submitted projects</span>
+            <span className="text-xs p-5">Submitted Projects</span>
             <p className="p-5 font-bold">5</p>
           </div>
           <div className="border bg-custom-grey rounded-md  pr-20  pt-5 mr-5">
-            <span className="text-xs p-5">Total organizers</span>
+            <span className="text-xs p-5">Active Participants</span>
             <p className="p-5 font-bold">50</p>
           </div>
         </div>
         <div className="mt-10">
-          <h1 className="text-gray-600 font-semibold">Ongoing hackathons</h1>
-          <h3 className="mt-3 text-sm font-bold">Hackathons</h3>
-          <p className="text-gray-500 text-xs mt-2">
-            Submitted projects are listed here
-          </p>
+          <h1 className=" font-bold">Ongoing hackathons</h1>
+          <h3 className="mt-3 text-sm text-gray-600 font-bold">
+            Your active hackathons are listed here
+          </h3>
           <OrgHackathons />
         </div>
       </div>

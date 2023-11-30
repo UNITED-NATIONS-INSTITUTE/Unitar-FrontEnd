@@ -59,13 +59,13 @@ export default function BasicModal({ openModal, handleClose }) {
                   onClick={() => navigate("/part-signup")}
                   className="flex-1 bg-custom-blue text-white py-2 rounded hover:bg-blue-600 text-[16px]  "
                 >
-                  for participants
+                  For Participants
                 </button>
                 <button
                   onClick={() => navigate("/org-signup")}
                   className="flex-1 btn-org  py-2 rounded hover:bg-blue-500 text-[16px] "
                 >
-                  for organizers
+                  For Organizers
                 </button>
               </Box>
             </Box>
