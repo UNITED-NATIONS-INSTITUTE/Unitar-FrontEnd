@@ -10,19 +10,19 @@ const OrgDashboard = () => {
           <UserProfile />
         </div>
         <div className="flex mt-12">
-          <div className="border bg-custom-blue rounded-md text-white pr-20 pt-5 mr-5">
-            <span className="text-xs p-5">Participants on Platform</span>
+          <div className="border bg-custom-blue rounded-md text-white pt-5 mr-5 pr-[40px] ">
+            <span className="text-xs  p-5 ">Participants on Platform</span>
             <p className="p-5 font-bold">524</p>
           </div>
-          <div className="border bg-custom-grey rounded-md  pr-20  pt-5 mr-5">
+          <div className="border bg-custom-grey rounded-md   pr-[60px]  pt-5 mr-5">
             <span className="text-xs p-5">Your Hackathons</span>
             <p className="p-5 font-bold">50</p>
           </div>
-          <div className="border bg-custom-grey rounded-md  pr-20  pt-5 mr-5">
+          <div className="border bg-custom-grey rounded-md  pr-[60px]  pt-5 mr-5">
             <span className="text-xs p-5">Submitted Projects</span>
             <p className="p-5 font-bold">5</p>
           </div>
-          <div className="border bg-custom-grey rounded-md  pr-20  pt-5 mr-5">
+          <div className="border bg-custom-grey rounded-md pt-5  pr-[60px]">
             <span className="text-xs p-5">Active Participants</span>
             <p className="p-5 font-bold">50</p>
           </div>

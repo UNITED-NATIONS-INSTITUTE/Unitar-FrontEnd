@@ -19,7 +19,7 @@ const OrgSidebar = () => {
   return (
     <div className=" flex ">
       <div className="bg-light-blue left-side  p-5 h-screen fixed left-0 top-0 ">
-        <div className="flex gap-10">
+        <div className="flex justify-between">
           <img src={logo} alt="logo" width="100" height="54" />
           <img src="/assets/back.svg" alt="back" width="20" height="20" />
         </div>
@@ -28,9 +28,9 @@ const OrgSidebar = () => {
           style={{
             backgroundColor: activePage === "dashboard" ? "#089BD9" : "inherit",
           }}
-          className="py-2 px-6 border rounded-md hover:bg-custom-blue mt-16  "
+          className="py-2 pl-6 pr-8 border rounded-md hover:bg-custom-blue mt-16  "
         >
-          <div className="flex gap-5">
+          <div className="flex gap-5 ">
             <img
               src="/assets/dashboard.svg"
               alt="icon"
@@ -47,7 +47,7 @@ const OrgSidebar = () => {
             backgroundColor:
               activePage === "hackathons" ? "#089BD9" : "inherit",
           }}
-          className="py-2 px-6 border rounded-md mt-5 hover:bg-custom-blue"
+          className="py-2 pl-6 pr-8 border rounded-md mt-5 hover:bg-custom-blue"
         >
           <div className="flex gap-5">
             <img
