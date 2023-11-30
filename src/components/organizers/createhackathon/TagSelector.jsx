@@ -62,7 +62,7 @@ class TagSelector extends React.Component {
     const { categories, search, availableCategories, selectedCategories } =
       this.state;
 
-    this.props.func(categories)
+    this.props.func(categories);
 
     return (
       <div>
@@ -94,6 +94,7 @@ class TagSelector extends React.Component {
           value={search}
           onChange={this.handleSearchChange}
           placeholder="Search categories..."
+          className="focus:outline-none text-xs mb-4"
         />
         <ul>
           {search !== ""
