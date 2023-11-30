@@ -22,6 +22,13 @@ import OrgOutlet from "./components/organizers/OrgOutlet";
 import OrgSubmissions from "./components/organizers/OrgSubmissions";
 import OrgViewProject from "./components/organizers/OrgViewProject";
 
+import hackathonentries from "./components/admin/hackathonentries";
+import hackathons from "./components/admin/hackathons";
+import organizers from "./components/admin/organizers";
+import participants from "./components/admin/participants";
+import Sidebar from "./components/admin/Sidebar";
+
+
 const App = () => {
   return (
     <Routes>
@@ -60,6 +67,12 @@ const App = () => {
         </Route>
       </Route>
       {/* ADMIN */}
+      <Route index element={<hackathonentries />} />
+      <Route index element={<hackathons />} />
+      <Route index element={<organizers />} />
+      <Route index element={<participants />} />
+      <Route path="admin" element={<Sidebar />}>
+
     </Routes>
   );
 };
