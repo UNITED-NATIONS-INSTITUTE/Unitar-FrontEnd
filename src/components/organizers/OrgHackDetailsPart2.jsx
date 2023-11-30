@@ -1,11 +1,6 @@
 import React from "react";
 
 const OrgHackDetailsPart2 = () => {
-  const texts = [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  ];
   return (
     <div className="flex flex-col w-[500px]">
       <h1 className="mt-0 text-gray-600 font-bold  text-[20px]">
@@ -46,13 +41,15 @@ const OrgHackDetailsPart2 = () => {
       </div>
       <div>
         <p className="text-sm font-semibold mt-5">Goals</p>
-        {texts.map((text, index) => (
-          <ol>
-            <li className=" text-xs mt-5" key={index}>
-              {text}
-            </li>
-          </ol>
-        ))}
+        <p className="text-xs mt-3 ">
+          1. Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        </p>
+        <p className="text-xs mt-3 ">
+          2. Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        </p>
+        <p className="text-xs mt-3 ">
+          3. Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        </p>
       </div>
     </div>
   );
