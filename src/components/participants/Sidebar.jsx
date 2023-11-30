@@ -10,7 +10,7 @@ const Sidebar = () => {
   return (
     <div className=" flex ">
       <div className=" left-side bg-light-blue p-4 h-screen fixed left-0 top-0 w-[300px] ">
-        <div className="flex gap-10">
+        <div className="flex justify-between">
           <img src={logo} alt="logo" width="100" height="54" />
           <img src="/assets/back.svg" alt="back" width="20" height="20" />
         </div>
