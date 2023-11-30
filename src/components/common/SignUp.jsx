@@ -3,7 +3,10 @@ import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import { createUserAccount } from "../../api/security/security";
 import { useNavigate, useLocation } from "react-router-dom";
+import VerificationModal from "./VerificationModal";
+
 const SignUp = () => {
+  const [showVerificationModal, setShowVerificationModal] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -32,6 +35,38 @@ const SignUp = () => {
     }
     return user;
   }
+  const handleVerificationSubmit = (code) => {
+    // Perform verification logic here
+
+    // After successful verification, navigate to login page
+    setTimeout(() => {
+      navigate("/login");
+    }, 3000); // 3000 milliseconds (3 seconds)
+  };
+
+  const resendCode = () => {
+    // Perform logic to resend verification code (e.g., send another email)
+    sendVerificationCode(email)
+      .then(() => {
+        // TO DO: SHOW SUCCESS MODAL
+        setSuccessMessage("Verification code resent successfully!");
+      })
+      .catch((error) => {
+        // TO DO: SHOW ERROR MODAL
+        setErrorMessage("Error resending verification code. Please try again.");
+        console.error(error);
+      });
+  };
+
+  const onCloseVerificationModal = () => {
+    setShowVerificationModal(false);
+  };
+
+  const showVerificationCodeModal = () => {
+    setShowVerificationModal(true);
+    // Resend verification code when the modal is shown
+    resendCode();
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -41,7 +76,10 @@ const SignUp = () => {
       .then((res) => {
         if (res.status === 201) {
           // TO DO: SHOW SUCCESS MODAL, THEN TIMEOUT AND NAVIGATE TO LOG IN
-          setSuccessMessage("Account created successfully!");
+          setSuccessMessage("Verification code resent successfully!");
+
+          // Show the verification code modal
+          showVerificationCodeModal();
           // Clear the form
           setValues({
             username: "",
@@ -49,11 +87,6 @@ const SignUp = () => {
             password: "",
             password_confirmation: "",
           });
-
-          // Navigate to login page after a timeout
-          setTimeout(() => {
-            navigate("/login");
-          }, 3000); // 3000 milliseconds (3 seconds)
         }
       })
       .catch((err) => {
@@ -144,6 +177,13 @@ const SignUp = () => {
           </form>
         </div>
       </div>
+      {showVerificationModal && (
+        <VerificationModal
+          onClose={onCloseVerificationModal}
+          onSubmit={handleVerificationSubmit}
+          onResend={resendCode}
+        />
+      )}
     </div>
   );
 };
