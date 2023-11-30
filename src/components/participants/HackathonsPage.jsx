@@ -30,7 +30,7 @@ const HackathonsPage = () => {
           </p>
           <div className="flex gap-5">
             <button
-              onClick={() => navigate("/participant/hack-details")}
+              onClick={() => navigate("/participant/hackathons/detail")}
               className="border border-blue-500 rounded-md text-blue-500 w-[100px] text-xs mt-4 py-1"
             >
               View project

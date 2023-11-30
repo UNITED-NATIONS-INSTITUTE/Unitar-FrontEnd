@@ -16,6 +16,7 @@ import OrgHackathonPage from "./components/organizers/OrgHackathonPage";
 import OrgSubmissionPage from "./components/organizers/OrgSubmissionPage";
 import CreateHackathon from "./components/organizers/createhackathon/CreateHackathon";
 import OrgHackathon from "./components/hackathon/hackathonDashboard/OrgHackathon";
+import PartHackathon from "./components/participants/PartHackathon";
 const App = () => {
   return (
     <Routes>
@@ -30,7 +31,8 @@ const App = () => {
         <Route path="profile" element={<Profile />} />
         <Route index element={<ParticipantDashboard />} />
         <Route path="dashboard" element={<ParticipantDashboard />} />
-        <Route path="hackathons" element={<HackathonDashboard />}>
+        <Route path="hackathons" element={<PartHackathon />}>
+          <Route index element={<HackathonDashboard />} />
           <Route path="detail" element={<HackathonDetailsPage />} />
           <Route path="submit" element={<SubmitHackathon />} />
         </Route>
@@ -41,7 +43,6 @@ const App = () => {
         <Route path="dashboard" element={<OrgDashboard />} />
         <Route path="hackathons" element={<OrgHackathon />}>
           <Route index element={<OrgHackathonPage />} />
-
           <Route path="create" element={<CreateHackathon />} />
         </Route>
         <Route path="submissions" element={<OrgSubmissionPage />} />
