@@ -3,7 +3,13 @@ import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import { createUserAccount } from "../../api/security/security";
 import { useNavigate, useLocation } from "react-router-dom";
+import VerificationModal from "./VerificationModal";
+
 const SignUp = () => {
+  const [showVerificationModal, setShowVerificationModal] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -29,6 +35,38 @@ const SignUp = () => {
     }
     return user;
   }
+  const handleVerificationSubmit = (code) => {
+    // Perform verification logic here
+
+    // After successful verification, navigate to login page
+    setTimeout(() => {
+      navigate("/login");
+    }, 3000); // 3000 milliseconds (3 seconds)
+  };
+
+  const resendCode = () => {
+    // Perform logic to resend verification code (e.g., send another email)
+    sendVerificationCode(email)
+      .then(() => {
+        // TO DO: SHOW SUCCESS MODAL
+        setSuccessMessage("Verification code resent successfully!");
+      })
+      .catch((error) => {
+        // TO DO: SHOW ERROR MODAL
+        setErrorMessage("Error resending verification code. Please try again.");
+        console.error(error);
+      });
+  };
+
+  const onCloseVerificationModal = () => {
+    setShowVerificationModal(false);
+  };
+
+  const showVerificationCodeModal = () => {
+    setShowVerificationModal(true);
+    // Resend verification code when the modal is shown
+    resendCode();
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -38,11 +76,23 @@ const SignUp = () => {
       .then((res) => {
         if (res.status === 201) {
           // TO DO: SHOW SUCCESS MODAL, THEN TIMEOUT AND NAVIGATE TO LOG IN
-          navigate("/login");
+          setSuccessMessage("Verification code resent successfully!");
+
+          // Show the verification code modal
+          showVerificationCodeModal();
+          // Clear the form
+          setValues({
+            username: "",
+            email: "",
+            password: "",
+            password_confirmation: "",
+          });
         }
       })
       .catch((err) => {
         // TO DO: SHOW ERROR MODAL
+        setErrorMessage("Error creating account. Please try again.");
+
         setValues({
           username: "",
           email: "",
@@ -56,11 +106,24 @@ const SignUp = () => {
     <div>
       <Navbar />
 
-      <div className="min-h-screen flex items-center justify-center mt-16">
+      <div className="min-h-screen flex items-center justify-center mt-16 bg-light-blue">
         <div className="bg-white p-8 rounded shadow-md w-100 border border-custom-blue overflow-y-auto ">
           <h2 className="mb-6 font-semibold">
             Sign up to UNITAR hackathon platform
           </h2>
+          {/* Display success message */}
+          {successMessage && (
+            <div className="mt-4 text-green-600 mb-4 border p-5 rounded border-green-600">
+              {successMessage}
+            </div>
+          )}
+
+          {/* Display error message */}
+          {errorMessage && (
+            <div className="mt-4 text-red-600 mb-4 border p-5 rounded border-red-600">
+              {errorMessage}
+            </div>
+          )}
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="mb-4">
               <label className="block text-md mb-2">Username</label>
@@ -114,6 +177,13 @@ const SignUp = () => {
           </form>
         </div>
       </div>
+      {showVerificationModal && (
+        <VerificationModal
+          onClose={onCloseVerificationModal}
+          onSubmit={handleVerificationSubmit}
+          onResend={resendCode}
+        />
+      )}
     </div>
   );
 };

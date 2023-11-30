@@ -14,9 +14,12 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.14.18",
+    "@mui/x-charts": "^6.18.2",
+    "@mui/x-data-grid": "^6.18.2",
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.6.2",
     "jwt-decode": "^3.1.2",
+    "mui-tel-input": "^4.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
@@ -58,7 +61,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
     "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5"
-
+    "prettier-plugin-tailwindcss": "^0.5.7",
+    "tailwindcss": "^3.3.5",
+    "vite": "^5.0.0"
   }
 }

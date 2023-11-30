@@ -9,9 +9,16 @@ import {
 } from "../../features/user/userSlice";
 import { requestToken } from "../../api/security/security";
 import jwt_decode from "jwt-decode";
+import BasicModal from "./SignUpModal";
 const LogIn = () => {
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [openSignUpModal, setOpenSignUpModal] = useState(false);
+  const openModal = () => setOpenSignUpModal(true);
+  const closeModal = () => setOpenSignUpModal(false);
   const [values, setValues] = useState({
     username: "",
     password: "",
@@ -40,6 +47,13 @@ const LogIn = () => {
         if (response.status === 200) {
           // decodes JWT to determine user role and reference
           // TO DO: SHOW SUCCESS MODAL
+          setSuccessMessage("Login successful!");
+          // Clear the form
+          setValues({
+            email: "",
+            password: "",
+          });
+
           const decodedToken = jwt_decode(response.data.accessToken);
 
           dispatch(setAccessToken({ accessToken: response.data.accessToken }));
@@ -52,6 +66,7 @@ const LogIn = () => {
       })
       .catch((err) => {
         // TO DO: SHOW ERROR MODAL
+        setErrorMessage("Invalid email or password. Please try again.");
         setValues({
           username: "",
           password: "",
@@ -60,12 +75,27 @@ const LogIn = () => {
   };
   return (
     <div>
-      <Navbar />
-      <div className="min-h-screen flex items-center justify-center">
+      <Navbar openModal={openModal} />
+      <BasicModal openModal={openSignUpModal} handleClose={closeModal} />
+      <div className="min-h-screen flex items-center justify-center bg-light-blue">
         <div className="bg-white p-8 rounded shadow-md w-100 border border-custom-blue">
           <h2 className="mb-6 font-semibold">
             Login to unitar hackathon platform
           </h2>
+          {/* Display success message */}
+          {successMessage && (
+            <div className="mt-4 text-green-600 mb-4 border p-5 rounded border-green-600">
+              {successMessage}
+            </div>
+          )}
+
+          {/* Display error message */}
+          {errorMessage && (
+            <div className="mt-4 text-red-600 mb-4 border p-5 rounded border-red-600">
+              {errorMessage}
+            </div>
+          )}
+
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="mb-4">
               <label className="block text-md mb-2">Username</label>
@@ -92,7 +122,10 @@ const LogIn = () => {
               </button>
               <p className="mt-5 text-md text-gray-600">
                 Don't have a unitar account?
-                <Link to="/prompt" className="text-blue-500 ml-1">
+                <Link
+                  onClick={() => openModal()}
+                  className="text-blue-500 ml-1"
+                >
                   Sign up here
                 </Link>
               </p>
