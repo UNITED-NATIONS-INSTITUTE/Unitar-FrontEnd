@@ -41,12 +41,12 @@ const SubmitHackDetails = () => {
           </label>
           <input
             type="text"
-            className="w-[400px] px-3 py-2 border border-grey-600 rounded text-xs
+            className="w-[400px] px-3 py-2 border border-gray-400 rounded text-xs
         focus:outline-none focus:border-custom-blue "
             placeholder=""
             required
           />
-          <span className="text-xs text-gray-400 mt-2">
+          <span className="text-xs text-gray-500 mt-2">
             Do not exceed 20 character writing the project name
           </span>
           <label className="mt-5 mb-2 text-xs" name="projectDescription">
@@ -63,7 +63,7 @@ const SubmitHackDetails = () => {
             Project image
           </label>
           <div
-            className="w-[500px]  px-3 py-2 border border-grey-600 rounded text-xs"
+            className="w-[500px]  px-3 py-2 border border-gray-400 rounded text-xs"
             s
           >
             <input
