@@ -18,6 +18,10 @@ import CreateHackathon from "./components/organizers/createhackathon/CreateHacka
 
 import PartHackathon from "./components/participants/PartHackathon";
 
+import OrgOutlet from "./components/organizers/OrgOutlet";
+import OrgSubmissions from "./components/organizers/OrgSubmissions";
+import OrgViewProject from "./components/organizers/OrgViewProject";
+
 const App = () => {
   return (
     <Routes>
@@ -41,12 +45,19 @@ const App = () => {
       {/* ORGANIZER */}
       <Route path="organizer" element={<OrgSidebar />}>
         <Route index element={<OrgDashboard />} />
-        <Route path="dashboard" element={<OrgDashboard />} />
+        <Route path="dashboard" element={<OrgOutlet />}>
+          <Route index element={<OrgDashboard />} />
+          <Route path="detail" element={<OrgViewProject />} />
+        </Route>
+
         <Route path="hackathons" element={<Outlet />}>
           <Route index element={<OrgHackathonPage />} />
           <Route path="create" element={<CreateHackathon />} />
         </Route>
-        <Route path="submissions" element={<OrgSubmissionPage />} />
+        <Route path="submissions" element={<OrgOutlet />}>
+          <Route index element={<OrgSubmissionPage />} />
+          <Route path="table" element={<OrgSubmissions />} />
+        </Route>
       </Route>
       {/* ADMIN */}
     </Routes>
