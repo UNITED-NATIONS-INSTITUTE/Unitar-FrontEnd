@@ -26,30 +26,6 @@ const OrgSubmissionsTable = () => {
     fontSize: "20px",
   };
 
-  const customButton = {
-    borderRadius: "8px",
-    marginRight: "30px",
-    gap: "10",
-    padding: "8px",
-    color: "#000",
-    textTransform: "lowercase",
-    fontFamily: "Inter, sans-serif",
-    fontSize: "18px",
-    backgroundColor: "#089bd9",
-    "&:hover": { backgroundColor: "inherit" },
-  };
-
-  const navigate = useNavigate();
-  const [choice, setChoice] = useState("");
-
-  const handleChoice = (selectedChoice) => {
-    setChoice(selectedChoice);
-    if (selectedChoice === "ORGANIZER") {
-      navigate("/org-signup"); //navigate to org sign in
-    } else if (selectedChoice === "PARTICIPANT") {
-      navigate("/part-signup"); //navigate to participant sign in
-    }
-  };
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
