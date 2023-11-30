@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
 import LandingPage from "./components/common/LandingPage";
 import SignUp from "./components/common/SignUp";
 import LogIn from "./components/common/LogIn";
@@ -15,8 +15,9 @@ import OrgSidebar from "./components/organizers/OrgSidebar";
 import OrgHackathonPage from "./components/organizers/OrgHackathonPage";
 import OrgSubmissionPage from "./components/organizers/OrgSubmissionPage";
 import CreateHackathon from "./components/organizers/createhackathon/CreateHackathon";
-import OrgHackathon from "./components/hackathon/hackathonDashboard/OrgHackathon";
+
 import PartHackathon from "./components/participants/PartHackathon";
+
 const App = () => {
   return (
     <Routes>
@@ -41,7 +42,7 @@ const App = () => {
       <Route path="organizer" element={<OrgSidebar />}>
         <Route index element={<OrgDashboard />} />
         <Route path="dashboard" element={<OrgDashboard />} />
-        <Route path="hackathons" element={<OrgHackathon />}>
+        <Route path="hackathons" element={<Outlet />}>
           <Route index element={<OrgHackathonPage />} />
           <Route path="create" element={<CreateHackathon />} />
         </Route>

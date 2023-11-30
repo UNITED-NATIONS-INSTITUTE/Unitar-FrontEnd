@@ -14,13 +14,13 @@ const OrgHackathonPage = () => {
             <UserProfile />
           </div>
           <button
-            onClick={() => navigate("/organizer/create-hackathon")}
+            onClick={() => navigate("create")}
             className="text-xs bg-custom-blue rounded-lg mt-10 mb-5 border w-[150px] text-white font-semibold p-3"
           >
             Create a hackathon
           </button>
           <span className="text-gray-600 font-semibold text-sm ">
-            Our Hackathons
+            Your Hackathons
           </span>
         </div>
         <OrgHackathons />
