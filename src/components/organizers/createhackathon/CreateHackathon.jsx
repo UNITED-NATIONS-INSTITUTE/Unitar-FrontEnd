@@ -1,11 +1,42 @@
 import React, { useState } from "react";
 import UserProfile from "../../common/UserProfile";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Stack, Grid, Typography, Box } from "@mui/material";
 import TagSelector from "./TagSelector";
+import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
+import DatePicker from "../../common/utils/DatePicker";
 const CreateHackathon = () => {
   const [tags, setTags] = useState([]);
+  const [values, setValues] = useState({
+    dateTo: "",
+  });
+  const { dateTo } = values;
+  const [timelineItems, setTimelineItems] = useState([
+    { period_name: "", start_date: "" },
+  ]);
   const readCategories = (categoriesArray) => {
     setTags(categoriesArray);
+  };
+  const handleAddTimelineItems = () => {
+    const values = [...timelineItems];
+    values.push({
+      period_name: "",
+      start_date: "",
+    });
+    setTimelineItems(values);
+  };
+  const handleRemoveTimelineItems = (index) => {
+    const values = [...timelineItems];
+    values.splice(index, 1);
+    setTimelineItems(values);
+  };
+  const handleInputChange = (index, event) => {
+    const values = [...timelineItems];
+    const updatedValue = event.target.name;
+    values[index][updatedValue] = event.target.value;
+    setTimelineItems(values);
+  };
+  const handleCompletionDateChange = (date) => {
+    setValues({ ...values, dateTo: date });
   };
   return (
     <div className="bg-white p-8 right-side min-h-screen">
@@ -99,19 +130,106 @@ const CreateHackathon = () => {
                 <div className="flex flex-row border-gray-200 rounded p-2 border gap-2">
                   <TagSelector func={readCategories} />
                 </div>
-                <label
-                  className=" font-semibold mt-5 mb-2 text-xs "
-                  name="projectName"
-                >
-                  Timelines
-                </label>
                 <div className="flex flex-row gap-5">
-                  <Button
-                    variant="outlined"
-                    // onClick={() => handleAddContactItems()}
+                  <ValidatorForm
+                    autoComplete="off"
+                    // onSubmit={(e) => testSubmit(e)}
                   >
-                    Create Timeline
-                  </Button>
+                    {timelineItems.length > 0 &&
+                      timelineItems.map((field, index) => {
+                        return (
+                          <Stack key={index}>
+                            <Grid
+                              container
+                              // xs={12}
+                              component="fieldset"
+                              sx={{
+                                border: "solid 3px #295FAB",
+                                borderRadius: "15px",
+                                padding: (theme) => theme.spacing(2),
+                              }}
+                            >
+                              <legend>
+                                <Typography>Hackathon Timeline</Typography>
+                              </legend>
+                              <Grid sx={{ m: 1 }}>
+                                <Box>
+                                  <Typography sx={{ fontWeight: "500" }}>
+                                    Event Name
+                                  </Typography>
+                                  <TextValidator
+                                    placeholder="project ideation"
+                                    fullWidth
+                                    value={field.detail}
+                                    onChange={(event) =>
+                                      handleInputChange(index, event)
+                                    }
+                                    type="text"
+                                    name="detail"
+                                    validators={["required"]}
+                                    errorMessages={["This Field is Required"]}
+                                  />
+                                </Box>
+                                <Box>
+                                  <Typography sx={{ fontWeight: "500" }}>
+                                    Date Due
+                                  </Typography>
+                                  {/* put a date field here */}
+                                  <DatePicker
+                                    handleDateChange={
+                                      handleCompletionDateChange
+                                    }
+                                  />
+                                </Box>
+                                <Box sx={{ mt: 2 }}>
+                                  <Button
+                                    sx={{
+                                      color: "error.main",
+                                      borderColor: "error.main",
+                                    }}
+                                    variant="outlined"
+                                    onClick={() =>
+                                      handleRemoveTimelineItems(index)
+                                    }
+                                  >
+                                    Remove Entry
+                                  </Button>
+                                </Box>
+                              </Grid>
+                            </Grid>
+                          </Stack>
+                        );
+                      })}
+                    <Grid>
+                      <Box>
+                        <Stack direction="row">
+                          {" "}
+                          <Button
+                            variant="outlined"
+                            onClick={() => handleAddTimelineItems()}
+                            sx={{ mt: 1, borderRadius: 2 }}
+                          >
+                            Add timeline entry
+                          </Button>
+                        </Stack>
+                      </Box>
+                      <Box>
+                        {" "}
+                        <Button
+                          // type="submit"
+                          variant="contained"                          
+                          sx={{
+                            fontSize: "1rem",
+                            color: "white",
+                            mt: 1,
+                            bgcolor: "green",
+                          }}
+                        >
+                          Save Timeline Info
+                        </Button>{" "}
+                      </Box>
+                    </Grid>
+                  </ValidatorForm>
                 </div>
               </div>
               <div className="flex flex-col">
