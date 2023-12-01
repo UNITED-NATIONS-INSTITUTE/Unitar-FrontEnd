@@ -5,6 +5,7 @@ import { getOrganizerHackathons } from "../../api/hackathons/hackathons";
 import { selectOrganizerCode } from "../../features/organizer/organizerSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { setSelectedHackathonDetail } from "../../features/hackathon/hackathonSlice";
+import HackathonMedia from "../common/utils/HackathonMedia";
 const OrgHackathons = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -30,42 +31,15 @@ const OrgHackathons = () => {
     );
     navigate("/organizer/hackathons/detail");
   };
-  const containerStyle = {
-    position: "relative",
-    width: "250 px",
-    height: "200 px",
-  };
-
-  const coverStyle = {
-    width: "250px",
-    height: "200px",
-  };
-
-  const avatarStyle = {
-    position: "absolute",
-    bottom: 0,
-    right: 0,
-    width: "50px",
-    height: "50px",
-    borderRadius: "20px",
-  };
 
   return (
     <div className="flex space-x-4 mt-5 ml-4">
       {hackathonsPayload.map((field, index) => (
         <div key={index} className="flex flex-col iems-center mb-4">
-          <div style={containerStyle}>
-            <img
-              src={field.cover_image_url}
-              alt="Cover image"
-              style={coverStyle}
-            />
-            <img
-              src={field.avatar_url}
-              alt="Avatar image"
-              style={avatarStyle}
-            />
-          </div>
+          <HackathonMedia
+            cover_image_url={field.cover_image_url}
+            avatar_url={field.avatar_url}
+          />
           <p className="mt-2 text-sm  font-bold">{field.title}</p>
           <p className="mt-2 text-sm text-gray-500">{field.highlight}</p>
           <p className="mt-2 text-xs text-gray-500">{field.description}</p>
