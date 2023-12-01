@@ -7,8 +7,7 @@ const OrgViewProject = () => {
   return (
     <div className="bg-white p-8  min-h-screen right-side">
       <div className="flex justify-between">
-        <div></div>
-        <h1 className="mt-0 text-gray-600 font-bold  text-[20px] mr-[550px] ">
+        <h1 className="mt-0 text-gray-600 font-bold  text-[20px] ml-60 ">
           Hackathon
         </h1>
         <UserProfile />
