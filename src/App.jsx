@@ -22,6 +22,7 @@ import OrgOutlet from "./components/organizers/OrgOutlet";
 import OrgSubmissions from "./components/organizers/OrgSubmissions";
 import OrgViewProject from "./components/organizers/OrgViewProject";
 import ViewDetailsPage from "./components/organizers/ViewDetailsPage";
+import HackathonMedia from "./components/hackathon/HackathonMedia";
 
 const App = () => {
   return (
@@ -52,7 +53,10 @@ const App = () => {
         </Route>
         <Route path="hackathons" element={<Outlet />}>
           <Route index element={<OrgHackathonPage />} />
-          <Route path="create" element={<CreateHackathon />} />
+          <Route path="create" element={<Outlet />}>
+            <Route index element={<CreateHackathon />} />
+            <Route path="media" element={<HackathonMedia />} />
+          </Route>
         </Route>
         <Route path="submissions" element={<OrgOutlet />}>
           <Route index element={<OrgSubmissionPage />} />
