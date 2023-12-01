@@ -21,7 +21,8 @@ import PartHackathon from "./components/participants/PartHackathon";
 import OrgOutlet from "./components/organizers/OrgOutlet";
 import OrgSubmissions from "./components/organizers/OrgSubmissions";
 import OrgViewProject from "./components/organizers/OrgViewProject";
-
+import UnAuthorized from "./components/common/utils/UnAuthorized";
+import RequireAuth from "./components/common/utils/RequireAuth";
 const App = () => {
   return (
     <Routes>
@@ -31,39 +32,46 @@ const App = () => {
       <Route path="/org-signup" element={<SignUp />} />
       <Route path="/part-signup" element={<SignUp />} />
       <Route path="/login" element={<LogIn />} />
+      <Route path="unauthorized" element={<UnAuthorized />} />
       {/* PARTICIPANT */}
-      <Route path="participant" element={<Sidebar />}>
-        <Route path="profile" element={<Profile />} />
-        <Route index element={<ParticipantDashboard />} />
-        <Route path="dashboard" element={<ParticipantDashboard />} />
-        <Route path="hackathons" element={<PartHackathon />}>
-          <Route index element={<HackathonDashboard />} />
-          <Route path="detail" element={<HackathonDetailsPage />} />
-          <Route path="submit" element={<SubmitHackathon />} />
-        </Route>
-      </Route>
-      {/* ORGANIZER */}
-      <Route path="organizer" element={<OrgSidebar />}>
-        <Route index element={<OrgDashboard />} />
-        <Route path="dashboard" element={<OrgOutlet />}>
-          <Route index element={<OrgDashboard />} />
-        </Route>
-
-        <Route path="hackathons" element={<Outlet />}>
-          <Route index element={<OrgHackathonPage />} />
-          <Route path="detail" element={<OrgViewProject />}/>
-          <Route path="create" element={<Outlet />}>
-            <Route index element={<CreateHackathon />} />
-            {/* <Route path="add-media" element={<HackathonMedia />} />
-            <Route path="get-validation" element={<EmailValidation />} />
-            <Route path="validate" element={<ValidateHackathon />} /> */}
+      <Route element={<RequireAuth requiredRouteRole={"PARTICIPANT"} />}>
+        <Route path="participant" element={<Sidebar />}>
+          <Route path="profile" element={<Profile />} />
+          <Route index element={<ParticipantDashboard />} />
+          <Route path="dashboard" element={<ParticipantDashboard />} />
+          <Route path="hackathons" element={<PartHackathon />}>
+            <Route index element={<HackathonDashboard />} />
+            <Route path="detail" element={<HackathonDetailsPage />} />
+            <Route path="submit" element={<SubmitHackathon />} />
           </Route>
         </Route>
-        <Route path="submissions" element={<OrgOutlet />}>
-          <Route index element={<OrgSubmissionPage />} />
-          <Route path="table" element={<OrgSubmissions />} />
+      </Route>
+
+      {/* ORGANIZER */}
+      <Route element={<RequireAuth requiredRouteRole={"ORGANIZER"} />}>
+        <Route path="organizer" element={<OrgSidebar />}>
+          <Route index element={<OrgDashboard />} />
+          <Route path="dashboard" element={<OrgOutlet />}>
+            <Route index element={<OrgDashboard />} />
+          </Route>
+
+          <Route path="hackathons" element={<Outlet />}>
+            <Route index element={<OrgHackathonPage />} />
+            <Route path="detail" element={<OrgViewProject />} />
+            <Route path="create" element={<Outlet />}>
+              <Route index element={<CreateHackathon />} />
+              {/* <Route path="add-media" element={<HackathonMedia />} />
+            <Route path="get-validation" element={<EmailValidation />} />
+            <Route path="validate" element={<ValidateHackathon />} /> */}
+            </Route>
+          </Route>
+          <Route path="submissions" element={<OrgOutlet />}>
+            <Route index element={<OrgSubmissionPage />} />
+            <Route path="table" element={<OrgSubmissions />} />
+          </Route>
         </Route>
       </Route>
+
       {/* ADMIN */}
     </Routes>
   );
