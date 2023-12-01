@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { useNavigate } from "react-router-dom";
-
+import ViewDetailsPage from "./ViewDetailsPage";
+import GradingModal from "./GradingModal";
 const OrgSubmissionsTable = () => {
-  const navigate = useNavigate();
+  const [openSignUpModal, setOpenSignUpModal] = useState(false);
+  const openModal = () => setOpenSignUpModal(true);
+  const closeModal = () => setOpenSignUpModal(false);
+  const [detailsVisible, setDetailsVisible] = useState(false);
+
+  const showDetails = () => {
+    setDetailsVisible(true);
+  };
   const customBorder = {
     border: "none",
     borderBottom: "1px solid #0e0e0e",
@@ -32,7 +40,7 @@ const OrgSubmissionsTable = () => {
       width: 110,
       renderCell: () => (
         <button
-          onClick={() => navigate("/organizer/submissions/details/view")}
+          onClick={showDetails}
           className="bg-custom-blue text-white rounded-md text-xs font-semibold px-3 py-2"
         >
           View details
@@ -53,18 +61,26 @@ const OrgSubmissionsTable = () => {
     },
   ];
   return (
-    <div style={{ height: 400, width: "100%" }}>
-      <DataGrid
-        sx={customBorder}
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 5 },
-          },
-        }}
-        pageSizeOptions={[5, 10]}
-      />
+    <div className=" flex flex-col">
+      {" "}
+      <div style={{ height: 400, width: "100%" }}>
+        <DataGrid
+          sx={customBorder}
+          rows={rows}
+          columns={columns}
+          initialState={{
+            pagination: {
+              paginationModel: { page: 0, pageSize: 5 },
+            },
+          }}
+          pageSizeOptions={[5, 10]}
+        />
+      </div>{" "}
+      <div className={detailsVisible ? "block" : "hidden"}>
+        {" "}
+        <ViewDetailsPage openModal={openModal} />{" "}
+        <GradingModal openModal={openSignUpModal} handleClose={closeModal} />
+      </div>
     </div>
   );
 };
