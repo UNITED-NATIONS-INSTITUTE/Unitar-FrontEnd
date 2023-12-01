@@ -28,7 +28,6 @@ import organizers from "./components/admin/organizers";
 import participants from "./components/admin/participants";
 import Sidebar from "./components/admin/Sidebar";
 
-
 const App = () => {
   return (
     <Routes>
@@ -67,12 +66,32 @@ const App = () => {
         </Route>
       </Route>
       {/* ADMIN */}
-      <Route index element={<hackathonentries />} />
-      <Route index element={<hackathons />} />
-      <Route index element={<organizers />} />
-      <Route index element={<participants />} />
-      <Route path="admin" element={<Sidebar />}>
-
+      <Route path="admin" element={<AdminSidebar />}>
+        <Route index element={<AdminDashboard />} />
+        <Route path="participants" element={<Outlet />}>
+          <Route index element={<AllParticipants />} />
+          <Route path="detail" element={<ParticipantProfile />} />
+        </Route>
+        <Route path="organizers" element={<Outlet />}>
+          <Route index element={<AllOrganizers />} />
+          <Route path="detail" element={<OrganizerProfile />} />
+        </Route>
+        <Route path="hackathons" element={<Outlet />}>
+          <Route index element={<AllHackathons />} />
+          <Route path="detail" element={<HackathonDetails />} />
+        </Route>
+        <Route path="submissions" element={<Outlet />}>
+          <Route index element={<AllSubmissions />} />
+          <Route path="detail" element={<SubmissionDetails />} />
+          {/* IMPLEMENT submission DELETION IN THE submission DETAIL COMPONENT ABOVE */}
+        </Route>
+        <Route path="user" element={<Outlet />}>
+          <Route index element={<UsersTable />} />
+          <Route path="detail" element={<UserDetails />} />
+          {/* IMPLEMENT USER ACTIVATION AND DEACTIVATION IN THE USER DETAIL COMPONENT ABOVE */}
+          <Route path="create" element={<CreateUser />} />
+        </Route>
+      </Route>
     </Routes>
   );
 };
