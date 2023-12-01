@@ -47,11 +47,11 @@ const App = () => {
         <Route index element={<OrgDashboard />} />
         <Route path="dashboard" element={<OrgOutlet />}>
           <Route index element={<OrgDashboard />} />
-          <Route path="detail" element={<OrgViewProject />} />
         </Route>
 
         <Route path="hackathons" element={<Outlet />}>
           <Route index element={<OrgHackathonPage />} />
+          <Route path="detail" element={<OrgViewProject />}/>
           <Route path="create" element={<Outlet />}>
             <Route index element={<CreateHackathon />} />
             {/* <Route path="add-media" element={<HackathonMedia />} />
