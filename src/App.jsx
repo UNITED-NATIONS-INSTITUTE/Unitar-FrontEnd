@@ -21,6 +21,7 @@ import PartHackathon from "./components/participants/PartHackathon";
 import OrgOutlet from "./components/organizers/OrgOutlet";
 import OrgSubmissions from "./components/organizers/OrgSubmissions";
 import OrgViewProject from "./components/organizers/OrgViewProject";
+import ViewDetailsPage from "./components/organizers/ViewDetailsPage";
 
 const App = () => {
   return (
@@ -49,14 +50,16 @@ const App = () => {
           <Route index element={<OrgDashboard />} />
           <Route path="detail" element={<OrgViewProject />} />
         </Route>
-
         <Route path="hackathons" element={<Outlet />}>
           <Route index element={<OrgHackathonPage />} />
           <Route path="create" element={<CreateHackathon />} />
         </Route>
         <Route path="submissions" element={<OrgOutlet />}>
           <Route index element={<OrgSubmissionPage />} />
-          <Route path="table" element={<OrgSubmissions />} />
+          <Route path="details" element={<OrgOutlet />}>
+            <Route index element={<OrgSubmissions />} />
+            <Route path="view" element={<ViewDetailsPage />} />
+          </Route>
         </Route>
       </Route>
       {/* ADMIN */}
