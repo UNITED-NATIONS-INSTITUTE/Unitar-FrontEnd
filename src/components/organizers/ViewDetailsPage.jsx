@@ -1,9 +1,9 @@
 import React from "react";
 
-const ViewDetailsPage = () => {
+const ViewDetailsPage = ({ openModal }) => {
   return (
-    <div className="right-side bg-white min-h-screen">
-      <div className="ml-60 flex gap-[80px] mt-10">
+    <div>
+      <div className="flex gap-[80px] mt-10">
         <img
           src="/assets/image1.svg"
           alt="hackathon"
@@ -14,10 +14,15 @@ const ViewDetailsPage = () => {
           <h3 className="font-semibold mt-6">Hackathon Platform</h3>
           <p className="mt-6">Project Description</p>
           <p className="mt-6 text-xs w-[400px]">
-            Lorem ipsum dolor sit amet consectetur. Neque leo cursus nunc et
-            luctus eu. Pellentesque velit iaculis lectus suspendisse nec neque.
-            Mauris pharetra dui at enim morbi nisl rhoncus orci eu. Quis
-            praesent morbi{" "}
+            EcoTrack is a hackathon project designed to promote environmental
+            awareness and sustainable living. The project features a
+            user-friendly mobile app that calculates and visualizes individual
+            carbon footprints using GPS data and user inputs. Leveraging IoT
+            devices, EcoTrack integrates data from smart appliances and
+            vehicles, providing users with a comprehensive view of their carbon
+            emissions. Gamification elements encourage users to set and achieve
+            sustainability goals, while a marketplace facilitates direct
+            contributions to verified carbon offset projects.
           </p>{" "}
           <div className="flex flex-row gap-[100px] mt-10">
             <div className="flex flex-col ">
@@ -56,7 +61,10 @@ const ViewDetailsPage = () => {
             <p className="text-xs text-[#6E7079]  mt-2 "> Denis Kim</p>
           </div>
           <div className="flex justify-end">
-            <button className="bg-custom-blue rounded-md w-[100px] text-white text-xs px-3 py-2">
+            <button
+              className="bg-custom-blue rounded-md w-[100px] text-white text-xs px-3 py-2"
+              onClick={() => openModal()}
+            >
               Grade Hackathon
             </button>
           </div>

@@ -30,7 +30,7 @@ const CreateHackathon = () => {
           <span>Basic details</span>
         </p>
         {/* <p className="font-bold mt-5 mb-5">Create a hackathon</p> */}
-        <div className="flex">
+        <div className=" flex">
           <div>
             <form className="flex gap-[100px]">
               <div className="flex flex-col ">
@@ -42,7 +42,7 @@ const CreateHackathon = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
+                  className="w-[300px] px-3 py-2 border border-gray-400 rounded text-xs
         focus:outline-none focus:border-custom-blue "
                   placeholder="Stack a Stake Competition"
                   required
@@ -58,7 +58,7 @@ const CreateHackathon = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
+                  className="w-[300px] px-3 py-2 border border-gray-400 rounded text-xs
         focus:outline-none focus:border-custom-blue "
                   placeholder="Building for the future"
                   required
@@ -71,7 +71,7 @@ const CreateHackathon = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
+                  className="w-[300px] px-3 py-2 border border-gray-400 rounded text-xs
         focus:outline-none focus:border-custom-blue "
                   placeholder="virtual, hybrid, onsite, etc"
                   required
@@ -158,7 +158,7 @@ const CreateHackathon = () => {
                 <div className="flex justify-end">
                   <button
                     type="submit"
-                    className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[200px] mt-[20px]"
+                    className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[150px] mt-[20px]"
                   >
                     Submit Hackathon details
                   </button>
