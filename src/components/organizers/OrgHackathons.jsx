@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Avatars from "../common/Avatars";
+// import Avatars from "../common/Avatars";
 import { useNavigate } from "react-router-dom";
 import { getOrganizerHackathons } from "../../api/hackathons/hackathons";
 import { selectOrganizerCode } from "../../features/organizer/organizerSlice";
@@ -22,19 +22,34 @@ const OrgHackathons = () => {
   useEffect(() => {
     fetchHackathons();
   }, []);
+  const containerStyle = {
+    position: "relative",
+    width: "250 px",
+    height: "200 px",
+  };
+
+  const coverStyle = {
+    width: "250px",
+    height: "200px",
+  };
+
+  const avatarStyle = {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    width: "50px",
+    height: "50px",
+    borderRadius: "20px",
+  };
 
   return (
     <div className="flex space-x-4 mt-5 ml-4">
       {hackathonsPayload.map((field, index) => (
         <div key={index} className="flex flex-col iems-center mb-4">
-          <img
-            className="rounded-md"
-            key={index}
-            src={field.avatar_url}
-            alt={`Image#${index + 1}`}
-            width="250"
-            height="200"
-          />
+          <div style={containerStyle}>
+            <img src={field.cover_image_url} alt="Cover image" style={coverStyle} />
+            <img src={field.avatar_url} alt="Avatar image" style={avatarStyle} />
+          </div>
           <p className="mt-2 text-sm  font-bold">{field.title}</p>
           <p className="mt-2 text-sm text-gray-500">{field.highlight}</p>
           <p className="mt-2 text-xs text-gray-500">{field.description}</p>
