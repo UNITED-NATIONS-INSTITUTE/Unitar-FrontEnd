@@ -1,7 +1,7 @@
 import React from "react";
 import UserProfile from "../../common/UserProfile";
-import HackDetailsPart1 from "./HackDetailsPart1";
-import HackDetailsPart2 from "./HackDetailsPart2";
+// import HackDetailsPart1 from "./HackDetailsPart1";
+// import HackDetailsPart2 from "./HackDetailsPart2";
 
 const HackathonDetailsPage = () => {
   return (
@@ -24,10 +24,10 @@ const HackathonDetailsPage = () => {
       </p>
       <div className="flex gap-[100px] ml-60">
         <div>
-          <HackDetailsPart1 />
+          {/* <HackDetailsPart1 /> */}
         </div>
         <div>
-          <HackDetailsPart2 />
+          {/* <HackDetailsPart2 /> */}
         </div>
       </div>
     </div>
