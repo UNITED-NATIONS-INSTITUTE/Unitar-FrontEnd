@@ -60,6 +60,7 @@ const App = () => {
           <Route index element={<OrgHackathonPage />} />
           <Route path="create" element={<Outlet />}>
             <Route index element={<CreateHackathon />} />
+
             <Route path="email" element={<EmailValidation />} />
             <Route path="verification" element={<CodeVerification />} />
             <Route path="addmedia" element={<Outlet />}>
