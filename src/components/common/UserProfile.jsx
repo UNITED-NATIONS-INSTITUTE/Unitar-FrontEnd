@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Menu, MenuItem } from "@mui/material";
+import { Avatar, Menu, MenuItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { store } from "../../store/store";
-const UserProfile = () => {
+const UserProfile = ({ profilePic }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const openProfileMenu = () => setAnchorElNav(true);
@@ -21,10 +21,10 @@ const UserProfile = () => {
     <div className="relative inline-block">
       <div className="flex items-center border p-1 border-custom-grey rounded-lg space-x-2 cursor-pointer">
         <div onClick={() => openProfileMenu()}>
-          <img
-            src="/assets/avatar1.jpg"
-            alt="profile"
-            className="w-6 h-6 rounded-full"
+          <Avatar
+            alt="Profile pic"
+            src={profilePic}
+            sx={{ width: "24px", height: "24px" }}
           />
           <span className="text-xs">Joe Kyle</span>
         </div>
