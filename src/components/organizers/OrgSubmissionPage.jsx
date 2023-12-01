@@ -39,7 +39,7 @@ const OrgSubmissionPage = () => {
               </p>
               <div className="flex gap-5">
                 <button
-                  onClick={() => navigate("/organizer/submissions/table")}
+                  onClick={() => navigate("/organizer/submissions/details")}
                   className="border border-blue-500 rounded-md text-blue-500 w-[150px] text-xs mt-4 py-1"
                 >
                   View submissions

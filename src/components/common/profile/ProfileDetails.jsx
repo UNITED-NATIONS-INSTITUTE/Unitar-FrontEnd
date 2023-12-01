@@ -4,7 +4,7 @@ import ProfileInputs from "./ProfileInputs";
 import UserProfile from "../UserProfile";
 
 const ProfileDetails = () => {
-  const [profilePic, setProfilePic] = useState("/assets/avatar1.jpg");
+  const [profilePic, setProfilePic] = useState("");
 
   const handleUpdate = (newPic) => {
     setProfilePic(newPic);

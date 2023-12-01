@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
@@ -22,19 +22,6 @@ const customStyles = {
   fontFamily: "Lexend, sans-serif",
   marginTop: "20px",
   fontSize: "24px",
-};
-
-const customButton = {
-  borderRadius: "8px",
-  marginRight: "30px",
-  gap: "10",
-  padding: "8px",
-  color: "#000",
-  textTransform: "lowercase",
-  fontFamily: "Inter, sans-serif",
-  fontSize: "18px",
-  backgroundColor: "#089bd9",
-  "&:hover": { backgroundColor: "inherit" },
 };
 
 export default function BasicModal({ openModal, handleClose }) {
