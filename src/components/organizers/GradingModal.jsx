@@ -2,7 +2,6 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import { useNavigate } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -64,4 +63,3 @@ export default function GradingModal({ openModal, handleClose }) {
     </Box>
   );
 }
->>>>>>> d8d67855b65a0772b8cdf78a3e57cb33b9629d83
