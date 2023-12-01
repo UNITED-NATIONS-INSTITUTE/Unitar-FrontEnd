@@ -1,21 +1,41 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import UserProfile from "../../common/UserProfile";
 import { TextField, Button, Stack, Grid, Typography, Box } from "@mui/material";
 import TagSelector from "./TagSelector";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import DatePicker from "../../common/utils/DatePicker";
+import moment from "moment";
+import { selectOrganizerCode } from "../../../features/organizer/organizerSlice";
+import { createHackathon } from "../../../api/hackathons/hackathons";
 const CreateHackathon = () => {
   const [tags, setTags] = useState([]);
   const [values, setValues] = useState({
-    dateTo: "",
+    title: "",
+    highlight: "",
+    location: "",
+    description: "",
+    deliverables: "",
+    goals: "",
+    prize: "",
   });
-  const { dateTo } = values;
+  const {
+    title,
+    highlight,
+    location,
+    description,
+    deliverables,
+    goals,
+    prize,
+  } = values;
   const [timelineItems, setTimelineItems] = useState([
     { period_name: "", start_date: "" },
   ]);
   const readCategories = (categoriesArray) => {
     setTags(categoriesArray);
   };
+  // TO DO: REMOVE HARDCODED ORG CODE
+  const org_code = useSelector(selectOrganizerCode);
   const handleAddTimelineItems = () => {
     const values = [...timelineItems];
     values.push({
@@ -35,8 +55,39 @@ const CreateHackathon = () => {
     values[index][updatedValue] = event.target.value;
     setTimelineItems(values);
   };
-  const handleCompletionDateChange = (date) => {
-    setValues({ ...values, dateTo: date });
+  const handleCompletionDateChange = (date, index) => {
+    let utcDate = moment.utc(date.$d, "ddd MMM DD YYYY HH:mm:ss [GMT]ZZ (z)");
+    const values = [...timelineItems];
+    values[index]["start_date"] = utcDate.toISOString();
+    setTimelineItems(values);
+  };
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+  const handleCreateHackathon = (e) => {
+    e.preventDefault();
+    let hackathonObj = {
+      title: title,
+      highlight: highlight,
+      location: location,
+      description: description,
+      deliverables: deliverables,
+      goals: goals,
+      prize: prize,
+      timelines: timelineItems,
+      tags: tags,
+      organizer_id: org_code,
+    };
+    createHackathon(hackathonObj)
+      .then((res) => {
+        if (res.status === 201) {
+          // SHOW SUCCESS MODAL AND NAVIGATE TO MEDIA ENTRY PAGE
+          console.log(res.data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div className="bg-white p-8 right-side min-h-screen">
@@ -63,7 +114,10 @@ const CreateHackathon = () => {
         {/* <p className="font-bold mt-5 mb-5">Create a hackathon</p> */}
         <div className="flex">
           <div>
-            <form className="flex gap-[100px]">
+            <ValidatorForm
+              onSubmit={(e) => handleCreateHackathon(e)}
+              className="flex gap-[100px]"
+            >
               <div className="flex flex-col ">
                 <label
                   className="font-semibold mt-5 mb-2 text-xs "
@@ -74,9 +128,12 @@ const CreateHackathon = () => {
                 <input
                   type="text"
                   className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
-        focus:outline-none focus:border-custom-blue "
+                  focus:outline-none focus:border-custom-blue "
                   placeholder="Stack a Stake Competition"
                   required
+                  onChange={handleChange("title")}
+                  name="title"
+                  value={title}
                 />
                 {/* <span className="text-xs text-gray-400 mt-2">
                   Do not exceed 20 character writing the project name
@@ -90,9 +147,12 @@ const CreateHackathon = () => {
                 <input
                   type="text"
                   className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
-        focus:outline-none focus:border-custom-blue "
+                  focus:outline-none focus:border-custom-blue "
                   placeholder="Building for the future"
                   required
+                  onChange={handleChange("highlight")}
+                  name="highlight"
+                  value={highlight}
                 />
                 <label
                   className="mt-5 mb-2 text-xs font-semibold"
@@ -106,6 +166,9 @@ const CreateHackathon = () => {
         focus:outline-none focus:border-custom-blue "
                   placeholder="virtual, hybrid, onsite, etc"
                   required
+                  onChange={handleChange("location")}
+                  name="location"
+                  value={location}
                 />
                 <label
                   className="font-semibold mt-5 mb-2 text-xs"
@@ -115,10 +178,11 @@ const CreateHackathon = () => {
                 </label>
                 <TextField
                   id="outlined-multiline-static"
-                  label=""
                   multiline
                   rows={4}
-                  defaultValue=""
+                  onChange={handleChange("description")}
+                  name="description"
+                  value={description}
                 />
 
                 <label
@@ -131,10 +195,7 @@ const CreateHackathon = () => {
                   <TagSelector func={readCategories} />
                 </div>
                 <div className="flex flex-row gap-5">
-                  <ValidatorForm
-                    autoComplete="off"
-                    // onSubmit={(e) => testSubmit(e)}
-                  >
+                  <Grid>
                     {timelineItems.length > 0 &&
                       timelineItems.map((field, index) => {
                         return (
@@ -160,12 +221,12 @@ const CreateHackathon = () => {
                                   <TextValidator
                                     placeholder="project ideation"
                                     fullWidth
-                                    value={field.detail}
+                                    value={field.period_name}
                                     onChange={(event) =>
                                       handleInputChange(index, event)
                                     }
                                     type="text"
-                                    name="detail"
+                                    name="period_name"
                                     validators={["required"]}
                                     errorMessages={["This Field is Required"]}
                                   />
@@ -179,6 +240,7 @@ const CreateHackathon = () => {
                                     handleDateChange={
                                       handleCompletionDateChange
                                     }
+                                    idx={index}
                                   />
                                 </Box>
                                 <Box sx={{ mt: 2 }}>
@@ -213,23 +275,8 @@ const CreateHackathon = () => {
                           </Button>
                         </Stack>
                       </Box>
-                      <Box>
-                        {" "}
-                        <Button
-                          // type="submit"
-                          variant="contained"                          
-                          sx={{
-                            fontSize: "1rem",
-                            color: "white",
-                            mt: 1,
-                            bgcolor: "green",
-                          }}
-                        >
-                          Save Timeline Info
-                        </Button>{" "}
-                      </Box>
                     </Grid>
-                  </ValidatorForm>
+                  </Grid>
                 </div>
               </div>
               <div className="flex flex-col">
@@ -241,11 +288,12 @@ const CreateHackathon = () => {
                 </label>
                 <TextField
                   id="outlined-multiline-static"
-                  label=""
                   multiline
                   rows={4}
-                  defaultValue=""
                   sx={{ width: "450px" }}
+                  onChange={handleChange("deliverables")}
+                  name="deliverables"
+                  value={deliverables}
                 />
                 <label
                   className="font-semibold mt-5 mb-2 text-xs "
@@ -255,10 +303,11 @@ const CreateHackathon = () => {
                 </label>
                 <TextField
                   id="outlined-multiline-static"
-                  label=""
                   multiline
                   rows={4}
-                  defaultValue=""
+                  onChange={handleChange("goals")}
+                  name="goals"
+                  value={goals}
                 />
                 <label
                   className="font-semibold mt-5 mb-2 text-xs "
@@ -271,7 +320,9 @@ const CreateHackathon = () => {
                   label=""
                   multiline
                   rows={4}
-                  defaultValue=""
+                  onChange={handleChange("prize")}
+                  name="prize"
+                  value={prize}
                 />
                 <div className="flex justify-end">
                   <button
@@ -282,7 +333,7 @@ const CreateHackathon = () => {
                   </button>
                 </div>
               </div>
-            </form>
+            </ValidatorForm>
           </div>
         </div>
       </div>
