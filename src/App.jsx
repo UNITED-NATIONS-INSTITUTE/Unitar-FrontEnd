@@ -22,7 +22,13 @@ import OrgOutlet from "./components/organizers/OrgOutlet";
 import OrgSubmissions from "./components/organizers/OrgSubmissions";
 import OrgViewProject from "./components/organizers/OrgViewProject";
 import ViewDetailsPage from "./components/organizers/ViewDetailsPage";
+import AddMedia from "./components/hackathon/AddMedia";
 import HackathonMedia from "./components/hackathon/HackathonMedia";
+import EmailValidation from "./components/organizers/createhackathon/EmailValidation";
+import CodeVerification from "./components/organizers/createhackathon/CodeVerification";
+import EditHackathon from "./components/organizers/edithackathon/EditHackathon";
+import UserProfileForm from "./components/organizers/profile/UserProfileForm";
+import EditDetails from "./components/organizers/profile/EditDetails";
 
 const App = () => {
   return (
@@ -46,16 +52,31 @@ const App = () => {
       </Route>
       {/* ORGANIZER */}
       <Route path="organizer" element={<OrgSidebar />}>
+        <Route path="profile" element={<Outlet />}>
+          <Route index element={<UserProfileForm />} />
+          <Route path="editprofile" element={<EditDetails />} />
+        </Route>
         <Route index element={<OrgDashboard />} />
         <Route path="dashboard" element={<OrgOutlet />}>
           <Route index element={<OrgDashboard />} />
           <Route path="detail" element={<OrgViewProject />} />
+          <Route path="editdetail" element={<EditHackathon />} />
         </Route>
         <Route path="hackathons" element={<Outlet />}>
           <Route index element={<OrgHackathonPage />} />
           <Route path="create" element={<Outlet />}>
             <Route index element={<CreateHackathon />} />
+<<<<<<< HEAD
             <Route path="media" element={<HackathonMedia />} />
+=======
+
+            <Route path="email" element={<EmailValidation />} />
+            <Route path="verification" element={<CodeVerification />} />
+            <Route path="addmedia" element={<Outlet />}>
+              <Route index element={<AddMedia />} />
+              <Route path="media" element={<HackathonMedia />} />
+            </Route>
+>>>>>>> 417e8e3a861031e5d8fb87e975b39eec4bce626b
           </Route>
         </Route>
         <Route path="submissions" element={<OrgOutlet />}>

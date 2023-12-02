@@ -26,7 +26,7 @@ const OrgHackathons = () => {
   return (
     <div className="flex space-x-4 mt-5 ml-4">
       {hackathonsPayload.map((field, index) => (
-        <div key={index} className="flex flex-col iems-center mb-4">
+        <div key={index} className="flex flex-col iems-center mb-4 ">
           <img
             className="rounded-md"
             key={index}

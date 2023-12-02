@@ -29,7 +29,7 @@ const HackathonMedia = () => {
         <form className="flex flex-col">
           <div className="mb-10">
             {" "}
-            <label>Hackathon Image</label>
+            <label className="text-xs">Hackathon Image</label>
             <div
               className="w-[500px]  px-3 py-2 border border-gray-400 rounded text-xs"
               s
@@ -54,7 +54,7 @@ const HackathonMedia = () => {
 
           <div>
             {" "}
-            <label>Cover Image</label>
+            <label className="text-xs">Cover Image</label>
             <div
               className="w-[500px]  px-3 py-2 border border-gray-400 rounded text-xs"
               s
@@ -76,7 +76,13 @@ const HackathonMedia = () => {
               </div>
             </div>{" "}
           </div>
-        </form>{" "}
+          <button
+            type="submit"
+            className="py-3 px-2 bg-custom-blue rounded-md text-white text-xs w-[100px] mt-10"
+          >
+            Add Images
+          </button>
+        </form>
       </div>
     </div>
   );

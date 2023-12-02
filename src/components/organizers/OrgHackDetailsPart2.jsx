@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const OrgHackDetailsPart2 = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col w-[500px]">
       <h1 className="mt-0 text-gray-600 font-bold  text-[20px]">
@@ -62,8 +64,11 @@ const OrgHackDetailsPart2 = () => {
       </div>
       <div className="flex justify-end">
         {" "}
-        <button className="bg-custom-blue w-[150px]  text-white text-xs py-2 px-3 rounded-md mt-5 ">
-          Edit Hackathon Details
+        <button
+          onClick={() => navigate("/organizer/dashboard/editdetail")}
+          className="bg-custom-blue w-[100px]  text-white text-xs py-2 px-3 rounded-md mt-5 "
+        >
+          Edit Details
         </button>{" "}
       </div>
     </div>
