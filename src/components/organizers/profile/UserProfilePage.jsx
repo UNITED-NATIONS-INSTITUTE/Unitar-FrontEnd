@@ -1,7 +1,9 @@
 import { Avatar } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const UserProfilePage = ({ formData }) => {
+  const navigate = useNavigate();
   return (
     <div className="right-side  min-h-screen bg-pattern">
       <div className=" ml-60">
@@ -20,7 +22,10 @@ const UserProfilePage = ({ formData }) => {
                   marginBottom: "10px",
                 }}
               />
-              <button className="bg-custom-blue text-white p-2 rounded-md hover:bg-blue-500 w-[200px] mt-4">
+              <button
+                onClick={() => navigate("/organizer/profile/editprofile")}
+                className="bg-custom-blue text-white p-2 rounded-md hover:bg-blue-500 w-[200px] mt-4"
+              >
                 Edit Profile
               </button>
             </div>
