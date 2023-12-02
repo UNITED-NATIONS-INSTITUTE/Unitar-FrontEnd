@@ -64,6 +64,9 @@ const App = () => {
           <Route index element={<OrgHackathonPage />} />
           <Route path="create" element={<Outlet />}>
             <Route index element={<CreateHackathon />} />
+<<<<<<< HEAD
+            <Route path="media" element={<HackathonMedia />} />
+=======
 
             <Route path="email" element={<EmailValidation />} />
             <Route path="verification" element={<CodeVerification />} />
@@ -71,6 +74,7 @@ const App = () => {
               <Route index element={<AddMedia />} />
               <Route path="media" element={<HackathonMedia />} />
             </Route>
+>>>>>>> 417e8e3a861031e5d8fb87e975b39eec4bce626b
           </Route>
         </Route>
         <Route path="submissions" element={<OrgOutlet />}>

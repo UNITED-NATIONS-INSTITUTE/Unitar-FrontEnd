@@ -146,8 +146,13 @@ const CreateHackathon = () => {
                 </label>
                 <input
                   type="text"
+<<<<<<< HEAD
+                  className="w-[300px] px-3 py-2 border border-gray-400 rounded text-xs
+        focus:outline-none focus:border-custom-blue "
+=======
                   className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
                   focus:outline-none focus:border-custom-blue "
+>>>>>>> 417e8e3a861031e5d8fb87e975b39eec4bce626b
                   placeholder="Building for the future"
                   required
                   onChange={handleChange("highlight")}
