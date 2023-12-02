@@ -27,6 +27,8 @@ import HackathonMedia from "./components/hackathon/HackathonMedia";
 import EmailValidation from "./components/organizers/createhackathon/EmailValidation";
 import CodeVerification from "./components/organizers/createhackathon/CodeVerification";
 import EditHackathon from "./components/organizers/edithackathon/EditHackathon";
+import UserProfileForm from "./components/organizers/profile/UserProfileForm";
+import EditDetails from "./components/organizers/profile/EditDetails";
 
 const App = () => {
   return (
@@ -50,6 +52,10 @@ const App = () => {
       </Route>
       {/* ORGANIZER */}
       <Route path="organizer" element={<OrgSidebar />}>
+        <Route path="profile" element={<Outlet />}>
+          <Route index element={<UserProfileForm />} />
+          <Route path="editprofile" element={<EditDetails />} />
+        </Route>
         <Route index element={<OrgDashboard />} />
         <Route path="dashboard" element={<OrgOutlet />}>
           <Route index element={<OrgDashboard />} />
