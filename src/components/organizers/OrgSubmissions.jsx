@@ -1,6 +1,6 @@
 import React from "react";
 import OrgSubmissionsTable from "./OrgSubmissionsTable";
-import UserProfile from "../common/UserProfile";
+import OrgProfile from "./profile/OrgProfile";
 
 const OrgSubmissions = () => {
   return (
@@ -10,7 +10,7 @@ const OrgSubmissions = () => {
           <h1 className="text-gray-600 font-bold text-[24px] mb-8 ">
             Submissions
           </h1>
-          <UserProfile />
+          <OrgProfile />
         </div>
         <p className="text-xs text-gray-500  flex flex-row mb-10">
           <span>Submissions</span>

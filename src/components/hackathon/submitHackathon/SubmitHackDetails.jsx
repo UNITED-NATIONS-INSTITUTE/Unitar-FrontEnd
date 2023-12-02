@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import HackProjectLinks from "./HackProjectLinks";
 import { TextField } from "@mui/material";
-import UserProfile from "../../common/UserProfile";
+import UserProfile from "../../participants/profile/UserProfile";
 
 const SubmitHackDetails = () => {
   const fileInputRef = useRef(null);

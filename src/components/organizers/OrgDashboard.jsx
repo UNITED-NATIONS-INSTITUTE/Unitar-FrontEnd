@@ -1,13 +1,13 @@
 import React from "react";
-import UserProfile from "../common/UserProfile";
 import OrgHackathons from "./OrgHackathons";
+import OrgProfile from "./profile/OrgProfile";
 const OrgDashboard = () => {
   return (
     <div className="bg-white p-8 right-side min-h-screen">
       <div className="overflow-y-auto  ml-60">
         <div className="flex justify-between">
           <h1 className="text-gray-600 font-bold text-[24px]">Dashboard</h1>
-          <UserProfile />
+          <OrgProfile />
         </div>
         <div className="flex mt-12">
           <div className="border bg-custom-blue rounded-md text-white pt-5 mr-5 pr-[40px] ">

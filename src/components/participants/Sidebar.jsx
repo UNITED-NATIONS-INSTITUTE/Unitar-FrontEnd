@@ -9,7 +9,7 @@ const Sidebar = () => {
   };
   return (
     <div className=" flex ">
-      <div className=" left-side bg-light-blue p-4 h-screen fixed left-0 top-0 w-[300px] ">
+      <div className="  bg-light-blue p-4 h-screen fixed left-0 top-0 w-[250px] ">
         <div className="flex justify-between">
           <img src={logo} alt="logo" width="100" height="54" />
           <img src="/assets/back.svg" alt="back" width="20" height="20" />
@@ -23,7 +23,7 @@ const Sidebar = () => {
             }}
             className="py-2 px-6 border rounded-md hover:bg-custom-blue mt-16  "
           >
-            <div className="flex gap-5">
+            <div className="flex gap-5 ">
               <img
                 src="/assets/dashboard.svg"
                 alt="icon"
@@ -50,19 +50,29 @@ const Sidebar = () => {
                 width="20"
                 height="20"
               />
-              <span>Hackathon</span>
+              <span>Hackathons</span>
             </div>
           </button>
         </Link>
-        <Link>
+        <Link to="/participant/myhackathons">
           <button
-            onClick={() => handleClickPage("Submission")}
+            onClick={() => handleClickPage("My Hackathons")}
             style={{
               backgroundColor:
-                activePage === "Submission" ? "#089BD9" : "inherit",
+                activePage === "My Hackathons" ? "#089BD9" : "inherit",
             }}
-            className="py-2  px-6 border rounded-md mt-5 hover:bg-custom-blue "
-          ></button>
+            className="py-2  px-6 border rounded-md mt-5 hover:bg-custom-blue w-[200px] "
+          >
+            <div className="flex gap-5 w-[200px]">
+              <img
+                src="/assets/hackathon.svg"
+                alt="icon"
+                width="20"
+                height="20"
+              />
+              <span className="">My Hackathons</span>
+            </div>
+          </button>
         </Link>
       </div>
       <Outlet />

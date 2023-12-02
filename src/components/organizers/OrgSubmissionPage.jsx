@@ -1,8 +1,8 @@
 import React from "react";
-import UserProfile from "../common/UserProfile";
 
 import Avatars from "../common/Avatars";
 import { useNavigate } from "react-router-dom";
+import OrgProfile from "./profile/OrgProfile";
 
 const OrgSubmissionPage = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const OrgSubmissionPage = () => {
           <h1 className="text-gray-600 font-bold text-[24px] mb-10 ">
             Submissions
           </h1>
-          <UserProfile />
+          <OrgProfile />
         </div>
         <p className="text-gray-600 text-sm font-semibold">Our Hackathons</p>
         <div className="flex space-x-4 mt-5 ml-4">

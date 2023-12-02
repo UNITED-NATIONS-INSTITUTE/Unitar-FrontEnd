@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const HackDetailsPart2 = () => {
-  const navigate = useNavigate();
+const HackDetailsPart2 = ({ openModal }) => {
+  // const navigate = useNavigate();
 
   return (
     <div className="flex flex-col w-[500px]">
@@ -15,52 +15,61 @@ const HackDetailsPart2 = () => {
       <div>
         <p className="text-sm  font-semibold mt-5">Highlights</p>
         <p className="text-xs mt-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          EcoTrack: A mobile app integrating IoT, gamification, and a carbon
+          offset marketplace for effortless carbon footprint monitoring and
+          reduction.
         </p>
       </div>
       <div>
         <p className="text-sm  font-semibold mt-5">Description</p>
         <p className="text-xs mt-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-          convallis ultrices nisi, ac pellentesque tortor aliquet ut. Sed eget
-          imperdiet orci. Donec metus est, euismod quis metus vel, pretium
-          elementum dolor. Donec id risus nec enim consectetur dictum non at
-          dolor. Ut fermentum, nulla sed malesuada rhoncus, ipsum libero lacinia
-          dolor, ut cursus sapien ipsum in risus. Donec eu erat a lorem
-          facilisis rutrum
+          EcoTrack is a hackathon project designed to promote environmental
+          awareness and sustainable living. The project features a user-friendly
+          mobile app that calculates and visualizes individual carbon footprints
+          using GPS data and user inputs. Leveraging IoT devices, EcoTrack
+          integrates data from smart appliances and vehicles, providing users
+          with a comprehensive view of their carbon emissions. Gamification
+          elements encourage users to set and achieve sustainability goals,
+          while a marketplace facilitates direct contributions to verified
+          carbon offset projects.
         </p>
       </div>
       <div>
         <p className="text-sm  font-semibold mt-5">Deliverables</p>
         <p className="text-xs mt-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-          convallis ultrices nisi, ac pellentesque tortor aliquet ut. Sed eget
-          imperdiet orci. Donec metus est, euismod quis metus vel, pretium
-          elementum dolor. Donec id risus nec enim consectetur dictum non at
-          dolor. Ut fermentum, nulla sed malesuada rhoncus, ipsum libero lacinia
-          dolor, ut cursus sapien ipsum in risus. Donec eu erat a lorem
-          facilisis rutrum
+          The project deliverables for EcoTrack encompass the development of a
+          user-friendly mobile application for iOS and Android, integrating IoT
+          devices to accurately monitor carbon footprints. A robust backend
+          infrastructure ensures seamless communication and data management,
+          while a secure marketplace enables users to directly contribute to
+          verified carbon offset projects. Gamification elements, a community
+          hub, and an analytics dashboard incentivize users to adopt sustainable
+          practices and monitor their progress.
         </p>
       </div>
       <div>
         <p className="text-sm font-semibold mt-5">Goals</p>
-        <p className="text-xs  mt-3">
-          1. Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        <p className="text-xs mt-3 ">
+          1.Develop a user-friendly mobile app with IoT integration to enable
+          seamless carbon footprint tracking and analysis.
         </p>
-        <p className="text-xs mt-3">
-          2. Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        <p className="text-xs mt-3 ">
+          2. Implement engaging gamification features that motivate users to set
+          and achieve sustainability goals within the EcoTrack platform.
         </p>
-        <p className="text-xs  mt-3">
-          3. Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        <p className="text-xs mt-3 ">
+          3. Establish a secure and user-friendly carbon offset marketplace,
+          connecting users directly to verified environmental initiatives for
+          meaningful contributions to offset their carbon emissions.
         </p>
       </div>
       <div className="flex justify-end">
         <button
-          onClick={() => navigate("/participant/hackathons/submit")}
+          onClick={() => openModal()}
           type="submit"
           className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[150px] mt-[50px]"
         >
-          Submit a project
+          Participate
         </button>
       </div>
     </div>

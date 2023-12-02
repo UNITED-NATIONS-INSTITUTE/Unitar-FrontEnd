@@ -1,12 +1,12 @@
 import React from "react";
-import UserProfile from "../common/UserProfile";
+import UserProfile from "./profile/UserProfile";
 import HackathonsPage from "./HackathonsPage";
 
 const ParticipantsContent = () => {
   return (
-    <div className="overflow-y-auto right-side ml-60">
+    <div className=" ml-60">
       <div className="flex justify-between">
-        <h1 className="text-gray-600 font-bold">Dashboard</h1>
+        <h1 className="text-gray-600 font-bold text-[24px]">Dashboard</h1>
         <UserProfile />
       </div>
 

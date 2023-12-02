@@ -1,8 +1,8 @@
 import { Avatar } from "@mui/material";
 import React, { useState } from "react";
 
-import UserProfile from "../../common/UserProfile";
 import EditInputs from "./EditInputs";
+import UserProfile from "./UserProfile";
 
 const EditDetails = () => {
   const [profilePic, setProfilePic] = useState("");
@@ -28,7 +28,7 @@ const EditDetails = () => {
     }
   };
   return (
-    <div className="bg-white p-8 right-side">
+    <div className="bg-white p-8 right-side min-h-screen">
       <div className="overflow-y-auto  ml-60 flex  profile-details ">
         <div className="flex flex-col flex-1">
           <h1 className="mt-0 text-gray-600 font-bold mb-10 text-[20px] ">

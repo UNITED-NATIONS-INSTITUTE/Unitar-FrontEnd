@@ -1,7 +1,7 @@
 import React from "react";
-import UserProfile from "../common/UserProfile";
 import OrgHackathons from "./OrgHackathons";
 import { useNavigate } from "react-router-dom";
+import OrgProfile from "./profile/OrgProfile";
 
 const OrgHackathonPage = () => {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ const OrgHackathonPage = () => {
         <div className="flex flex-col">
           <div className="flex justify-between">
             <h1 className="text-gray-600 font-bold  text-[24px]">Hackathons</h1>
-            <UserProfile />
+            <OrgProfile />
           </div>
           <button
             onClick={() => navigate("create")}

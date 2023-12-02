@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import UserProfile from "../../common/UserProfile";
 import { TextField, Button, Stack, Grid, Typography, Box } from "@mui/material";
 import TagSelector from "./TagSelector";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
@@ -8,6 +7,7 @@ import DatePicker from "../../common/utils/DatePicker";
 import moment from "moment";
 import { selectOrganizerCode } from "../../../features/organizer/organizerSlice";
 import { createHackathon } from "../../../api/hackathons/hackathons";
+import OrgProfile from "../profile/OrgProfile";
 const CreateHackathon = () => {
   const [tags, setTags] = useState([]);
   const [values, setValues] = useState({
@@ -94,7 +94,7 @@ const CreateHackathon = () => {
       <div className="ml-60">
         <div className="flex justify-between">
           <h1 className="text-gray-600 font-bold text-[24px]">Hackathons</h1>
-          <UserProfile />
+          <OrgProfile />
         </div>
         <p className="text-xs text-gray-500 flex flex-row">
           <span>Hackathons</span>

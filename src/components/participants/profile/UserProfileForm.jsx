@@ -52,7 +52,7 @@ const UserProfileForm = () => {
   };
 
   return (
-    <div className="right-side bg-white min-h-screen">
+    <div className="right-side min-h-screen bg-white">
       {formSubmitted ? (
         <UserProfilePage formData={formData} />
       ) : (

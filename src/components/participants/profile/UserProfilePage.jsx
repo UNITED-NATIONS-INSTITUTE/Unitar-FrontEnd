@@ -23,7 +23,7 @@ const UserProfilePage = ({ formData }) => {
                 }}
               />
               <button
-                onClick={() => navigate("/organizer/profile/editprofile")}
+                onClick={() => navigate("/participant/profile/editprofile")}
                 className="bg-custom-blue text-white p-2 rounded-md hover:bg-blue-500 w-[200px] mt-4"
               >
                 Edit Profile

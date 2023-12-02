@@ -1,7 +1,7 @@
 import React from "react";
 import OrgHackDetailsPart2 from "./OrgHackDetailsPart2";
 import HackDetailsPart1 from "../hackathon/submitProject/HackDetailsPart1";
-import UserProfile from "../common/UserProfile";
+import OrgProfile from "./profile/OrgProfile";
 
 const OrgViewProject = () => {
   return (
@@ -10,7 +10,7 @@ const OrgViewProject = () => {
         <h1 className="mt-0 text-gray-600 font-bold  text-[20px] ml-60 ">
           Hackathon
         </h1>
-        <UserProfile />
+        <OrgProfile />
       </div>
       <p className="text-xs text-gray-500  flex flex-row mb-10 ml-60">
         <span>Hackathons</span>
