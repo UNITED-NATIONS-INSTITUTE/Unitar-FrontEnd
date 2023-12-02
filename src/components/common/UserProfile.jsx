@@ -44,7 +44,7 @@ const UserProfile = ({ profilePic }) => {
           onClose={closeProfileMenu}
           sx={{ pt: 4 }}
         >
-          <MenuItem onClick={() => navigate("/participant/profile")}>
+          <MenuItem onClick={() => navigate("/organizer/profile")}>
             Profile
           </MenuItem>
           <MenuItem>Settings</MenuItem>
