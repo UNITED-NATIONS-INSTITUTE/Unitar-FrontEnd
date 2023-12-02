@@ -1,8 +1,8 @@
 import { Avatar } from "@mui/material";
 import React, { useState } from "react";
 
-import UserProfile from "../../common/UserProfile";
 import EditInputs from "./EditInputs";
+import UserProfile from "./UserProfile";
 
 const EditDetails = () => {
   const [profilePic, setProfilePic] = useState("");

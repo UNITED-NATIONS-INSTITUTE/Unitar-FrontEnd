@@ -1,7 +1,7 @@
 import React from "react";
 import OrgHackDetailsPart2 from "./OrgHackDetailsPart2";
 import HackDetailsPart1 from "../hackathon/submitProject/HackDetailsPart1";
-import UserProfile from "../common/UserProfile";
+import UserProfile from "../participants/profile/UserProfile";
 
 const OrgViewProject = () => {
   return (

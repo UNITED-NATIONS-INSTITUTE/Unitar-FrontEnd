@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import UserProfile from "../../common/UserProfile";
+import UserProfile from "../../participants/profile/UserProfile";
 import OpenHackathon from "./OpenHackathon";
 import SubmittedHackathon from "./SubmittedHackathon";
 

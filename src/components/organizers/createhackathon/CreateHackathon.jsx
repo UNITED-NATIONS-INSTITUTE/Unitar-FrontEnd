@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import UserProfile from "../../common/UserProfile";
+import UserProfile from "../../participants/profile/UserProfile";
 import { TextField, Button, Stack, Grid, Typography, Box } from "@mui/material";
 import TagSelector from "./TagSelector";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";

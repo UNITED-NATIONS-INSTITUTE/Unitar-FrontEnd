@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Avatar, Menu, MenuItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { store } from "../../store/store";
+import { store } from "../../../store/store";
 const UserProfile = ({ profilePic }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -44,7 +44,7 @@ const UserProfile = ({ profilePic }) => {
           onClose={closeProfileMenu}
           sx={{ pt: 4 }}
         >
-          <MenuItem onClick={() => navigate("/organizer/profile")}>
+          <MenuItem onClick={() => navigate("/participant/profile")}>
             Profile
           </MenuItem>
           <MenuItem>Settings</MenuItem>

@@ -1,5 +1,5 @@
 import React from "react";
-import UserProfile from "../common/UserProfile";
+import UserProfile from "../participants/profile/UserProfile";
 import OrgHackathons from "./OrgHackathons";
 import { useNavigate } from "react-router-dom";
 

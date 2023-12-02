@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UserProfile from "../../common/UserProfile";
+import UserProfile from "../../participants/profile/UserProfile";
 import { TextField, Button } from "@mui/material";
 import TagSelector from "../createhackathon/TagSelector";
 

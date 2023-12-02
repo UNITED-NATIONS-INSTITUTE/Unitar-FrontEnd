@@ -1,6 +1,6 @@
 import React from "react";
 import OrgSubmissionsTable from "./OrgSubmissionsTable";
-import UserProfile from "../common/UserProfile";
+import UserProfile from "../participants/profile/UserProfile";
 
 const OrgSubmissions = () => {
   return (

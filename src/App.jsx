@@ -5,7 +5,6 @@ import SignUp from "./components/common/SignUp";
 import LogIn from "./components/common/LogIn";
 import NoPage from "./components/common/NoPage";
 import ParticipantDashboard from "./components/participants/ParticipantDashboard";
-import Profile from "./components/common/profile/ProfileDetails";
 import Sidebar from "./components/participants/Sidebar";
 import HackathonDetailsPage from "./components/hackathon/submitProject/HackathonDetailsPage";
 import HackathonDashboard from "./components/hackathon/hackathonDashboard/HackathonDashboard";
@@ -27,8 +26,8 @@ import HackathonMedia from "./components/hackathon/HackathonMedia";
 import EmailValidation from "./components/organizers/createhackathon/EmailValidation";
 import CodeVerification from "./components/organizers/createhackathon/CodeVerification";
 import EditHackathon from "./components/organizers/edithackathon/EditHackathon";
-import UserProfileForm from "./components/organizers/profile/UserProfileForm";
-import EditDetails from "./components/organizers/profile/EditDetails";
+import UserProfileForm from "./components/participants/profile/UserProfileForm";
+import EditDetails from "./components/participants/profile/EditDetails";
 
 const App = () => {
   return (
@@ -41,7 +40,10 @@ const App = () => {
       <Route path="/login" element={<LogIn />} />
       {/* PARTICIPANT */}
       <Route path="participant" element={<Sidebar />}>
-        <Route path="profile" element={<Profile />} />
+        <Route path="profile" element={<Outlet />}>
+          <Route index element={<UserProfileForm />} />
+          <Route path="editprofile" element={<EditDetails />} />
+        </Route>
         <Route index element={<ParticipantDashboard />} />
         <Route path="dashboard" element={<ParticipantDashboard />} />
         <Route path="hackathons" element={<PartHackathon />}>
@@ -52,10 +54,6 @@ const App = () => {
       </Route>
       {/* ORGANIZER */}
       <Route path="organizer" element={<OrgSidebar />}>
-        <Route path="profile" element={<Outlet />}>
-          <Route index element={<UserProfileForm />} />
-          <Route path="editprofile" element={<EditDetails />} />
-        </Route>
         <Route index element={<OrgDashboard />} />
         <Route path="dashboard" element={<OrgOutlet />}>
           <Route index element={<OrgDashboard />} />

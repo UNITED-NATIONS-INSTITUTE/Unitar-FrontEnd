@@ -1,5 +1,5 @@
 import React from "react";
-import UserProfile from "../common/UserProfile";
+import UserProfile from "./profile/UserProfile";
 import HackathonsPage from "./HackathonsPage";
 
 const ParticipantsContent = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import UserProfile from "../../common/UserProfile";
+import UserProfile from "../../participants/profile/UserProfile";
 import HackDetailsPart1 from "./HackDetailsPart1";
 import HackDetailsPart2 from "./HackDetailsPart2";
 
