@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import UserProfile from "../../participants/profile/UserProfile";
 import { TextField, Button } from "@mui/material";
 import TagSelector from "../createhackathon/TagSelector";
-
+import OrgProfile from "../profile/OrgProfile";
 const EditHackathon = () => {
   const [hackathonDetails, setHackathonDetails] = useState({
     projectName: "",
@@ -34,7 +33,7 @@ const EditHackathon = () => {
       <div className="ml-60">
         <div className="flex justify-between">
           <h1 className="text-gray-600 font-bold text-[24px]">Hackathons</h1>
-          <UserProfile />
+          <OrgProfile />
         </div>
         <p className="text-xs text-gray-500 flex flex-row">
           <span>Hackathons</span>
