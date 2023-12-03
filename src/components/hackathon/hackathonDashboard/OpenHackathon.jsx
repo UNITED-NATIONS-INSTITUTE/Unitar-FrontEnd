@@ -13,7 +13,7 @@ const OpenHackathon = () => {
   return (
     <div className="flex space-x-4 mt-5 ml-4">
       {images.map((image, index) => (
-        <div className="flex flex-col iems-center mb-4">
+        <div className="flex flex-col iems-center mb-4 w-[400px] h-[350px]">
           <img
             className="rounded-md"
             key={index}
