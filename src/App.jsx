@@ -22,11 +22,14 @@ import OrgOutlet from "./components/organizers/OrgOutlet";
 import OrgSubmissions from "./components/organizers/OrgSubmissions";
 import OrgViewProject from "./components/organizers/OrgViewProject";
 
-import hackathonentries from "./components/admin/hackathonentries";
-import hackathons from "./components/admin/hackathons";
-import organizers from "./components/admin/organizers";
-import participants from "./components/admin/participants";
-import Sidebar from "./components/admin/Sidebar";
+
+import AdminSidebar from "./components/admin/Sidebar";
+import Participants from "./components/admin/Participants";
+import Organizers from "./components/admin/Organizers";
+import Hackathons from "./components/admin/Hackathons";
+import Hackathonentries from "./components/admin/Hackathonentries";
+import UsersTable from "./components/admin/UsersTable";
+import CreateUser from "./components/admin/CreateUser";
 
 const App = () => {
   return (
@@ -67,29 +70,31 @@ const App = () => {
       </Route>
       {/* ADMIN */}
       <Route path="admin" element={<AdminSidebar />}>
-        <Route index element={<AdminDashboard />} />
-        <Route path="participants" element={<Outlet />}>
-          <Route index element={<AllParticipants />} />
-          <Route path="detail" element={<ParticipantProfile />} />
+        <Route index element={<AdminSidebar />} />
+        <Route path="admin" element={<Participants />}>
+          <Route index element={<Participants />} />
+          <Route path="admin" element={<Participants />} />
         </Route>
-        <Route path="organizers" element={<Outlet />}>
-          <Route index element={<AllOrganizers />} />
-          <Route path="detail" element={<OrganizerProfile />} />
+        <Route path="admin" element={<Organizers />}>
+          <Route index element={<Organizers />} />
+          <Route path="detail" element={<Organizers />} />
         </Route>
-        <Route path="hackathons" element={<Outlet />}>
-          <Route index element={<AllHackathons />} />
-          <Route path="detail" element={<HackathonDetails />} />
+        <Route path="admin" element={<Hackathons/>}>
+          <Route index element={<Hackathons />} />
+          <Route path="detail" element={<Hackathons />} />
         </Route>
-        <Route path="submissions" element={<Outlet />}>
-          <Route index element={<AllSubmissions />} />
-          <Route path="detail" element={<SubmissionDetails />} />
+        <Route path="admin" element={<Hackathonentries />}>
+          <Route index element={<Hackathonentries />} />
+          <Route path="detail" element={<Hackathonentries />} />
           {/* IMPLEMENT submission DELETION IN THE submission DETAIL COMPONENT ABOVE */}
         </Route>
-        <Route path="user" element={<Outlet />}>
+        <Route path="admin" element={<UsersTable />}>
           <Route index element={<UsersTable />} />
-          <Route path="detail" element={<UserDetails />} />
+          <Route path="detail" element={<UsersTable />} />
           {/* IMPLEMENT USER ACTIVATION AND DEACTIVATION IN THE USER DETAIL COMPONENT ABOVE */}
-          <Route path="create" element={<CreateUser />} />
+          <Route path="admin" element={<CreateUser />} />
+          <Route index element={<CreateUser />} />
+          <Route path="detail" element={<CreateUser />} />
         </Route>
       </Route>
     </Routes>
