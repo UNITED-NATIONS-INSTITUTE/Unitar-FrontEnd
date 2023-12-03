@@ -1,9 +1,8 @@
-// ParticipantProfile.js
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// Participants.js
+import  { useState } from "react";
 
-const participants = () => {
-  const [showParticipants, setShowParticipants] = useState(false);
+const Participants = () => {
+  const [showParticipantsTable, setShowParticipantsTable] = useState(false);
 
   // Placeholder data for participants (replace with actual data)
   const participantsData = [
@@ -12,24 +11,21 @@ const participants = () => {
     // Add more participant data as needed
   ];
 
-  const handleShowParticipants = () => {
-    setShowParticipants(!showParticipants);
+  const handleToggleParticipantsTable = () => {
+    setShowParticipantsTable(!showParticipantsTable);
   };
 
   return (
-    <div className="participant-profile-container">
-      <h2>Participant Profile</h2>
-      {/* Add participant profile information here */}
-      <p>Name: John Doe</p>
-      <p>Email: john.doe@example.com</p>
+    <div className="participants-container">
+      <h2>Participants</h2>
 
       {/* Button to show/hide participants table */}
-      <button onClick={handleShowParticipants} className="show-participants-btn">
-        {showParticipants ? "Hide Participants" : "Show Participants"}
+      <button onClick={handleToggleParticipantsTable} className="toggle-participants-btn">
+        {showParticipantsTable ? "Hide Participants" : "Show Participants"}
       </button>
 
       {/* Display participants table when the button is clicked */}
-      {showParticipants && (
+      {showParticipantsTable && (
         <div className="participants-table">
           <h3>Participants Table</h3>
           <table>
@@ -57,4 +53,4 @@ const participants = () => {
   );
 };
 
-export default participants;
+export default Participants;

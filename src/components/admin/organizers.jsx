@@ -1,8 +1,8 @@
-// OrganizersPage.js
-import React, { useState } from "react";
+// organizers.js
+import { useState } from "react";
 
-const organizers = () => {
-  const [showOrganizers, setShowOrganizers] = useState(false);
+const Organizers = () => {
+  const [showOrganizersTable, setShowOrganizersTable] = useState(false);
 
   // Placeholder data for organizers (replace with actual data)
   const organizersData = [
@@ -11,21 +11,21 @@ const organizers = () => {
     // Add more organizer data as needed
   ];
 
-  const handleShowOrganizers = () => {
-    setShowOrganizers(!showOrganizers);
+  const handleToggleOrganizersTable = () => {
+    setShowOrganizersTable(!showOrganizersTable);
   };
 
   return (
-    <div className="organizers-page-container">
-      <h2>Organizers Page</h2>
-      
+    <div className="organizers-container">
+      <h2>Organizers</h2>
+
       {/* Button to show/hide organizers table */}
-      <button onClick={handleShowOrganizers} className="show-organizers-btn">
-        {showOrganizers ? "Hide Organizers" : "Show Organizers"}
+      <button onClick={handleToggleOrganizersTable} className="toggle-organizers-btn">
+        {showOrganizersTable ? "Hide Organizers" : "Show Organizers"}
       </button>
 
       {/* Display organizers table when the button is clicked */}
-      {showOrganizers && (
+      {showOrganizersTable && (
         <div className="organizers-table">
           <h3>Organizers Table</h3>
           <table>
@@ -55,4 +55,4 @@ const organizers = () => {
   );
 };
 
-export default organizers;
+export default Organizers;

@@ -1,7 +1,7 @@
 // HackathonEntryPage.js
-import React, { useState } from "react";
+import  { useState } from "react";
 
-const hackathonentries = () => {
+const Hackathonentries = () => {
   const [participantName, setParticipantName] = useState("");
   const [projectTitle, setProjectTitle] = useState("");
   const [projectDescription, setProjectDescription] = useState("");
@@ -54,4 +54,4 @@ const hackathonentries = () => {
   );
 };
 
-export default hackathonentries;
+export default Hackathonentries;
