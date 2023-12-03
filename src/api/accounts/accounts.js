@@ -25,3 +25,12 @@ export const fetchOrganizerProfile = async (user_ref) => {
 export const deleterOganizerProfile = async (organizer_code) => {
   return await axiosApi.destroy(`/participants/${organizer_code}`);
 };
+
+
+export const getOrganizerMetrics = async (user_ref) => {
+  return await axiosApi.get(`/organization/${user_ref}/statistics`);
+};
+
+export const getParticipantMetrics = async (user_ref) => {
+  return await axiosApi.get(`/participant/${user_ref}/statistics`);
+};
