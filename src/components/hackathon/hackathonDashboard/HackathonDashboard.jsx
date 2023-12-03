@@ -11,7 +11,6 @@ const HackathonDashboard = () => {
           <h1 className="text-gray-600 font-bold text-[24px]">Hackathons</h1>
           <UserProfile />
         </div>
-
         <div className="mt-10">
           <h1 className="text-gray-600 font-semibold text-sm">
             Open Hackathons

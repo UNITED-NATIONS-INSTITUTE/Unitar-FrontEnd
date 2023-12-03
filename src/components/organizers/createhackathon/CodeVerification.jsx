@@ -1,6 +1,27 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectCurrentHackathonDetail } from "../../../features/hackathon/hackathonSlice";
+import { useNavigate } from "react-router-dom";
+import { validateHackathon } from "../../../api/hackathons/hackathons";
 const CodeVerification = () => {
+  const [validationCode, setValidationCode] = useState("");
+  const hackathonDetails = useSelector(selectCurrentHackathonDetail);
+  const navigate = useNavigate();
+  const handleChange = (event) => {
+    setValidationCode(event.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    validateHackathon(hackathonDetails.id, validationCode)
+      .then((res) => {
+        if (res.status === 200) {
+          navigate("/organizer/hackathons");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="min-h-screen bg-white right-side">
       <div className="ml-60">
@@ -32,13 +53,15 @@ const CodeVerification = () => {
         <p className="font-semibold text-sm">
           An email with a verification code has been sent to your email address.
         </p>
-        <form className="mt-5 flex flex-col">
+        <form className="mt-5 flex flex-col" onSubmit={handleSubmit}>
           <label htmlFor="verificationCode " className="text-xs mr-[10px]">
             Enter the code
           </label>
           <input
             className="border w-[400px] border-gray-600 focus:outline-none focus:border-custom-blue rounded h-[40px]"
             type="text"
+            value={validationCode}
+            onChange={handleChange}
             required
           />
           <div className="flex">
