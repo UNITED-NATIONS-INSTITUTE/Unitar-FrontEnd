@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import { requestValidationCode } from "../../../api/hackathons/hackathons";
+import { selectCurrentHackathonDetail } from "../../../features/hackathon/hackathonSlice";
+import { selectLoggedInUserRef } from "../../../features/user/userSlice";
 const EmailValidation = () => {
+  const [email, setEmail] = useState("");
+  const handleChange = (event) => {
+    setEmail(event.target.value);
+  };
   const navigate = useNavigate();
+  const hackathonDetails = useSelector(selectCurrentHackathonDetail);
+  const user_ref = useSelector(selectLoggedInUserRef)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    requestValidationCode(user_ref, hackathonDetails.id, email)
+      .then((res) => {
+        if (res.status === 200) {
+          navigate("/organizer/hackathons/create/validate");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="bg-white min-h-screen right-side">
       <div className="ml-60">
@@ -24,18 +45,17 @@ const EmailValidation = () => {
           />
           <span>Email validation</span>
         </p>
-        <form className="flex flex-col">
+        <form className="flex flex-col" onSubmit={handleSubmit}>
           <label className="text-xs mt-5 mb-3">Enter email</label>
           <input
             type="text"
             placeholder="Enter email"
             className="border border-gray-400 rounded-md px-3 py-2 w-[300px]
             focus:outline-none focus:border-custom-blue"
+            value={email}
+            onChange={handleChange}
           />
           <button
-            onClick={() =>
-              navigate("/organizer/hackathons/create/verification")
-            }
             type="submit"
             className="py-2 px-2 bg-custom-blue rounded-md text-white  w-[150px] mt-10"
           >
