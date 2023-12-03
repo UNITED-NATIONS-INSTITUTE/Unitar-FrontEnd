@@ -33,7 +33,7 @@ const AddMedia = () => {
         <div className="flex flex-row gap-3">
           <button
             onClick={() =>
-              navigate("/organizer/hackathons/create/addmedia/media")
+              navigate("details")
             }
             type="submit"
             className="py-3 px-2 bg-custom-blue rounded-md text-white  w-[100px] mt-10"
@@ -41,7 +41,7 @@ const AddMedia = () => {
             Yes
           </button>
           <button
-            onClick={() => navigate("/organizer/hackathons/create/email")}
+            onClick={() => navigate("/organizer/hackathons/create/verify")}
             type="submit"
             className="py-3 px-2 border border-custom-blue rounded-md text-custom-blue  w-[100px] mt-10"
           >
