@@ -26,14 +26,12 @@ const OrgHackathons = () => {
   return (
     <div className="flex space-x-4 mt-5 ml-4">
       {hackathonsPayload.map((field, index) => (
-        <div key={index} className="flex flex-col iems-center mb-4 ">
+        <div key={index} className="flex flex-col w-[400] h- mb-4 ">
           <img
-            className="rounded-md"
+            className="rounded-md w-[250px] h-[200px]"
             key={index}
             src={field.avatar_url}
             alt={`Image#${index + 1}`}
-            width="250"
-            height="200"
           />
           <p className="mt-2 text-sm  font-bold">{field.title}</p>
           <p className="mt-2 text-sm text-gray-500">{field.highlight}</p>

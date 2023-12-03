@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { useNavigate } from "react-router-dom";
 import ViewDetailsPage from "./ViewDetailsPage";
 import GradingModal from "./GradingModal";
+
 const OrgSubmissionsTable = () => {
   const [openSignUpModal, setOpenSignUpModal] = useState(false);
   const openModal = () => setOpenSignUpModal(true);
@@ -11,6 +11,11 @@ const OrgSubmissionsTable = () => {
 
   const showDetails = () => {
     setDetailsVisible(true);
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+      block: "start",
+    });
   };
   const customBorder = {
     border: "none",

@@ -57,3 +57,9 @@ h2 {
   background-position: center;
   min-height: 100vh;
 }
+.bg-patterns {
+  background-image: url("/assets/bg2.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
