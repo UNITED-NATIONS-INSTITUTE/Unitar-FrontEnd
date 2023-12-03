@@ -39,7 +39,7 @@ const OrgProfile = () => {
           dispatch(
             setCurrentOrganizerDetail({ currentOrganizerDetail: res.data })
           );
-          dispatch(setOrganizerCode({ organizerCode: res.data }));
+          dispatch(setOrganizerCode({ organizerCode: res.data.id }));
         }
       })
       .catch((err) => {
