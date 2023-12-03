@@ -4,7 +4,7 @@ const organizerSlice = createSlice({
   name: "organizer",
   initialState: {
     currentOrganizerDetail: null,
-    organizerCode: "b686ae99-ad9d-4b15-ba6a-53d7bdfac4ec",
+    organizerCode: null,
   },
   reducers: {
     setCurrentOrganizerDetail: (state, action) => {
