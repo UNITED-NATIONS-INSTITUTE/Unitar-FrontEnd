@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import OrgProfile from "../../organizers/profile/OrgProfile";
 import SubscribeModal from "../SubscribeModal";
-
+import UserProfile from "../../participants/profile/UserProfile";
 const HackathonDetailsPage = () => {
   const [openSubscribeModal, setOpenSubscribeModal] = useState(false);
   const openModal = () => setOpenSubscribeModal(true);
@@ -12,7 +11,7 @@ const HackathonDetailsPage = () => {
         <h1 className="mt-0 text-gray-600 font-bold  text-[20px] relative mr-[570px]">
           Hackathon
         </h1>
-        <OrgProfile />
+        <UserProfile />
       </div>
       <p className="text-xs text-gray-500  flex flex-row mb-10 ml-60">
         <span>Hackathons</span>
