@@ -31,6 +31,8 @@ import EditDetails from "./components/participants/profile/EditDetails";
 import OrgProfileForm from "./components/organizers/profile/OrgProfileForm";
 import OrgEditDetails from "./components/organizers/profile/OrgEditDetails";
 import MyHackathons from "./components/participants/MyHackathons";
+import CreateOrgProfile from "./components/organizers/profile/CreateOrgProfile";
+import OrgProfilePage from "./components/organizers/profile/OrgProfilePage";
 
 const App = () => {
   return (
@@ -43,11 +45,12 @@ const App = () => {
       <Route path="/login" element={<LogIn />} />
       {/* PARTICIPANT */}
       <Route path="participant" element={<Sidebar />}>
+        <Route index element={<ParticipantDashboard />} />
+
         <Route path="profile" element={<Outlet />}>
           <Route index element={<UserProfileForm />} />
           <Route path="editprofile" element={<EditDetails />} />
         </Route>
-        <Route index element={<ParticipantDashboard />} />
         <Route path="dashboard" element={<ParticipantDashboard />} />
         <Route path="myhackathons" element={<MyHackathons />} />
         <Route path="hackathons" element={<PartHackathon />}>
@@ -59,12 +62,12 @@ const App = () => {
       </Route>
       {/* ORGANIZER */}
       <Route path="organizer" element={<OrgSidebar />}>
-        <Route path="profile" element={<Outlet />}>
-          <Route index element={<OrgProfileForm />} />
-          <Route path="editprofile" element={<OrgEditDetails />} />
-        </Route>
         <Route index element={<OrgDashboard />} />
-
+        <Route path="profile" element={<Outlet />}>
+          <Route index element={<OrgProfilePage />} />
+          <Route path="create" element={<CreateOrgProfile />} />
+          <Route path="edit" element={<OrgEditDetails />} />
+        </Route>
         <Route path="dashboard" element={<OrgOutlet />}>
           <Route index element={<OrgDashboard />} />
           <Route path="detail" element={<OrgViewProject />} />
