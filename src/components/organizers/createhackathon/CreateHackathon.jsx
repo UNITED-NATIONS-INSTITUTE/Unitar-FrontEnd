@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { TextField, Button, Stack, Grid, Typography, Box } from "@mui/material";
 import TagSelector from "./TagSelector";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
@@ -8,6 +8,8 @@ import moment from "moment";
 import { selectOrganizerCode } from "../../../features/organizer/organizerSlice";
 import { createHackathon } from "../../../api/hackathons/hackathons";
 import OrgProfile from "../profile/OrgProfile";
+import {useNavigate} from "react-router-dom"
+import { setCurrentHackathonDetail } from "../../../features/hackathon/hackathonSlice";
 const CreateHackathon = () => {
   const [tags, setTags] = useState([]);
   const [values, setValues] = useState({
@@ -34,8 +36,9 @@ const CreateHackathon = () => {
   const readCategories = (categoriesArray) => {
     setTags(categoriesArray);
   };
-  // TO DO: REMOVE HARDCODED ORG CODE
   const org_code = useSelector(selectOrganizerCode);
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   const handleAddTimelineItems = () => {
     const values = [...timelineItems];
     values.push({
@@ -81,8 +84,9 @@ const CreateHackathon = () => {
     createHackathon(hackathonObj)
       .then((res) => {
         if (res.status === 201) {
-          // SHOW SUCCESS MODAL AND NAVIGATE TO MEDIA ENTRY PAGE
-          console.log(res.data);
+          dispatch(setCurrentHackathonDetail({ currentHackathonDetail: res.data }));
+
+          navigate("media")
         }
       })
       .catch((err) => {
