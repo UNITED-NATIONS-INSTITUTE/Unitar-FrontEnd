@@ -1,9 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 const HackDetailsPart2 = ({ openModal }) => {
-  // const navigate = useNavigate();
-
   return (
     <div className="flex flex-col w-[500px]">
       <h1 className="mt-0 text-gray-600 font-bold  text-[20px]">
@@ -66,7 +63,6 @@ const HackDetailsPart2 = ({ openModal }) => {
       <div className="flex justify-end">
         <button
           onClick={() => openModal()}
-          type="submit"
           className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[150px] mt-[50px]"
         >
           Participate
