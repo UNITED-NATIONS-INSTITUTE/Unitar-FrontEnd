@@ -56,10 +56,10 @@ export const getHackathonDetails = async (hackathon_code) => {
   return await axiosApi.get(`"/hackathons/${hackathon_code}/`);
 };
 // XI. Enrol Participant to Hackathon
-export const enrolToHackathon = async (hackathon_code, participant_code) => {
+export const enrolToHackathon = async (hackathon_id, participant_id) => {
   return await axiosApi.post("/subscriptions/", {
-    hackathon_code,
-    participant_code,
+    hackathon_id,
+    participant_id,
   });
 };
 // XII. View all Hackathon Subscriptions
