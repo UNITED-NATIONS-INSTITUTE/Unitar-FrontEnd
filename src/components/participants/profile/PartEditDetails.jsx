@@ -1,35 +1,33 @@
 import React, { useState } from "react";
 import { Avatar } from "@mui/material";
-import OrgProfile from "./OrgProfile";
-import { useSelector } from "react-redux";
-import { selectCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
 import { axiosApi } from "../../../api";
-const OrgEditDetails = () => {
-  const orgProfile = useSelector(selectCurrentOrganizerDetail);
+import { useSelector } from "react-redux";
+import { selectCurrentParticipantDetail } from "../../../features/participant/participantSlice";
+import UserProfile from "./UserProfile";
+
+const PartEditDetails = () => {
+  const participantProfile = useSelector(selectCurrentParticipantDetail);
   const [profilePic, setProfilePic] = useState("");
-  const [formData, setFormData] = useState(orgProfile);
+  const [formData, setFormData] = useState(participantProfile);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add logic here to handle form submission
     try {
-      await axiosApi.patch(`/organizers/${orgProfile.id}`, formData, {
+      await axiosApi.patch(`/participants/${participantProfile.id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
+      alert("Profile Updated!");
     } catch (error) {
       console.log(error);
-      alert("Shida!");
+      alert("Error updating profile");
     }
-    // console.log("Form submitted with data:", formData);
-  };
-
-  const handleDelete = () => {
-    setProfilePic(null); // Set to null or a default image path
   };
 
   const handleFileChange = (event) => {
@@ -39,31 +37,18 @@ const OrgEditDetails = () => {
   function handleProfileUpdate() {
     const imageData = new FormData();
     imageData.append("profile_image", profilePic);
-    axiosApi.patch(`/organizers/${orgProfile.id}`, imageData, {
+    axiosApi.patch(`/participants/${participantProfile.id}`, imageData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
     });
   }
 
-  // const handleFileChange = (event) => {
-  //   // setProfilePic(event.target.files[0])
-  //   const file = event.target.files[0];
-
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.onloadend = () => {
-  //       const newPic = reader.result;
-  //       handleUpdate(newPic);
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // };
   return (
     <div className="bg-white p-8 right-side min-h-screen">
-      <div className="overflow-y-auto  ml-60 flex  profile-details ">
+      <div className="overflow-y-auto ml-60 flex profile-details">
         <div className="flex flex-col flex-1">
-          <h1 className="mt-0 text-gray-600 font-bold mb-10 text-[20px] ">
+          <h1 className="mt-0 text-gray-600 font-bold mb-10 text-[20px]">
             Profile
           </h1>
           <span className="text-sm font-semibold">Profile</span>
@@ -73,41 +58,56 @@ const OrgEditDetails = () => {
           <hr className="w-[600px] mt-6" />
           <div className="flex flex-col">
             <form className="flex flex-col" onSubmit={handleSubmit}>
-              <label className="mt-5 mb-2 text-sm text-gray-700">Name</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name || " "}
-                onChange={handleChange}
-                className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
-          focus:outline-none focus:border-custom-blue"
-                placeholder="Google"
-              />
-
               <label className="mt-5 mb-2 text-sm text-gray-700">
-                Industry
+                First Name
               </label>
               <input
                 type="text"
-                name="industry"
-                value={formData.industry || " "}
+                name="first_name"
+                value={formData.first_name || " "}
                 onChange={handleChange}
                 className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
           focus:outline-none focus:border-custom-blue"
-                placeholder="Tech"
+                placeholder="John"
               />
 
               <label className="mt-5 mb-2 text-sm text-gray-700">
-                Location
+                Last Name
               </label>
               <input
                 type="text"
-                name="location"
-                value={formData.location || " "}
+                name="last_name"
+                value={formData.last_name || " "}
                 onChange={handleChange}
                 className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
           focus:outline-none focus:border-custom-blue"
-                placeholder="USA"
+                placeholder="Doe"
+              />
+
+              <label className="mt-5 mb-2 text-sm text-gray-700">
+                Residence
+              </label>
+              <input
+                type="text"
+                name="residence"
+                value={formData.residence || " "}
+                onChange={handleChange}
+                className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
+          focus:outline-none focus:border-custom-blue"
+                placeholder="Lagos, Nigeria"
+              />
+
+              <label className="mt-5 mb-2 text-sm text-gray-700">
+                Date of Birth
+              </label>
+              <input
+                type="text"
+                name="date_of_birth"
+                value={formData.date_of_birth || " "}
+                onChange={handleChange}
+                className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
+          focus:outline-none focus:border-custom-blue"
+                placeholder="YYYY-MM-DD"
               />
 
               <button
@@ -121,19 +121,18 @@ const OrgEditDetails = () => {
         </div>
         <div className="flex-2 flex-col flex">
           <div className="flex justify-end mt-0 user-profile">
-            <OrgProfile />
+            <UserProfile />
           </div>
-
           <Avatar
             alt="Profile pic"
-            src={formData.profile_image_url}
+            src={formData.profile_image}
             sx={{ width: "100px", height: "100px", marginTop: "50px" }}
           />
-          <span className=" text-sm mt-5">Your photo</span>
+          <span className="text-sm mt-5">Your photo</span>
           <span className="text-gray-500 text-xs mt-2">
             This will be displayed on your profile
           </span>
-          <div className="flex gap-5 mt-5 mr-10">
+          <div className="flex gap-5 mt-5">
             <label className="text-xs text-custom-purple">
               New Profile Image
               <input
@@ -156,4 +155,4 @@ const OrgEditDetails = () => {
   );
 };
 
-export default OrgEditDetails;
+export default PartEditDetails;

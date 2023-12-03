@@ -28,17 +28,16 @@ export default function ProfilePrompt({ openModal, handleClose }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} className=" overlay">
+        <Box sx={style}>
           <Box className=" flex items-center justify-center">
             <Box>
-              <Typography variant="h6" component="h4" >
+              <Typography variant="h6" component="h4">
                 Complete account set up by creating your profile
               </Typography>
-              <Box className="flex space-x-4 mt-[100px]">
-                
+              <Box className="flex space-x-4  mt-[40px]">
                 <button
                   onClick={() => navigate("profile/create")}
-                  className="flex-1 btn-org  py-2 rounded hover:bg-blue-500 text-[16px] "
+                  className="flex-1 bg-custom-blue rounded-md  py-2 text-white hover:bg-blue-500 text-[16px] "
                 >
                   Proceed
                 </button>

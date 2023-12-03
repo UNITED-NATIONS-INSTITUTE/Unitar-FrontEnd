@@ -11,7 +11,6 @@ import { store } from "../../../store/store";
 import { fetchOrganizerProfile } from "../../../api/accounts/accounts";
 import ProfilePrompt from "../modals/ProfilePrompt";
 const OrgProfile = () => {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [openProfilePrompt, setopenProfilePrompt] = useState(false);
   const [orgProfile, setOrgProfile] = useState("");
@@ -53,15 +52,18 @@ const OrgProfile = () => {
   return (
     <div className="relative inline-block">
       <ProfilePrompt openModal={openProfilePrompt} handleClose={closeModal} />
-      <div className="flex items-center border p-1 border-custom-grey rounded-lg space-x-2 cursor-pointer">
+      <div className="flex  border p-1 border-custom-grey rounded-lg space-x-2 cursor-pointer">
         {orgProfile !== "" ? (
-          <div onClick={() => openProfileMenu()}>
+          <div
+            onClick={() => openProfileMenu()}
+            className="flex  gap-5 items-center"
+          >
             <Avatar
               alt="Profile pic"
               src={orgProfile.profile_image_url}
               sx={{ width: "24px", height: "24px" }}
             />
-            <span className="text-xs">{orgProfile.name}</span>
+            <p className="text-xs mr-3">{orgProfile.name}</p>
           </div>
         ) : null}
         <Menu

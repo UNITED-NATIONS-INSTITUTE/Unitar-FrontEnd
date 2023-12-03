@@ -26,12 +26,14 @@ import HackathonMedia from "./components/hackathon/HackathonMedia";
 import EmailValidation from "./components/organizers/createhackathon/EmailValidation";
 import CodeVerification from "./components/organizers/createhackathon/CodeVerification";
 import EditHackathon from "./components/organizers/edithackathon/EditHackathon";
-import UserProfileForm from "./components/participants/profile/UserProfileForm";
-import EditDetails from "./components/participants/profile/EditDetails";
 import OrgEditDetails from "./components/organizers/profile/OrgEditDetails";
 import MyHackathons from "./components/participants/MyHackathons";
 import CreateOrgProfile from "./components/organizers/profile/CreateOrgProfile";
 import OrgProfilePage from "./components/organizers/profile/OrgProfilePage";
+import CreatePartProfile from "./components/participants/profile/CreatePartProfile";
+import PartEditDetails from "./components/participants/profile/PartEditDetails";
+import UserProfilePage from "./components/participants/profile/UserProfilePage";
+
 import UnAuthorized from "./components/common/utils/UnAuthorized";
 import RequireAuth from "./components/common/utils/RequireAuth";
 const App = () => {
@@ -49,14 +51,15 @@ const App = () => {
         <Route path="participant" element={<Sidebar />}>
           <Route index element={<ParticipantDashboard />} />
 
-          <Route path="profile" element={<Outlet />}>
-            <Route index element={<UserProfileForm />} />
-            <Route path="editprofile" element={<EditDetails />} />
-          </Route>
-          <Route path="dashboard" element={<ParticipantDashboard />} />
-          <Route path="myhackathons" element={<MyHackathons />} />
-          <Route path="hackathons" element={<PartHackathon />}>
-            <Route index element={<HackathonDashboard />} />
+        <Route path="profile" element={<Outlet />}>
+          <Route index element={<UserProfilePage />} />
+          <Route path="create" element={<CreatePartProfile />} />
+          <Route path="edit" element={<PartEditDetails />} />
+        </Route>
+        <Route path="dashboard" element={<ParticipantDashboard />} />
+        <Route path="myhackathons" element={<MyHackathons />} />
+        <Route path="hackathons" element={<PartHackathon />}>
+          <Route index element={<HackathonDashboard />} />
 
             <Route path="detail" element={<HackathonDetailsPage />} />
             <Route path="submit" element={<SubmitHackathon />} />
