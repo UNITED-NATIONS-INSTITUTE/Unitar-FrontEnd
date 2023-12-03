@@ -32,7 +32,6 @@ import OrgEditDetails from "./components/organizers/profile/OrgEditDetails";
 import MyHackathons from "./components/participants/MyHackathons";
 import CreateOrgProfile from "./components/organizers/profile/CreateOrgProfile";
 import OrgProfilePage from "./components/organizers/profile/OrgProfilePage";
-
 import UnAuthorized from "./components/common/utils/UnAuthorized";
 import RequireAuth from "./components/common/utils/RequireAuth";
 const App = () => {
@@ -75,11 +74,11 @@ const App = () => {
           </Route>
           <Route path="dashboard" element={<OrgOutlet />}>
             <Route index element={<OrgDashboard />} />
-            <Route path="detail" element={<OrgViewProject />} />
-            <Route path="editdetail" element={<EditHackathon />} />
           </Route>
           <Route path="hackathons" element={<Outlet />}>
             <Route index element={<OrgHackathonPage />} />
+            <Route path="detail" element={<OrgViewProject />} />
+            <Route path="edit" element={<EditHackathon />} />
             <Route path="create" element={<Outlet />}>
               <Route index element={<CreateHackathon />} />
               <Route path="media" element={<Outlet />}>
