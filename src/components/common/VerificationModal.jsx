@@ -1,25 +1,32 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { verifyUserAccount } from "../../api/security/security";
+import {
+  verifyUserAccount,
+  // resendVerificationCode,
+} from "../../api/security/security";
+
 const VerificationModal = ({ user_code, onClose }) => {
   const [verificationCode, setVerificationCode] = useState("");
-  const navigate = useNavigate()
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
+
   const verifyUser = () => {
     verifyUserAccount(user_code, verificationCode)
       .then((res) => {
         if (res.status === 200) {
-          // TO DO: SHOW ACCOUNT CREATION SUCCESS AND ADVISE TO LOG IN
-          onClose();
+          setSuccessMessage("Account successfully verified. Please log in.");
           setTimeout(() => {
+            onClose();
             navigate("/login");
-          }, 2000);
+          }, 3000);
         }
       })
       .catch((error) => {
-        // TO DO: SHOW ERROR MODAL WITH MESSAGE HERE
-        console.error(error.response.data.error);
+        setErrorMessage(error.response.data.error);
       });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     verifyUser();
@@ -47,36 +54,40 @@ const VerificationModal = ({ user_code, onClose }) => {
         <p className="font-semibold text-sm">
           An email with a verification code has been sent to your email address.
         </p>
-        <form onSubmit={handleSubmit} className="mt-5 flex flex-col">
-          <label htmlFor="verificationCode " className="text-xs mr-[10px]">
-            Enter the code below to activate your account
-          </label>
-          <input
-            className="border border-gray-600 focus:outline-none focus:border-custom-blue rounded h-[50px]"
-            type="text"
-            id="verificationCode"
-            name="verificationCode"
-            value={verificationCode}
-            onChange={(e) => setVerificationCode(e.target.value)}
-            required
-          />
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              className="bg-custom-blue rounded text-white  w-[100px] mt-5  py-2 "
-            >
-              Submit
-            </button>
-          </div>
-        </form>
-        <p className="text-xs">
+        {errorMessage && <p className="text-red-500 mt-2">{errorMessage}</p>}
+        {successMessage && (
+          <p className="text-green-500 mt-2">{successMessage}</p>
+        )}
+        {!successMessage && !errorMessage && (
+          <form onSubmit={handleSubmit} className="mt-5 flex flex-col">
+            <label htmlFor="verificationCode" className="text-xs mr-[10px]">
+              Enter the code below to activate your account
+            </label>
+            <input
+              className="border border-gray-600 focus:outline-none focus:border-custom-blue rounded h-[50px]"
+              type="text"
+              id="verificationCode"
+              name="verificationCode"
+              value={verificationCode}
+              onChange={(e) => setVerificationCode(e.target.value)}
+              required
+            />
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="bg-custom-blue rounded text-white w-[100px] mt-5 py-2 "
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        )}
+        {/* <p className="text-xs">
           Can't see the code?{" "}
-          <button 
-          // onClick={onResend} TODO: IMPLEMENT RESEND FUNC
-           className="text-custom-blue mt-5">
+          <button onClick={resendCode} className="text-custom-blue mt-5">
             Resend code
           </button>
-        </p>
+        </p> */}
       </div>
     </div>
   );

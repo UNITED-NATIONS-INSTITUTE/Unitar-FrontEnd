@@ -29,6 +29,6 @@ export const deleteAccount = async (user_code) => {
 
 export const verifyUserAccount = async (user_code, validation_code) => {
   return await axiosApi.patch(`/users/${user_code}/activate`, {
-    validation_code
+    validation_code,
   });
-}
+};
