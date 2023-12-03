@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
 
-const OrgProfilePage = ({ formData }) => {
+const OrgProfilePage = () => {
   const navigate = useNavigate();
-  const orgProfile = useSelector(selectCurrentOrganizerDetail)
-  
+  const orgProfile = useSelector(selectCurrentOrganizerDetail);
+
   return (
     <div className="right-side  min-h-screen bg-pattern">
       <div className=" ml-60">
