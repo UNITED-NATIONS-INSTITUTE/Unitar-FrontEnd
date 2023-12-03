@@ -1,41 +1,58 @@
-import React from "react";
-import UserProfile from "../common/UserProfile";
-import HackathonsPage from "./HackathonsPage";
+// ParticipantProfile.js
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const participants = () => {
-  return (
-    <div className="overflow-y-auto  ml-60">
-      <div className="flex justify-between">
-        <h1 className="text-gray-600 font-bold">Dashboard</h1>
-        <UserProfile />
-      </div>
+  const [showParticipants, setShowParticipants] = useState(false);
 
-      <div className="flex mt-12">
-        <div className="border bg-custom-blue rounded-md text-white pr-20 pt-5 mr-5">
-          <span className="text-xs p-5">Total participants</span>
-          <p className="p-5 font-bold">524</p>
+  // Placeholder data for participants (replace with actual data)
+  const participantsData = [
+    { id: 1, name: "Participant 1", email: "participant1@example.com" },
+    { id: 2, name: "Participant 2", email: "participant2@example.com" },
+    // Add more participant data as needed
+  ];
+
+  const handleShowParticipants = () => {
+    setShowParticipants(!showParticipants);
+  };
+
+  return (
+    <div className="participant-profile-container">
+      <h2>Participant Profile</h2>
+      {/* Add participant profile information here */}
+      <p>Name: John Doe</p>
+      <p>Email: john.doe@example.com</p>
+
+      {/* Button to show/hide participants table */}
+      <button onClick={handleShowParticipants} className="show-participants-btn">
+        {showParticipants ? "Hide Participants" : "Show Participants"}
+      </button>
+
+      {/* Display participants table when the button is clicked */}
+      {showParticipants && (
+        <div className="participants-table">
+          <h3>Participants Table</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              {participantsData.map((participant) => (
+                <tr key={participant.id}>
+                  <td>{participant.id}</td>
+                  <td>{participant.name}</td>
+                  <td>{participant.email}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        <div className="border bg-custom-grey rounded-md  pr-20  pt-5 mr-5">
-          <span className="text-xs p-5">Total projects</span>
-          <p className="p-5 font-bold">50</p>
-        </div>
-        <div className="border bg-custom-grey rounded-md  pr-20  pt-5 mr-5">
-          <span className="text-xs p-5">Submitted projects</span>
-          <p className="p-5 font-bold">5</p>
-        </div>
-        <div className="border bg-custom-grey rounded-md  pr-20  pt-5 mr-5">
-          <span className="text-xs p-5">Total organizers</span>
-          <p className="p-5 font-bold">50</p>
-        </div>
-      </div>
-      <div className="mt-10">
-        <h1 className="text-gray-600 font-semibold">Ongoing hackathons</h1>
-        <h3 className="mt-3 text-sm font-bold">Hackathons</h3>
-        <p className="text-gray-500 text-xs mt-2">
-          Submitted projects are listed here
-        </p>
-        <HackathonsPage />
-      </div>
+      )}
+      {/* Add more participant-related information or components as needed */}
     </div>
   );
 };
