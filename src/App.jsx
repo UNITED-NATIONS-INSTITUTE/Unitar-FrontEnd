@@ -26,7 +26,7 @@ import hackathonentries from "./components/admin/hackathonentries";
 import hackathons from "./components/admin/hackathons";
 import organizers from "./components/admin/organizers";
 import participants from "./components/admin/participants";
-import Sidebar from "./components/admin/Sidebar";
+import AdminSidebar from "./components/admin/Sidebar";
 
 const App = () => {
   return (
