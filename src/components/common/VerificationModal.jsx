@@ -15,7 +15,7 @@ const VerificationModal = ({ user_code, onClose }) => {
     verifyUserAccount(user_code, verificationCode)
       .then((res) => {
         if (res.status === 200) {
-          setSuccessMessage("Account successfully verified. Please log in.");
+          setSuccessMessage("Account successfully verified. Proceed to log in.");
           setTimeout(() => {
             onClose();
             navigate("/login");
