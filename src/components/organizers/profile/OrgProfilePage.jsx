@@ -1,9 +1,13 @@
 import { Avatar } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
 
 const OrgProfilePage = ({ formData }) => {
   const navigate = useNavigate();
+  const orgProfile = useSelector(selectCurrentOrganizerDetail)
+  
   return (
     <div className="right-side  min-h-screen bg-pattern">
       <div className=" ml-60">
@@ -14,7 +18,7 @@ const OrgProfilePage = ({ formData }) => {
               {" "}
               <Avatar
                 alt="Profile pic"
-                src={formData.profileImage}
+                src={orgProfile.profile_image_url}
                 sx={{
                   width: "200px",
                   height: "200px",
@@ -23,7 +27,7 @@ const OrgProfilePage = ({ formData }) => {
                 }}
               />
               <button
-                onClick={() => navigate("/organizer/profile/editprofile")}
+                onClick={() => navigate("/organizer/profile/edit")}
                 className="bg-custom-blue text-white p-2 rounded-md hover:bg-blue-500 w-[200px] mt-4"
               >
                 Edit Profile
@@ -39,19 +43,19 @@ const OrgProfilePage = ({ formData }) => {
                 <strong className="mr-[100px] ml-[50px] text-custom-blue">
                   Name
                 </strong>{" "}
-                {formData.name}
+                {orgProfile.name}
               </p>
               <p className="mt-5">
                 <strong className="mr-[100px] ml-[50px] text-custom-blue">
                   Industry
                 </strong>{" "}
-                {formData.industry}
+                {orgProfile.industry}
               </p>
               <p className="mt-5">
                 <strong className="mr-[100px] ml-[50px] text-custom-blue">
                   Location{" "}
                 </strong>{" "}
-                {formData.location}
+                {orgProfile.location}
               </p>
             </div>
             <div className=" mt-3 flex flex-col bg-[#f0f6ff] w-[400px] rounded-md shadow-lg px-2 py-4">
@@ -59,7 +63,7 @@ const OrgProfilePage = ({ formData }) => {
                 <strong className="mr-[100px] ml-[50px] text-custom-blue">
                   User ID
                 </strong>{" "}
-                {formData.userId}
+                {orgProfile.id}
               </p>
             </div>
           </div>
