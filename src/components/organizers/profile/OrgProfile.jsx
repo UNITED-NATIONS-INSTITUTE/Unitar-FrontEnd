@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Avatar, Menu, MenuItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { selectLoggedInUserRef } from "../../../features/user/userSlice";
+import { setCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
 import { store } from "../../../store/store";
-const OrgProfile = ({ profilePic }) => {
+import { fetchOrganizerProfile } from "../../../api/accounts/accounts";
+import ProfilePrompt from "../modals/ProfilePrompt";
+const OrgProfile = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [anchorElNav, setAnchorElNav] = useState(null);
+  const [openProfilePrompt, setopenProfilePrompt] = useState(false);
+  const [orgProfile, setOrgProfile] = useState("")
   const openProfileMenu = () => setAnchorElNav(true);
   const closeProfileMenu = () => setAnchorElNav(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const org_ref = useSelector(selectLoggedInUserRef);
   const USER_LOGOUT = "USER_LOGOUT";
   const logOut = () => {
     return {
@@ -17,17 +26,38 @@ const OrgProfile = ({ profilePic }) => {
   const handleLogOut = () => {
     store.dispatch(logOut());
   };
+
+  const closeModal = () => setopenProfilePrompt(false);
+  const fetchProfile = () => {
+    fetchOrganizerProfile(org_ref)
+      .then((res) => {
+        if (res.status === 200) {
+          setOrgProfile(res.data)
+          dispatch(
+            setCurrentOrganizerDetail({ currentOrganizerDetail: res.data })
+          );
+        }
+      })
+      .catch((err) => {
+        setopenProfilePrompt(true);
+      });
+  };
+  useEffect(() => {
+    fetchProfile();
+  }, []);
+
   return (
     <div className="relative inline-block">
+      <ProfilePrompt openModal={openProfilePrompt} handleClose={closeModal} />
       <div className="flex items-center border p-1 border-custom-grey rounded-lg space-x-2 cursor-pointer">
-        <div onClick={() => openProfileMenu()}>
+        {orgProfile !== "" ? <div onClick={() => openProfileMenu()}>
           <Avatar
             alt="Profile pic"
-            src={profilePic}
+            src={orgProfile.profile_image_url}
             sx={{ width: "24px", height: "24px" }}
           />
-          <span className="text-xs">Joe Kyle</span>
-        </div>
+          <span className="text-xs">{orgProfile.name}</span>
+        </div> : null}
         <Menu
           id="menu-appbar"
           anchorEl={anchorElNav}
