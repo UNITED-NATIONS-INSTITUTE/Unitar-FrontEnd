@@ -4,15 +4,17 @@ import { Avatar } from "@mui/material";
 import { useRef, useState } from "react";
 import { axiosApi } from "../../../api";
 import { selectLoggedInUserRef } from "../../../features/user/userSlice";
+import SuccessModal from "../modals/SuccessModal";
+
 const CreateOrgProfile = () => {
-  // this is an org profile creation form
-  // on profile creation, dispatch to redux and display this profile at org/profile/
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const org_ref = useSelector(selectLoggedInUserRef);
 
   const [formData, setFormData] = useState({
     name: "",
     location: "",
     industry: "",
+    profile_image: "",
     user_id: org_ref,
   });
   const fileInputRef = useRef(null);
@@ -50,23 +52,29 @@ const CreateOrgProfile = () => {
       .post("/organizers", formData)
       .then((res) => {
         if (res.status === 201) {
-          alert("success");
+          setShowSuccessModal(true);
         }
       })
       .catch((err) => {
         console.log(err);
       });
   };
+  const closeModal = () => {
+    setShowSuccessModal(false);
+  };
 
   return (
     <div className="right-side min-h-screen bg-pattern">
+      {showSuccessModal && (
+        <SuccessModal openModal={showSuccessModal} handleClose={closeModal} />
+      )}
       <form className="max-w-md mx-auto mt-8" onSubmit={handleSubmit}>
         <h1 className="text-gray-600 text-[24px] font-bold">Profile Details</h1>
         <div className="w-[500px] h-[140px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5">
           <div className="flex items-center ml-4 justify-between">
             <Avatar
               alt="Profile pic"
-              src={formData.profileImage}
+              src={formData.profile_image}
               sx={{
                 width: "100px",
                 height: "100px",

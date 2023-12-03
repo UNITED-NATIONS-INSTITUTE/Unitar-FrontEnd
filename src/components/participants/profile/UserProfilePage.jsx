@@ -19,7 +19,7 @@ const UserProfilePage = () => {
             <div>
               <Avatar
                 alt="Profile pic"
-                src={partProfile.profile_image}
+                src={partProfile.profile_image_url}
                 sx={{
                   width: "200px",
                   height: "200px",

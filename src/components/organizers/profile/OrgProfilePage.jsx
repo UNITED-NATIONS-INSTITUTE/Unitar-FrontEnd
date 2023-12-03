@@ -9,62 +9,44 @@ const OrgProfilePage = () => {
   const orgProfile = useSelector(selectCurrentOrganizerDetail);
 
   return (
-    <div className="right-side  min-h-screen bg-pattern">
-      <div className=" ml-60">
+    <div className="right-side min-h-screen bg-pattern">
+      <div className="ml-60">
         <h1 className="text-gray-600 text-[24px] font-bold">User Profile</h1>
         <div className="flex flex-row gap-[100px]">
-          <div className=" mt-3 flex justify-center bg-[#f0f6ff] w-[400px] rounded-md shadow-lg px-2 py-4">
-            <div>
-              {" "}
-              <Avatar
-                alt="Profile pic"
-                src={orgProfile.profile_image_url}
-                sx={{
-                  width: "200px",
-                  height: "200px",
-                  marginTop: "20px",
-                  marginBottom: "10px",
-                }}
-              />
-              <button
-                onClick={() => navigate("/organizer/profile/edit")}
-                className="bg-custom-blue text-white p-2 rounded-md hover:bg-blue-500 w-[200px] mt-4"
-              >
-                Edit Profile
-              </button>
-            </div>
+          <div className="mt-3 flex flex-col items-center justify-center bg-[#f0f6ff] w-[400px] rounded-md shadow-lg p-4">
+            <Avatar
+              alt="Profile pic"
+              src={orgProfile.profile_image_url}
+              sx={{
+                width: "200px",
+                height: "200px",
+                marginBottom: "10px",
+              }}
+            />
+            <button
+              onClick={() => navigate("/organizer/profile/edit")}
+              className="bg-custom-blue text-white p-2 rounded-md hover:bg-blue-500 w-full mt-4"
+            >
+              Edit Profile
+            </button>
           </div>
           <div className="mt-10">
             <h1 className="mt-3 mb-2 text-gray-600 font-semibold">
               Profile Details
             </h1>
-            <div className="  flex flex-col bg-[#f0f6ff] w-[400px] rounded-md shadow-lg px-2 py-4">
-              <p>
-                <strong className="mr-[100px] ml-[50px] text-custom-blue">
-                  Name
-                </strong>{" "}
-                {orgProfile.name}
-              </p>
-              <p className="mt-5">
-                <strong className="mr-[100px] ml-[50px] text-custom-blue">
-                  Industry
-                </strong>{" "}
-                {orgProfile.industry}
-              </p>
-              <p className="mt-5">
-                <strong className="mr-[100px] ml-[50px] text-custom-blue">
-                  Location{" "}
-                </strong>{" "}
-                {orgProfile.location}
-              </p>
-            </div>
-            <div className=" mt-3 flex flex-col bg-[#f0f6ff] w-[400px] rounded-md shadow-lg px-2 py-4">
-              <p className="mt-5">
-                <strong className="mr-[100px] ml-[50px] text-custom-blue">
-                  User ID
-                </strong>{" "}
-                {orgProfile.id}
-              </p>
+            <div className="flex flex-col bg-[#f0f6ff] w-[400px] h-[150px] rounded-md shadow-lg p-4">
+              <div className="flex mb-3">
+                <strong className="text-custom-blue w-[150px]">Name</strong>
+                <p>{orgProfile.name}</p>
+              </div>
+              <div className="flex mb-3">
+                <strong className="text-custom-blue w-[150px]">Industry</strong>
+                <p>{orgProfile.industry}</p>
+              </div>
+              <div className="flex">
+                <strong className="text-custom-blue w-[150px]">Location</strong>
+                <p>{orgProfile.location}</p>
+              </div>
             </div>
           </div>
         </div>

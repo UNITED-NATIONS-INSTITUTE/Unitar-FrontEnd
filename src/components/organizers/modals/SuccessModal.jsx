@@ -1,6 +1,8 @@
 import React from "react";
+import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import { useNavigate } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -8,15 +10,16 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 500,
-  height: 250,
+  height: 200,
   bgcolor: "background.paper",
   border: "2px solid #089BD9",
   boxShadow: 24,
-  p: 4,
+  p: 2,
   borderRadius: "10px",
 };
 
-export default function SubscribeModal({ openModal, handleClose }) {
+export default function SuccessModal({ openModal, handleClose }) {
+  const navigate = useNavigate();
   return (
     <Box>
       <Modal
@@ -28,16 +31,16 @@ export default function SubscribeModal({ openModal, handleClose }) {
         <Box sx={style}>
           <Box className=" flex items-center justify-center">
             <Box>
-              <Box className="flex space-x-4 ">
-                <div>
-                  <h1 className="font-bold text-[24px] text-custom-blue font-Lexend-Exa  text-center">
-                    Hackathon Project Subscription
-                  </h1>
-
-                  <p className="mt-12 items-center text-gray-700 text-[20px] ">
-                    You have successfully subscribed to this hackathon project
-                  </p>
-                </div>
+              <Typography variant="h6" component="h4">
+                Complete account set up by creating your profile
+              </Typography>
+              <Box className="flex space-x-4  mt-[40px]">
+                <button
+                  onClick={() => navigate("profile/create")}
+                  className="flex-1 bg-custom-blue rounded-md  py-2 text-white hover:bg-blue-500 text-[16px] "
+                >
+                  Proceed
+                </button>
               </Box>
             </Box>
           </Box>
