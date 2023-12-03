@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
 import UserProfile from "./profile/UserProfile";
 import { getParticipantHackathonSubscriptions } from "../../api/hackathons/hackathons";
 import { selectCurrentParticipantDetail } from "../../features/participant/participantSlice";
@@ -12,14 +11,12 @@ const MyHackathons = () => {
 
   const participantDetails = useSelector(selectCurrentParticipantDetail);
   const [subscriptionsPayload, setSubscriptionsPayload] = useState([]);
-  const images = [{ name: "project #1", url: "image1.svg" }];
 
-  const fetchHackathons = () => {
+  const fetchSubscriptions = () => {
     getParticipantHackathonSubscriptions(participantDetails.id)
       .then((res) => {
         if (res.status === 200) {
           setSubscriptionsPayload(res.data);
-          console.log(res.data);
         }
       })
       .catch((err) => {
@@ -27,7 +24,7 @@ const MyHackathons = () => {
       });
   };
   useEffect(() => {
-    fetchHackathons();
+    fetchSubscriptions();
   }, []);
   const handleViewClick = (subscriptionDetails) => {
     dispatch(
@@ -47,24 +44,24 @@ const MyHackathons = () => {
           </div>
         </div>
         <div className="flex space-x-4 mt-5 ml-4">
-          {subscriptionsPayload > 0 &&
+          {subscriptionsPayload.length > 0 &&
             subscriptionsPayload.map((field, index) => (
               <div
                 key={index}
-                className="flex flex-col iems-center mb-4 w-[400px] h-[350px]"
+                className="flex flex-col items-center mb-4 w-[400px] h-[350px]"
               >
                 <img
                   className="rounded-md"
                   key={index}
-                  src={`/assets/${field.cover_image_url}`}
+                  src={field.hackathon.cover_image_url}
                   alt={`image ${index + 1}`}
                   width="250"
                   height="200"
                 />
-                <p className="mt-2 text-sm text-gray-500">{field.name}</p>
-                <p className="mt-2 text-sm  font-bold">{field.highlight}</p>
+                <p className="mt-2 text-sm text-gray-500">{field.hackathon.name}</p>
+                <p className="mt-2 text-sm  font-bold">{field.hackathon.highlight}</p>
                 <p className="mt-2 text-xs text-gray-500">
-                  {field.description}
+                  {field.hackathon.description}
                 </p>
 
                 <div className="flex gap-5">
