@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { Avatar, Menu, MenuItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { selectLoggedInUserRef } from "../../../features/user/userSlice";
-import { setCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
+import {
+  setCurrentOrganizerDetail,
+  setOrganizerCode,
+} from "../../../features/organizer/organizerSlice";
 import { store } from "../../../store/store";
 import { fetchOrganizerProfile } from "../../../api/accounts/accounts";
 import ProfilePrompt from "../modals/ProfilePrompt";
@@ -11,7 +14,7 @@ const OrgProfile = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [openProfilePrompt, setopenProfilePrompt] = useState(false);
-  const [orgProfile, setOrgProfile] = useState("")
+  const [orgProfile, setOrgProfile] = useState("");
   const openProfileMenu = () => setAnchorElNav(true);
   const closeProfileMenu = () => setAnchorElNav(null);
   const navigate = useNavigate();
@@ -32,10 +35,11 @@ const OrgProfile = () => {
     fetchOrganizerProfile(org_ref)
       .then((res) => {
         if (res.status === 200) {
-          setOrgProfile(res.data)
+          setOrgProfile(res.data);
           dispatch(
             setCurrentOrganizerDetail({ currentOrganizerDetail: res.data })
           );
+          dispatch(setOrganizerCode({ organizerCode: res.data }));
         }
       })
       .catch((err) => {
@@ -50,14 +54,16 @@ const OrgProfile = () => {
     <div className="relative inline-block">
       <ProfilePrompt openModal={openProfilePrompt} handleClose={closeModal} />
       <div className="flex items-center border p-1 border-custom-grey rounded-lg space-x-2 cursor-pointer">
-        {orgProfile !== "" ? <div onClick={() => openProfileMenu()}>
-          <Avatar
-            alt="Profile pic"
-            src={orgProfile.profile_image_url}
-            sx={{ width: "24px", height: "24px" }}
-          />
-          <span className="text-xs">{orgProfile.name}</span>
-        </div> : null}
+        {orgProfile !== "" ? (
+          <div onClick={() => openProfileMenu()}>
+            <Avatar
+              alt="Profile pic"
+              src={orgProfile.profile_image_url}
+              sx={{ width: "24px", height: "24px" }}
+            />
+            <span className="text-xs">{orgProfile.name}</span>
+          </div>
+        ) : null}
         <Menu
           id="menu-appbar"
           anchorEl={anchorElNav}
