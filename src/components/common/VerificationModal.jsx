@@ -1,11 +1,28 @@
 import React, { useState } from "react";
-
-const VerificationModal = ({ onClose, onSubmit, onResend }) => {
+import { useNavigate } from "react-router-dom";
+import { verifyUserAccount } from "../../api/security/security";
+const VerificationModal = ({ user_code, onClose }) => {
   const [verificationCode, setVerificationCode] = useState("");
-
+  const navigate = useNavigate()
+  const verifyUser = () => {
+    verifyUserAccount(user_code, verificationCode)
+      .then((res) => {
+        if (res.status === 200) {
+          // TO DO: SHOW ACCOUNT CREATION SUCCESS AND ADVISE TO LOG IN
+          onClose();
+          setTimeout(() => {
+            navigate("/login");
+          }, 2000);
+        }
+      })
+      .catch((error) => {
+        // TO DO: SHOW ERROR MODAL WITH MESSAGE HERE
+        console.error(error.response.data.error);
+      });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(verificationCode);
+    verifyUser();
   };
 
   return (
@@ -32,7 +49,7 @@ const VerificationModal = ({ onClose, onSubmit, onResend }) => {
         </p>
         <form onSubmit={handleSubmit} className="mt-5 flex flex-col">
           <label htmlFor="verificationCode " className="text-xs mr-[10px]">
-            Enter the code
+            Enter the code below to activate your account
           </label>
           <input
             className="border border-gray-600 focus:outline-none focus:border-custom-blue rounded h-[50px]"
@@ -54,7 +71,9 @@ const VerificationModal = ({ onClose, onSubmit, onResend }) => {
         </form>
         <p className="text-xs">
           Can't see the code?{" "}
-          <button onClick={onResend} className="text-custom-blue mt-5">
+          <button 
+          // onClick={onResend} TODO: IMPLEMENT RESEND FUNC
+           className="text-custom-blue mt-5">
             Resend code
           </button>
         </p>

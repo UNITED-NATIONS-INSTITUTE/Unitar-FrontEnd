@@ -9,7 +9,7 @@ const SignUp = () => {
   const [showVerificationModal, setShowVerificationModal] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
+  const [user_code, setUserCode] = useState("");
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -35,72 +35,49 @@ const SignUp = () => {
     }
     return user;
   }
-  const handleVerificationSubmit = (code) => {
-    // Perform verification logic here
-
-    // After successful verification, navigate to login page
-    setTimeout(() => {
-      navigate("/login");
-    }, 3000); // 3000 milliseconds (3 seconds)
-  };
-
-  const resendCode = () => {
-    // Perform logic to resend verification code (e.g., send another email)
-    sendVerificationCode(email)
-      .then(() => {
-        // TO DO: SHOW SUCCESS MODAL
-        setSuccessMessage("Verification code resent successfully!");
-      })
-      .catch((error) => {
-        // TO DO: SHOW ERROR MODAL
-        setErrorMessage("Error resending verification code. Please try again.");
-        console.error(error);
-      });
-  };
 
   const onCloseVerificationModal = () => {
     setShowVerificationModal(false);
   };
 
-  const showVerificationCodeModal = () => {
-    setShowVerificationModal(true);
-    // Resend verification code when the modal is shown
-    resendCode();
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const role = getRole();
-    console.log(username, email, password, password_confirmation, role);
-    createUserAccount(username, email, password, password_confirmation, role)
-      .then((res) => {
-        if (res.status === 201) {
-          // TO DO: SHOW SUCCESS MODAL, THEN TIMEOUT AND NAVIGATE TO LOG IN
-          setSuccessMessage("Verification code resent successfully!");
-
-          // Show the verification code modal
-          showVerificationCodeModal();
-          // Clear the form
-          setValues({
-            username: "",
-            email: "",
-            password: "",
-            password_confirmation: "",
-          });
-        }
-      })
-      .catch((err) => {
-        // TO DO: SHOW ERROR MODAL
-        setErrorMessage("Error creating account. Please try again.");
-
+    createUserAccount(
+      username,
+      email,
+      password,
+      password_confirmation,
+      role
+    ).then((res) => {
+      if (res.status === 201) {
+        setUserCode(res.data.id);
+        setSuccessMessage("Verification code sent successfully!");
+        setTimeout(() => {
+          setShowVerificationModal(true);
+        }, 1500);
+        
         setValues({
           username: "",
           email: "",
           password: "",
           password_confirmation: "",
         });
-        console.log(err);
-      });
+      } else {
+        setErrorMessage("Error creating account. Please try again.");
+      }
+    });
+    // .catch((err) => {
+    //   // TO DO: SHOW ERROR MODAL with MESSAGE FROM SERVER
+    //   setErrorMessage("Error creating account. Please try again.");
+    //   setValues({
+    //     username: "",
+    //     email: "",
+    //     password: "",
+    //     password_confirmation: "",
+    //   });
+    //   console.log(err);
+    // });
   };
   return (
     <div>
@@ -180,8 +157,7 @@ const SignUp = () => {
       {showVerificationModal && (
         <VerificationModal
           onClose={onCloseVerificationModal}
-          onSubmit={handleVerificationSubmit}
-          onResend={resendCode}
+          user_code={user_code}
         />
       )}
     </div>
