@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import HackDetailsPart1 from "./HackDetailsPart1";
-import HackDetailsPart2 from "./HackDetailsPart2";
 import OrgProfile from "../../organizers/profile/OrgProfile";
 import SubscribeModal from "../SubscribeModal";
+
 const HackathonDetailsPage = () => {
   const [openSubscribeModal, setOpenSubscribeModal] = useState(false);
   const openModal = () => setOpenSubscribeModal(true);
@@ -10,7 +9,6 @@ const HackathonDetailsPage = () => {
   return (
     <div className="bg-white p-8  min-h-screen right-side">
       <div className="flex justify-between">
-        <div></div>
         <h1 className="mt-0 text-gray-600 font-bold  text-[20px] relative mr-[570px]">
           Hackathon
         </h1>
@@ -27,15 +25,10 @@ const HackathonDetailsPage = () => {
       </p>
       <div className="flex gap-[100px] ml-60">
         <div>
-          <HackDetailsPart1 />
-        </div>
-        <div>
           <SubscribeModal
             openModal={openSubscribeModal}
             handleClose={closeModal}
           />
-
-          <HackDetailsPart2 openModal={openModal} />
         </div>
       </div>
     </div>

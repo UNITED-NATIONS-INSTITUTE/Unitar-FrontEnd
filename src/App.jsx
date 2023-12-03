@@ -33,6 +33,8 @@ import MyHackathons from "./components/participants/MyHackathons";
 import CreateOrgProfile from "./components/organizers/profile/CreateOrgProfile";
 import OrgProfilePage from "./components/organizers/profile/OrgProfilePage";
 
+import UnAuthorized from "./components/common/utils/UnAuthorized";
+import RequireAuth from "./components/common/utils/RequireAuth";
 const App = () => {
   return (
     <Routes>
@@ -42,53 +44,58 @@ const App = () => {
       <Route path="/org-signup" element={<SignUp />} />
       <Route path="/part-signup" element={<SignUp />} />
       <Route path="/login" element={<LogIn />} />
+      <Route path="unauthorized" element={<UnAuthorized />} />
       {/* PARTICIPANT */}
-      <Route path="participant" element={<Sidebar />}>
-        <Route index element={<ParticipantDashboard />} />
+      <Route element={<RequireAuth requiredRouteRole={"PARTICIPANT"} />}>
+        <Route path="participant" element={<Sidebar />}>
+          <Route index element={<ParticipantDashboard />} />
 
-        <Route path="profile" element={<Outlet />}>
-          <Route index element={<UserProfileForm />} />
-          <Route path="editprofile" element={<EditDetails />} />
-        </Route>
-        <Route path="dashboard" element={<ParticipantDashboard />} />
-        <Route path="myhackathons" element={<MyHackathons />} />
-        <Route path="hackathons" element={<PartHackathon />}>
-          <Route index element={<HackathonDashboard />} />
+          <Route path="profile" element={<Outlet />}>
+            <Route index element={<UserProfileForm />} />
+            <Route path="editprofile" element={<EditDetails />} />
+          </Route>
+          <Route path="dashboard" element={<ParticipantDashboard />} />
+          <Route path="myhackathons" element={<MyHackathons />} />
+          <Route path="hackathons" element={<PartHackathon />}>
+            <Route index element={<HackathonDashboard />} />
 
-          <Route path="detail" element={<HackathonDetailsPage />} />
-          <Route path="submit" element={<SubmitHackathon />} />
+            <Route path="detail" element={<HackathonDetailsPage />} />
+            <Route path="submit" element={<SubmitHackathon />} />
+          </Route>
         </Route>
       </Route>
       {/* ORGANIZER */}
-      <Route path="organizer" element={<OrgSidebar />}>
-        <Route index element={<OrgDashboard />} />
-        <Route path="profile" element={<Outlet />}>
-          <Route index element={<OrgProfilePage />} />
-          <Route path="create" element={<CreateOrgProfile />} />
-          <Route path="edit" element={<OrgEditDetails />} />
-        </Route>
-        <Route path="dashboard" element={<OrgOutlet />}>
+      <Route element={<RequireAuth requiredRouteRole={"ORGANIZER"} />}>
+        <Route path="organizer" element={<OrgSidebar />}>
           <Route index element={<OrgDashboard />} />
-          <Route path="detail" element={<OrgViewProject />} />
-          <Route path="editdetail" element={<EditHackathon />} />
-        </Route>
-        <Route path="hackathons" element={<Outlet />}>
-          <Route index element={<OrgHackathonPage />} />
-          <Route path="create" element={<Outlet />}>
-            <Route index element={<CreateHackathon />} />
-            <Route path="media" element={<Outlet />}>
-              <Route index element={<AddMedia />} />
-              <Route path="details" element={<HackathonMedia />} />
-            </Route>
-            <Route path="verify" element={<EmailValidation />} />
-            <Route path="validate" element={<CodeVerification />} />
+          <Route path="profile" element={<Outlet />}>
+            <Route index element={<OrgProfilePage />} />
+            <Route path="create" element={<CreateOrgProfile />} />
+            <Route path="edit" element={<OrgEditDetails />} />
           </Route>
-        </Route>
-        <Route path="submissions" element={<OrgOutlet />}>
-          <Route index element={<OrgSubmissionPage />} />
-          <Route path="details" element={<OrgOutlet />}>
-            <Route index element={<OrgSubmissions />} />
-            <Route path="view" element={<ViewDetailsPage />} />
+          <Route path="dashboard" element={<OrgOutlet />}>
+            <Route index element={<OrgDashboard />} />
+            <Route path="detail" element={<OrgViewProject />} />
+            <Route path="editdetail" element={<EditHackathon />} />
+          </Route>
+          <Route path="hackathons" element={<Outlet />}>
+            <Route index element={<OrgHackathonPage />} />
+            <Route path="create" element={<Outlet />}>
+              <Route index element={<CreateHackathon />} />
+              <Route path="media" element={<Outlet />}>
+                <Route index element={<AddMedia />} />
+                <Route path="details" element={<HackathonMedia />} />
+              </Route>
+              <Route path="verify" element={<EmailValidation />} />
+              <Route path="validate" element={<CodeVerification />} />
+            </Route>
+          </Route>
+          <Route path="submissions" element={<OrgOutlet />}>
+            <Route index element={<OrgSubmissionPage />} />
+            <Route path="details" element={<OrgOutlet />}>
+              <Route index element={<OrgSubmissions />} />
+              <Route path="view" element={<ViewDetailsPage />} />
+            </Route>
           </Route>
         </Route>
       </Route>
