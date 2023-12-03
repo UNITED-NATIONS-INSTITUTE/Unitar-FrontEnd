@@ -1,13 +1,10 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import { Avatar } from "@mui/material";
-import { useRef, useState } from "react";
 import { axiosApi } from "../../../api";
 import { selectLoggedInUserRef } from "../../../features/user/userSlice";
-import SuccessModal from "../modals/SuccessModal";
 
 const CreateOrgProfile = () => {
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const org_ref = useSelector(selectLoggedInUserRef);
 
   const [formData, setFormData] = useState({
@@ -46,29 +43,21 @@ const CreateOrgProfile = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axiosApi
-      .post("/organizers", formData)
-      .then((res) => {
-        if (res.status === 201) {
-          setShowSuccessModal(true);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  const closeModal = () => {
-    setShowSuccessModal(false);
+
+    try {
+      const res = await axiosApi.post("/organizers", formData);
+      if (res.status === 201) {
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
     <div className="right-side min-h-screen bg-pattern">
-      {showSuccessModal && (
-        <SuccessModal openModal={showSuccessModal} handleClose={closeModal} />
-      )}
-      <form className="max-w-md mx-auto mt-8" onSubmit={handleSubmit}>
+      <form className="ml-80 mt-8" onSubmit={handleSubmit}>
         <h1 className="text-gray-600 text-[24px] font-bold">Profile Details</h1>
         <div className="w-[500px] h-[140px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5">
           <div className="flex items-center ml-4 justify-between">
