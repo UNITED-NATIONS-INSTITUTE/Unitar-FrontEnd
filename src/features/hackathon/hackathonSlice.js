@@ -3,26 +3,18 @@ import { createSlice } from "@reduxjs/toolkit";
 const hackathonSlice = createSlice({
   name: "hackathon",
   initialState: {
-    hackathons: [],
-    selectedHackathon: null,
-    loading: false,
-    error: null,
+    selectedHackathonDetail: null,
   },
   reducers: {
-    addHackathon: (state, action) => {
-      const { hackathon } = action.payload;
-      state.hackathons.push(hackathon);
-    },
-    selectHackathon: (state, action) => {
-      state.selectedHackathon = action.payload;
+    setSelectedHackathonDetail: (state, action) => {
+      const { selectedHackathonDetail } = action.payload;
+      state.selectedHackathonDetail = selectedHackathonDetail;
     },
   },
 });
 
-export const { addHackathon, selectHackathon } = hackathonSlice.actions;
-
-export const selectHackathons = (state) => state?.hackathon?.hackathons;
-export const selectSelectedHackathon = (state) =>
-  state?.hackathon?.selectedHackathon;
+export const { setSelectedHackathonDetail } = hackathonSlice.actions;
+export const selectSelectedHackathonDetail = (state) =>
+  state?.hackathon?.selectedHackathonDetail;
 
 export default hackathonSlice.reducer;

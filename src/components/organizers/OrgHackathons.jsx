@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Avatars from "../common/Avatars";
 import { useNavigate } from "react-router-dom";
 import { getOrganizerHackathons } from "../../api/hackathons/hackathons";
 import { selectOrganizerCode } from "../../features/organizer/organizerSlice";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setSelectedHackathonDetail } from "../../features/hackathon/hackathonSlice";
+import HackathonMedia from "../common/utils/HackathonMedia";
 const OrgHackathons = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [hackathonsPayload, setHackathonsPalyload] = useState([]);
   const org_code = useSelector(selectOrganizerCode);
   const fetchHackathons = () => {
@@ -22,6 +24,12 @@ const OrgHackathons = () => {
   useEffect(() => {
     fetchHackathons();
   }, []);
+  const handleViewClick = (hackathonDetails) => {
+    dispatch(
+      setSelectedHackathonDetail({ selectedHackathonDetail: hackathonDetails })
+    );
+    navigate("/organizer/hackathons/detail");
+  };
 
   return (
     <div className="flex space-x-4 mt-5 ml-4">
@@ -38,7 +46,7 @@ const OrgHackathons = () => {
           <p className="mt-2 text-xs text-gray-500">{field.description}</p>
           <div className="flex gap-5">
             <button
-              onClick={() => navigate("/organizer/dashboard/detail")}
+              onClick={() => handleViewClick(field)}
               className="border border-blue-500 rounded-md text-blue-500 w-[100px] text-xs mt-4 py-1"
             >
               View Details
