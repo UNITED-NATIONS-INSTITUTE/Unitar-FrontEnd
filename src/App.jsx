@@ -28,7 +28,6 @@ import CodeVerification from "./components/organizers/createhackathon/CodeVerifi
 import EditHackathon from "./components/organizers/edithackathon/EditHackathon";
 import UserProfileForm from "./components/participants/profile/UserProfileForm";
 import EditDetails from "./components/participants/profile/EditDetails";
-import OrgProfileForm from "./components/organizers/profile/OrgProfileForm";
 import OrgEditDetails from "./components/organizers/profile/OrgEditDetails";
 import MyHackathons from "./components/participants/MyHackathons";
 import CreateOrgProfile from "./components/organizers/profile/CreateOrgProfile";
