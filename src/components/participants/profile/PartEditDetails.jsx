@@ -125,7 +125,7 @@ const PartEditDetails = () => {
           </div>
           <Avatar
             alt="Profile pic"
-            src={formData.profile_image}
+            src={formData.profile_image_url}
             sx={{ width: "100px", height: "100px", marginTop: "50px" }}
           />
           <span className="text-sm mt-5">Your photo</span>

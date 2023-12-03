@@ -51,13 +51,16 @@ const UserProfile = () => {
       <ProfilePrompt openModal={openProfilePrompt} handleClose={closeModal} />
       <div className="flex items-center border p-1 border-custom-grey rounded-lg space-x-2 cursor-pointer">
         {partProfile !== "" ? (
-          <div onClick={() => openProfileMenu()}>
+          <div
+            className="flex items-center gap-5"
+            onClick={() => openProfileMenu()}
+          >
             <Avatar
               alt="Profile pic"
               src={partProfile.profile_image_url}
               sx={{ width: "24px", height: "24px" }}
             />
-            <span className="text-xs">{partProfile.name}</span>
+            <span className="text-xs">{partProfile.first_name}</span>
           </div>
         ) : null}
         <Menu
