@@ -60,7 +60,7 @@ const VerificationModal = ({ user_code, onClose }) => {
         {successMessage && (
           <p className="text-green-500 mt-2">{successMessage}</p>
         )}
-        {!successMessage && !errorMessage && (
+        {!successMessage && (
           <form onSubmit={handleSubmit} className="mt-5 flex flex-col">
             <label htmlFor="verificationCode" className="text-xs mr-[10px]">
               Enter the code below to activate your account

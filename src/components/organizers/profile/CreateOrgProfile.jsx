@@ -11,7 +11,7 @@ const CreateOrgProfile = () => {
     name: "",
     location: "",
     industry: "",
-    profile_image: "",
+    // profile_image: "",
     user_id: org_ref,
   });
   const fileInputRef = useRef(null);
@@ -63,7 +63,7 @@ const CreateOrgProfile = () => {
           <div className="flex items-center ml-4 justify-between">
             <Avatar
               alt="Profile pic"
-              src={formData.profile_image}
+              // src={formData.profile_image}
               sx={{
                 width: "100px",
                 height: "100px",
