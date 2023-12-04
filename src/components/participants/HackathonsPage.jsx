@@ -35,7 +35,7 @@ const HackathonsPage = () => {
         hackathonsPayload.map((field, index) => (
           <div
             key={index}
-            className="flex flex-col items-center border border-gray-400 rounded-[6px] shadow-lg mb-4 w-[450px] h-[400px]"
+            className="flex flex-col items-center border border-gray-100 rounded-[6px] shadow-xl mb-4 w-[450px] h-[400px] transition-transform transform hover:-translate-y-1"
           >
             <div className="mt-5 rounded-md border ">
               {" "}
