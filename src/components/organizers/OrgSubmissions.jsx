@@ -1,8 +1,11 @@
 import React from "react";
 import OrgSubmissionsTable from "./OrgSubmissionsTable";
 import OrgProfile from "./profile/OrgProfile";
+import { useSelector, useDispatch } from "react-redux";
+import { selectSelectedHackathonDetail } from "../../features/hackathon/hackathonSlice";
 
 const OrgSubmissions = () => {
+  const hackathon = useSelector(selectSelectedHackathonDetail)
   return (
     <div className="bg-white p-8 right-side min-h-screen">
       <div className="ml-60">
@@ -19,10 +22,10 @@ const OrgSubmissions = () => {
             className="w-2 h-2 mt-[4px] "
             alt="chevron"
           />
-          <span>Build4SDGs</span>
+          <span>{hackathon.title}</span>
         </p>
         <div className="mb-10">
-          <OrgSubmissionsTable />
+          <OrgSubmissionsTable hackathonId={hackathon.id}/>
         </div>
       </div>
     </div>
