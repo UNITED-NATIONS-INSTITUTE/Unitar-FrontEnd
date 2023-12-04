@@ -56,7 +56,7 @@ const SignUp = () => {
         setTimeout(() => {
           setShowVerificationModal(true);
         }, 1500);
-        
+
         setValues({
           username: "",
           email: "",
@@ -140,7 +140,7 @@ const SignUp = () => {
               />
               <button
                 type="submit"
-                className="w-full bg-custom-blue text-white py-2 mt-4 rounded hover:bg-blue-600 "
+                className="w-full bg-custom-blue text-white py-2 mt-4 rounded hover:bg-white hover:text-custom-blue hover:border-2 hover:border-custom-blue "
               >
                 Sign me up
               </button>

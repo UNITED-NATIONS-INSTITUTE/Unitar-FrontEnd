@@ -44,13 +44,13 @@ export default function BasicModal({ openModal, handleClose }) {
               <Box className="flex space-x-4 mt-[100px]">
                 <button
                   onClick={() => navigate("/part-signup")}
-                  className="flex-1 bg-custom-blue text-white py-2 rounded hover:bg-blue-600 text-[16px]  "
+                  className="flex-1 bg-custom-blue text-white py-2 rounded text-[16px] transition-transform transform hover:-translate-y-1 "
                 >
                   For Participants
                 </button>
                 <button
                   onClick={() => navigate("/org-signup")}
-                  className="flex-1 btn-org  py-2 rounded hover:bg-blue-500 text-[16px] "
+                  className="flex-1 btn-org  py-2 rounded transition-transform transform hover:-translate-y-1 text-[16px] "
                 >
                   For Organizers
                 </button>
