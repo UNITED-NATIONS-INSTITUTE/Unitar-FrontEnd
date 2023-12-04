@@ -5,7 +5,7 @@ const ViewDetailsPage = ({ openModal }) => {
   const subscription = useSelector(selectCurrentSubscriptionDetail);
   return (
     <div>
-      <div className="flex gap-[80px] mt-10">
+      {subscription && <div className="flex gap-[80px] mt-10">
         <img
           src={subscription.image}
           alt="hackathon"
@@ -59,7 +59,7 @@ const ViewDetailsPage = ({ openModal }) => {
             </button>
           </div>
         </div>
-      </div>
+      </div>}
     </div>
   );
 };

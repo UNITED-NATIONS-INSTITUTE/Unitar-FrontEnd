@@ -29,11 +29,11 @@ import MyHackathons from "./components/participants/MyHackathons";
 import CreateOrgProfile from "./components/organizers/profile/CreateOrgProfile";
 import OrgProfilePage from "./components/organizers/profile/OrgProfilePage";
 import CreatePartProfile from "./components/participants/profile/CreatePartProfile";
+import PartEditDetails from "./components/participants/profile/PartEditDetails";
 import UserProfilePage from "./components/participants/profile/UserProfilePage";
 
 import UnAuthorized from "./components/common/utils/UnAuthorized";
 import RequireAuth from "./components/common/utils/RequireAuth";
-import PartUpdateProfile from "./components/participants/profile/PartUpdateProfile";
 const App = () => {
   return (
     <Routes>
@@ -52,7 +52,7 @@ const App = () => {
           <Route path="profile" element={<Outlet />}>
             <Route index element={<UserProfilePage />} />
             <Route path="create" element={<CreatePartProfile />} />
-            <Route path="edit" element={<PartUpdateProfile />} />
+            <Route path="edit" element={<PartEditDetails />} />
           </Route>
           <Route path="myhackathons" element={<MyHackathons />} />
           <Route path="hackathons" element={<Outlet />}>
