@@ -6,6 +6,7 @@ import userSlice from "../features/user/userSlice";
 import participantSlice from "../features/participant/participantSlice";
 import hackathonSlice from "../features/hackathon/hackathonSlice";
 import organizerSlice from "../features/organizer/organizerSlice";
+import subscriptionSlice from "../features/subscription/subscriptionSlice";
 const persistConfig = {
   key: "root",
   storage,
@@ -17,6 +18,7 @@ const appReducer = combineReducers({
   participant: participantSlice,
   organizer: organizerSlice,
   hackathon: hackathonSlice,
+  subscription: subscriptionSlice,
 });
 
 const rootReducer = (state, action) => {

@@ -1,9 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { TextField } from "@mui/material";
 import UserProfile from "../../participants/profile/UserProfile";
-
+import { submitHackathonResponse } from "../../../api/hackathons/hackathons";
+import { selectCurrentSubscriptionDetail } from "../../../features/subscription/subscriptionSlice";
 const SubmitHackDetails = () => {
-  const fileInputRef = useRef(null);
   const [formData, setFormData] = useState({
     title: "",
     desc: "",
@@ -13,11 +15,8 @@ const SubmitHackDetails = () => {
     live_url: "",
     blog: "",
   });
-
-  const handleChooseFile = () => {
-    fileInputRef.current.click();
-  };
-
+  const subscription = useSelector(selectCurrentSubscriptionDetail);
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -28,9 +27,16 @@ const SubmitHackDetails = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log("Form Data:", formData);
+    submitHackathonResponse(subscription.id, formData).then((res) => {
+      if (res.status === 200) {
+        navigate(-1);
+      }
+    });
   };
+  useEffect(() => {
+    setFormData(subscription)
+  }, [])
+  
 
   return (
     <div className="ml-[260px]">

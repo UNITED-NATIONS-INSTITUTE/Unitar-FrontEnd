@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { Avatar, Menu, MenuItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { selectLoggedInUserRef } from "../../../features/user/userSlice";
-import { setCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
+import {
+  setCurrentOrganizerDetail,
+  setOrganizerCode,
+} from "../../../features/organizer/organizerSlice";
 import { store } from "../../../store/store";
 import { fetchOrganizerProfile } from "../../../api/accounts/accounts";
 import ProfilePrompt from "../modals/ProfilePrompt";
@@ -35,6 +38,7 @@ const OrgProfile = () => {
           dispatch(
             setCurrentOrganizerDetail({ currentOrganizerDetail: res.data })
           );
+          dispatch(setOrganizerCode({ organizerCode: res.data.id }));
         }
       })
       .catch((err) => {

@@ -15,8 +15,6 @@ import OrgHackathonPage from "./components/organizers/OrgHackathonPage";
 import OrgSubmissionPage from "./components/organizers/OrgSubmissionPage";
 import CreateHackathon from "./components/organizers/createhackathon/CreateHackathon";
 
-import PartHackathon from "./components/participants/PartHackathon";
-
 import OrgOutlet from "./components/organizers/OrgOutlet";
 import OrgSubmissions from "./components/organizers/OrgSubmissions";
 import OrgViewProject from "./components/organizers/OrgViewProject";
@@ -50,17 +48,15 @@ const App = () => {
       <Route element={<RequireAuth requiredRouteRole={"PARTICIPANT"} />}>
         <Route path="participant" element={<Sidebar />}>
           <Route index element={<ParticipantDashboard />} />
-
-        <Route path="profile" element={<Outlet />}>
-          <Route index element={<UserProfilePage />} />
-          <Route path="create" element={<CreatePartProfile />} />
-          <Route path="edit" element={<PartEditDetails />} />
-        </Route>
-        <Route path="dashboard" element={<ParticipantDashboard />} />
-        <Route path="myhackathons" element={<MyHackathons />} />
-        <Route path="hackathons" element={<PartHackathon />}>
-          <Route index element={<HackathonDashboard />} />
-
+          <Route path="dashboard" element={<ParticipantDashboard />} />
+          <Route path="profile" element={<Outlet />}>
+            <Route index element={<UserProfilePage />} />
+            <Route path="create" element={<CreatePartProfile />} />
+            <Route path="edit" element={<PartEditDetails />} />
+          </Route>
+          <Route path="myhackathons" element={<MyHackathons />} />
+          <Route path="hackathons" element={<Outlet />}>
+            <Route index element={<HackathonDashboard />} />
             <Route path="detail" element={<HackathonDetailsPage />} />
             <Route path="submit" element={<SubmitHackathon />} />
           </Route>
@@ -77,11 +73,11 @@ const App = () => {
           </Route>
           <Route path="dashboard" element={<OrgOutlet />}>
             <Route index element={<OrgDashboard />} />
-            <Route path="detail" element={<OrgViewProject />} />
-            <Route path="editdetail" element={<EditHackathon />} />
           </Route>
           <Route path="hackathons" element={<Outlet />}>
             <Route index element={<OrgHackathonPage />} />
+            <Route path="detail" element={<OrgViewProject />} />
+            <Route path="edit" element={<EditHackathon />} />
             <Route path="create" element={<Outlet />}>
               <Route index element={<CreateHackathon />} />
               <Route path="media" element={<Outlet />}>
@@ -92,7 +88,7 @@ const App = () => {
               <Route path="validate" element={<CodeVerification />} />
             </Route>
           </Route>
-          <Route path="submissions" element={<OrgOutlet />}>
+          <Route path="submissions" element={<Outlet />}>
             <Route index element={<OrgSubmissionPage />} />
             <Route path="details" element={<OrgOutlet />}>
               <Route index element={<OrgSubmissions />} />
