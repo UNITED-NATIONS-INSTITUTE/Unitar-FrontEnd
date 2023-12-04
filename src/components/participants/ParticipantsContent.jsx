@@ -37,7 +37,7 @@ const ParticipantsContent = () => {
       <div className="mt-10">
         <h1 className="text-gray-600 font-semibold">Ongoing hackathons</h1>
         <h3 className="mt-3 text-sm font-bold">Hackathons</h3>
-        <p className="text-gray-500 text-xs mt-2">
+        <p className="text-gray-500 text-xs mt-2 ">
           Active Hackathons are listed here
         </p>
         <HackathonsPage />
