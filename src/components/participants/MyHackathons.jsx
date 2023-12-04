@@ -48,7 +48,7 @@ const MyHackathons = () => {
             subscriptionsPayload.map((field, index) => (
               <div
                 key={index}
-                className="flex rounded-[6px] shadow-lg flex-col border border-gray-100   items-center mb-4 w-[450px] h-[400px] transition-transform transform hover:-translate-y-1"
+                className="flex rounded-[6px] shadow-xl flex-col border border-gray-100   items-center mb-4 w-[450px] h-[400px] transition-transform transform hover:-translate-y-1"
               >
                 <img
                   className="rounded-md w-[280px] h-[200px] mt-4"
