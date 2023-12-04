@@ -3,9 +3,8 @@ import { useSelector } from "react-redux";
 import { Avatar } from "@mui/material";
 import { axiosApi } from "../../../api";
 import { selectLoggedInUserRef } from "../../../features/user/userSlice";
-import SuccessModal from "./SuccessModal";
 import { useNavigate } from "react-router-dom";
-
+import SuccessModal from "./modals/SuccessModal";
 const CreatePartProfile = () => {
   const [openSuccessModal, setOpenSuccessModal] = useState(false);
   const openModal = () => setOpenSuccessModal(true);
