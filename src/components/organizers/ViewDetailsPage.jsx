@@ -1,42 +1,30 @@
 import React from "react";
-
+import { useSelector } from "react-redux";
+import { selectCurrentSubscriptionDetail } from "../../features/subscription/subscriptionSlice";
 const ViewDetailsPage = ({ openModal }) => {
+  const subscription = useSelector(selectCurrentSubscriptionDetail);
   return (
     <div>
       <div className="flex gap-[80px] mt-10">
         <img
-          src="/assets/image1.svg"
+          src={subscription.image}
           alt="hackathon"
           className="w-[400px] rounded-[10px] h-[350px]"
         />
         <div>
-          <p className="font-semibold ">Project Title</p>
-          <h3 className="font-semibold mt-6">Hackathon Platform</h3>
-          <p className="mt-6">Project Description</p>
-          <p className="mt-6 text-xs w-[400px]">
-            EcoTrack is a hackathon project designed to promote environmental
-            awareness and sustainable living. The project features a
-            user-friendly mobile app that calculates and visualizes individual
-            carbon footprints using GPS data and user inputs. Leveraging IoT
-            devices, EcoTrack integrates data from smart appliances and
-            vehicles, providing users with a comprehensive view of their carbon
-            emissions. Gamification elements encourage users to set and achieve
-            sustainability goals, while a marketplace facilitates direct
-            contributions to verified carbon offset projects.
-          </p>{" "}
+          <p className="font-semibold ">{subscription.title}</p>
+          <p className="mt-6 text-xs w-[400px]">{subscription.desc}</p>{" "}
           <div className="flex flex-row gap-[100px] mt-10">
             <div className="flex flex-col ">
               <p className="text-xs font-bold ">Demo Presentation Link</p>
               <p className="text-xs mt-2 text-[#6E7079]">
-                {" "}
-                https://www.project.com
+                {subscription.demo_link}
               </p>
             </div>
             <div className="flex flex-col  ">
               <p className="text-xs font-bold">Blog Link(optional)</p>
               <p className="text-xs text-[#6E7079]  mt-2">
-                {" "}
-                https://www.project.com
+                {subscription.blog}
               </p>
             </div>
           </div>
@@ -44,21 +32,23 @@ const ViewDetailsPage = ({ openModal }) => {
             <div className="flex flex-col ">
               <p className="text-xs font-bold">Live Link</p>
               <p className="text-xs text-[#6E7079]  mt-2 ">
-                {" "}
-                https://www.project.com
+                {subscription.live_url}
               </p>
             </div>
             <div className="flex flex-col  ">
               <p className="text-xs font-bold">Github Link</p>
               <p className="text-xs text-[#6E7079]  mt-2 ">
-                {" "}
-                https://www.project.com
+                {subscription.gh_link}
               </p>
             </div>
           </div>
           <div className="flex flex-col mt-6 ">
             <p className="text-xs font-bold">Submitted by</p>
-            <p className="text-xs text-[#6E7079]  mt-2 "> Denis Kim</p>
+            <p className="text-xs text-[#6E7079]  mt-2 ">
+              {" "}
+              {subscription.participant.first_name}{" "}
+              {subscription.participant.last_name}
+            </p>
           </div>
           <div className="flex justify-end">
             <button
