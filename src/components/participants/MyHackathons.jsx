@@ -48,7 +48,7 @@ const MyHackathons = () => {
             subscriptionsPayload.map((field, index) => (
               <div
                 key={index}
-                className="flex rounded-[6px] shadow-lg flex-col border border-gray-300   items-center mb-4 w-[400px] h-[350px]"
+                className="flex rounded-[6px] shadow-lg flex-col border border-gray-100   items-center mb-4 w-[450px] h-[400px] transition-transform transform hover:-translate-y-1"
               >
                 <img
                   className="rounded-md w-[280px] h-[200px] mt-4"
@@ -69,7 +69,7 @@ const MyHackathons = () => {
                 <div className="flex gap-5">
                   <button
                     onClick={() => handleViewClick(field)}
-                    className="border mb-5 border-blue-500 rounded-md text-blue-500 w-[150px] text-xs mt-4 py-1"
+                    className="border mb-5 border-blue-500 rounded-md text-blue-500 hover:bg-custom-blue hover:text-white w-[150px] text-xs mt-4 py-1"
                   >
                     Make a Submission
                   </button>
