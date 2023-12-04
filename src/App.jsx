@@ -88,7 +88,7 @@ const App = () => {
               <Route path="validate" element={<CodeVerification />} />
             </Route>
           </Route>
-          <Route path="submissions" element={<OrgOutlet />}>
+          <Route path="submissions" element={<Outlet />}>
             <Route index element={<OrgSubmissionPage />} />
             <Route path="details" element={<OrgOutlet />}>
               <Route index element={<OrgSubmissions />} />
