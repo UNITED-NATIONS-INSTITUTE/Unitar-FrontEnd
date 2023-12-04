@@ -1,16 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import ViewDetailsPage from "./ViewDetailsPage";
 import GradingModal from "./GradingModal";
-
-const OrgSubmissionsTable = () => {
+import { getHackathonSubscriptions } from "../../api/hackathons/hackathons";
+import { setCurrentSubscriptionDetail } from "../../features/subscription/subscriptionSlice";
+const OrgSubmissionsTable = ({ hackathonId }) => {
   const [openSignUpModal, setOpenSignUpModal] = useState(false);
   const openModal = () => setOpenSignUpModal(true);
   const closeModal = () => setOpenSignUpModal(false);
+  const dispatch = useDispatch();
   const [detailsVisible, setDetailsVisible] = useState(false);
-
-  const showDetails = () => {
+  const [subscriptionsData, setSubscriptionsData] = useState([]);
+  const fetchHackathons = () => {
+    getHackathonSubscriptions(hackathonId)
+      .then((res) => {
+        if (res.status === 200) {
+          setSubscriptionsData(res.data);
+          console.log(res.data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    fetchHackathons();
+  }, []);
+  const showDetails = (params) => {
     setDetailsVisible(true);
+    dispatch(
+      setCurrentSubscriptionDetail({ currentSubscriptionDetail: params.row })
+    );
     window.scrollTo({
       top: document.body.scrollHeight,
       behavior: "smooth",
@@ -23,29 +44,29 @@ const OrgSubmissionsTable = () => {
   };
   const columns = [
     {
-      field: "profileImage",
-      headerName: "",
-      width: 20,
-      renderCell: () => (
-        <img
-          src="/assets/avatar1.jpg"
-          alt="profile"
-          style={{ borderRadius: "50%", width: "32px", height: "32px" }}
-        />
-      ),
+      field: "image",
+      headerName: "Image",
+      width: 100,
+      // renderCell: () => (
+      //   <img
+      //     src={image}
+      //     alt="profile"
+      //     style={{ borderRadius: "50%", width: "32px", height: "32px" }}
+      //   />
+      // ),
     },
-    { field: "participant", headerName: "Participant", width: 120 },
-    { field: "projectName", headerName: "Project name", width: 165 },
-    { field: "github", headerName: "Github", width: 165 },
-    { field: "presentationLink", headerName: "Presentation link", width: 165 },
-    { field: "liveLink", headerName: "Live link", width: 165 },
+    { field: "blog", headerName: "Blog", width: 120 },
+    { field: "title", headerName: "Project name", width: 165 },
+    { field: "gh_link", headerName: "Github", width: 165 },
+    { field: "demo_link", headerName: "Demo link", width: 165 },
+    { field: "live_url", headerName: "Live link", width: 165 },
     {
       field: "action",
-      headerName: "Action",
+      headerName: "Actions",
       width: 110,
-      renderCell: () => (
+      renderCell: (params) => (
         <button
-          onClick={showDetails}
+          onClick={() => showDetails(params)}
           className="bg-custom-blue text-white rounded-md text-xs font-semibold px-3 py-2"
         >
           View details
@@ -54,24 +75,13 @@ const OrgSubmissionsTable = () => {
     },
   ];
 
-  const rows = [
-    {
-      id: 1,
-      profileImage: "URL_TO_PARTICIPANT_IMAGE",
-      participant: "Dennis Kim",
-      projectName: "Hackathon project",
-      github: "http://www.github.com",
-      presentationLink: "http://www.netlify.com",
-      liveLink: "http://www.netlify.com",
-    },
-  ];
   return (
     <div className=" flex flex-col">
       {" "}
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
           sx={customBorder}
-          rows={rows}
+          rows={subscriptionsData}
           columns={columns}
           initialState={{
             pagination: {
