@@ -33,12 +33,12 @@ export default function GradingModal({ openModal, handleClose }) {
     evaluateHackathon(subscription.id, grade).then((res) => {
       if (res.status === 200) {
         alert("Submission graded");
-        handleClose()
+        handleClose();
       }
     });
   };
-  function handleChange (e){
-    setGrade(e.target.value)
+  function handleChange(e) {
+    setGrade(e.target.value);
   }
   return (
     <Box>
@@ -55,10 +55,7 @@ export default function GradingModal({ openModal, handleClose }) {
                 Grade Hachathon Project{" "}
               </Typography>
               <Box className="flex space-x-4 ">
-                <form
-                  onSubmit={handleSubmit}
-                  className="flex flex-col mt-10"
-                >
+                <form onSubmit={handleSubmit} className="flex flex-col mt-10">
                   <label>Grade project(out of 100)</label>
                   <input
                     type="number"
@@ -69,7 +66,7 @@ export default function GradingModal({ openModal, handleClose }) {
                   />{" "}
                   <button
                     type="submit"
-                    className="py-3 px-2 bg-custom-blue rounded-md text-white text-xs w-[100px] mt-10"
+                    className="py-3 px-2 bg-custom-blue rounded-md text-white text-xs w-[100px] mt-10 hover:bg-white hover:text-custom-blue hover:border hover:border-custom-blue"
                   >
                     {" "}
                     Submit Grade
