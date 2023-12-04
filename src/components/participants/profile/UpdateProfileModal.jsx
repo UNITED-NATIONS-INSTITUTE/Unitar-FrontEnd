@@ -18,7 +18,7 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function UpdateProfileModal({ openModal, closeModal }) {
+export default function SuccessModal({ openModal, closeModal }) {
   const navigate = useNavigate();
 
   return (
