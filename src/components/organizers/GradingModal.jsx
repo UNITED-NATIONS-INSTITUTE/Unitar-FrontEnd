@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-
+import { evaluateHackathon } from "../../api/hackathons/hackathons";
+import { selectCurrentSubscriptionDetail } from "../../features/subscription/subscriptionSlice";
 const style = {
   position: "absolute",
   top: "50%",
@@ -24,6 +26,20 @@ const customStyles = {
 };
 
 export default function GradingModal({ openModal, handleClose }) {
+  const subscription = useSelector(selectCurrentSubscriptionDetail);
+  const [grade, setGrade] = useState(0);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    evaluateHackathon(subscription.id, grade).then((res) => {
+      if (res.status === 200) {
+        alert("Submission graded");
+        handleClose()
+      }
+    });
+  };
+  function handleChange (e){
+    setGrade(e.target.value)
+  }
   return (
     <Box>
       <Modal
@@ -39,12 +55,16 @@ export default function GradingModal({ openModal, handleClose }) {
                 Grade Hachathon Project{" "}
               </Typography>
               <Box className="flex space-x-4 ">
-                <form className="flex flex-col mt-10">
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex flex-col mt-10"
+                >
                   <label>Grade project(out of 100)</label>
                   <input
                     type="number"
                     placeholder="Enter a grade"
                     required
+                    onChange={handleChange}
                     className="border py-3 px-2 border-gray-400 mt-4 "
                   />{" "}
                   <button
