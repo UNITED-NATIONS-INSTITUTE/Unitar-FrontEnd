@@ -2,22 +2,24 @@ import React from "react";
 const HackathonMedia = ({ cover_image_url, avatar_url }) => {
   const containerStyle = {
     position: "relative",
-    width: "250 px",
-    height: "200 px",
+    width: "200 px",
+    height: "150 px",
   };
 
   const coverStyle = {
-    width: "250px",
+    width: "300px",
     height: "200px",
+    borderRadius: "20px",
   };
 
   const avatarStyle = {
     position: "absolute",
-    bottom: 0,
-    right: 0,
-    width: "50px",
-    height: "50px",
-    borderRadius: "20px",
+    right: "10px",
+    top: "100px",
+    width: "60px",
+    height: "60px",
+    borderRadius: "50%",
+    border: "3px solid #fff",
   };
 
   return (
