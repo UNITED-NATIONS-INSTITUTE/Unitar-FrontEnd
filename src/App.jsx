@@ -35,6 +35,8 @@ import UserProfilePage from "./components/participants/profile/UserProfilePage";
 import UnAuthorized from "./components/common/utils/UnAuthorized";
 import RequireAuth from "./components/common/utils/RequireAuth";
 import AdminSidebar from "./components/admin/AdminSidebar";
+import AdminDashboard from "./components/admin/AdminDashboard";
+import AllParticipants from "./components/admin/AllParticipants";
 const App = () => {
   return (
     <Routes>
@@ -99,7 +101,37 @@ const App = () => {
         </Route>
       </Route>
       {/* ADMIN */}
-      <Route path="admin" element={<AdminSidebar />} />
+      <Route path="admin" element={<AdminSidebar />}>
+        <Route index element={<AdminDashboard />} />
+        <Route path="dashboard" element={<AdminDashboard />} />
+        <Route path="participants" element={<Outlet />}>
+          <Route index element={<AllParticipants />} />
+          {/* <Route path="detail" element={<ParticipantProfile />} /> */}
+        </Route>
+      </Route>
+
+      {/* 
+        
+        <Route path="organizers" element={<Outlet />}>
+          <Route index element={<AllOrganizers />} />
+          <Route path="detail" element={<OrganizerProfile />} />
+        </Route>
+        <Route path="hackathons" element={<Outlet />}>
+          <Route index element={<AllHackathons />} />
+          <Route path="detail" element={<HackathonDetails />} />
+        </Route>
+        <Route path="submissions" element={<Outlet />}>
+          <Route index element={<AllSubmissions />} />
+          <Route path="detail" element={<SubmissionDetails />} />
+           IMPLEMENT submission DELETION IN THE submission DETAIL COMPONENT ABOVE
+        </Route>
+        <Route path="user" element={<Outlet />}>
+          <Route index element={<UsersTable />} />
+          <Route path="detail" element={<UserDetails />} />
+           IMPLEMENT USER ACTIVATION AND DEACTIVATION IN THE USER DETAIL COMPONENT ABOVE 
+          <Route path="create" element={<CreateUser />} />
+        </Route>
+      </Route> */}
     </Routes>
   );
 };
