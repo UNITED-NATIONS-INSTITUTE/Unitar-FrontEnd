@@ -5,6 +5,7 @@ import UserProfile from "./profile/UserProfile";
 import { getParticipantHackathonSubscriptions } from "../../api/hackathons/hackathons";
 import { selectCurrentParticipantDetail } from "../../features/participant/participantSlice";
 import { setCurrentSubscriptionDetail } from "../../features/subscription/subscriptionSlice";
+
 const MyHackathons = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -23,9 +24,11 @@ const MyHackathons = () => {
         console.log(err);
       });
   };
+
   useEffect(() => {
     fetchSubscriptions();
   }, []);
+
   const handleViewClick = (subscriptionDetails) => {
     dispatch(
       setCurrentSubscriptionDetail({
@@ -34,13 +37,14 @@ const MyHackathons = () => {
     );
     navigate("/participant/hackathons/submit");
   };
+
   return (
-    <div className="bg-white right-side min-h-screen min-w-full  ">
-      <div className=" ml-[280px]">
+    <div className="bg-white right-side min-h-screen min-w-full">
+      <div className="ml-[280px]">
         <div className="flex justify-between mt-8">
           <h1 className="text-gray-600 font-bold text-[24px]">My Hackathons</h1>
-          <div className="mr-10 ">
-            <UserProfile />{" "}
+          <div className="mr-10">
+            <UserProfile />
           </div>
         </div>
         <div className="flex flex-wrap space-x-4 mt-5 ml-4">
@@ -48,28 +52,28 @@ const MyHackathons = () => {
             subscriptionsPayload.map((field, index) => (
               <div
                 key={index}
-                className="flex rounded-[6px] shadow-xl flex-col border border-gray-100   items-center mb-4 w-[450px] h-[400px] transition-transform transform hover:-translate-y-1"
+                className="flex rounded-[6px] shadow-xl flex-col border border-gray-100  mb-4 w-[300px] h-[400px] transition-transform transform hover:-translate-y-1"
               >
                 <img
-                  className="rounded-md w-[280px] h-[200px] mt-4"
+                  className="rounded-md w-[300px] h-[200px]"
                   key={index}
                   src={field.hackathon.cover_image_url}
                   alt={`image ${index + 1}`}
                 />
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="mt-2 text-sm ml-4 text-gray-500">
                   {field.hackathon.name}
                 </p>
-                <p className="mt-2 text-sm  font-bold">
+                <p className="mt-2 text-sm ml-4 font-bold">
                   {field.hackathon.highlight}
                 </p>
-                <p className="mt-2 text-[12px] w-[200px] text-center text-gray-500">
+                <p className="mt-2 text-[12px] ml-4 w-[200px]  text-gray-500">
                   {field.hackathon.description}
                 </p>
 
-                <div className="flex gap-5">
+                <div className="flex mt-auto">
                   <button
                     onClick={() => handleViewClick(field)}
-                    className="border mb-5 border-blue-500 rounded-md text-blue-500 hover:bg-custom-blue hover:text-white w-[150px] text-xs mt-4 py-1"
+                    className="border ml-[22px] mb-5 border-blue-500 rounded-md text-blue-500 hover:bg-custom-blue hover:text-white w-[250px] text-xs mt-4 py-1"
                   >
                     Make a Submission
                   </button>

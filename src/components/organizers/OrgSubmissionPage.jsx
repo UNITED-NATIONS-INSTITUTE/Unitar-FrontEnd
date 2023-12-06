@@ -47,29 +47,30 @@ const OrgSubmissionPage = () => {
             hackathonsPayload.map((field, index) => (
               <div
                 key={index}
-                className="flex  iems-center rounded-[10px] shadow-xl flex-col border border-gray-100   items-center mb-4 w-[450px] h-[400px] transition-transform transform hover:-translate-y-1"
+                className="relative overflow-hidden border border-gray-100 rounded-[20px] shadow-xl mb-4 w-[300px] h-[400px] transition-transform transform hover:-translate-y-1"
               >
-                <div className="mt-5 border border-gray-300">
-                  {" "}
-                  <HackathonMedia
-                    cover_image_url={field.cover_image_url}
-                    avatar_url={field.avatar_url}
-                  />{" "}
+                <HackathonMedia
+                  cover_image_url={field.cover_image_url}
+                  avatar_url={field.avatar_url}
+                />
+                <div className="relative">
+                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-white p-4 rounded-[20px]">
+                    <p className="text-sm font-bold">{field.title}</p>
+                    <p className="text-sm text-gray-700">{field.highlight}</p>
+                    <p className="text-xs text-gray-500  mt-2">
+                      {field.description}
+                    </p>{" "}
+                  </div>
                 </div>
-                <p className="mt-2 text-sm  font-bold">{field.title}</p>
-                <p className="mt-2 text-sm text-gray-500">{field.highlight}</p>
-                <p className="mt-2 text-xs text-gray-500 text-center w-[200px] ">
-                  {field.description}
-                </p>
-                <div className="flex gap-5">
+                <div className="flex gap-5 mt-[120px] ml-[22px]">
                   <button
                     onClick={() => handleViewClick(field)}
                     className="border border-blue-500 rounded-md text-blue-500 w-[150px] text-xs mt-4 py-1 hover:bg-custom-blue hover:text-white"
                   >
                     View submissions
-                  </button>
-                </div>{" "}
-                <Avatars />
+                  </button>{" "}
+                  <Avatars />
+                </div>
               </div>
             ))}
         </div>

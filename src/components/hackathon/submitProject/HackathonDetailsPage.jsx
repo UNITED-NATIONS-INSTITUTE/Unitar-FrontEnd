@@ -107,10 +107,7 @@ const HackathonDetailsPage = () => {
             <h1 className="mt-0 text-gray-600 font-bold  text-[20px]">
               {hackathon.title}
             </h1>
-            {/* <p className="text-xs text-gray-600">
-              Created by{" "}
-              <span className="text-black font-semibold">IBM careers</span>
-            </p> */}
+
             <div>
               <p className="text-sm  font-semibold mt-5">Highlights</p>
               <p className="text-xs mt-5">{hackathon.highlight}</p>
@@ -125,7 +122,7 @@ const HackathonDetailsPage = () => {
             </div>
             <div>
               <p className="text-sm font-semibold mt-5">Goals</p>
-              {hackathon.goals}
+              <div className="text-xs">{hackathon.goals}</div>
             </div>
             <div className="flex justify-end">
               <button
