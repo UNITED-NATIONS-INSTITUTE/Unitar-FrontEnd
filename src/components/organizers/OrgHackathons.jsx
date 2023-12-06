@@ -5,11 +5,13 @@ import { selectOrganizerCode } from "../../features/organizer/organizerSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { setSelectedHackathonDetail } from "../../features/hackathon/hackathonSlice";
 import HackathonMedia from "../common/utils/HackathonMedia";
+
 const OrgHackathons = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [hackathonsPayload, setHackathonsPalyload] = useState([]);
   const org_code = useSelector(selectOrganizerCode);
+
   const fetchHackathons = () => {
     getOrganizerHackathons(org_code)
       .then((res) => {
@@ -21,9 +23,11 @@ const OrgHackathons = () => {
         console.log(err);
       });
   };
+
   useEffect(() => {
     fetchHackathons();
   }, []);
+
   const handleViewClick = (hackathonDetails) => {
     dispatch(
       setSelectedHackathonDetail({ selectedHackathonDetail: hackathonDetails })
@@ -32,33 +36,42 @@ const OrgHackathons = () => {
   };
 
   return (
-    <div className="flex space-x-4 mt-5 ml-4">
+    <div className="flex flex-wrap space-x-4 mt-5 ml-4">
       {hackathonsPayload.length > 0 &&
         hackathonsPayload.map((field, index) => (
-          <div key={index} className="flex flex-col iems-center mb-4">
-            <HackathonMedia
-              cover_image_url={field.cover_image_url}
-              avatar_url={field.avatar_url}
-            />
+          <div
+            key={index}
+            className="flex flex-col rounded-[10px] items-center mb-4 border w-[450px] h-[400px] transition-transform transform hover:-translate-y-1 border-gray-100 shadow-xl"
+          >
+            <div className="mt-4 border border-gray-300">
+              <HackathonMedia
+                cover_image_url={field.cover_image_url}
+                avatar_url={field.avatar_url}
+              />{" "}
+            </div>
+
             <p className="mt-2 text-sm  font-bold">{field.title}</p>
             <p className="mt-2 text-sm text-gray-500">{field.highlight}</p>
-            <p className="mt-2 text-xs text-gray-500">{field.description}</p>
+            <p className="mt-2 text-xs text-gray-500 text-center w-[200px]">
+              {field.description}
+            </p>
             <div className="flex gap-5">
               <button
                 onClick={() => handleViewClick(field)}
-                className="border border-blue-500 rounded-md text-blue-500 w-[100px] text-xs mt-4 py-1"
+                className="border border-blue-500 rounded-md text-blue-500 w-[100px] text-xs mt-4 py-1 hover:bg-custom-blue hover:text-white"
               >
                 View Details
               </button>
             </div>
           </div>
         ))}
-      {hackathonsPayload < 1 && (
-        <h1 className=" font-bold">
+      {hackathonsPayload.length < 1 && (
+        <h1 className="font-bold">
           You do not have any hackathons yet, click on create to get started
         </h1>
       )}
     </div>
   );
 };
+
 export default OrgHackathons;

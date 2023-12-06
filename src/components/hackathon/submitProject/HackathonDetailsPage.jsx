@@ -6,26 +6,34 @@ import { useSelector } from "react-redux";
 import HackathonMedia from "../../common/utils/HackathonMedia";
 import moment from "moment";
 import { enrolToHackathon } from "../../../api/hackathons/hackathons";
-import {  selectCurrentParticipantDetail } from "../../../features/participant/participantSlice";
+import { selectCurrentParticipantDetail } from "../../../features/participant/participantSlice";
+import { useNavigate } from "react-router-dom";
+
 const HackathonDetailsPage = () => {
   const [openSubscribeModal, setOpenSubscribeModal] = useState(false);
   const openModal = () => setOpenSubscribeModal(true);
   const closeModal = () => setOpenSubscribeModal(false);
   const hackathon = useSelector(selectSelectedHackathonDetail);
-  const participant= useSelector(selectCurrentParticipantDetail);
+  const participant = useSelector(selectCurrentParticipantDetail);
+  const navigate = useNavigate();
 
   function subscribeToHackathon() {
-    console.log(hackathon.id, participant.id)
+    console.log(hackathon.id, participant.id);
     enrolToHackathon(hackathon.id, participant.id)
       .then((res) => {
         if (res.status === 200) {
           openModal();
+          // Set a timeout for 2000 milliseconds (2 seconds)
+          setTimeout(() => {
+            navigate("/participant/myhackathons");
+          }, 2000);
         }
       })
       .catch((err) => {
         console.log(err);
       });
   }
+
   return (
     <div className="bg-white p-8  min-h-screen right-side">
       <div className="flex justify-between">
@@ -66,23 +74,27 @@ const HackathonDetailsPage = () => {
           <div className="mt-[40px]">
             <p className="font-semibold text-xs">Timelines</p>
             <div className="mt-5  gap-5">
-              {hackathon.timelines.map((field, index) => (
-                <p className="mt-2">
-                  {field.period_name}: Start{" "}
-                  {moment(field.start_date).format("Do MMM YYYY ")}
-                </p>
-              ))}
-            </div>
-            <p className="font-semibold text-xs">Tags</p>
-            <div className="mt-5 flex gap-5">
-              {hackathon.tags.map((field, index) => (
-                <span
-                  key={index}
-                  className="bg-custom-light-grey rounded-[40px] p-3 text-white text-xs"
-                >
-                  {field.tag_name}
-                </span>
-              ))}
+              <div className="mt-5 gap-5">
+                {hackathon.timelines &&
+                  hackathon.timelines.map((field, index) => (
+                    <p className="mt-2" key={index}>
+                      {field.period_name}: Start{" "}
+                      {moment(field.start_date).format("Do MMM YYYY ")}
+                    </p>
+                  ))}
+              </div>
+              <p className="font-semibold text-xs">Tags</p>
+              <div className="mt-5 flex gap-5">
+                {hackathon.tags &&
+                  hackathon.tags.map((field, index) => (
+                    <span
+                      key={index}
+                      className="bg-custom-light-grey rounded-[40px] p-3 text-white text-xs"
+                    >
+                      {field.tag_name}
+                    </span>
+                  ))}
+              </div>
             </div>
             <div className="flex flex-col text-xs mt-5">
               <p className="font-semibold mt-5 mb-2 ">Prizes</p>
@@ -117,7 +129,7 @@ const HackathonDetailsPage = () => {
             </div>
             <div className="flex justify-end">
               <button
-                onClick={() => subscribeToHackathon ()}
+                onClick={() => subscribeToHackathon()}
                 className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[150px] mt-[50px]"
               >
                 Participate

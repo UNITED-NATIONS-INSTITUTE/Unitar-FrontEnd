@@ -8,7 +8,7 @@ import moment from "moment";
 import { selectOrganizerCode } from "../../../features/organizer/organizerSlice";
 import { createHackathon } from "../../../api/hackathons/hackathons";
 import OrgProfile from "../profile/OrgProfile";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { setCurrentHackathonDetail } from "../../../features/hackathon/hackathonSlice";
 const CreateHackathon = () => {
   const [tags, setTags] = useState([]);
@@ -37,8 +37,8 @@ const CreateHackathon = () => {
     setTags(categoriesArray);
   };
   const org_code = useSelector(selectOrganizerCode);
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleAddTimelineItems = () => {
     const values = [...timelineItems];
     values.push({
@@ -84,9 +84,11 @@ const CreateHackathon = () => {
     createHackathon(hackathonObj)
       .then((res) => {
         if (res.status === 201) {
-          dispatch(setCurrentHackathonDetail({ currentHackathonDetail: res.data }));
+          dispatch(
+            setCurrentHackathonDetail({ currentHackathonDetail: res.data })
+          );
 
-          navigate("media")
+          navigate("media");
         }
       })
       .catch((err) => {
@@ -94,7 +96,7 @@ const CreateHackathon = () => {
       });
   };
   return (
-    <div className="bg-white p-8 right-side min-h-screen">
+    <div className="bg-white p-8 right-side min-h-screen min-w-full">
       <div className="ml-60">
         <div className="flex justify-between">
           <h1 className="text-gray-600 font-bold text-[24px]">Hackathons</h1>
@@ -120,7 +122,7 @@ const CreateHackathon = () => {
           <div>
             <ValidatorForm
               onSubmit={(e) => handleCreateHackathon(e)}
-              className="flex gap-[100px]"
+              className="flex gap-[80px]"
             >
               <div className="flex flex-col ">
                 <label
@@ -131,7 +133,7 @@ const CreateHackathon = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
+                  className="w-[400px] px-3 py-2 border border-gray-400 rounded text-xs
                   focus:outline-none focus:border-custom-blue "
                   placeholder="Stack a Stake Competition"
                   required
@@ -150,7 +152,7 @@ const CreateHackathon = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
+                  className="w-[400px] px-3 py-2 border border-gray-400 rounded text-xs
                   focus:outline-none focus:border-custom-blue "
                   placeholder="Building for the future"
                   required
@@ -166,7 +168,7 @@ const CreateHackathon = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-[300px] px-3 py-2 border border-gray-400 rounded text-xs
+                  className="w-[400px] px-3 py-2 border border-gray-400 rounded text-xs
         focus:outline-none focus:border-custom-blue "
                   placeholder="virtual, hybrid, onsite, etc"
                   required
@@ -190,12 +192,12 @@ const CreateHackathon = () => {
                 />
 
                 <label
-                  className="font-semibold mt-5 mb-2 text-xs "
+                  className="font-semibold mt-5 mb-4 text-xs  "
                   name="projectName"
                 >
                   Hackathon categories
                 </label>
-                <div className="flex flex-row border-gray-200 rounded p-2 border gap-2">
+                <div className="flex flex-row border-gray-200 rounded p-2 border gap-2 ">
                   <TagSelector func={readCategories} />
                 </div>
                 <div className="flex flex-row gap-5">
@@ -294,7 +296,7 @@ const CreateHackathon = () => {
                   id="outlined-multiline-static"
                   multiline
                   rows={4}
-                  sx={{ width: "450px" }}
+                  sx={{ width: "400px" }}
                   onChange={handleChange("deliverables")}
                   name="deliverables"
                   value={deliverables}
@@ -331,7 +333,7 @@ const CreateHackathon = () => {
                 <div className="flex justify-end">
                   <button
                     type="submit"
-                    className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[150px] mt-[20px]"
+                    className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[150px] mt-[20px]  hover:bg-white hover:text-custom-blue hover:border hover:border-custom-blue"
                   >
                     Submit Hackathon details
                   </button>

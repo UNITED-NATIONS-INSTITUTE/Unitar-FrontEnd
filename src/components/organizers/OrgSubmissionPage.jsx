@@ -42,29 +42,34 @@ const OrgSubmissionPage = () => {
           <OrgProfile />
         </div>
         <p className="text-gray-600 text-sm font-semibold">Our Hackathons</p>
-        <div className="flex space-x-4 mt-5 ml-4">
+        <div className="flex flex-wrap space-x-4 mt-5 ml-4">
           {hackathonsPayload.length > 0 &&
             hackathonsPayload.map((field, index) => (
-              <div key={index} className="flex flex-col iems-center mb-4">
-                <HackathonMedia
-                  cover_image_url={field.cover_image_url}
-                  avatar_url={field.avatar_url}
-                />
+              <div
+                key={index}
+                className="flex  iems-center rounded-[10px] shadow-xl flex-col border border-gray-100   items-center mb-4 w-[450px] h-[400px] transition-transform transform hover:-translate-y-1"
+              >
+                <div className="mt-5 border border-gray-300">
+                  {" "}
+                  <HackathonMedia
+                    cover_image_url={field.cover_image_url}
+                    avatar_url={field.avatar_url}
+                  />{" "}
+                </div>
                 <p className="mt-2 text-sm  font-bold">{field.title}</p>
                 <p className="mt-2 text-sm text-gray-500">{field.highlight}</p>
-                <p className="mt-2 text-xs text-gray-500">
+                <p className="mt-2 text-xs text-gray-500 text-center w-[200px] ">
                   {field.description}
                 </p>
                 <div className="flex gap-5">
                   <button
                     onClick={() => handleViewClick(field)}
-                    className="border border-blue-500 rounded-md text-blue-500 w-[150px] text-xs mt-4 py-1"
+                    className="border border-blue-500 rounded-md text-blue-500 w-[150px] text-xs mt-4 py-1 hover:bg-custom-blue hover:text-white"
                   >
                     View submissions
                   </button>
-
-                  <Avatars />
-                </div>
+                </div>{" "}
+                <Avatars />
               </div>
             ))}
         </div>

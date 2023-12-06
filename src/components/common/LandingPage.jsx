@@ -32,14 +32,19 @@ const LandingPage = () => {
           <div className="flex gap-10 items-center justify-center md:w-full mt-[100px]">
             <button
               onClick={() => navigate("/part-signup")}
-              className="bg-[#089BD9] rounded-[10px]  py-4 px-[20px] lg:w-[239px]"
+              className="bg-[#089BD9] rounded-[10px]  text-white py-4 px-[20px] lg:w-[239px]  transition-transform transform hover:-translate-y-1"
             >
               For Participants
             </button>
 
             <button
+<<<<<<< HEAD
               onClick={() => navigate("/org-signup")}
               className="py-4 px-[20px]  rounded-[10px] border-2 lg:w-[239px] border-[#089BD9] "
+=======
+              onClick={() => navigate("/part-signup")}
+              className="py-4 px-[20px] text-custom-blue rounded-[10px] border-2 lg:w-[239px] border-[#089BD9] transition-transform transform hover:-translate-y-1"
+>>>>>>> b6106ca7905dc6d2040573999fcb3784b0f18b6e
             >
               For Organisers
             </button>
@@ -47,7 +52,7 @@ const LandingPage = () => {
           <div className="absolute hidden lg:block rounded-full  filter bottom-[230px]  right-[180px]  ">
             <img
               src={man2}
-              className="rounded-full hidden lg:block  bg-[#00609E]  border-white border-4 opacity-4 w-[80px]"
+              className="rounded-full hidden lg:block  bg-[#00609E]  border-white border-4 opacity-4 w-[80px] "
             />
           </div>
           <div className="absolute hidden lg:block  w-269 h-269 flex-shrink-0  border-white border-4 rounded-full opacity-4 bg-blue-500  filter left-[150px]  bottom-[50px] ">

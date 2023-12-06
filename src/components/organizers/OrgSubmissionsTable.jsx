@@ -55,11 +55,11 @@ const OrgSubmissionsTable = ({ hackathonId }) => {
       //   />
       // ),
     },
-    { field: "blog", headerName: "Blog", width: 120 },
-    { field: "title", headerName: "Project name", width: 165 },
-    { field: "gh_link", headerName: "Github", width: 165 },
-    { field: "demo_link", headerName: "Demo link", width: 165 },
-    { field: "live_url", headerName: "Live link", width: 165 },
+    { field: "blog", headerName: "Blog", width: 115 },
+    { field: "title", headerName: "Project name", width: 155 },
+    { field: "gh_link", headerName: "Github", width: 155 },
+    { field: "demo_link", headerName: "Demo link", width: 155 },
+    { field: "live_url", headerName: "Live link", width: 155 },
     {
       field: "action",
       headerName: "Actions",
@@ -67,7 +67,7 @@ const OrgSubmissionsTable = ({ hackathonId }) => {
       renderCell: (params) => (
         <button
           onClick={() => showDetails(params)}
-          className="bg-custom-blue text-white rounded-md text-xs font-semibold px-3 py-2"
+          className="bg-custom-blue text-white rounded-md text-xs font-semibold px-3 py-2 hover:bg-white hover:text-custom-blue hover:border hover:border-custom-blue"
         >
           View details
         </button>
@@ -76,7 +76,7 @@ const OrgSubmissionsTable = ({ hackathonId }) => {
   ];
 
   return (
-    <div className=" flex flex-col">
+    <div className=" flex flex-col min-w-full ">
       {" "}
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid

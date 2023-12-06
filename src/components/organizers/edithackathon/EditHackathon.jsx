@@ -201,7 +201,7 @@ const EditHackathon = () => {
                 <div className="flex justify-end">
                   <button
                     type="submit"
-                    className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[200px] mt-[20px]"
+                    className="  text-white hover:bg-white hover:text-custom-blue hover:border hover:border-custom-blue text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[200px] mt-[20px]"
                   >
                     Submit Hackathon details
                   </button>

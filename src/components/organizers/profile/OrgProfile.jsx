@@ -50,9 +50,9 @@ const OrgProfile = () => {
   }, []);
 
   return (
-    <div className="relative inline-block">
+    <div className="relative inline-block ">
       <ProfilePrompt openModal={openProfilePrompt} handleClose={closeModal} />
-      <div className="flex  border p-1 border-custom-grey rounded-lg space-x-2 cursor-pointer">
+      <div className="flex  border p-1 border-custom-grey rounded-lg space-x-2 shadow-md transition-transform transform hover:-translate-y-1 cursor-pointer">
         {orgProfile !== "" ? (
           <div
             onClick={() => openProfileMenu()}

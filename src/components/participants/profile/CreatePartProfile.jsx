@@ -74,7 +74,7 @@ const CreatePartProfile = () => {
       });
   };
   return (
-    <div>
+    <>
       {successMessage && (
         <SuccessModal openModal={openModal} handleClose={closeModal} />
       )}
@@ -186,7 +186,7 @@ const CreatePartProfile = () => {
           </div>
         </form>
       </div>
-    </div>
+    </>
   );
 };
 

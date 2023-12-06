@@ -5,9 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectSelectedHackathonDetail } from "../../features/hackathon/hackathonSlice";
 
 const OrgSubmissions = () => {
-  const hackathon = useSelector(selectSelectedHackathonDetail)
+  const hackathon = useSelector(selectSelectedHackathonDetail);
   return (
-    <div className="bg-white p-8 right-side min-h-screen">
+    <div className="bg-white p-8 right-side min-h-screen min-w-full">
       <div className="ml-60">
         <div className="flex justify-between">
           <h1 className="text-gray-600 font-bold text-[24px] mb-8 ">
@@ -25,7 +25,7 @@ const OrgSubmissions = () => {
           <span>{hackathon.title}</span>
         </p>
         <div className="mb-10">
-          <OrgSubmissionsTable hackathonId={hackathon.id}/>
+          <OrgSubmissionsTable hackathonId={hackathon.id} />
         </div>
       </div>
     </div>

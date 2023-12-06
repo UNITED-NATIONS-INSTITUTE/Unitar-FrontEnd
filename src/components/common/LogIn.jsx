@@ -77,7 +77,7 @@ const LogIn = () => {
     <div>
       <Navbar openModal={openModal} />
       <BasicModal openModal={openSignUpModal} handleClose={closeModal} />
-      <div className="min-h-screen flex items-center justify-center bg-light-blue">
+      <div className="min-h-screen flex items-center justify-center shadow-xl bg-light-blue relative bottom-[20px]">
         <div className="bg-white p-8 rounded shadow-md w-100 border border-custom-blue">
           <h2 className="mb-6 font-semibold">
             Login to unitar hackathon platform
@@ -116,7 +116,7 @@ const LogIn = () => {
               />
               <button
                 type="submit"
-                className="w-full bg-custom-blue text-white py-2 mt-4 rounded hover:bg-blue-600 "
+                className="w-full  bg-custom-blue text-white py-2 mt-4 rounded hover:bg-white hover:text-custom-blue hover:border-2 hover:border-custom-blue "
               >
                 Sign me in
               </button>
