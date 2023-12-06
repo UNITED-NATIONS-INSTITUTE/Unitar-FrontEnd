@@ -14,11 +14,11 @@ const AdminSidebar = () => {
       setActivePage("dashboard");
     } else if (pathnameArray[2] === "participants") {
       setActivePage("participants");
-    } else if (pathnameArray[2] === "all organizers") {
+    } else if (pathnameArray[2] === "organizers") {
       setActivePage("all organizers");
-    } else if (pathnameArray[2] === "all hackathons") {
+    } else if (pathnameArray[2] === "hackathons") {
       setActivePage("all hackathons");
-    } else if (pathnameArray[2] === "all submissions") {
+    } else if (pathnameArray[2] === "submissions") {
       setActivePage("all submissions");
     } else if (pathnameArray[2] === "users") {
       setActivePage("users");
@@ -59,6 +59,7 @@ const AdminSidebar = () => {
             </div>
           </button>
           <button
+            onClick={() => navigate("/admin/organizers")}
             style={{
               borderColor:
                 activePage === "all organizers" ? "#089BD9" : "inherit",
@@ -71,6 +72,7 @@ const AdminSidebar = () => {
             </div>
           </button>
           <button
+            onClick={() => navigate("/admin/hackathons")}
             style={{
               borderColor:
                 activePage === "all hackathons" ? "#089BD9" : "inherit",
@@ -83,6 +85,7 @@ const AdminSidebar = () => {
             </div>
           </button>
           <button
+            onClick={() => navigate("/admin/submissions")}
             style={{
               borderColor:
                 activePage === "all submissions" ? "#089BD9" : "inherit",
@@ -95,6 +98,7 @@ const AdminSidebar = () => {
             </div>
           </button>
           <button
+            onClick={() => navigate("/admin/users")}
             style={{
               borderColor: activePage === "users" ? "#089BD9" : "inherit",
             }}
