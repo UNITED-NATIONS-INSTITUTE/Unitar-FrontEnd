@@ -2,30 +2,39 @@ import React, { useState } from "react";
 import { Avatar } from "@mui/material";
 import OrgProfile from "./OrgProfile";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import { selectCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
 import { axiosApi } from "../../../api";
+import UpdateProfileModal from "../../participants/profile/UpdateProfileModal";
 const OrgEditDetails = () => {
   const orgProfile = useSelector(selectCurrentOrganizerDetail);
   const [profilePic, setProfilePic] = useState("");
   const [formData, setFormData] = useState(orgProfile);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add logic here to handle form submission
     try {
       await axiosApi.patch(`/organizers/${orgProfile.id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
+      setModalOpen(true);
+      setTimeout(() => {
+        setModalOpen(false);
+
+        navigate("/organizer");
+      }, 1500);
     } catch (error) {
       console.log(error);
-      alert("Shida!");
     }
-    // console.log("Form submitted with data:", formData);
   };
 
   const handleDelete = () => {
@@ -152,6 +161,10 @@ const OrgEditDetails = () => {
           </div>
         </div>
       </div>
+      <UpdateProfileModal
+        openModal={isModalOpen}
+        closeModal={() => setModalOpen(false)}
+      />
     </div>
   );
 };
