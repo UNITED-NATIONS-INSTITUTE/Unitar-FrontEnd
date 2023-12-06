@@ -36,7 +36,17 @@ import UnAuthorized from "./components/common/utils/UnAuthorized";
 import RequireAuth from "./components/common/utils/RequireAuth";
 import AdminSidebar from "./components/admin/AdminSidebar";
 import AdminDashboard from "./components/admin/AdminDashboard";
-import AllParticipants from "./components/admin/AllParticipants";
+import AllParticipants from "./components/admin/participants/AllParticipants";
+import AllOrganizers from "./components/admin/organizers/AllOrganizers";
+import AllHackathons from "./components/admin/hackathons/AllHackathons";
+import AllSubmissions from "./components/admin/allSubmissions/AllSubmissions";
+import UserDetails from "./components/admin/user/UserDetails";
+import CreateUser from "./components/admin/user/CreateUser";
+import SubmissionDetails from "./components/admin/allSubmissions/SubmissionDetails";
+import HackathonDetails from "./components/admin/hackathons/HackathonDetails";
+import ParticipantProfile from "./components/admin/participants/ParticipantProfile";
+import OrganizerProfile from "./components/admin/organizers/OrganizerProfile";
+import UsersTable from "./components/admin/user/UsersTable";
 const App = () => {
   return (
     <Routes>
@@ -106,16 +116,12 @@ const App = () => {
         <Route path="dashboard" element={<AdminDashboard />} />
         <Route path="participants" element={<Outlet />}>
           <Route index element={<AllParticipants />} />
-          {/* <Route path="detail" element={<ParticipantProfile />} /> */}
+          <Route path="detail" element={<ParticipantProfile />} />{" "}
         </Route>
-      </Route>
-
-      {/* 
-        
         <Route path="organizers" element={<Outlet />}>
           <Route index element={<AllOrganizers />} />
           <Route path="detail" element={<OrganizerProfile />} />
-        </Route>
+        </Route>{" "}
         <Route path="hackathons" element={<Outlet />}>
           <Route index element={<AllHackathons />} />
           <Route path="detail" element={<HackathonDetails />} />
@@ -123,15 +129,16 @@ const App = () => {
         <Route path="submissions" element={<Outlet />}>
           <Route index element={<AllSubmissions />} />
           <Route path="detail" element={<SubmissionDetails />} />
-           IMPLEMENT submission DELETION IN THE submission DETAIL COMPONENT ABOVE
+          {/* IMPLEMENT submission DELETION IN THE submission DETAIL COMPONENT ABOVE */}
         </Route>
-        <Route path="user" element={<Outlet />}>
+        <Route path="users" element={<Outlet />}>
           <Route index element={<UsersTable />} />
           <Route path="detail" element={<UserDetails />} />
-           IMPLEMENT USER ACTIVATION AND DEACTIVATION IN THE USER DETAIL COMPONENT ABOVE 
+          {/* IMPLEMENT USER ACTIVATION AND DEACTIVATION IN THE USER DETAIL
+          COMPONENT ABOVE */}
           <Route path="create" element={<CreateUser />} />
         </Route>
-      </Route> */}
+      </Route>
     </Routes>
   );
 };
