@@ -34,6 +34,7 @@ import UserProfilePage from "./components/participants/profile/UserProfilePage";
 
 import UnAuthorized from "./components/common/utils/UnAuthorized";
 import RequireAuth from "./components/common/utils/RequireAuth";
+import AdminSidebar from "./components/admin/AdminSidebar";
 const App = () => {
   return (
     <Routes>
@@ -98,6 +99,7 @@ const App = () => {
         </Route>
       </Route>
       {/* ADMIN */}
+      <Route path="admin" element={<AdminSidebar />} />
     </Routes>
   );
 };
