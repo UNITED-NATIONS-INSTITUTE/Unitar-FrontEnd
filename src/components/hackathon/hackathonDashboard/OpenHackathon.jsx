@@ -35,29 +35,32 @@ const OpenHackathon = () => {
         hackathonsPayload.map((field, index) => (
           <div
             key={index}
-            className="flex flex-col items-center mb-4 w-[440px] h-[400px] border border-gray-100 shadow-xl rounded-[6px] transition-transform transform hover:-translate-y-1"
+            className="relative overflow-hidden border border-gray-100 rounded-[20px] shadow-xl mb-4 w-[300px]  transition-transform transform hover:-translate-y-1"
           >
-            <div className="mt-4">
-              <HackathonMedia
-                cover_image_url={field.cover_image_url}
-                avatar_url={field.avatar_url}
-              />{" "}
+            {" "}
+            <HackathonMedia
+              cover_image_url={field.cover_image_url}
+              avatar_url={field.avatar_url}
+            />
+            <div className="relative">
+              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-white p-4 rounded-[20px]">
+                <p className="text-sm font-bold">{field.title}</p>
+                <p className="text-sm text-gray-700">{field.highlight}</p>
+                <p className="text-xs text-gray-500  mt-2">
+                  {field.description}
+                </p>{" "}
+              </div>
             </div>
-
-            <p className="mt-2 text-sm  font-bold">{field.title}</p>
-            <p className="mt-2 text-sm text-gray-500">{field.highlight}</p>
-            <p className="mt-2 text-xs text-gray-500 text-center w-[250px] ">
-              {field.description}
-            </p>
-            <div className="flex gap-5">
+            <div className="flex gap-5 mt-[90px] mb-[20px] ml-[20px] items-center">
               <button
                 onClick={() => handleViewClick(field)}
-                className="border border-blue-500 rounded-md text-blue-500 hover:bg-custom-blue hover:text-white w-[100px] text-xs mt-4 py-1"
+                className="border border-blue-500 rounded-md py-2 hover:bg-custom-blue hover:text-white text-blue-500 w-[120px] text-xs "
               >
                 View project
               </button>
-
-              <Avatars />
+              <div className="mb-5">
+                <Avatars />
+              </div>
             </div>
           </div>
         ))}
