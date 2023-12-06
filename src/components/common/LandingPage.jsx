@@ -38,13 +38,8 @@ const LandingPage = () => {
             </button>
 
             <button
-<<<<<<< HEAD
               onClick={() => navigate("/org-signup")}
               className="py-4 px-[20px]  rounded-[10px] border-2 lg:w-[239px] border-[#089BD9] "
-=======
-              onClick={() => navigate("/part-signup")}
-              className="py-4 px-[20px] text-custom-blue rounded-[10px] border-2 lg:w-[239px] border-[#089BD9] transition-transform transform hover:-translate-y-1"
->>>>>>> b6106ca7905dc6d2040573999fcb3784b0f18b6e
             >
               For Organisers
             </button>
