@@ -9,6 +9,8 @@ const SignUp = () => {
   const [showVerificationModal, setShowVerificationModal] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [usernameError, setUsernameError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const [user_code, setUserCode] = useState("");
   const [values, setValues] = useState({
     username: "",
@@ -43,19 +45,54 @@ const SignUp = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const role = getRole();
-    createUserAccount(
-      username,
-      email,
-      password,
-      password_confirmation,
-      role
-    ).then((res) => {
-      if (res.status === 201) {
-        setUserCode(res.data.id);
-        setSuccessMessage("Verification code sent successfully!");
-        setTimeout(() => {
-          setShowVerificationModal(true);
-        }, 1500);
+    createUserAccount(username, email, password, password_confirmation, role)
+      .then((res) => {
+        if (res.status === 201) {
+          setUserCode(res.data.id);
+          setSuccessMessage("Verification code sent successfully!");
+          setTimeout(() => {
+            setShowVerificationModal(true);
+          }, 1500);
+
+          setValues({
+            username: "",
+            email: "",
+            password: "",
+            password_confirmation: "",
+          });
+        }
+      })
+      .catch((error) => {
+        let usernameError = "";
+        let passwordError = "";
+        let errorMessage = "Error creating account. Please try again.";
+
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.errors
+        ) {
+          const errors = error.response.data.errors[0];
+
+          if (errors.password) {
+            passwordError = errors.password;
+          }
+          if (errors.username) {
+            usernameError = errors.username;
+          }
+
+          if (usernameError && passwordError) {
+            errorMessage = "Username and password errors. Please try again.";
+          } else if (usernameError) {
+            errorMessage = usernameError;
+          } else if (passwordError) {
+            errorMessage = passwordError;
+          }
+        }
+
+        setErrorMessage(errorMessage);
+        setUsernameError(usernameError);
+        setPasswordError(passwordError);
 
         setValues({
           username: "",
@@ -63,22 +100,11 @@ const SignUp = () => {
           password: "",
           password_confirmation: "",
         });
-      } else {
-        setErrorMessage("Error creating account. Please try again.");
-      }
-    });
-    // .catch((err) => {
-    //   // TO DO: SHOW ERROR MODAL with MESSAGE FROM SERVER
-    //   setErrorMessage("Error creating account. Please try again.");
-    //   setValues({
-    //     username: "",
-    //     email: "",
-    //     password: "",
-    //     password_confirmation: "",
-    //   });
-    //   console.log(err);
-    // });
+
+        console.log(error);
+      });
   };
+
   return (
     <div>
       <Navbar />
@@ -88,14 +114,13 @@ const SignUp = () => {
           <h2 className="mb-6 font-semibold">
             Sign up to UNITAR hackathon platform
           </h2>
-          {/* Display success message */}
+
           {successMessage && (
             <div className="mt-4 text-green-600 mb-4 border p-5 rounded border-green-600">
               {successMessage}
             </div>
           )}
 
-          {/* Display error message */}
           {errorMessage && (
             <div className="mt-4 text-red-600 mb-4 border p-5 rounded border-red-600">
               {errorMessage}
@@ -111,6 +136,9 @@ const SignUp = () => {
                 value={username}
                 onChange={handleChange("username")}
               />
+              {usernameError && (
+                <p className="text-red-600 text-xs mt-1">{usernameError}</p>
+              )}
               <label className="block text-md mb-2">Email</label>
               <input
                 type="email"
@@ -127,6 +155,9 @@ const SignUp = () => {
                 value={password}
                 onChange={handleChange("password")}
               />
+              {passwordError && (
+                <p className="text-red-600 text-xs mt-1">{passwordError}</p>
+              )}
               <label className="block text-md mb-2 mt-2">
                 {" "}
                 Confirm password
