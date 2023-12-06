@@ -49,7 +49,7 @@ const UserProfile = () => {
   return (
     <div className="relative inline-block">
       <ProfilePrompt openModal={openProfilePrompt} handleClose={closeModal} />
-      <div className="flex items-center border p-1 border-custom-grey rounded-lg space-x-2 cursor-pointer">
+      <div className="flex items-center border transition-transform transform hover:-translate-y-1 shadow-md p-1 border-custom-grey rounded-lg space-x-2 cursor-pointer">
         {partProfile !== "" ? (
           <div
             className="flex items-center gap-5"

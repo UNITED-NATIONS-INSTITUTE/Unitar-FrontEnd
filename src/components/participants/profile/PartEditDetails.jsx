@@ -4,11 +4,14 @@ import { axiosApi } from "../../../api";
 import { useSelector } from "react-redux";
 import { selectCurrentParticipantDetail } from "../../../features/participant/participantSlice";
 import UserProfile from "./UserProfile";
-
+import UpdateProfileModal from "./UpdateProfileModal";
+import { useNavigate } from "react-router-dom";
 const PartEditDetails = () => {
   const participantProfile = useSelector(selectCurrentParticipantDetail);
   const [profilePic, setProfilePic] = useState("");
   const [formData, setFormData] = useState(participantProfile);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,10 +26,14 @@ const PartEditDetails = () => {
           "Content-Type": "multipart/form-data",
         },
       });
-      alert("Profile Updated!");
+      setModalOpen(true);
+      setTimeout(() => {
+        setModalOpen(false);
+
+        navigate("/participant");
+      }, 1500);
     } catch (error) {
       console.log(error);
-      alert("Error updating profile");
     }
   };
 
@@ -151,6 +158,10 @@ const PartEditDetails = () => {
           </div>
         </div>
       </div>
+      <UpdateProfileModal
+        openModal={isModalOpen}
+        closeModal={() => setModalOpen(false)}
+      />
     </div>
   );
 };
