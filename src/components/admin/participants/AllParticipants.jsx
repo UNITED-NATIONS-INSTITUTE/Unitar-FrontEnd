@@ -16,13 +16,12 @@ const AllParticipants = () => {
     {
       field: "first_name",
       headerName: "First Name",
-      width: 100,
+      width: 150,
     },
-    { field: "last_name", headerName: "Last Name", width: 115 },
-    { field: "title", headerName: "Project name", width: 155 },
-    { field: "gh_link", headerName: "Github", width: 155 },
-    { field: "demo_link", headerName: "Demo link", width: 155 },
-    { field: "live_url", headerName: "Live link", width: 155 },
+    { field: "last_name", headerName: "Last Name", width: 150 },
+    { field: "title", headerName: "Username", width: 160 },
+    { field: "email", headerName: "Email", width: 160 },
+    { field: "status", headerName: "Status", width: 160 },
     {
       field: "action",
       headerName: "Actions",
@@ -36,9 +35,10 @@ const AllParticipants = () => {
             <MoreVert />
           </MenuButton>
           <Menu>
-            <MenuItem>Activate</MenuItem>
-            <MenuItem>Deactivate</MenuItem>
-            <MenuItem>Delete</MenuItem>
+            <MenuItem>View participant</MenuItem>
+            <MenuItem>Edit participant</MenuItem>
+            <MenuItem>Verify participant</MenuItem>
+            <MenuItem>Delete participant</MenuItem>
           </Menu>
         </Dropdown>
       ),
