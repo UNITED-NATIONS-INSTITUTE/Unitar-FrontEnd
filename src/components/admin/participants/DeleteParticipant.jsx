@@ -1,13 +1,16 @@
 import { Avatar } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCurrentParticipantDetail } from "../../../features/participant/participantSlice";
+import DeleteModal from "./DeleteModal";
 
-const ParticipantProfile = () => {
-  const navigate = useNavigate();
+const DeleteParticipant = () => {
   const partProfile = useSelector(selectCurrentParticipantDetail);
-
+  const [isModalOpen, setModalOpen] = useState(false);
+  const handleClick = () => {
+    setModalOpen(true);
+  };
   return (
     <div className="right-side min-h-screen bg-pattern">
       <div className="ml-80">
@@ -29,10 +32,10 @@ const ParticipantProfile = () => {
                 }}
               />
               <button
-                onClick={() => navigate("/admin/participants/edit")}
-                className="bg-custom-blue text-white p-2 rounded-md hover:bg-blue-500 w-[200px] mt-4"
+                onClick={handleClick}
+                className="bg-red-600 text-white p-2 rounded-md hover:bg-red-700 w-[200px] mt-4"
               >
-                Edit Profile
+                Delete participant
               </button>
             </div>
           </div>
@@ -69,8 +72,12 @@ const ParticipantProfile = () => {
           </div>
         </div>
       </div>
+      <DeleteModal
+        openModal={isModalOpen}
+        closeModal={() => setModalOpen(false)}
+      />
     </div>
   );
 };
 
-export default ParticipantProfile;
+export default DeleteParticipant;
