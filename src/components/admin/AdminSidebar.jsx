@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import logo from "../../assets/unitar-logo.svg";
-import { align, gift, layers, line1, users } from "../../assets";
+import { align, layers, line1, users } from "../../assets";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const AdminSidebar = () => {
