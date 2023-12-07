@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import ViewDetailsPage from "./ViewDetailsPage";
 import GradingModal from "./GradingModal";
@@ -47,13 +47,6 @@ const OrgSubmissionsTable = ({ hackathonId }) => {
       field: "image",
       headerName: "Image",
       width: 100,
-      // renderCell: () => (
-      //   <img
-      //     src={image}
-      //     alt="profile"
-      //     style={{ borderRadius: "50%", width: "32px", height: "32px" }}
-      //   />
-      // ),
     },
     { field: "blog", headerName: "Blog", width: 115 },
     { field: "title", headerName: "Project name", width: 155 },
@@ -77,7 +70,6 @@ const OrgSubmissionsTable = ({ hackathonId }) => {
 
   return (
     <div className=" flex flex-col min-w-full ">
-      {" "}
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
           sx={customBorder}
@@ -90,7 +82,7 @@ const OrgSubmissionsTable = ({ hackathonId }) => {
           }}
           pageSizeOptions={[5, 10]}
         />
-      </div>{" "}
+      </div>
       <div className={detailsVisible ? "block" : "hidden"}>
         {" "}
         <ViewDetailsPage openModal={openModal} />{" "}
