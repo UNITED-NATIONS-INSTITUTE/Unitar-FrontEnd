@@ -25,7 +25,7 @@ export default function UpdateProfileModal({ openModal, closeModal }) {
     <Box>
       <Modal
         open={openModal}
-        onClose={closeModal} // Use the modified handleClose function
+        onClose={closeModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -39,7 +39,7 @@ export default function UpdateProfileModal({ openModal, closeModal }) {
                   </h1>
 
                   <p className="mt-12 items-center text-gray-700 text-[20px] ">
-                    You have successfully updated your profile.
+                    Profile successfully updated
                   </p>
                 </div>
               </Box>
