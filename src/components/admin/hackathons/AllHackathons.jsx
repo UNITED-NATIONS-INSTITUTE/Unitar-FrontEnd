@@ -14,15 +14,15 @@ const AllHackathons = () => {
   };
   const columns = [
     {
-      field: "first_name",
+      field: "hackathon",
       headerName: "Hackathons",
-      width: 100,
+      width: 160,
     },
-    { field: "last_name", headerName: "Affiliated Participants", width: 115 },
-    { field: "title", headerName: "Project name", width: 155 },
-    { field: "gh_link", headerName: "Affiliated Organizations", width: 155 },
-    { field: "demo_link", headerName: "Ongoing Hackathons", width: 155 },
-    { field: "live_url", headerName: "Submitted Hackathons", width: 155 },
+    { field: "organization", headerName: "Organization", width: 160 },
+    { field: "prizes", headerName: "Prizes", width: 160 },
+    { field: "participants", headerName: "No of participants", width: 160 },
+    { field: "status", headerName: "Status", width: 160 },
+
     {
       field: "action",
       headerName: "Actions",
@@ -36,9 +36,10 @@ const AllHackathons = () => {
             <MoreVert />
           </MenuButton>
           <Menu>
-            <MenuItem>Activate</MenuItem>
-            <MenuItem>Deactivate</MenuItem>
-            <MenuItem>Delete</MenuItem>
+            <MenuItem>View Hackathon</MenuItem>
+            <MenuItem>Activate Hackathon</MenuItem>
+            <MenuItem>Deactivate Hackathon</MenuItem>
+            <MenuItem>Delete Hackathon</MenuItem>
           </Menu>
         </Dropdown>
       ),
