@@ -55,7 +55,7 @@ const AdminSidebar = () => {
           >
             <div className="flex gap-4">
               <img src={users} className="ml-7" />
-              <p className=" text-[14px] ">All particpiants</p>
+              <p className=" text-[14px] ">All participants</p>
             </div>
           </button>
           <button

@@ -6,8 +6,10 @@ import Menu from "@mui/joy/Menu";
 import MenuButton from "@mui/joy/MenuButton";
 import MenuItem from "@mui/joy/MenuItem";
 import MoreVert from "@mui/icons-material/MoreVert";
+import { useNavigate } from "react-router-dom";
 
 const AllOrganizers = () => {
+  const navigate = useNavigate();
   const customBorder = {
     border: "none",
     borderBottom: "1px solid #0e0e0e",
@@ -40,11 +42,21 @@ const AllOrganizers = () => {
             <MoreVert />
           </MenuButton>
           <Menu>
-            <MenuItem>View Hackathons</MenuItem>
-            <MenuItem>Edit Hackathons</MenuItem>
-            <MenuItem>Participants</MenuItem>
-            <MenuItem>Create Hackathon</MenuItem>
-            <MenuItem>Delete Hackathons</MenuItem>
+            <MenuItem onClick={() => navigate("/admin/organizers/view")}>
+              View Hackathons
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/admin/organizers/create")}>
+              Create Hackathon
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/admin/organizers/activate")}>
+              Activate Organization
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/admin/organizers/deactivate")}>
+              Deactivate Organization
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/admin/organizers/delete")}>
+              Delete Organization
+            </MenuItem>
           </Menu>
         </Dropdown>
       ),

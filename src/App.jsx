@@ -47,6 +47,13 @@ import HackathonDetails from "./components/admin/hackathons/HackathonDetails";
 import ParticipantProfile from "./components/admin/participants/ParticipantProfile";
 import OrganizerProfile from "./components/admin/organizers/OrganizerProfile";
 import UsersTable from "./components/admin/user/UsersTable";
+import EditPartProfile from "./components/admin/participants/EditPartProfile";
+import DeleteParticipant from "./components/admin/participants/DeleteParticipant";
+import CreateOrgHackathon from "./components/admin/organizers/CreateOrgHackathon";
+import ViewHackathons from "./components/admin/organizers/ViewHackathons";
+import ActivateOrganization from "./components/admin/organizers/ActivateOrganization";
+import DeactivateOrganization from "./components/admin/organizers/DeactivateOrganization";
+import DeleteOrganization from "./components/admin/organizers/DeleteOrganization";
 const App = () => {
   return (
     <Routes>
@@ -116,12 +123,18 @@ const App = () => {
         <Route path="dashboard" element={<AdminDashboard />} />
         <Route path="participants" element={<Outlet />}>
           <Route index element={<AllParticipants />} />
-          <Route path="detail" element={<ParticipantProfile />} />{" "}
+          <Route path="detail" element={<ParticipantProfile />} />
+          <Route path="edit" element={<EditPartProfile />} />
+          <Route path="delete" element={<DeleteParticipant />} />
         </Route>
         <Route path="organizers" element={<Outlet />}>
           <Route index element={<AllOrganizers />} />
-          <Route path="detail" element={<OrganizerProfile />} />
-        </Route>{" "}
+          <Route path="create" element={<CreateOrgHackathon />} />
+          <Route path="view" element={<ViewHackathons />} />
+          <Route path="activate" element={<ActivateOrganization />} />
+          <Route path="deactivate" element={<DeactivateOrganization />} />
+          <Route path="delete" element={<DeleteOrganization />} />
+        </Route>
         <Route path="hackathons" element={<Outlet />}>
           <Route index element={<AllHackathons />} />
           <Route path="detail" element={<HackathonDetails />} />

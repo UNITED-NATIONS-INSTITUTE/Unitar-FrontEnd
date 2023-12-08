@@ -1,8 +1,6 @@
 import React from "react";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import { useNavigate } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -18,9 +16,7 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function UpdateProfileModal({ openModal, closeModal }) {
-  const navigate = useNavigate();
-
+export default function ActivateModal({ openModal, closeModal }) {
   return (
     <Box>
       <Modal
@@ -35,12 +31,23 @@ export default function UpdateProfileModal({ openModal, closeModal }) {
               <Box className="flex space-x-4 ">
                 <div>
                   <h1 className="font-bold text-[24px] text-custom-blue font-Lexend-Exa  text-center">
-                    Profile Update
+                    Activate Organizer's Account
                   </h1>
 
                   <p className="mt-12 items-center text-gray-700 text-[20px] ">
-                    Profile successfully updated
+                    Do you really want to activate this account?
                   </p>
+                  <div className="flex flex-row gap-5 mt-10">
+                    <button className="bg-custom-blue text-white font-bold w-[200px] py-2 px-2 rounded-md  hover:bg-blue-500">
+                      YES, ACTIVATE
+                    </button>
+                    <button
+                      onClick={closeModal}
+                      className="border text-custom-blue border-custom-blue rounded-md w-[200px] py-2 px-2  hover:border-blue-500 "
+                    >
+                      NO, CANCEL
+                    </button>
+                  </div>
                 </div>
               </Box>
             </Box>

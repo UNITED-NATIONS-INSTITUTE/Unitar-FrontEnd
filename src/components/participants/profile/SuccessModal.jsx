@@ -1,8 +1,6 @@
 import React from "react";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import { useNavigate } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -19,13 +17,11 @@ const style = {
 };
 
 export default function SuccessModal({ openModal, closeModal }) {
-  const navigate = useNavigate();
-
   return (
     <Box>
       <Modal
         open={openModal}
-        onClose={closeModal} // Use the modified handleClose function
+        onClose={closeModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
