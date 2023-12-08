@@ -56,7 +56,7 @@ const data = [
 const Chart2 = () => {
   return (
     <BarChart
-      width={1000}
+      width={900}
       height={400}
       data={data}
       margin={{
