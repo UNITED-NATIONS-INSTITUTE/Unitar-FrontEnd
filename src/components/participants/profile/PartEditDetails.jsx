@@ -31,7 +31,7 @@ const PartEditDetails = () => {
         setModalOpen(false);
 
         navigate("/participant");
-      }, 1500);
+      }, 2000);
     } catch (error) {
       console.log(error);
     }

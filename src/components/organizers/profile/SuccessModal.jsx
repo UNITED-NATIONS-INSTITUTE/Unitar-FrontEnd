@@ -12,7 +12,6 @@ const style = {
   width: 500,
   height: 300,
   bgcolor: "background.paper",
-  border: "2px solid #089BD9",
   boxShadow: 24,
   p: 4,
   borderRadius: "10px",
@@ -34,7 +33,7 @@ export default function SuccessModal({ openModal, closeModal }) {
             <Box>
               <Box className="flex space-x-4 ">
                 <div>
-                  <h1 className="font-bold text-[24px] text-custom-blue font-Lexend-Exa  text-center">
+                  <h1 className="font-bold font-Lexend-Exa  text-center">
                     Profile Creation
                   </h1>
 

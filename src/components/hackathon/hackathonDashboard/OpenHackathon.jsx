@@ -35,7 +35,7 @@ const OpenHackathon = () => {
         hackathonsPayload.map((field, index) => (
           <div
             key={index}
-            className="relative overflow-hidden border border-gray-100 rounded-[20px] shadow-xl mb-4 w-[300px]  transition-transform transform hover:-translate-y-1"
+            className="  hover:border-custom-blue relative overflow-hidden border border-[#C7C7C7] rounded-[20px] shadow mb-4 w-[300px] h-[360px] transition-transform transform hover:-translate-y-1"
           >
             {" "}
             <HackathonMedia
@@ -43,24 +43,21 @@ const OpenHackathon = () => {
               avatar_url={field.avatar_url}
             />
             <div className="relative">
-              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-white p-4 rounded-[20px]">
-                <p className="text-sm font-bold">{field.title}</p>
+              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-white p-4 rounded-[20px] border-[#7C7C7C] border-t">
+                <p className="text-sm font-bold mt-4">{field.title}</p>
                 <p className="text-sm text-gray-700">{field.highlight}</p>
                 <p className="text-xs text-gray-500  mt-2">
                   {field.description}
                 </p>{" "}
               </div>
             </div>
-            <div className="flex gap-5 mt-[90px] mb-[20px] ml-[20px] items-center">
+            <div className="flex gap-5 mt-[100px] mb-[20px] ml-[20px] items-center">
               <button
                 onClick={() => handleViewClick(field)}
-                className="border border-blue-500 rounded-md py-2 hover:bg-custom-blue hover:text-white text-blue-500 w-[120px] text-xs "
+                className="border border-blue-500 rounded-md py-2 hover:bg-custom-blue hover:text-white text-blue-500 w-[250px] text-xs "
               >
                 View project
               </button>
-              <div className="mb-5">
-                <Avatars />
-              </div>
             </div>
           </div>
         ))}
