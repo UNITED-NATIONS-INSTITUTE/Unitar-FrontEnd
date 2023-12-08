@@ -6,8 +6,10 @@ import Menu from "@mui/joy/Menu";
 import MenuButton from "@mui/joy/MenuButton";
 import MenuItem from "@mui/joy/MenuItem";
 import MoreVert from "@mui/icons-material/MoreVert";
+import { useNavigate } from "react-router-dom";
 
 const UsersTable = () => {
+  const navigate = useNavigate();
   const customBorder = {
     border: "none",
     borderBottom: "1px solid #0e0e0e",
@@ -35,10 +37,18 @@ const UsersTable = () => {
             <MoreVert />
           </MenuButton>
           <Menu>
-            <MenuItem>Activate user</MenuItem>
-            <MenuItem>Deactivate user</MenuItem>
-            <MenuItem>Verify user</MenuItem>
-            <MenuItem>Delete user</MenuItem>
+            <MenuItem onClick={() => navigate("/admin/users/activate")}>
+              Activate user
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/admin/users/deactivate")}>
+              Deactivate user
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/admin/users/verify")}>
+              Verify user
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/admin/users/delete")}>
+              Delete user
+            </MenuItem>
           </Menu>
         </Dropdown>
       ),
