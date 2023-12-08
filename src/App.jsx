@@ -40,12 +40,8 @@ import AllParticipants from "./components/admin/participants/AllParticipants";
 import AllOrganizers from "./components/admin/organizers/AllOrganizers";
 import AllHackathons from "./components/admin/hackathons/AllHackathons";
 import AllSubmissions from "./components/admin/allSubmissions/AllSubmissions";
-import UserDetails from "./components/admin/user/UserDetails";
 import CreateUser from "./components/admin/user/CreateUser";
-import SubmissionDetails from "./components/admin/allSubmissions/SubmissionDetails";
-import HackathonDetails from "./components/admin/hackathons/HackathonDetails";
 import ParticipantProfile from "./components/admin/participants/ParticipantProfile";
-import OrganizerProfile from "./components/admin/organizers/OrganizerProfile";
 import UsersTable from "./components/admin/user/UsersTable";
 import EditPartProfile from "./components/admin/participants/EditPartProfile";
 import DeleteParticipant from "./components/admin/participants/DeleteParticipant";
@@ -54,6 +50,19 @@ import ViewHackathons from "./components/admin/organizers/ViewHackathons";
 import ActivateOrganization from "./components/admin/organizers/ActivateOrganization";
 import DeactivateOrganization from "./components/admin/organizers/DeactivateOrganization";
 import DeleteOrganization from "./components/admin/organizers/DeleteOrganization";
+import ViewHackDetails from "./components/admin/organizers/ViewHackDetails";
+import ViewHackathon from "./components/admin/hackathons/ViewHachathon";
+import ViewHackDetail from "./components/admin/hackathons/ViewHackDetail";
+import ActivateHack from "./components/admin/hackathons/ActivateHack";
+import Deactivate from "./components/admin/hackathons/Deactivate";
+import DeleteHack from "./components/admin/hackathons/DeleteHack";
+import ViewSubmissions from "./components/admin/allSubmissions/ViewSubmission";
+import EditSubmission from "./components/admin/allSubmissions/EditSubmission";
+import DeleteSubmission from "./components/admin/allSubmissions/DeleteSubmission";
+import ActivateUser from "./components/admin/user/ActivateUser";
+import DeactivateUser from "./components/admin/user/DeactivateUser";
+import VerifyUser from "./components/admin/user/VerifyUser";
+import DeleteUser from "./components/admin/user/DeleteUser";
 const App = () => {
   return (
     <Routes>
@@ -130,23 +139,40 @@ const App = () => {
         <Route path="organizers" element={<Outlet />}>
           <Route index element={<AllOrganizers />} />
           <Route path="create" element={<CreateOrgHackathon />} />
-          <Route path="view" element={<ViewHackathons />} />
+          <Route path="view" element={<Outlet />}>
+            <Route index element={<ViewHackathons />} />
+            <Route path="details" element={<ViewHackDetails />} />
+          </Route>
           <Route path="activate" element={<ActivateOrganization />} />
           <Route path="deactivate" element={<DeactivateOrganization />} />
           <Route path="delete" element={<DeleteOrganization />} />
         </Route>
+
         <Route path="hackathons" element={<Outlet />}>
           <Route index element={<AllHackathons />} />
-          <Route path="detail" element={<HackathonDetails />} />
+          <Route path="view" element={<Outlet />}>
+            <Route index element={<ViewHackathon />} />
+            <Route path="details" element={<ViewHackDetail />} />
+          </Route>
+          <Route path="activate" element={<ActivateHack />} />
+          <Route path="deactivate" element={<Deactivate />} />
+          <Route path="delete" element={<DeleteHack />} />
         </Route>
         <Route path="submissions" element={<Outlet />}>
           <Route index element={<AllSubmissions />} />
-          <Route path="detail" element={<SubmissionDetails />} />
+          <Route path="view" element={<ViewSubmissions />} />
+          <Route path="edit" element={<EditSubmission />} />
+          <Route path="delete" element={<DeleteSubmission />} />
+
           {/* IMPLEMENT submission DELETION IN THE submission DETAIL COMPONENT ABOVE */}
         </Route>
         <Route path="users" element={<Outlet />}>
           <Route index element={<UsersTable />} />
-          <Route path="detail" element={<UserDetails />} />
+          <Route path="activate" element={<ActivateUser />} />
+          <Route path="deactivate" element={<DeactivateUser />} />
+          <Route path="verify" element={<VerifyUser />} />
+          <Route path="delete" element={<DeleteUser />} />
+
           {/* IMPLEMENT USER ACTIVATION AND DEACTIVATION IN THE USER DETAIL
           COMPONENT ABOVE */}
           <Route path="create" element={<CreateUser />} />
