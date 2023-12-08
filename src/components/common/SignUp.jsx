@@ -67,11 +67,9 @@ const SignUp = () => {
         let passwordError = "";
         let errorMessage = "Error creating account. Please try again.";
 
-        if (
-          error.response &&
-          error.response.data &&
-          error.response.data.errors
-        ) {
+        if (error.response && error.response.data && error.response.data.errors)
+          console.log(error.response.data);
+        {
           const errors = error.response.data.errors[0];
 
           if (errors.password) {
