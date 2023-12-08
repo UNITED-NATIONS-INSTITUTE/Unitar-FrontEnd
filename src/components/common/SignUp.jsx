@@ -73,10 +73,10 @@ const SignUp = () => {
           const errors = error.response.data.errors[0];
 
           if (errors.password) {
-            passwordError = errors.password;
+            passwordError = `Password ${errors.password}`;
           }
           if (errors.username) {
-            usernameError = errors.username;
+            usernameError = `Username ${errors.username}`;
           }
 
           if (usernameError && passwordError) {
