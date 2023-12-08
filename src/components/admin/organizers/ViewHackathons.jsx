@@ -1,8 +1,9 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 import HackathonMedia from "../../common/utils/HackathonMedia";
 
 const ViewHackathons = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-white right-side min-h-screen ">
       <div className="ml-[300px]">
@@ -29,7 +30,10 @@ const ViewHackathons = () => {
               </div>
             </div>
             <div className="flex gap-5 mt-[90px] ml-[22px]">
-              <button className="border border-blue-500 rounded-md text-blue-500 w-[250px] text-xs mt-[50px] py-1 hover:bg-custom-blue mb-3 hover:text-white">
+              <button
+                onClick={() => navigate("/admin/organizers/view/details")}
+                className="border border-blue-500 rounded-md text-blue-500 w-[250px] text-xs mt-[50px] py-1 hover:bg-custom-blue mb-3 hover:text-white"
+              >
                 View Details
               </button>
             </div>
