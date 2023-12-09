@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Dropdown from "@mui/joy/Dropdown";
 import IconButton from "@mui/joy/IconButton";
@@ -7,22 +7,29 @@ import MenuButton from "@mui/joy/MenuButton";
 import MenuItem from "@mui/joy/MenuItem";
 import MoreVert from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
-
+import { getAllHackathons } from "../../../api/hackathons/hackathons";
 const AllHackathons = () => {
   const navigate = useNavigate();
+  const [hackathonsPayload, setHackathonsPayload] = useState([]);
+  const fetchHackathons = () => {
+    getAllHackathons().then((res) => {
+      if (res.status === 200) {
+        setHackathonsPayload(res.data);
+      }
+    });
+  };
+  useEffect(() => {
+    fetchHackathons();
+  }, []);
   const customBorder = {
     border: "none",
     borderBottom: "1px solid #0e0e0e",
   };
   const columns = [
-    {
-      field: "hackathon",
-      headerName: "Hackathons",
-      width: 160,
-    },
-    { field: "organization", headerName: "Organization", width: 160 },
-    { field: "prizes", headerName: "Prizes", width: 160 },
-    { field: "participants", headerName: "No of participants", width: 160 },
+    { field: "title", headerName: "Title", width: 160 },
+    { field: "location", headerName: "Location", width: 160 },
+    { field: "highlight", headerName: "Highlight", width: 160 },
+    { field: "prize", headerName: "Prizes", width: 160 },
     { field: "status", headerName: "Status", width: 160 },
 
     {
@@ -65,7 +72,7 @@ const AllHackathons = () => {
         <div style={{ height: 400, width: "100%" }}>
           <DataGrid
             sx={customBorder}
-            rows={rows}
+            rows={hackathonsPayload}
             columns={columns}
             initialState={{
               pagination: {
