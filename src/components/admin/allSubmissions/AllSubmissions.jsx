@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Dropdown from "@mui/joy/Dropdown";
 import IconButton from "@mui/joy/IconButton";
@@ -7,9 +7,20 @@ import MenuButton from "@mui/joy/MenuButton";
 import MenuItem from "@mui/joy/MenuItem";
 import MoreVert from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
-
+import { getSubmissions } from "../../../api/admins/admins";
 const AllSubmissions = () => {
   const navigate = useNavigate();
+  const [submissionsPayload, setSubmissionsPayload] = useState([]);
+  const fetchSubmissions = () => {
+    getSubmissions().then((res) => {
+      if (res.status === 200) {
+        setSubmissionsPayload(res.data);
+      }
+    });
+  };
+  useEffect(() => {
+    fetchSubmissions();
+  }, []);
   const customBorder = {
     border: "none",
     borderBottom: "1px solid #0e0e0e",
@@ -17,7 +28,7 @@ const AllSubmissions = () => {
   const columns = [
     {
       field: "Hackathon",
-      headerName: "Hackathons",
+      headerName: "Submissions",
       width: 250,
     },
     { field: "last_name", headerName: "Participant", width: 250 },
@@ -59,7 +70,7 @@ const AllSubmissions = () => {
         <div style={{ height: 400, width: "100%" }}>
           <DataGrid
             sx={customBorder}
-            rows={rows}
+            rows={submissionsPayload}
             columns={columns}
             initialState={{
               pagination: {
