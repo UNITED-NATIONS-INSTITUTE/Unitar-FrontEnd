@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Dropdown from "@mui/joy/Dropdown";
 import IconButton from "@mui/joy/IconButton";
@@ -7,28 +7,40 @@ import MenuButton from "@mui/joy/MenuButton";
 import MenuItem from "@mui/joy/MenuItem";
 import MoreVert from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
-
+import { getOrganizers } from "../../../api/admins/admins";
 const AllOrganizers = () => {
   const navigate = useNavigate();
   const customBorder = {
     border: "none",
     borderBottom: "1px solid #0e0e0e",
   };
+  const [organizersPayload, setOrganizersPayload] = useState([]);
+  const fetchOrganizers = () => {
+    getOrganizers().then((res) => {
+      if (res.status === 200) {
+        setOrganizersPayload(res.data);
+      }
+    });
+  };
+
+  useEffect(() => {
+    fetchOrganizers();
+  }, []);
   const columns = [
     {
-      field: "organization",
+      field: "name",
       headerName: "Organization",
       width: 130,
     },
     { field: "industry", headerName: "Industry", width: 130 },
     { field: "location", headerName: "Location", width: 130 },
-    { field: "email", headerName: "Email", width: 155 },
-    { field: "status", headerName: "Status", width: 155 },
-    {
-      field: "submitted_projects",
-      headerName: "Submitted Projects",
-      width: 155,
-    },
+    // { field: "email", headerName: "Email", width: 155 },
+    // { field: "status", headerName: "Status", width: 155 },
+    // {
+    //   field: "submitted_projects",
+    //   headerName: "Submitted Projects",
+    //   width: 155,
+    // },
     {
       field: "action",
       headerName: "Actions",
@@ -62,7 +74,6 @@ const AllOrganizers = () => {
       ),
     },
   ];
-  const rows = [{ id: 7, action: "" }];
 
   return (
     <div className="bg-white p-8 right-side min-h-screen min-w-full ">
@@ -72,7 +83,7 @@ const AllOrganizers = () => {
         <div style={{ height: 400, width: "100%" }}>
           <DataGrid
             sx={customBorder}
-            rows={rows}
+            rows={organizersPayload}
             columns={columns}
             initialState={{
               pagination: {
