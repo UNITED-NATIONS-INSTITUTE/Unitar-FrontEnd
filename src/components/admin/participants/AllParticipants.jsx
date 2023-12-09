@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Dropdown from "@mui/joy/Dropdown";
 import IconButton from "@mui/joy/IconButton";
@@ -7,9 +7,21 @@ import MenuButton from "@mui/joy/MenuButton";
 import MenuItem from "@mui/joy/MenuItem";
 import MoreVert from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
-
+import { getParticipants } from "../../../api/admins/admins";
 const AllParticipants = () => {
   const navigate = useNavigate();
+  const [participantsPayload, setParticipantsPayload] = useState([]);
+  const fetchParticipants = () => {
+    getParticipants().then((res) => {
+      if (res.status === 200) {
+        setParticipantsPayload(res.data);
+      }
+    });
+  };
+
+  useEffect(() => {
+    fetchParticipants();
+  }, []);
   const customBorder = {
     border: "none",
     borderBottom: "1px solid #0e0e0e",
@@ -21,9 +33,9 @@ const AllParticipants = () => {
       width: 150,
     },
     { field: "last_name", headerName: "Last Name", width: 150 },
-    { field: "title", headerName: "Username", width: 160 },
-    { field: "email", headerName: "Email", width: 160 },
-    { field: "status", headerName: "Status", width: 160 },
+    { field: "residence", headerName: "Country", width: 160 },
+    { field: "gender", headerName: "Gender", width: 160 },
+    { field: "date_of_birth", headerName: "DOB", width: 160 },
     {
       field: "action",
       headerName: "Actions",
@@ -51,7 +63,6 @@ const AllParticipants = () => {
       ),
     },
   ];
-  const rows = [{ id: 7, action: "" }];
 
   return (
     <div className="bg-white p-8 right-side min-h-screen min-w-full ">
@@ -63,7 +74,7 @@ const AllParticipants = () => {
         <div style={{ height: 400, width: "100%" }}>
           <DataGrid
             sx={customBorder}
-            rows={rows}
+            rows={participantsPayload}
             columns={columns}
             initialState={{
               pagination: {
