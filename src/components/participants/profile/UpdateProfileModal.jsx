@@ -30,7 +30,6 @@ export default function UpdateProfileModal({ openModal, closeModal }) {
               <Box className="flex space-x-4 ">
                 <div>
                   <div className="flex justify-center">
-                    {" "}
                     <img
                       src="/assets/success.svg"
                       alt=""

@@ -66,7 +66,7 @@ const CreatePartProfile = () => {
           setTimeout(() => {
             closeModal();
             navigate("/participant");
-          }, 2000);
+          }, 3000);
         }
       })
       .catch((err) => {

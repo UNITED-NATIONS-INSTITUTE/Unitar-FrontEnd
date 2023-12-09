@@ -15,15 +15,17 @@ const DeleteSubmission = () => {
           </h1>
           <div className="mr-10">{/* <UserProfile /> */}</div>
         </div>
-        <div className="flex flex-wrap space-x-4 mt-5 ml-4">
-          <div className="flex rounded-[6px] shadow-xl flex-col border border-gray-100   w-[300px] h-[450px] transition-transform transform hover:-translate-y-1">
+        <div className="flex flex-wrap space-x-4  ml-4">
+          <div className="flex rounded-[6px] shadow-xl flex-col border border-gray-100   w-[300px] h-[400px] transition-transform transform hover:-translate-y-1">
             <img
-              className="rounded-md w-[300px] h-[200px]"
+              className="rounded-t-[20px] w-[300px] h-[200px]"
               src="/assets/image2.png"
               alt="image"
             />
-            <p className="mt-2 text-sm ml-4 text-gray-500">EdTechInnovation </p>
-            <p className="mt-2 text-sm ml-4 font-bold">
+            <p className=" text-sm ml-4 text-gray-500 font-bold">
+              EdTechInnovation{" "}
+            </p>
+            <p className=" text-sm ml-4 font-bold">
               Redefining synchronous learning experiences.
             </p>
             <p className="mt-2 text-[12px] ml-4 w-[200px]  text-gray-500">
@@ -33,7 +35,7 @@ const DeleteSubmission = () => {
             <div className=" ml-12">
               <button
                 onClick={handleClick}
-                className="bg-red-500 text-white px-3 py-2 rounded-md mt-5  w-[200px] hover:bg-red-700 "
+                className="bg-red-500 text-white px-3 py-2 rounded-md mt-2 w-[200px] hover:bg-red-700 "
               >
                 Delete
               </button>

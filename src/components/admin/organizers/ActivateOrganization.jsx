@@ -26,7 +26,7 @@ const ActivateOrganization = () => {
             />
             <button
               onClick={handleClick}
-              className="bg-green-500 text-white p-2 rounded-md hover:bg-green-600 w-[200px] mt-4"
+              className="bg-[#06BD0E] text-white p-2 rounded-md hover:bg-green-600 w-[200px] mt-4"
             >
               Activate Account
             </button>

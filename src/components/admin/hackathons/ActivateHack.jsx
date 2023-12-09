@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-// import UserProfile from "../../participants/profile/UserProfile";
-
 import HackathonMedia from "../../common/utils/HackathonMedia";
 import ActivateHackModal from "./ActivateHackModal";
 
@@ -120,7 +118,7 @@ const ActivateHack = () => {
             <div>
               <button
                 onClick={handleClick}
-                className="bg-green-500 text-white px-3 py-2 rounded-md mt-5 w-[150px] hover:bg-green-700 "
+                className="bg-[#06BD0E] text-white px-3 py-2 rounded-md mt-5 w-[150px] hover:bg-green-700 "
               >
                 Activate
               </button>

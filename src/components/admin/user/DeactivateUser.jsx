@@ -12,7 +12,7 @@ const DeactivateUser = () => {
     <div className="right-side min-h-screen bg-pattern">
       <div className="ml-[300px]">
         <h1 className="text-gray-600 text-[24px] font-bold mt-4">
-          Activate User Account
+          Deactivate User Account
         </h1>
         <div className="flex flex-row gap-[100px]">
           <div className="mt-3 flex flex-col items-center justify-center bg-[#f0f6ff] w-[400px] rounded-md shadow-lg p-4">
@@ -27,7 +27,7 @@ const DeactivateUser = () => {
             />
             <button
               onClick={handleClick}
-              className="bg-red-500 text-white p-2 rounded-md hover:bg-red-600 w-[200px] mt-4"
+              className="bg-[#D40C0C] text-white p-2 rounded-md  w-[200px] mt-4"
             >
               Deativate Account
             </button>

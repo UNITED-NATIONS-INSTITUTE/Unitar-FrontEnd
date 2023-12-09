@@ -7,10 +7,9 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 500,
-  height: 300,
+  width: 450,
+  height: 200,
   bgcolor: "background.paper",
-  border: "2px solid #089BD9",
   boxShadow: 24,
   p: 4,
   borderRadius: "10px",
@@ -30,11 +29,18 @@ export default function VerifyModal({ openModal, closeModal }) {
             <Box>
               <Box className="flex space-x-4 ">
                 <div>
-                  <h1 className="font-bold text-[24px] text-custom-blue font-Lexend-Exa  text-center">
+                  <h1 className="font-bold text-[20px] mb-2 font-Lexend-Exa  text-center">
                     Verify User
                   </h1>
+                  <div className="flex justify-center">
+                    <img
+                      src="/assets/success.svg"
+                      alt=""
+                      className="w-[80px] h-[80px]"
+                    />
+                  </div>
 
-                  <p className="mt-12 items-center text-gray-700 text-[20px] ">
+                  <p className="mt-2 items-center text-gray-700 text-sm ">
                     You have successfully verified this user.
                   </p>
                 </div>
