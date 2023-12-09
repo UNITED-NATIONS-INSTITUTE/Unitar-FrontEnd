@@ -58,9 +58,6 @@ const OpenHackathon = () => {
               >
                 View project
               </button>
-              <div className="mb-5">
-                <Avatars />
-              </div>
             </div>
           </div>
         ))}
