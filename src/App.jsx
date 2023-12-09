@@ -127,55 +127,57 @@ const App = () => {
         </Route>
       </Route>
       {/* ADMIN */}
-      <Route path="admin" element={<AdminSidebar />}>
-        <Route index element={<AdminDashboard />} />
-        <Route path="dashboard" element={<AdminDashboard />} />
-        <Route path="participants" element={<Outlet />}>
-          <Route index element={<AllParticipants />} />
-          <Route path="detail" element={<ParticipantProfile />} />
-          <Route path="edit" element={<EditPartProfile />} />
-          <Route path="delete" element={<DeleteParticipant />} />
-        </Route>
-        <Route path="organizers" element={<Outlet />}>
-          <Route index element={<AllOrganizers />} />
-          <Route path="create" element={<CreateOrgHackathon />} />
-          <Route path="view" element={<Outlet />}>
-            <Route index element={<ViewHackathons />} />
-            <Route path="details" element={<ViewHackDetails />} />
+      <Route element={<RequireAuth requiredRouteRole={"ADMIN"} />}>
+        <Route path="admin" element={<AdminSidebar />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="participants" element={<Outlet />}>
+            <Route index element={<AllParticipants />} />
+            <Route path="detail" element={<ParticipantProfile />} />
+            <Route path="edit" element={<EditPartProfile />} />
+            <Route path="delete" element={<DeleteParticipant />} />
           </Route>
-          <Route path="activate" element={<ActivateOrganization />} />
-          <Route path="deactivate" element={<DeactivateOrganization />} />
-          <Route path="delete" element={<DeleteOrganization />} />
-        </Route>
-
-        <Route path="hackathons" element={<Outlet />}>
-          <Route index element={<AllHackathons />} />
-          <Route path="view" element={<Outlet />}>
-            <Route index element={<ViewHackathon />} />
-            <Route path="details" element={<ViewHackDetail />} />
+          <Route path="organizers" element={<Outlet />}>
+            <Route index element={<AllOrganizers />} />
+            <Route path="create" element={<CreateOrgHackathon />} />
+            <Route path="view" element={<Outlet />}>
+              <Route index element={<ViewHackathons />} />
+              <Route path="details" element={<ViewHackDetails />} />
+            </Route>
+            <Route path="activate" element={<ActivateOrganization />} />
+            <Route path="deactivate" element={<DeactivateOrganization />} />
+            <Route path="delete" element={<DeleteOrganization />} />
           </Route>
-          <Route path="activate" element={<ActivateHack />} />
-          <Route path="deactivate" element={<Deactivate />} />
-          <Route path="delete" element={<DeleteHack />} />
-        </Route>
-        <Route path="submissions" element={<Outlet />}>
-          <Route index element={<AllSubmissions />} />
-          <Route path="view" element={<ViewSubmissions />} />
-          <Route path="edit" element={<EditSubmission />} />
-          <Route path="delete" element={<DeleteSubmission />} />
 
-          {/* IMPLEMENT submission DELETION IN THE submission DETAIL COMPONENT ABOVE */}
-        </Route>
-        <Route path="users" element={<Outlet />}>
-          <Route index element={<UsersTable />} />
-          <Route path="activate" element={<ActivateUser />} />
-          <Route path="deactivate" element={<DeactivateUser />} />
-          <Route path="verify" element={<VerifyUser />} />
-          <Route path="delete" element={<DeleteUser />} />
+          <Route path="hackathons" element={<Outlet />}>
+            <Route index element={<AllHackathons />} />
+            <Route path="view" element={<Outlet />}>
+              <Route index element={<ViewHackathon />} />
+              <Route path="details" element={<ViewHackDetail />} />
+            </Route>
+            <Route path="activate" element={<ActivateHack />} />
+            <Route path="deactivate" element={<Deactivate />} />
+            <Route path="delete" element={<DeleteHack />} />
+          </Route>
+          <Route path="submissions" element={<Outlet />}>
+            <Route index element={<AllSubmissions />} />
+            <Route path="view" element={<ViewSubmissions />} />
+            <Route path="edit" element={<EditSubmission />} />
+            <Route path="delete" element={<DeleteSubmission />} />
 
-          {/* IMPLEMENT USER ACTIVATION AND DEACTIVATION IN THE USER DETAIL
+            {/* IMPLEMENT submission DELETION IN THE submission DETAIL COMPONENT ABOVE */}
+          </Route>
+          <Route path="users" element={<Outlet />}>
+            <Route index element={<UsersTable />} />
+            <Route path="activate" element={<ActivateUser />} />
+            <Route path="deactivate" element={<DeactivateUser />} />
+            <Route path="verify" element={<VerifyUser />} />
+            <Route path="delete" element={<DeleteUser />} />
+
+            {/* IMPLEMENT USER ACTIVATION AND DEACTIVATION IN THE USER DETAIL
           COMPONENT ABOVE */}
-          <Route path="create" element={<CreateUser />} />
+            <Route path="create" element={<CreateUser />} />
+          </Route>
         </Route>
       </Route>
     </Routes>
