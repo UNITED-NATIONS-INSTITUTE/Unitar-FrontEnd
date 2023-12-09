@@ -8,6 +8,7 @@ import MenuItem from "@mui/joy/MenuItem";
 import MoreVert from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
 import { getAllUsers } from "../../../api/admins/admins";
+import { Chip } from "@mui/material";
 const UsersTable = () => {
   const navigate = useNavigate();
   const [usersPayload, setUsersPayload] = useState([]);
@@ -27,6 +28,18 @@ const UsersTable = () => {
     border: "none",
     borderBottom: "1px solid #0e0e0e",
   };
+  const getStatusColor = (status) => {
+    switch (status) {
+      case "ACTIVE":
+        return "rgba(0, 128, 0, 0.80)";
+      case "PENDING":
+        return "rgba(255, 165, 0, 0.80)";
+      case "DEACTIVATED":
+        return "rgba(255, 0, 0, 0.80)";
+      default:
+        return "rgba(169, 169, 169, 0.5)";
+    }
+  };
   const columns = [
     {
       field: "username",
@@ -35,7 +48,20 @@ const UsersTable = () => {
     },
     { field: "email", headerName: "Email", width: 200 },
     { field: "role", headerName: "Role", width: 200 },
-    { field: "status", headerName: "Status", width: 200 },
+    {
+      field: "status",
+      headerName: "Status",
+      width: 200,
+      renderCell: (params) => (
+        <Chip
+          label={params.value}
+          style={{
+            backgroundColor: getStatusColor(params.value),
+            color: "white",
+          }}
+        />
+      ),
+    },
 
     {
       field: "action",
@@ -67,6 +93,9 @@ const UsersTable = () => {
       ),
     },
   ];
+  const getCellClassName = (params) => {
+    return `small-text-cell ${params.field}`;
+  };
 
   return (
     <div className="bg-white p-8 right-side min-h-screen min-w-full ">
@@ -82,6 +111,7 @@ const UsersTable = () => {
           <DataGrid
             sx={customBorder}
             rows={usersPayload}
+            getCellClassName={getCellClassName}
             columns={columns}
             initialState={{
               pagination: {
