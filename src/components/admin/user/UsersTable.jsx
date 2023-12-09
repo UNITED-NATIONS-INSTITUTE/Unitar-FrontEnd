@@ -72,7 +72,10 @@ const UsersTable = () => {
     <div className="bg-white p-8 right-side min-h-screen min-w-full ">
       <div className="ml-60">
         <h1 className="text-[24px] font-bold text-gray-600">Users Table</h1>
-        <button className="bg-custom-blue w-[150px] rounded-md py-3 px-2 text-white font-semibold mt-5 hover:bg-white hover:text-custom-blue hover:border-custom-blue hover:border mb-4">
+        <button
+          onClick={() => navigate("/admin/users/create")}
+          className="bg-custom-blue w-[150px] rounded-md py-3 px-2 text-white font-semibold mt-5 hover:bg-white hover:text-custom-blue hover:border-custom-blue hover:border mb-4"
+        >
           Create User
         </button>
         <div style={{ height: 400, width: "100%" }}>
