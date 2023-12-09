@@ -63,7 +63,9 @@ const AllParticipants = () => {
       ),
     },
   ];
-
+  const getCellClassName = (params) => {
+    return `small-text-cell ${params.field}`;
+  };
   return (
     <div className="bg-white p-8 right-side min-h-screen min-w-full ">
       <div className="ml-60">
@@ -74,6 +76,7 @@ const AllParticipants = () => {
         <div style={{ height: 400, width: "100%" }}>
           <DataGrid
             sx={customBorder}
+            getCellClassName={getCellClassName}
             rows={participantsPayload}
             columns={columns}
             initialState={{

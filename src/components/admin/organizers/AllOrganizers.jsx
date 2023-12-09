@@ -30,21 +30,14 @@ const AllOrganizers = () => {
     {
       field: "name",
       headerName: "Organization",
-      width: 130,
+      width: 300,
     },
-    { field: "industry", headerName: "Industry", width: 130 },
-    { field: "location", headerName: "Location", width: 130 },
-    // { field: "email", headerName: "Email", width: 155 },
-    // { field: "status", headerName: "Status", width: 155 },
-    // {
-    //   field: "submitted_projects",
-    //   headerName: "Submitted Projects",
-    //   width: 155,
-    // },
+    { field: "industry", headerName: "Industry", width: 300 },
+    { field: "location", headerName: "Location", width: 300 },
     {
       field: "action",
       headerName: "Actions",
-      width: 110,
+      width: 100,
       renderCell: () => (
         <Dropdown>
           <MenuButton
@@ -74,6 +67,9 @@ const AllOrganizers = () => {
       ),
     },
   ];
+  const getCellClassName = (params) => {
+    return `small-text-cell ${params.field}`;
+  };
 
   return (
     <div className="bg-white p-8 right-side min-h-screen min-w-full ">
@@ -83,6 +79,7 @@ const AllOrganizers = () => {
         <div style={{ height: 400, width: "100%" }}>
           <DataGrid
             sx={customBorder}
+            getCellClassName={getCellClassName}
             rows={organizersPayload}
             columns={columns}
             initialState={{

@@ -32,11 +32,11 @@ const AllSubmissions = () => {
       width: 250,
     },
     { field: "last_name", headerName: "Participant", width: 250 },
-    { field: "title", headerName: "Organization", width: 250 },
+    { field: "title", headerName: "Organization", width: 320 },
     {
       field: "action",
       headerName: "Actions",
-      width: 110,
+      width: 90,
       renderCell: () => (
         <Dropdown>
           <MenuButton
@@ -60,7 +60,9 @@ const AllSubmissions = () => {
       ),
     },
   ];
-  const rows = [{ id: 7, action: "" }];
+  const getCellClassName = (params) => {
+    return `small-text-cell ${params.field}`;
+  };
 
   return (
     <div className="bg-white p-8 right-side min-h-screen min-w-full ">
@@ -70,6 +72,7 @@ const AllSubmissions = () => {
         <div style={{ height: 400, width: "100%" }}>
           <DataGrid
             sx={customBorder}
+            getCellClassName={getCellClassName}
             rows={submissionsPayload}
             columns={columns}
             initialState={{

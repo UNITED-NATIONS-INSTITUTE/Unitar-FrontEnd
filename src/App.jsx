@@ -173,10 +173,10 @@ const App = () => {
             <Route path="deactivate" element={<DeactivateUser />} />
             <Route path="verify" element={<VerifyUser />} />
             <Route path="delete" element={<DeleteUser />} />
+            <Route path="create" element={<CreateUser />} />
 
             {/* IMPLEMENT USER ACTIVATION AND DEACTIVATION IN THE USER DETAIL
           COMPONENT ABOVE */}
-            <Route path="create" element={<CreateUser />} />
           </Route>
         </Route>
       </Route>

@@ -8,6 +8,7 @@ import MenuItem from "@mui/joy/MenuItem";
 import MoreVert from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
 import { getAllHackathons } from "../../../api/hackathons/hackathons";
+import { Chip } from "@mui/material";
 const AllHackathons = () => {
   const navigate = useNavigate();
   const [hackathonsPayload, setHackathonsPayload] = useState([]);
@@ -21,21 +22,49 @@ const AllHackathons = () => {
   useEffect(() => {
     fetchHackathons();
   }, []);
+
+  const getStatusColor = (status) => {
+    switch (status) {
+      case "CREATION STAGE":
+        return "rgba(8, 155, 217, 0.80)";
+      case "ACTIVE":
+        return "rgba(0, 128, 0, 0.80)";
+      case "PENDING VALIDATION":
+        return "rgba(255, 165, 0, 0.80)";
+      case "DEACTIVATED":
+        return "rgba(255, 0, 0, 0.80)";
+      default:
+        return "rgba(169, 169, 169, 0.5)";
+    }
+  };
   const customBorder = {
     border: "none",
     borderBottom: "1px solid #0e0e0e",
   };
   const columns = [
-    { field: "title", headerName: "Title", width: 160 },
+    { field: "title", headerName: "Title", width: 200 },
     { field: "location", headerName: "Location", width: 160 },
     { field: "highlight", headerName: "Highlight", width: 160 },
     { field: "prize", headerName: "Prizes", width: 160 },
-    { field: "status", headerName: "Status", width: 160 },
+    {
+      field: "status",
+      headerName: "Status",
+      width: 200,
+      renderCell: (params) => (
+        <Chip
+          label={params.value}
+          style={{
+            backgroundColor: getStatusColor(params.value),
+            color: "white",
+          }}
+        />
+      ),
+    },
 
     {
       field: "action",
       headerName: "Actions",
-      width: 110,
+      width: 100,
       renderCell: () => (
         <Dropdown>
           <MenuButton
@@ -62,7 +91,9 @@ const AllHackathons = () => {
       ),
     },
   ];
-  const rows = [{ id: 7, action: "" }];
+  const getCellClassName = (params) => {
+    return `small-text-cell ${params.field}`;
+  };
 
   return (
     <div className="bg-white p-8 right-side min-h-screen min-w-full ">
@@ -72,6 +103,7 @@ const AllHackathons = () => {
         <div style={{ height: 400, width: "100%" }}>
           <DataGrid
             sx={customBorder}
+            getCellClassName={getCellClassName}
             rows={hackathonsPayload}
             columns={columns}
             initialState={{

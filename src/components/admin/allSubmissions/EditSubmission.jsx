@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { TextField } from "@mui/material";
 import SubmissionModal from "./SubmissionModal";
+import { useNavigate } from "react-router-dom";
 
 const EditSubmission = () => {
+  const navigate = useNavigate();
   const [isModalOpen, setModalOpen] = useState(false);
-  const handleClick = () => {
-    setModalOpen(true);
-  };
 
   const [formData, setFormData] = useState({
     title: "Existing Project Title",
@@ -24,6 +23,13 @@ const EditSubmission = () => {
   };
 
   const handleSubmit = (event) => {
+    event.preventDefault();
+    setModalOpen(true);
+    setTimeout(() => {
+      setModalOpen(false);
+
+      navigate("/admin/submissions");
+    }, 2500);
     console.log("Form data submitted:", formData);
   };
 
@@ -143,7 +149,6 @@ const EditSubmission = () => {
 
               <div className="flex justify-end">
                 <button
-                  onClick={handleClick}
                   type="submit"
                   className="text-white mr-10 text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[200px] mt-[20px]"
                 >
