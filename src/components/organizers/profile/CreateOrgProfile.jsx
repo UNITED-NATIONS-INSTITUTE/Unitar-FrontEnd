@@ -63,7 +63,7 @@ const CreateOrgProfile = () => {
           setTimeout(() => {
             closeModal();
             navigate("/organizer");
-          }, 2000);
+          }, 3000);
         }
       })
       .catch((err) => {

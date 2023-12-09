@@ -31,7 +31,7 @@ const OrgEditDetails = () => {
         setModalOpen(false);
 
         navigate("/organizer");
-      }, 1500);
+      }, 2500);
     } catch (error) {
       console.log(error);
     }

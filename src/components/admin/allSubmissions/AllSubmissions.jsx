@@ -6,8 +6,10 @@ import Menu from "@mui/joy/Menu";
 import MenuButton from "@mui/joy/MenuButton";
 import MenuItem from "@mui/joy/MenuItem";
 import MoreVert from "@mui/icons-material/MoreVert";
+import { useNavigate } from "react-router-dom";
 
 const AllSubmissions = () => {
+  const navigate = useNavigate();
   const customBorder = {
     border: "none",
     borderBottom: "1px solid #0e0e0e",
@@ -33,9 +35,15 @@ const AllSubmissions = () => {
             <MoreVert />
           </MenuButton>
           <Menu>
-            <MenuItem>View Hackathon</MenuItem>
-            <MenuItem>Edit Hackathon</MenuItem>
-            <MenuItem>Delete Hackathon</MenuItem>
+            <MenuItem onClick={() => navigate("/admin/submissions/view")}>
+              View Submission
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/admin/submissions/edit")}>
+              Edit Submission
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/admin/submissions/delete")}>
+              Delete Submission
+            </MenuItem>
           </Menu>
         </Dropdown>
       ),

@@ -1,32 +1,43 @@
 import React from "react";
+
 const HackathonMedia = ({ cover_image_url, avatar_url }) => {
   const containerStyle = {
     position: "relative",
-    width: "200 px",
-    height: "150 px",
+    width: "300px",
+    height: "200px",
   };
 
   const coverStyle = {
-    width: "300px",
-    height: "200px",
+    width: "100%",
+    height: "100%",
     borderRadius: "20px",
   };
 
   const avatarStyle = {
     position: "absolute",
-    right: "10px",
-    top: "100px",
+    left: "20px",
+    bottom: "10px",
     width: "60px",
     height: "60px",
     borderRadius: "50%",
-    border: "3px solid #fff",
+    border: "1px solid #7C7C7C",
+    zIndex: 2,
   };
 
   return (
     <div style={containerStyle}>
-      <img src={cover_image_url} alt="Cover image" style={coverStyle} />
-      <img src={avatar_url} alt="Avatar image" style={avatarStyle} />
+      {cover_image_url ? (
+        <img src={cover_image_url} alt="" style={coverStyle} />
+      ) : (
+        <img src="/assets/no image (1).jpg" alt="" style={coverStyle} />
+      )}
+      {avatar_url ? (
+        <img src={avatar_url} alt="" style={avatarStyle} />
+      ) : (
+        <img src="/assets/no image (1).jpg" alt="" style={avatarStyle} />
+      )}
     </div>
   );
 };
+
 export default HackathonMedia;

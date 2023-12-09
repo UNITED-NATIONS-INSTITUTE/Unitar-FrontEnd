@@ -30,7 +30,7 @@ export default function ActivateModal({ openModal, closeModal }) {
               <Box className="flex space-x-4 ">
                 <div>
                   <h1 className="font-bold text-[20px]  font-Lexend-Exa  text-center">
-                    Activate Organizer's Account
+                    Activate User's Account
                   </h1>
                   <div className="flex justify-center ">
                     <img

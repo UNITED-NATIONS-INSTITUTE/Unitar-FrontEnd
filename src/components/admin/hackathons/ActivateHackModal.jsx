@@ -15,7 +15,7 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function ActivateModal({ openModal, closeModal }) {
+export default function ActivateHackModal({ openModal, closeModal }) {
   return (
     <Box>
       <Modal
@@ -30,17 +30,17 @@ export default function ActivateModal({ openModal, closeModal }) {
               <Box className="flex space-x-4 ">
                 <div>
                   <h1 className="font-bold text-[20px]  font-Lexend-Exa  text-center">
-                    Activate Organizer's Account
+                    Activate Hackathon
                   </h1>
                   <div className="flex justify-center ">
                     <img
-                      src="/assets/activate.jpg"
+                      src="/assets/hackathon.jpg"
                       alt=""
                       className="w-[100px] h-[100px]"
                     />
                   </div>
-                  <p className=" text-center text-gray-700 text-sm mt-2 ">
-                    Do you really want to activate this account?
+                  <p className=" text-center text-gray-700 text-sm mt-2">
+                    Do you really want to activate this hackathon?
                   </p>
                   <div className="flex flex-row gap-5 mt-10">
                     <button className="bg-[#06BD0E] text-white font-bold w-[150px] py-2 px-2 rounded-md  hover:bg-blue-500">

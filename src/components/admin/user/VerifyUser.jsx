@@ -1,8 +1,9 @@
 import { Avatar } from "@mui/material";
 import React, { useState } from "react";
 import ActivateModal from "./ActivateModal";
+import VerifyModal from "./VerifyModal";
 
-const ActivateOrganization = () => {
+const VerifyUser = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const handleClick = () => {
     setModalOpen(true);
@@ -11,7 +12,7 @@ const ActivateOrganization = () => {
     <div className="right-side min-h-screen bg-pattern">
       <div className="ml-[300px]">
         <h1 className="text-gray-600 text-[24px] font-bold mt-4">
-          Activate User Account
+          Verify User Account
         </h1>
         <div className="flex flex-row gap-[100px]">
           <div className="mt-3 flex flex-col items-center justify-center bg-[#f0f6ff] w-[400px] rounded-md shadow-lg p-4">
@@ -26,33 +27,37 @@ const ActivateOrganization = () => {
             />
             <button
               onClick={handleClick}
-              className="bg-[#06BD0E] text-white p-2 rounded-md hover:bg-green-600 w-[200px] mt-4"
+              className="bg-green-500 text-white p-2 rounded-md hover:bg-green-600 w-[200px] mt-4"
             >
-              Activate Account
+              Verify User
             </button>
           </div>
           <div className="mt-10">
             <h1 className="mt-3 mb-2 text-gray-600 font-semibold">
               Profile Details
             </h1>
-            <div className="flex flex-col bg-[#f0f6ff] w-[400px] h-[150px] rounded-md shadow-lg p-4">
+            <div className="flex flex-col bg-[#f0f6ff] w-[400px] h-[200px] rounded-md shadow-lg p-4">
               <div className="flex mb-3">
-                <strong className="text-custom-blue w-[150px]">Name</strong>
-                <p>UNITAR-W</p>
+                <strong className="text-custom-blue w-[150px]">username</strong>
+                <p>Peninah</p>
               </div>
               <div className="flex mb-3">
-                <strong className="text-custom-blue w-[150px]">Industry</strong>
-                <p>Tech</p>
+                <strong className="text-custom-blue w-[150px]">email</strong>
+                <p>peninah@gmail.com</p>
               </div>
               <div className="flex">
-                <strong className="text-custom-blue w-[150px]">Location</strong>
-                <p>Kenya</p>
+                <strong className="text-custom-blue w-[150px]">Role</strong>
+                <p>Participant</p>
+              </div>
+              <div className="flex mt-3">
+                <strong className="text-custom-blue w-[150px]">Status</strong>
+                <p>Active</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <ActivateModal
+      <VerifyModal
         openModal={isModalOpen}
         closeModal={() => setModalOpen(false)}
       />
@@ -60,4 +65,4 @@ const ActivateOrganization = () => {
   );
 };
 
-export default ActivateOrganization;
+export default VerifyUser;

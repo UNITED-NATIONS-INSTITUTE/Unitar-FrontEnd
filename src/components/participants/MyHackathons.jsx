@@ -52,28 +52,34 @@ const MyHackathons = () => {
             subscriptionsPayload.map((field, index) => (
               <div
                 key={index}
-                className="flex rounded-[6px] shadow-xl flex-col border border-gray-100  mb-4 w-[300px] h-[400px] transition-transform transform hover:-translate-y-1"
+                className="flex rounded-[6px] shadow border border-[#C7C7C7] flex-col  hover:border-custom-blue mb-4 w-[300px] h-[350px] transition-transform transform hover:-translate-y-1"
               >
                 <img
-                  className="rounded-md w-[300px] h-[200px]"
+                  className="rounded-t-md w-[300px] h-[200px]"
                   key={index}
-                  src={field.hackathon.cover_image_url}
+                  src={
+                    field.hackathon.cover_image_url ||
+                    "/assets/no image (1).jpg"
+                  }
                   alt={`image ${index + 1}`}
                 />
-                <p className="mt-2 text-sm ml-4 text-gray-500">
-                  {field.hackathon.name}
-                </p>
-                <p className="mt-2 text-sm ml-4 font-bold">
-                  {field.hackathon.highlight}
-                </p>
-                <p className="mt-2 text-[12px] ml-4 w-[200px]  text-gray-500">
-                  {field.hackathon.description}
-                </p>
-
+                <div className="relative">
+                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-white p-4 border-[#7C7C7C] border-t rounded-t-[20px]">
+                    <p className="mt-2 text-sm ml-4 text-gray-500">
+                      {field.hackathon.name}
+                    </p>
+                    <p className="mt-2 text-sm ml-4 font-bold">
+                      {field.hackathon.highlight}
+                    </p>
+                    <p className="mt-2 text-[12px] ml-4 w-[200px]  text-gray-500">
+                      {field.hackathon.description}
+                    </p>
+                  </div>
+                </div>
                 <div className="flex mt-auto">
                   <button
                     onClick={() => handleViewClick(field)}
-                    className="border ml-[22px] mb-5 border-blue-500 rounded-md text-blue-500 hover:bg-custom-blue hover:text-white w-[250px] text-xs mt-4 py-1"
+                    className="border ml-[22px] mb-5 border-blue-500 rounded-md text-blue-500 hover:bg-custom-blue hover:text-white w-[250px] text-xs mt-4 py-2"
                   >
                     Make a Submission
                   </button>

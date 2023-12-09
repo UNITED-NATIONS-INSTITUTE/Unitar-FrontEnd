@@ -2,7 +2,7 @@ import { Avatar } from "@mui/material";
 import React, { useState } from "react";
 import ActivateModal from "./ActivateModal";
 
-const ActivateOrganization = () => {
+const ActivateUser = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const handleClick = () => {
     setModalOpen(true);
@@ -26,7 +26,7 @@ const ActivateOrganization = () => {
             />
             <button
               onClick={handleClick}
-              className="bg-[#06BD0E] text-white p-2 rounded-md hover:bg-green-600 w-[200px] mt-4"
+              className="bg-[#06BD0E] text-white p-2 rounded-md  w-[200px] mt-4"
             >
               Activate Account
             </button>
@@ -35,18 +35,22 @@ const ActivateOrganization = () => {
             <h1 className="mt-3 mb-2 text-gray-600 font-semibold">
               Profile Details
             </h1>
-            <div className="flex flex-col bg-[#f0f6ff] w-[400px] h-[150px] rounded-md shadow-lg p-4">
+            <div className="flex flex-col bg-[#f0f6ff] w-[400px] h-[200px] rounded-md shadow-lg p-4">
               <div className="flex mb-3">
-                <strong className="text-custom-blue w-[150px]">Name</strong>
-                <p>UNITAR-W</p>
+                <strong className="text-custom-blue w-[150px]">username</strong>
+                <p>Peninah</p>
               </div>
               <div className="flex mb-3">
-                <strong className="text-custom-blue w-[150px]">Industry</strong>
-                <p>Tech</p>
+                <strong className="text-custom-blue w-[150px]">email</strong>
+                <p>peninah@gmail.com</p>
               </div>
               <div className="flex">
-                <strong className="text-custom-blue w-[150px]">Location</strong>
-                <p>Kenya</p>
+                <strong className="text-custom-blue w-[150px]">Role</strong>
+                <p>Participant</p>
+              </div>
+              <div className="flex mt-3">
+                <strong className="text-custom-blue w-[150px]">Status</strong>
+                <p>Active</p>
               </div>
             </div>
           </div>
@@ -60,4 +64,4 @@ const ActivateOrganization = () => {
   );
 };
 
-export default ActivateOrganization;
+export default ActivateUser;
