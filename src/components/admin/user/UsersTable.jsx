@@ -9,6 +9,7 @@ import MoreVert from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
 import { getAllUsers } from "../../../api/admins/admins";
 import { Chip } from "@mui/material";
+import CustomDataGrid from "../../common/utils/CustomDataGrid";
 const UsersTable = () => {
   const navigate = useNavigate();
   const [usersPayload, setUsersPayload] = useState([]);
@@ -98,9 +99,9 @@ const UsersTable = () => {
   };
 
   return (
-    <div className="bg-white p-8 right-side min-h-screen min-w-full ">
+    <div className="bg-white p-8 right-side min-w-full ">
       <div className="ml-60">
-        <h1 className="text-[24px] font-bold text-gray-600">Users Table</h1>
+        <h1 className="text-[24px] font-bold text-gray-600">Users Actions</h1>
         <button
           onClick={() => navigate("/admin/users/create")}
           className="bg-custom-blue w-[150px] rounded-md py-3 px-2 text-white font-semibold mt-5 hover:bg-white hover:text-custom-blue hover:border-custom-blue hover:border mb-4"
@@ -108,17 +109,10 @@ const UsersTable = () => {
           Create User
         </button>
         <div style={{ height: 400, width: "100%" }}>
-          <DataGrid
-            sx={customBorder}
+          <CustomDataGrid
+            sx={{mt: 3}}
             rows={usersPayload}
-            getCellClassName={getCellClassName}
             columns={columns}
-            initialState={{
-              pagination: {
-                paginationModel: { page: 0, pageSize: 5 },
-              },
-            }}
-            pageSizeOptions={[5, 10]}
           />
         </div>
       </div>
