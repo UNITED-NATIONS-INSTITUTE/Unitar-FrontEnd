@@ -33,7 +33,7 @@ const DeleteParticipant = () => {
               />
               <button
                 onClick={handleClick}
-                className="bg-red-600 text-white p-2 rounded-md hover:bg-red-700 w-[200px] mt-4"
+                className="bg-[#D40C0C] text-white p-2 rounded-md hover:bg-red-700 w-[200px] mt-4"
               >
                 Delete participant
               </button>

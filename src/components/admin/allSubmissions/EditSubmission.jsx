@@ -7,7 +7,7 @@ const EditSubmission = () => {
   const handleClick = () => {
     setModalOpen(true);
   };
-  // Define state variables for form fields
+
   const [formData, setFormData] = useState({
     title: "Existing Project Title",
     desc: "Existing Project Description",
@@ -18,16 +18,12 @@ const EditSubmission = () => {
     blog: "https://example.com/blog",
   });
 
-  // Event handler for form field changes
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Event handler for form submission
   const handleSubmit = (event) => {
-    event.preventDefault();
-    // Add logic for submitting the form data (e.g., API call or other actions)
     console.log("Form data submitted:", formData);
   };
 

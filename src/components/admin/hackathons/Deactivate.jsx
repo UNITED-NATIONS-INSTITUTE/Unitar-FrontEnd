@@ -120,7 +120,7 @@ const Deactivate = () => {
             <div>
               <button
                 onClick={handleClick}
-                className="bg-red-500 text-white px-3 py-2 rounded-md mt-5 w-[150px] hover:bg-red-700 "
+                className="bg-[#D40C0C] text-white px-3 py-2 rounded-md mt-5 w-[150px] hover:bg-red-700 "
               >
                 Deactivate
               </button>

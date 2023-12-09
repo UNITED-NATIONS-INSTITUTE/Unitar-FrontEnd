@@ -7,10 +7,9 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 500,
-  height: 400,
+  width: 450,
+  height: 280,
   bgcolor: "background.paper",
-  border: "2px solid red",
   boxShadow: 24,
   p: 4,
   borderRadius: "10px",
@@ -30,28 +29,30 @@ export default function DeleteModal({ openModal, closeModal }) {
             <Box>
               <Box className="flex space-x-4 ">
                 <div>
-                  <h1 className="font-bold text-[24px] text-red-500 font-Lexend-Exa  text-center">
-                    Delete User
+                  <h1 className="font-bold text-[20px]  font-Lexend-Exa  text-center">
+                    Delete User Account
                   </h1>
+                  <div className="flex justify-center ">
+                    <img
+                      src="/assets/bin.jpg"
+                      alt=""
+                      className="w-[80px] h-[80px]"
+                    />
+                  </div>
 
-                  <p className="mt-12 items-center text-gray-700  ">
-                    Do you really want to delete this user? Deleting this user
-                    will erase all their data
+                  <p className="text-sm items-center text-gray-700  ">
+                    Do you really want to delete this user account? Deleting
+                    this user account will erase all their data
                   </p>
-                  <p className="mt-5 text-gray-600">Reason for deleting</p>
-                  <input
-                    type="text"
-                    className="border border-gray-400 w-[400px] py-5 rounded-md focus:outline-none"
-                  />
-                  <div className="flex flex-row gap-5 mt-8">
-                    <button className="bg-red-500 text-white font-bold w-[200px] py-2 px-2 rounded-md  hover:bg-red-700">
-                      YES, DELETE
+                  <div className="flex flex-row gap-5 mt-6 justify-center">
+                    <button className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md ">
+                      Yes, Delete
                     </button>
                     <button
                       onClick={closeModal}
-                      className="border text-red-500 border-red-500 rounded-md w-[200px] py-2 px-2  hover:border-red-700"
+                      className="py-2 border border-black rounded-md w-[150px]"
                     >
-                      NO, CANCEL
+                      No, Cancel
                     </button>
                   </div>
                 </div>

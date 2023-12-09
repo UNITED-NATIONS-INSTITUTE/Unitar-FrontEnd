@@ -7,10 +7,9 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 500,
+  width: 450,
   height: 300,
   bgcolor: "background.paper",
-  border: "2px solid #089BD9",
   boxShadow: 24,
   p: 4,
   borderRadius: "10px",
@@ -30,22 +29,28 @@ export default function ActivateModal({ openModal, closeModal }) {
             <Box>
               <Box className="flex space-x-4 ">
                 <div>
-                  <h1 className="font-bold text-[24px] text-custom-blue font-Lexend-Exa  text-center">
-                    Activate User
+                  <h1 className="font-bold text-[20px]  font-Lexend-Exa  text-center">
+                    Activate User's Account
                   </h1>
-
-                  <p className="mt-12 items-center text-gray-700 text-[20px] ">
-                    Do you really want to activate this user?
+                  <div className="flex justify-center ">
+                    <img
+                      src="/assets/activate.jpg"
+                      alt=""
+                      className="w-[100px] h-[100px]"
+                    />
+                  </div>
+                  <p className=" text-center text-gray-700 text-sm mt-2 ">
+                    Do you really want to activate this account?
                   </p>
                   <div className="flex flex-row gap-5 mt-10">
-                    <button className="bg-custom-blue text-white font-bold w-[200px] py-2 px-2 rounded-md  hover:bg-blue-500">
-                      YES, ACTIVATE
+                    <button className="bg-[#06BD0E] text-white font-bold w-[150px] py-2 px-2 rounded-md  hover:bg-blue-500">
+                      Yes, Activate
                     </button>
                     <button
                       onClick={closeModal}
-                      className="border text-custom-blue border-custom-blue rounded-md w-[200px] py-2 px-2  hover:border-blue-500 "
+                      className="border  border-black rounded-md w-[150px] py-2 px-2  "
                     >
-                      NO, CANCEL
+                      No, Cancel
                     </button>
                   </div>
                 </div>
