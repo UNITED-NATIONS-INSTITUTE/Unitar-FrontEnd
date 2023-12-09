@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { createUserAccount } from "../../../api/security/security";
-import { useNavigate, useLocation } from "react-router-dom";
-import VerificationModal from "../../common/VerificationModal";
+import { useNavigate } from "react-router-dom";
 
 const CreateUser = () => {
-  const [showVerificationModal, setShowVerificationModal] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [usernameError, setUsernameError] = useState("");
@@ -15,42 +12,24 @@ const CreateUser = () => {
     username: "",
     email: "",
     password: "",
+    role: "",
     password_confirmation: "",
   });
-  const { username, email, password, password_confirmation } = values;
+  const { username, email, password, password_confirmation, role } = values;
   const navigate = useNavigate();
-  const location = useLocation();
-  const userRole = location.pathname.split("-");
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
-  function getRole() {
-    let user;
-    if (userRole[0] === "/org") {
-      user = "ORGANIZER";
-    } else if (userRole[0] === "/part") {
-      user = "PARTICIPANT";
-    } else {
-      user = null;
-    }
-    return user;
-  }
-
-  const onCloseVerificationModal = () => {
-    setShowVerificationModal(false);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    const role = getRole();
     createUserAccount(username, email, password, password_confirmation, role)
       .then((res) => {
         if (res.status === 201) {
           setUserCode(res.data.id);
-          setSuccessMessage("Verification code sent successfully!");
+          setSuccessMessage("User Account Created!");
           setTimeout(() => {
-            setShowVerificationModal(true);
+            navigate(-1);
           }, 1500);
 
           setValues({
@@ -97,8 +76,6 @@ const CreateUser = () => {
           password: "",
           password_confirmation: "",
         });
-
-        console.log(error);
       });
   };
 
@@ -108,7 +85,7 @@ const CreateUser = () => {
         <div className="ml-60">
           <div className="bg-white p-8 rounded shadow-md w-100 border border-custom-blue overflow-y-auto ">
             <h2 className="mb-6 font-semibold">
-              Create a user for UNITAR hackathon platform
+              Create a user account on the UNITAR hackathon platform
             </h2>
 
             {successMessage && (
@@ -124,6 +101,15 @@ const CreateUser = () => {
             )}
             <form onSubmit={(e) => handleSubmit(e)}>
               <div className="mb-4">
+                <select
+                  value={role}
+                  onChange={handleChange("role")}
+                  className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
+                >
+                  <option value="ADMIN">Admin</option>
+                  <option value="PARTICIPANT">Participant</option>
+                  <option value="ADMIN">Organizer</option>
+                </select>
                 <label className="block text-md mb-2">Username</label>
                 <input
                   type="text"
@@ -133,12 +119,6 @@ const CreateUser = () => {
                   onChange={handleChange("username")}
                 />
                 <label className="block text-md mb-2 mt-2">Role</label>
-                <input
-                  type="text"
-                  className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
-                  placeholder="Pietro Schirano"
-                />
-
                 <label className="block text-md mb-2">Email</label>
                 <input
                   type="email"
@@ -180,12 +160,6 @@ const CreateUser = () => {
           </div>
         </div>
       </div>
-      {showVerificationModal && (
-        <VerificationModal
-          onClose={onCloseVerificationModal}
-          user_code={user_code}
-        />
-      )}
     </div>
   );
 };
