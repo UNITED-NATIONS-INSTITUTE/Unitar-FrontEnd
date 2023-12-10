@@ -1,6 +1,5 @@
 import React from "react";
 import Chart1 from "./charts/Chart1";
-
 import SearchIcon from "@mui/icons-material/Search";
 import { alpha, styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
@@ -85,27 +84,36 @@ const AdminDashboard = () => {
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="bg-[#CEEBF7] shadow-md rounded-md h-[120px] w-[250px] mt-8">
+            <div className="bg-white shadow-md rounded-md h-[120px] w-[250px] mt-8">
               <div className="flex  items-center gap-3">
-                <img src={users} className="mt-5  ml-5 bg-white p-3 rounded" />
+                <img
+                  src={users}
+                  className="mt-5  ml-5 bg-[#CEEBF7] p-3 rounded"
+                />
                 <p className=" mt-4">Total Participants</p>
               </div>
               <p className="ml-[100px]  text text-[24px]  text-custom-blue font-bold">
                 2400
               </p>
             </div>
-            <div className="bg-[#CEEBF7] shadow-md rounded-md h-[120px] w-[250px] mt-8">
+            <div className="bg-white shadow-md rounded-md h-[120px] w-[250px] mt-8">
               <div className="flex  items-center gap-3">
-                <img src={users} className="mt-5  ml-5 bg-white p-3 rounded" />
+                <img
+                  src={users}
+                  className="mt-5  ml-5 bg-[#CEEBF7] p-3 rounded"
+                />
                 <p className=" mt-4">Total Organisers</p>
               </div>
               <p className="ml-[100px]  text text-[24px]  text-custom-blue font-bold">
                 200
               </p>
             </div>
-            <div className="bg-[#CEEBF7] shadow-md rounded-md h-[120px] w-[250px] mt-8">
+            <div className="bg-white shadow-md rounded-md h-[120px] w-[250px] mt-8">
               <div className="flex  items-center gap-3">
-                <img src={layers} className="mt-5  ml-5 bg-white p-3 rounded" />
+                <img
+                  src={layers}
+                  className="mt-5  ml-5 bg-[#CEEBF7] p-3 rounded"
+                />
                 <p className=" mt-4">Total Hackathons</p>
               </div>
               <p className="ml-[100px]  text text-[24px]  text-custom-blue font-bold">
