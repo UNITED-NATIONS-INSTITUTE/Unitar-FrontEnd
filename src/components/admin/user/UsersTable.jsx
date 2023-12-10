@@ -62,7 +62,7 @@ const UsersTable = () => {
     {
       field: "action",
       headerName: "Actions",
-      width: 200,
+      width: 100,
       renderCell: () => (
         <Dropdown>
           <MenuButton
