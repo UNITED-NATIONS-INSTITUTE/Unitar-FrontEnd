@@ -10,7 +10,6 @@ const style = {
   width: 500,
   height: 250,
   bgcolor: "background.paper",
-  border: "2px solid #089BD9",
   boxShadow: 24,
   p: 4,
   borderRadius: "10px",
@@ -30,13 +29,16 @@ export default function SubscribeModal({ openModal, handleClose }) {
             <Box>
               <Box className="flex space-x-4 ">
                 <div>
-                  <h1 className="font-bold text-[24px] text-custom-blue font-Lexend-Exa  text-center">
-                    Hackathon Project Subscription
-                  </h1>
-
-                  <p className="mt-12 items-center text-gray-700 text-[20px] ">
+                  <div className="flex justify-center">
+                    <img
+                      src="/assets/success.svg"
+                      alt=""
+                      className="w-[80px] h-[80px]"
+                    />
+                  </div>
+                  <h1 className="mt-4  font-Lexend-Exa  text-center">
                     You have successfully subscribed to this hackathon project
-                  </p>
+                  </h1>
                 </div>
               </Box>
             </Box>
