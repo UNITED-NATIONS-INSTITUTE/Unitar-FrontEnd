@@ -6,12 +6,13 @@ import { selectCurrentHackathonDetail } from "../../../features/hackathon/hackat
 import { selectLoggedInUserRef } from "../../../features/user/userSlice";
 const EmailValidation = () => {
   const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const handleChange = (event) => {
     setEmail(event.target.value);
   };
   const navigate = useNavigate();
   const hackathonDetails = useSelector(selectCurrentHackathonDetail);
-  const user_ref = useSelector(selectLoggedInUserRef)
+  const user_ref = useSelector(selectLoggedInUserRef);
   const handleSubmit = (e) => {
     e.preventDefault();
     requestValidationCode(user_ref, hackathonDetails.id, email)
@@ -22,6 +23,7 @@ const EmailValidation = () => {
       })
       .catch((err) => {
         console.log(err);
+        setErrorMessage(err.response.data.error);
       });
   };
   return (
@@ -45,6 +47,9 @@ const EmailValidation = () => {
           />
           <span>Email validation</span>
         </p>
+        {errorMessage && (
+          <div className="text-red-500 text-xs">{errorMessage}</div>
+        )}
         <form className="flex flex-col" onSubmit={handleSubmit}>
           <label className="text-xs mt-5 mb-3">Enter email</label>
           <input
