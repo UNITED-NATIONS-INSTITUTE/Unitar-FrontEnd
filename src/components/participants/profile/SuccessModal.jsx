@@ -8,9 +8,8 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 500,
-  height: 300,
+  height: 200,
   bgcolor: "background.paper",
-  border: "2px solid #089BD9",
   boxShadow: 24,
   p: 4,
   borderRadius: "10px",
@@ -30,12 +29,20 @@ export default function SuccessModal({ openModal, closeModal }) {
             <Box>
               <Box className="flex space-x-4 ">
                 <div>
-                  <h1 className="font-bold text-[24px] text-custom-blue font-Lexend-Exa  text-center">
+                  <div className="flex justify-center">
+                    <img
+                      src="/assets/success.svg"
+                      alt=""
+                      className="w-[80px] h-[80px]"
+                    />
+                  </div>
+
+                  <h1 className="font-bold font-Lexend-Exa  text-center">
                     Profile Creation
                   </h1>
 
-                  <p className="mt-12 items-center text-gray-700 text-[20px] ">
-                    You have successfully created your profile account.
+                  <p className="items-center text-gray-700  ">
+                    You have successfully created your profile
                   </p>
                 </div>
               </Box>
