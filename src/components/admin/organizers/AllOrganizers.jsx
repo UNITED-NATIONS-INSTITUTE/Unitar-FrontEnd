@@ -30,11 +30,11 @@ const AllOrganizers = () => {
       width: 300,
     },
     { field: "industry", headerName: "Industry", width: 300 },
-    { field: "location", headerName: "Location", width: 300 },
+    { field: "location", headerName: "Location", width: 200 },
     {
       field: "action",
       headerName: "Actions",
-      width: 100,
+      width: 80,
       renderCell: () => (
         <Dropdown>
           <MenuButton
