@@ -37,13 +37,9 @@ const HackathonDetailsPage = () => {
   return (
     <div className="bg-white p-8  min-h-screen right-side">
       <div className="flex justify-between">
-        <div className="ml-60 mb-2">
-          {" "}
-          <h1 className="mt-0 text-gray-600 font-bold  text-[20px] relative ">
-            Hackathon
-          </h1>
-        </div>
-
+        <h1 className="mt-0 text-gray-600 font-bold  text-[20px] ml-60 ">
+          Hackathon
+        </h1>
         <UserProfile />
       </div>
       <p className="text-xs text-gray-500  flex flex-row mb-10 ml-60">
@@ -55,31 +51,73 @@ const HackathonDetailsPage = () => {
         />
         <span>{hackathon.title}</span>
       </p>
-      <div className="flex gap-[100px] ml-60">
-        <div className="flex flex-col">
-          <HackathonMedia
-            cover_image_url={hackathon.cover_image_url}
-            avatar_url={hackathon.avatar_url}
-          />
-          <div className="flex flex-row gap-10 mt-[30px]">
-            <div className="text-xs">
-              <p className="font-semibold">Location</p>
-              <p className="mt-2">{hackathon.location}</p>
-            </div>
-            <div className="text-xs">
-              <p className="font-semibold">Status</p>
-              <p className="text-green-500 mt-2">{hackathon.status}</p>
-            </div>
+      <div className=" ml-60">
+        <div className="flex flex-row gap-[150px]">
+          <div className="relative">
+            {" "}
+            <img
+              src={
+                hackathon.cover_image_url
+                  ? hackathon.cover_image_url
+                  : "/assets/no image (1).jpg"
+              }
+              alt=""
+              style={{
+                borderRadius: "50%",
+                border: "3px solid #089BD9",
+                width: "400px",
+                height: "400px",
+                objectFit: "cover",
+              }}
+            />
+            {/* Style the avatar image */}
+            <img
+              src={
+                hackathon.avatar_url
+                  ? hackathon.avatar_url
+                  : "/assets/no image (1).jpg"
+              }
+              alt=""
+              style={{
+                objectFit: "cover",
+
+                width: "100px",
+                borderRadius: "50%",
+                border: "3px solid #089BD9",
+                height: "100px",
+                left: "200px",
+                bottom: "-10px",
+                position: "absolute",
+              }}
+            />
+          </div>{" "}
+          <div className="flex  items-center flex-1">
+            {" "}
+            <h1 className="mt-0 text-custom-blue font-bold  text-[48px]">
+              {hackathon.title}
+            </h1>
           </div>
-          <div className="mt-[40px]">
-            <p className="font-semibold text-xs">Timelines</p>
-            <div className="mt-5  gap-5">
-              <div className="mt-5 gap-5">
+        </div>
+        <div className="flex flex-row gap-[200px] mt-10">
+          <div>
+            <div className="flex flex-row gap-10 mt-[30px]">
+              <div className="text-xs">
+                <p className="font-semibold">Location</p>
+                <p className="mt-2">{hackathon.location}</p>
+              </div>
+              <div className="text-xs">
+                <p className="font-semibold">Status</p>
+                <p className="text-green-500 mt-2">{hackathon.status}</p>
+              </div>
+            </div>
+            <div className="mt-[40px]">
+              <p className="font-semibold text-xs">Timelines</p>
+              <div className="mb-5 gap-5">
                 {hackathon.timelines &&
                   hackathon.timelines.map((field, index) => (
-                    <p className="mt-2" key={index}>
+                    <p className="text-xs mt-2" key={index}>
                       {field.period_name}: Start{" "}
-                      {moment(field.start_date).format("Do MMM YYYY ")}
+                      {moment(field.start_date).format("Do MMM YYYY")}
                     </p>
                   ))}
               </div>
@@ -98,16 +136,10 @@ const HackathonDetailsPage = () => {
             </div>
             <div className="flex flex-col text-xs mt-5">
               <p className="font-semibold mt-5 mb-2 ">Prizes</p>
-              <p className="font-semibold ">{hackathon.prize}</p>
+              <p>{hackathon.prize}</p>
             </div>
           </div>
-        </div>
-        <div>
           <div className="flex flex-col w-[500px]">
-            <h1 className="mt-0 text-gray-600 font-bold  text-[20px]">
-              {hackathon.title}
-            </h1>
-
             <div>
               <p className="text-sm  font-semibold mt-5">Highlights</p>
               <p className="text-xs mt-5">{hackathon.highlight}</p>
@@ -120,14 +152,14 @@ const HackathonDetailsPage = () => {
               <p className="text-sm  font-semibold mt-5">Deliverables</p>
               <p className="text-xs mt-5">{hackathon.deliverables}</p>
             </div>
-            <div>
-              <p className="text-sm font-semibold mt-5">Goals</p>
-              <div className="text-xs">{hackathon.goals}</div>
+            <div className="text-xs ">
+              <p className=" font-semibold mt-5">Goals</p>
+              <p className="mt-2">{hackathon.goals}</p>
             </div>
             <div className="flex justify-end">
               <button
                 onClick={() => subscribeToHackathon()}
-                className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 w-[150px] mt-[50px]"
+                className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 mr-[200px] w-[150px] mt-[50px]"
               >
                 Participate
               </button>
@@ -135,12 +167,8 @@ const HackathonDetailsPage = () => {
           </div>
         </div>
       </div>
-      <div>
-        <SubscribeModal
-          openModal={openSubscribeModal}
-          handleClose={closeModal}
-        />
-      </div>
+      <SubscribeModal openModal={openSubscribeModal} handleClose={closeModal} />
+      ;
     </div>
   );
 };
