@@ -40,13 +40,13 @@ const AllHackathons = () => {
 
   const columns = [
     { field: "title", headerName: "Title", width: 200 },
-    { field: "location", headerName: "Location", width: 160 },
+    { field: "location", headerName: "Location", width: 130 },
     { field: "highlight", headerName: "Highlight", width: 160 },
     { field: "prize", headerName: "Prizes", width: 160 },
     {
       field: "status",
       headerName: "Status",
-      width: 200,
+      width: 180,
       renderCell: (params) => (
         <Chip
           label={params.value}
