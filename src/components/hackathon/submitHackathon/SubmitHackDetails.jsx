@@ -34,9 +34,8 @@ const SubmitHackDetails = () => {
     });
   };
   useEffect(() => {
-    setFormData(subscription)
-  }, [])
-  
+    setFormData(subscription);
+  }, []);
 
   return (
     <div className="ml-[260px]">
