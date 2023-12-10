@@ -11,6 +11,7 @@ const HackathonMedia = ({ cover_image_url, avatar_url }) => {
     width: "100%",
     height: "100%",
     borderRadius: "20px",
+    objectFit: "cover",
   };
 
   const avatarStyle = {
@@ -22,6 +23,7 @@ const HackathonMedia = ({ cover_image_url, avatar_url }) => {
     borderRadius: "50%",
     border: "1px solid #7C7C7C",
     zIndex: 2,
+    objectFit: "cover",
   };
 
   return (
