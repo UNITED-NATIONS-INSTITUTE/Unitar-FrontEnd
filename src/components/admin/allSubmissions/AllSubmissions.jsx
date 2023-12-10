@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { DataGrid } from "@mui/x-data-grid";
 import Dropdown from "@mui/joy/Dropdown";
 import IconButton from "@mui/joy/IconButton";
 import Menu from "@mui/joy/Menu";
@@ -8,6 +7,7 @@ import MenuItem from "@mui/joy/MenuItem";
 import MoreVert from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
 import { getSubmissions } from "../../../api/admins/admins";
+import CustomDataGrid from "../../common/utils/CustomDataGrid";
 const AllSubmissions = () => {
   const navigate = useNavigate();
   const [submissionsPayload, setSubmissionsPayload] = useState([]);
@@ -21,10 +21,7 @@ const AllSubmissions = () => {
   useEffect(() => {
     fetchSubmissions();
   }, []);
-  const customBorder = {
-    border: "none",
-    borderBottom: "1px solid #0e0e0e",
-  };
+
   const columns = [
     {
       field: "Hackathon",
@@ -60,29 +57,17 @@ const AllSubmissions = () => {
       ),
     },
   ];
-  const getCellClassName = (params) => {
-    return `small-text-cell ${params.field}`;
-  };
 
   return (
     <div className="bg-white p-8 right-side min-h-screen min-w-full ">
       <div className="ml-60">
         <h1 className="text-[24px] font-bold text-gray-600">All Submissions</h1>
 
-        <div style={{ height: 400, width: "100%" }}>
-          <DataGrid
-            sx={customBorder}
-            getCellClassName={getCellClassName}
-            rows={submissionsPayload}
-            columns={columns}
-            initialState={{
-              pagination: {
-                paginationModel: { page: 0, pageSize: 5 },
-              },
-            }}
-            pageSizeOptions={[5, 10]}
-          />
-        </div>
+        <CustomDataGrid
+          sx={{ mt: 3 }}
+          rows={submissionsPayload}
+          columns={columns}
+        />
       </div>
     </div>
   );

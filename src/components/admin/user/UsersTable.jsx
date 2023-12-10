@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { DataGrid } from "@mui/x-data-grid";
 import Dropdown from "@mui/joy/Dropdown";
 import IconButton from "@mui/joy/IconButton";
 import Menu from "@mui/joy/Menu";
@@ -25,10 +24,6 @@ const UsersTable = () => {
     fetchUsers();
   }, []);
 
-  const customBorder = {
-    border: "none",
-    borderBottom: "1px solid #0e0e0e",
-  };
   const getStatusColor = (status) => {
     switch (status) {
       case "ACTIVE":
@@ -94,12 +89,9 @@ const UsersTable = () => {
       ),
     },
   ];
-  const getCellClassName = (params) => {
-    return `small-text-cell ${params.field}`;
-  };
 
   return (
-    <div className="bg-white p-8 right-side min-w-full ">
+    <div className=" flex right-side bg-white p-8 h- min-h-screen ">
       <div className="ml-60">
         <h1 className="text-[24px] font-bold text-gray-600">Users Actions</h1>
         <button
@@ -108,9 +100,9 @@ const UsersTable = () => {
         >
           Create User
         </button>
-        <div style={{ height: 400, width: "100%" }}>
+        <div className="flex-grow">
           <CustomDataGrid
-            sx={{mt: 3}}
+            sx={{ mt: 3 }}
             rows={usersPayload}
             columns={columns}
           />

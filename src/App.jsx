@@ -164,8 +164,6 @@ const App = () => {
             <Route path="view" element={<ViewSubmissions />} />
             <Route path="edit" element={<EditSubmission />} />
             <Route path="delete" element={<DeleteSubmission />} />
-
-            {/* IMPLEMENT submission DELETION IN THE submission DETAIL COMPONENT ABOVE */}
           </Route>
           <Route path="users" element={<Outlet />}>
             <Route index element={<UsersTable />} />
@@ -174,9 +172,6 @@ const App = () => {
             <Route path="verify" element={<VerifyUser />} />
             <Route path="delete" element={<DeleteUser />} />
             <Route path="create" element={<CreateUser />} />
-
-            {/* IMPLEMENT USER ACTIVATION AND DEACTIVATION IN THE USER DETAIL
-          COMPONENT ABOVE */}
           </Route>
         </Route>
       </Route>

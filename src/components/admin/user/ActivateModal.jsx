@@ -43,7 +43,7 @@ export default function ActivateModal({ openModal, closeModal }) {
                     Do you really want to activate this account?
                   </p>
                   <div className="flex flex-row gap-5 mt-10">
-                    <button className="bg-[#06BD0E] text-white font-bold w-[150px] py-2 px-2 rounded-md  hover:bg-blue-500">
+                    <button className="bg-[#06BD0E] text-white font-bold w-[150px] py-2 px-2 rounded-md ">
                       Yes, Activate
                     </button>
                     <button

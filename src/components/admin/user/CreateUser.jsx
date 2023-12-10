@@ -104,33 +104,32 @@ const CreateUser = () => {
                 <select
                   value={role}
                   onChange={handleChange("role")}
-                  className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
+                  className="w-full px-3 py-2 border border-grey-600 rounded text-xs mb-4 bg-inherit"
                 >
                   <option value="ADMIN">Admin</option>
                   <option value="PARTICIPANT">Participant</option>
                   <option value="ADMIN">Organizer</option>
                 </select>
-                <label className="block text-md mb-2">Username</label>
+                <label className="block text-md">Username</label>
                 <input
                   type="text"
-                  className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
+                  className="w-full px-3 py-2 border border-grey-600 rounded text-xs mb-2"
                   placeholder="Pietro Schirano"
                   value={username}
                   onChange={handleChange("username")}
                 />
-                <label className="block text-md mb-2 mt-2">Role</label>
-                <label className="block text-md mb-2">Email</label>
+                <label className="block text-md">Email</label>
                 <input
                   type="email"
-                  className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
+                  className="w-full px-3 py-2 border border-grey-600 rounded text-xs mb-2"
                   placeholder="pietroschirano@gmail.com"
                   value={email}
                   onChange={handleChange("email")}
                 />
-                <label className="block text-md mb-2 mt-2">Password</label>
+                <label className="block text-md ">Password</label>
                 <input
                   type="password"
-                  className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
+                  className="w-full px-3 py-2 border border-grey-600 rounded text-xs mb-2"
                   placeholder="******"
                   value={password}
                   onChange={handleChange("password")}
@@ -138,13 +137,10 @@ const CreateUser = () => {
                 {passwordError && (
                   <p className="text-red-600 text-xs mt-1">{passwordError}</p>
                 )}
-                <label className="block text-md mb-2 mt-2">
-                  {" "}
-                  Confirm password
-                </label>
+                <label className="block text-md  mt-2"> Confirm password</label>
                 <input
                   type="password"
-                  className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
+                  className="w-full px-3 py-2 border border-grey-600 rounded text-xs mb-2"
                   placeholder="******"
                   value={password_confirmation}
                   onChange={handleChange("password_confirmation")}
