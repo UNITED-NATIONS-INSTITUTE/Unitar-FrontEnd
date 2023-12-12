@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { createUserAccount } from "../../../api/security/security";
 import { useNavigate } from "react-router-dom";
-
+import { adminCreateUser } from "../../../api/admins/admins";
 const CreateUser = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -23,7 +22,7 @@ const CreateUser = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    createUserAccount(username, email, password, password_confirmation, role)
+    adminCreateUser(role, username, password, password_confirmation)
       .then((res) => {
         if (res.status === 201) {
           setUserCode(res.data.id);
