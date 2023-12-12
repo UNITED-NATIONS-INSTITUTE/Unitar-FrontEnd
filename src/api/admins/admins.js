@@ -15,6 +15,7 @@ export const adminCreateUser = async (
     username,
     password,
     password_confirmation,
+    email,
   });
 };
 export const activateUserAccount = async (user_code) => {

@@ -22,7 +22,7 @@ const CreateUser = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    adminCreateUser(role, username, password, password_confirmation)
+    adminCreateUser(role, username, password, password_confirmation, email)
       .then((res) => {
         if (res.status === 201) {
           setUserCode(res.data.id);
