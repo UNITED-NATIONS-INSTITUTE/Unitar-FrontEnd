@@ -17,4 +17,8 @@ export const getOrganizers = async () => {
 export const getSubmissions = async () => {
   return await axiosApi.get("/subscriptions");
 };
+
+export const getPlatformStats = async () => {
+  return await axiosApi.get("/platform/statistics");
+};
 // Destroy, statistics, etc....

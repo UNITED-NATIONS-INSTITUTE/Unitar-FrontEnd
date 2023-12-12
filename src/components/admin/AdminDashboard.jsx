@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Chart1 from "./charts/Chart1";
 import SearchIcon from "@mui/icons-material/Search";
 import { alpha, styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import { layers, users } from "../../assets";
 import Chart2 from "./charts/Chart2";
+import { getPlatformStats } from "../../api/admins/admins";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -45,6 +46,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const AdminDashboard = () => {
+  const [stats, setStats] = useState({});
+
+  useEffect(() => {
+    getPlatformStats().then((res) => {
+      setStats(res.data);
+    });
+  }, []);
   return (
     <div className="bg-[#F5F5F5] p-8 right-side min-h-screen min-w-full ">
       <div className="ml-60">
@@ -78,10 +86,10 @@ const AdminDashboard = () => {
               Top Seven Most Participated in Hackathons
             </h1>
             <Chart1 />
-            <div className="ml-5 text-xs mb-5">
+            {/* <div className="ml-5 text-xs mb-5">
               <p>Y-axis: Participants</p>
               <p>X-axis: Hackathons</p>
-            </div>
+            </div> */}
           </div>
           <div className="flex flex-col">
             <div className="bg-white shadow-md rounded-md h-[120px] w-[250px] mt-8">
@@ -93,7 +101,7 @@ const AdminDashboard = () => {
                 <p className=" mt-4">Total Participants</p>
               </div>
               <p className="ml-[100px]  text text-[24px]  text-custom-blue font-bold">
-                2400
+                {stats.participant}
               </p>
             </div>
             <div className="bg-white shadow-md rounded-md h-[120px] w-[250px] mt-8">
@@ -105,7 +113,7 @@ const AdminDashboard = () => {
                 <p className=" mt-4">Total Organisers</p>
               </div>
               <p className="ml-[100px]  text text-[24px]  text-custom-blue font-bold">
-                200
+                {stats.organizer}
               </p>
             </div>
             <div className="bg-white shadow-md rounded-md h-[120px] w-[250px] mt-8">
@@ -117,7 +125,7 @@ const AdminDashboard = () => {
                 <p className=" mt-4">Total Hackathons</p>
               </div>
               <p className="ml-[100px]  text text-[24px]  text-custom-blue font-bold">
-                240
+                {stats.hackathon}
               </p>
             </div>
           </div>
@@ -127,10 +135,10 @@ const AdminDashboard = () => {
             The Organizations with the most submitted hackathons
           </h1>
           <Chart2 />
-          <div className="ml-5 text-xs mb-5">
+          {/* <div className="ml-5 text-xs mb-5">
             <p>Y-axis: Hackathons</p>
             <p>X-axis: Organizations</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
