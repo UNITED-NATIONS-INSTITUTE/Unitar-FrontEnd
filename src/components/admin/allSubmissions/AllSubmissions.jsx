@@ -15,6 +15,7 @@ const AllSubmissions = () => {
     getSubmissions().then((res) => {
       if (res.status === 200) {
         setSubmissionsPayload(res.data);
+        console.log(res.data);
       }
     });
   };
@@ -24,12 +25,18 @@ const AllSubmissions = () => {
 
   const columns = [
     {
-      field: "Hackathon",
+      field: "live_url",
       headerName: "Submissions",
       width: 250,
     },
-    { field: "last_name", headerName: "Participant", width: 250 },
-    { field: "title", headerName: "Organization", width: 320 },
+    {
+      field: "participantFullName",
+      headerName: "Participant",
+      width: 250,
+      valueGetter: (params) =>
+        `${params.row.participant.first_name} ${params.row.participant.last_name}`,
+    },
+    { field: "title", headerName: "Project Name", width: 320 },
     {
       field: "action",
       headerName: "Actions",
