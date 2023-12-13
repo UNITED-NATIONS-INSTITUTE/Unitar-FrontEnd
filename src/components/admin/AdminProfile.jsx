@@ -37,7 +37,7 @@ const AdminProfile = () => {
           }}
           open={Boolean(anchorElNav)}
           onClose={closeProfileMenu}
-          sx={{ pt: 4, mt: 6 }}
+          sx={{ pt: 4, mt: 6, mr: 5 }}
         >
           <MenuItem onClick={handleLogOut}>Logout</MenuItem>
         </Menu>{" "}
