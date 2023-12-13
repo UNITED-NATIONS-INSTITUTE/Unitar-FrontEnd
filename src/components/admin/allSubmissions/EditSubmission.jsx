@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TextField } from "@mui/material";
 import SubmissionModal from "./SubmissionModal";
 import { useNavigate } from "react-router-dom";
+import AdminProfile from "../AdminProfile";
 
 const EditSubmission = () => {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ const EditSubmission = () => {
           <h1 className="mt-5 text-gray-600 font-bold text-[24px]">
             Hackathons
           </h1>
-          {/* <UserProfile /> */}
+          <AdminProfile />
         </div>
         <h3 className="text-sm font-semibold mb-3 text-[15px]">
           Submit a project

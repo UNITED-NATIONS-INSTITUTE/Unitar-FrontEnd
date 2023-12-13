@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DeleteModal from "./DeleteModal";
+import AdminProfile from "../AdminProfile";
 
 const DeleteSubmission = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -13,7 +14,9 @@ const DeleteSubmission = () => {
           <h1 className="text-gray-600 font-bold text-[24px]">
             Submitted Hackathons
           </h1>
-          <div className="mr-10">{/* <UserProfile /> */}</div>
+          <div className="mr-10">
+            <AdminProfile />
+          </div>
         </div>
         <div className="flex flex-wrap space-x-4  ml-4">
           <div className="flex rounded-[6px] shadow-xl flex-col border border-gray-100   w-[300px] h-[400px] transition-transform transform hover:-translate-y-1">
