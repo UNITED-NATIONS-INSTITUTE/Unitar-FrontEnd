@@ -3,11 +3,11 @@ import AdminProfile from "../AdminProfile";
 import { getSubmissions } from "../../../api/admins/admins";
 
 const ViewSubmissions = () => {
-  const [submissionsPayload, setSubmissionsPayload] = useState([]);
+  const [submission, setSubmission] = useState(null);
   const fetchSubmissions = () => {
     getSubmissions().then((res) => {
       if (res.status === 200) {
-        setSubmissionsPayload(res.data);
+        setSubmission(res.data[0]);
         console.log(res.data);
       }
     });
@@ -28,7 +28,7 @@ const ViewSubmissions = () => {
           </div>
         </div>
         <div className="flex flex-wrap  space-x-4 mt-5 ml-4">
-          {submissionsPayload.map((submission) => (
+          {submission && (
             <div
               key={submission.id}
               className="flex gap-[100px] rounded-[6px] shadow flex-row border border-gray-100  mb-4  h-full w-full"
@@ -112,7 +112,7 @@ const ViewSubmissions = () => {
                 </p>
               </div>
             </div>
-          ))}
+          )}
         </div>
       </div>
     </div>
