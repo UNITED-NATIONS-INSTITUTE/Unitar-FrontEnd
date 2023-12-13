@@ -8,6 +8,7 @@ import MoreVert from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
 import { getOrganizers } from "../../../api/admins/admins";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
+import AdminProfile from "../AdminProfile";
 const AllOrganizers = () => {
   const navigate = useNavigate();
 
@@ -66,8 +67,11 @@ const AllOrganizers = () => {
   ];
 
   return (
-    <div className="bg-white p-8 right-side min-h-screen h-full flex ">
+    <div className="bg-white p-8 right-side min-h-screen h-full flex  ">
       <div className="ml-60">
+        <div className="flex justify-end">
+          <AdminProfile />
+        </div>
         <h1 className="text-[24px] font-bold text-gray-600">All Organizers</h1>
 
         <div className="flex-grow">

@@ -10,6 +10,9 @@ const ActivateOrganization = () => {
   return (
     <div className="right-side min-h-screen bg-pattern">
       <div className="ml-[300px]">
+        <div className="flex justify-end">
+          <AdminProfile />
+        </div>
         <h1 className="text-gray-600 text-[24px] font-bold mt-4">
           Activate User Account
         </h1>
