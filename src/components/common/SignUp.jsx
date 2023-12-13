@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { createUserAccount } from "../../api/security/security";
 import { useNavigate, useLocation } from "react-router-dom";
 import VerificationModal from "./VerificationModal";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 const SignUp = () => {
   const [showVerificationModal, setShowVerificationModal] = useState(false);
@@ -12,25 +13,34 @@ const SignUp = () => {
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [user_code, setUserCode] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
   const [values, setValues] = useState({
     username: "",
     email: "",
     password: "",
     password_confirmation: "",
   });
+
   const { username, email, password, password_confirmation } = values;
+
   const navigate = useNavigate();
   const location = useLocation();
-  const userRole = location.pathname.split("-");
+  const userRole = location.pathname.split("/");
+
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
+  const handleTogglePassword = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+
   function getRole() {
     let user;
-    if (userRole[0] === "/org") {
+    if (userRole[1] === "org") {
       user = "ORGANIZER";
-    } else if (userRole[0] === "/part") {
+    } else if (userRole[1] === "part") {
       user = "PARTICIPANT";
     } else {
       user = null;
@@ -67,9 +77,11 @@ const SignUp = () => {
         let passwordError = "";
         let errorMessage = "Error creating account. Please try again.";
 
-        if (error.response && error.response.data && error.response.data.errors)
-          console.log(error.response.data);
-        {
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.errors
+        ) {
           const errors = error.response.data.errors[0];
 
           if (errors.password) {
@@ -146,13 +158,22 @@ const SignUp = () => {
                 onChange={handleChange("email")}
               />
               <label className="block text-md mb-2 mt-2">Password</label>
-              <input
-                type="password"
-                className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
-                placeholder="******"
-                value={password}
-                onChange={handleChange("password")}
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
+                  placeholder="******"
+                  value={password}
+                  onChange={handleChange("password")}
+                />
+                <button
+                  type="button"
+                  onClick={handleTogglePassword}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-sm focus:outline-none"
+                >
+                  {showPassword ? <FiEyeOff size={15} /> : <FiEye size={15} />}
+                </button>
+              </div>
               {passwordError && (
                 <p className="text-red-600 text-xs mt-1">{passwordError}</p>
               )}
