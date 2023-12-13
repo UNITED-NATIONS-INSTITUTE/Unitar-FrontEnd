@@ -9,6 +9,7 @@ import MoreVert from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
 import { getParticipants } from "../../../api/admins/admins";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
+import AdminProfile from "../AdminProfile";
 const AllParticipants = () => {
   const navigate = useNavigate();
   const [participantsPayload, setParticipantsPayload] = useState([]);
@@ -70,6 +71,10 @@ const AllParticipants = () => {
   return (
     <div className="bg-white p-8 right-side min-h-screen h-full flex ">
       <div className="ml-60">
+        {" "}
+        <div className="flex justify-end">
+          <AdminProfile />
+        </div>
         <h1 className="text-[24px] font-bold text-gray-600">
           All Participants
         </h1>
