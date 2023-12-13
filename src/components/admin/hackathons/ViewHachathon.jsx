@@ -1,12 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import HackathonMedia from "../../common/utils/HackathonMedia";
+import AdminProfile from "../AdminProfile";
 
 const ViewHackathon = () => {
   const navigate = useNavigate();
   return (
     <div className="bg-white right-side min-h-screen ">
       <div className="ml-[300px]">
+        <div className="flex justify-end">
+          <div className="mt-6 mr-5">
+            {" "}
+            <AdminProfile />
+          </div>
+        </div>
+
         <h1 className="text-gray-600 font-bold text-[24px] mb-5 mt-5">
           All active Hackathons
         </h1>

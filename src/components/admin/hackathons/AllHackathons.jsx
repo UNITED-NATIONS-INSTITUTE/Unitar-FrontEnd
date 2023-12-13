@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { getAllHackathons } from "../../../api/hackathons/hackathons";
 import { Chip } from "@mui/material";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
+import AdminProfile from "../AdminProfile";
 const AllHackathons = () => {
   const navigate = useNavigate();
   const [hackathonsPayload, setHackathonsPayload] = useState([]);
@@ -92,6 +93,9 @@ const AllHackathons = () => {
   return (
     <div className="bg-white p-8 min-h-screen right-side h-full flex ">
       <div className="ml-60">
+        <div className="flex justify-end">
+          <AdminProfile />
+        </div>
         <h1 className="text-[24px] font-bold text-gray-600">All Hackathons</h1>
 
         <div className="flex-grow">

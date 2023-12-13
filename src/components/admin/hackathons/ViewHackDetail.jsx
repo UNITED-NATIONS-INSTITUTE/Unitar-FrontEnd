@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-// import UserProfile from "../../participants/profile/UserProfile";
 import { useSelector } from "react-redux";
 import moment from "moment";
 
-import HackathonMedia from "../../common/utils/HackathonMedia";
 import { selectSelectedHackathonDetail } from "../../../features/hackathon/hackathonSlice";
+import AdminProfile from "../AdminProfile";
 
 const ViewHackDetail = () => {
   const hackathon = useSelector(selectSelectedHackathonDetail);
@@ -18,8 +17,10 @@ const ViewHackDetail = () => {
             Hackathon
           </h1>
         </div>
-
-        {/* <UserProfile /> */}
+        <div>
+          {" "}
+          <AdminProfile />
+        </div>
       </div>
       <p className="text-xs text-gray-500  flex flex-row mb-10 ml-60">
         <span>Hackathons</span>
@@ -49,7 +50,6 @@ const ViewHackDetail = () => {
                 objectFit: "cover",
               }}
             />
-            {/* Style the avatar image */}
             <img
               src={
                 hackathon.avatar_url

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 import HackathonMedia from "../../common/utils/HackathonMedia";
 import DeactiveHackModal from "./DeactiveHackModal";
+import AdminProfile from "../AdminProfile";
 
 const Deactivate = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -18,8 +19,7 @@ const Deactivate = () => {
             Hackathon
           </h1>
         </div>
-
-        {/* <UserProfile /> */}
+        <AdminProfile />
       </div>
       <p className="text-xs text-gray-500  flex flex-row mb-10 ml-60">
         <span>Hackathons</span>
