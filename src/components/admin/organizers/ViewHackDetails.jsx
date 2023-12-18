@@ -1,47 +1,167 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import HackathonMedia from "../../common/utils/HackathonMedia";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import moment from "moment";
+import { getOrganizerHackathons } from "../../../api/hackathons/hackathons";
+import { selectCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
 
-const ViewHackathon = () => {
-  const navigate = useNavigate();
+import AdminProfile from "../AdminLogOut";
+
+const ViewHackDetail = () => {
+  const organizer = useSelector(selectCurrentOrganizerDetail);
+  const organizer_id = organizer.id;
+
+  const [organizerHackathons, setOrganizerHackathons] = useState([]);
+  const fetchHackathons = () => {
+    getOrganizerHackathons(organizer_id).then((res) => {
+      if (res.status === 200) {
+        setOrganizerHackathons(res.data);
+        console.log(res.data);
+      }
+    });
+  };
+
+  useEffect(() => {
+    fetchHackathons();
+  }, []);
+
   return (
-    <div className="bg-white right-side min-h-screen ">
-      <div className="ml-[300px]">
-        <h1 className="text-gray-600 font-bold text-[24px] mb-5 mt-5">
-          All active Hackathons
-        </h1>
-        <div className="flex flex-wrap space-x-4 mt-5 ml-4">
-          <div className="relative overflow-hidden border border-gray-100 rounded-[20px] shadow-xl mb-4 w-[300px] h-[380px] transition-transform transform hover:-translate-y-1">
-            <HackathonMedia
-              cover_image_url="/assets/image2.png"
-              avatar_url="/assets/image3.png"
-            />
-            <div className="relative">
-              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-white p-4 rounded-[20px]">
-                <p className="text-sm font-bold mt-4">EdTechInnovation</p>
-                <p className="text-sm text-gray-700">
-                  Redefining synchronous learning experiences.
-                </p>
-                <p className="text-xs text-gray-500  mt-2 w-[250px] h-[50px]">
-                  A revolutionary platform designed to empower educators with
-                  cutting-edge tools for immersive and engaging virtual
-                  classrooms.
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-5 mt-[90px] ml-[22px]">
-              <button
-                onClick={() => navigate("/admin/hackathons/view/details")}
-                className="border border-blue-500 rounded-md text-blue-500 w-[250px] text-xs mt-[50px] py-1 hover:bg-custom-blue mb-3 hover:text-white"
-              >
-                View Details
-              </button>
-            </div>
-          </div>
+    <div className="bg-white p-8  min-h-screen right-side">
+      <div className="flex justify-between">
+        <div className="ml-60 mb-2">
+          {" "}
+          <h1 className="mt-0 text-gray-600 font-bold  text-[20px] relative ">
+            Hackathon
+          </h1>
+        </div>
+        <div>
+          {" "}
+          <AdminProfile />
         </div>
       </div>
+      {organizerHackathons.length > 0 &&
+        organizerHackathons.map((field, index) => (
+          <div>
+            <p className="text-xs text-gray-500  flex flex-row mb-10 ml-60">
+              <span>Hackathons</span>
+              <img
+                src="/assets/chevron-right-solid.svg"
+                className="w-2 h-2 mt-[4px] "
+                alt="chevron"
+              />
+              <span>{field.title}</span>
+            </p>
+            <div className="ml-60">
+              <div className="flex flex-row gap-[150px]">
+                <div className="relative">
+                  {" "}
+                  <img
+                    src={
+                      field.cover_image_url
+                        ? field.cover_image_url
+                        : "/assets/no image (1).jpg"
+                    }
+                    alt=""
+                    style={{
+                      borderRadius: "50%",
+                      border: "3px solid #089BD9",
+                      width: "400px",
+                      height: "400px",
+                      objectFit: "cover",
+                    }}
+                  />
+                  <img
+                    src={
+                      field.avatar_url
+                        ? field.avatar_url
+                        : "/assets/no image (1).jpg"
+                    }
+                    alt=""
+                    style={{
+                      objectFit: "cover",
+
+                      width: "100px",
+                      borderRadius: "50%",
+                      border: "3px solid #089BD9",
+                      height: "100px",
+                      left: "200px",
+                      bottom: "-10px",
+                      position: "absolute",
+                    }}
+                  />
+                </div>
+
+                <div className="flex  items-center flex-1">
+                  <h1 className="mt-0 text-custom-blue font-bold  text-[48px]">
+                    {field.title}
+                  </h1>
+                </div>
+              </div>
+
+              <div className="flex flex-row gap-[200px] mt-10">
+                <div>
+                  <div className="flex flex-row gap-10 mt-[30px]">
+                    <div className="text-xs">
+                      <p className="font-semibold">Location</p>
+                      <p className="mt-2">{field.location}</p>
+                    </div>
+                    <div className="text-xs">
+                      <p className="font-semibold">Status</p>
+                      <p className="text-green-500 mt-2">{field.status}</p>
+                    </div>
+                  </div>
+                  <div className="mt-[40px]">
+                    <p className="font-semibold text-xs">Timelines</p>
+                    <div className="mb-5 gap-5">
+                      {field.timelines &&
+                        field.timelines.map((field, index) => (
+                          <p className="text-xs mt-2" key={index}>
+                            {field.period_name}: Start{" "}
+                            {moment(field.start_date).format("Do MMM YYYY")}
+                          </p>
+                        ))}
+                    </div>
+                    <p className="font-semibold text-xs">Tags</p>
+                    <div className="mt-5 flex gap-5">
+                      {field.tags &&
+                        field.tags.map((field, index) => (
+                          <span
+                            key={index}
+                            className="bg-custom-light-grey rounded-[40px] p-3 text-white text-xs"
+                          >
+                            {field.tag_name}
+                          </span>
+                        ))}
+                    </div>
+                  </div>
+                  <div className="flex flex-col text-xs mt-5">
+                    <p className="font-semibold mt-5 mb-2 ">Prizes</p>
+                    <p>{field.prize}</p>
+                  </div>
+                </div>
+                <div className="flex flex-col w-[500px]">
+                  <div>
+                    <p className="text-sm  font-semibold mt-5">Highlights</p>
+                    <p className="text-xs mt-5">{field.highlight}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm  font-semibold mt-5">Description</p>
+                    <p className="text-xs mt-5">{field.description}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm  font-semibold mt-5">Deliverables</p>
+                    <p className="text-xs mt-5">{field.deliverables}</p>
+                  </div>
+                  <div className="text-xs ">
+                    <p className=" font-semibold mt-5">Goals</p>
+                    <p className="mt-2">{field.goals}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}{" "}
     </div>
   );
 };
 
-export default ViewHackathon;
+export default ViewHackDetail;
