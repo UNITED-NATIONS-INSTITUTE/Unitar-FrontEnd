@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import DeleteModal from "./DeleteModal";
-import AdminProfile from "../AdminProfile";
+import AdminProfile from "../AdminLogOut";
 
 const DeleteSubmission = () => {
   const [isModalOpen, setModalOpen] = useState(false);

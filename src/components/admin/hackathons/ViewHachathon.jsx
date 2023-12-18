@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import HackathonMedia from "../../common/utils/HackathonMedia";
-import AdminProfile from "../AdminProfile";
+import AdminProfile from "../AdminLogOut";
 
 const ViewHackathon = () => {
   const navigate = useNavigate();

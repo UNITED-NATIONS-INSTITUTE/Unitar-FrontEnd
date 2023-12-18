@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import moment from "moment";
 
 import { selectSelectedHackathonDetail } from "../../../features/hackathon/hackathonSlice";
-import AdminProfile from "../AdminProfile";
+import AdminProfile from "../AdminLogOut";
 
 const ViewHackDetail = () => {
   const hackathon = useSelector(selectSelectedHackathonDetail);

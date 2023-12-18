@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { getAllUsers } from "../../../api/admins/admins";
 import { Chip } from "@mui/material";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
+import AdminLogOut from "../AdminLogOut";
 const UsersTable = () => {
   const navigate = useNavigate();
   const [usersPayload, setUsersPayload] = useState([]);
@@ -91,8 +92,11 @@ const UsersTable = () => {
   ];
 
   return (
-    <div className=" flex right-side bg-white p-8 h- min-h-screen ">
+    <div className="bg-white p-8 right-side min-h-screen min-w-full ">
       <div className="ml-60">
+      <div className="flex justify-end">
+          <AdminLogOut />
+        </div>
         <h1 className="text-[24px] font-bold text-gray-600">Users Actions</h1>
         <button
           onClick={() => navigate("/admin/users/create")}

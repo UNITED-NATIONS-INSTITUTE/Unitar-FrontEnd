@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { DataGrid } from "@mui/x-data-grid";
 import Dropdown from "@mui/joy/Dropdown";
 import IconButton from "@mui/joy/IconButton";
 import Menu from "@mui/joy/Menu";
@@ -9,7 +8,7 @@ import MoreVert from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
 import { getParticipants } from "../../../api/admins/admins";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
-import AdminProfile from "../AdminProfile";
+import AdminProfile from "../AdminLogOut";
 const AllParticipants = () => {
   const navigate = useNavigate();
   const [participantsPayload, setParticipantsPayload] = useState([]);
@@ -24,10 +23,6 @@ const AllParticipants = () => {
   useEffect(() => {
     fetchParticipants();
   }, []);
-  const customBorder = {
-    border: "none",
-    borderBottom: "1px solid #0e0e0e",
-  };
   const columns = [
     {
       field: "first_name",
@@ -65,11 +60,8 @@ const AllParticipants = () => {
       ),
     },
   ];
-  const getCellClassName = (params) => {
-    return `small-text-cell ${params.field}`;
-  };
   return (
-    <div className="bg-white p-8 right-side min-h-screen h-full flex ">
+    <div className="bg-white p-8 right-side min-h-screen min-w-full ">
       <div className="ml-60">
         {" "}
         <div className="flex justify-end">
@@ -78,13 +70,11 @@ const AllParticipants = () => {
         <h1 className="text-[24px] font-bold text-gray-600">
           All Participants
         </h1>
-        <div className="flex-grow">
-          <CustomDataGrid
-            sx={{ mt: 3 }}
-            rows={participantsPayload}
-            columns={columns}
-          />
-        </div>
+        <CustomDataGrid
+          sx={{ mt: 3 }}
+          rows={participantsPayload}
+          columns={columns}
+        />
       </div>
     </div>
   );

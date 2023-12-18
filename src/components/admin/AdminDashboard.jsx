@@ -6,7 +6,7 @@ import InputBase from "@mui/material/InputBase";
 import { layers, users } from "../../assets";
 import Chart2 from "./charts/Chart2";
 import { getPlatformStats } from "../../api/admins/admins";
-import AdminProfile from "./AdminProfile";
+import AdminLogOut from "./AdminLogOut";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -58,7 +58,7 @@ const AdminDashboard = () => {
     <div className="bg-[#F5F5F5] p-8 right-side min-h-screen min-w-full ">
       <div className="ml-60">
         <div className="flex justify-end ">
-          <AdminProfile />
+          <AdminLogOut />
         </div>
         <div className="bg-custom-blue h-[120px] rounded-md mt-3  ">
           <div className="flex justify-between">

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import AdminProfile from "../AdminProfile";
+import AdminProfile from "../AdminLogOut";
 import { getSubmissions } from "../../../api/admins/admins";
 
 const ViewSubmissions = () => {

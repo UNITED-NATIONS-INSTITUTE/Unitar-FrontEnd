@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 import HackathonMedia from "../../common/utils/HackathonMedia";
 import DeactiveHackModal from "./DeactiveHackModal";
-import AdminProfile from "../AdminProfile";
+import AdminProfile from "../AdminLogOut";
 
 const Deactivate = () => {
   const [isModalOpen, setModalOpen] = useState(false);
