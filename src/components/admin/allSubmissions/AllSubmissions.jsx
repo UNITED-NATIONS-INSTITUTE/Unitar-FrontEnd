@@ -8,7 +8,7 @@ import MoreVert from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
 import { getSubmissions } from "../../../api/admins/admins";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
-import AdminProfile from "../AdminProfile";
+import AdminProfile from "../AdminLogOut";
 const AllSubmissions = () => {
   const navigate = useNavigate();
   const [submissionsPayload, setSubmissionsPayload] = useState([]);
@@ -72,7 +72,9 @@ const AllSubmissions = () => {
         <div className="flex justify-end">
           <AdminProfile />
         </div>
-
+        <h1 className="text-[24px] font-bold text-gray-600">
+          All Submissions
+        </h1>
         <CustomDataGrid
           sx={{ mt: 3 }}
           rows={submissionsPayload}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TextField } from "@mui/material";
 import SubmissionModal from "./SubmissionModal";
 import { useNavigate } from "react-router-dom";
-import AdminProfile from "../AdminProfile";
+import AdminProfile from "../AdminLogOut";
 
 const EditSubmission = () => {
   const navigate = useNavigate();
