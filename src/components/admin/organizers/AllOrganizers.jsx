@@ -54,16 +54,11 @@ const AllOrganizers = () => {
             <MenuItem onClick={() => navigate("hackathons")}>
               View Hackathons
             </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/organizers/create")}>
+            <MenuItem onClick={() => navigate("createhackathon")}>
               Create Hackathon
             </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/organizers/activate")}>
-              Activate Organization
-            </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/organizers/deactivate")}>
-              Deactivate Organization
-            </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/organizers/delete")}>
+
+            <MenuItem onClick={() => navigate("deletehackathon")}>
               Delete Organization
             </MenuItem>
           </Menu>
