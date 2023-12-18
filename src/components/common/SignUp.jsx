@@ -149,7 +149,7 @@ const SignUp = () => {
               {usernameError && (
                 <p className="text-red-600 text-xs mt-1">{usernameError}</p>
               )}
-              <label className="block text-md mb-2">Email</label>
+              <label className="block text-md mb-2 mt-2">Email</label>
               <input
                 type="email"
                 className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
