@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { getTopHackathons } from "../../../api/admins/admins";
 import {
   LineChart,
   Line,
@@ -9,44 +9,20 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
-const data = [
-  {
-    name: "Unitar W",
 
-    pv: 2400,
-    participants: 2400,
-  },
-  {
-    name: "Hackit",
-    participants: 2210,
-  },
-  {
-    name: "Build4SDGs",
-    participants: 2290,
-  },
-  {
-    name: "GirlsTech",
-    participants: 2000,
-  },
-  {
-    name: "CodeHack",
-    participants: 2181,
-  },
-  {
-    name: "EnvHack",
-    participants: 2500,
-  },
-  {
-    name: "DevIT",
-    participants: 2100,
-  },
-];
 const Chart1 = () => {
+  const [hackathons, setHackathons] = useState({});
+
+  useEffect(() => {
+    getTopHackathons().then((res) => {
+      setHackathons(res.data);
+    });
+  }, []);
   return (
     <LineChart
       width={700}
       height={300}
-      data={data}
+      data={hackathons}
       margin={{
         top: 5,
         right: 30,
@@ -61,7 +37,7 @@ const Chart1 = () => {
       <Legend />
       <Line
         type="monotone"
-        dataKey="participants"
+        dataKey="sub_count"
         stroke="#089BD9"
         activeDot={{ r: 8 }}
       />

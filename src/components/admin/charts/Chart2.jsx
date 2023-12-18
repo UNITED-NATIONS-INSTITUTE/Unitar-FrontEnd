@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { getTopOrgs } from "../../../api/admins/admins";
 import {
   BarChart,
   Bar,
@@ -11,42 +11,19 @@ import {
   Legend,
 } from "recharts";
 
-const data = [
-  {
-    name: "Unitar W",
-    participants: 2400,
-  },
-  {
-    name: "Hackit",
-    participants: 2210,
-  },
-  {
-    name: "Build4SDGs",
-    participants: 2290,
-  },
-  {
-    name: "GirlsTech",
-    participants: 2000,
-  },
-  {
-    name: "CodeHack",
-    participants: 2181,
-  },
-  {
-    name: "EnvHack",
-    participants: 2500,
-  },
-  {
-    name: "DevIT",
-    participants: 2100,
-  },
-];
 const Chart2 = () => {
+  const [organizations, setOrganizations] = useState({});
+
+  useEffect(() => {
+    getTopOrgs().then((res) => {
+      setOrganizations(res.data);
+    });
+  }, []);
   return (
     <BarChart
       width={900}
       height={400}
-      data={data}
+      data={organizations}
       margin={{
         top: 5,
         right: 30,
@@ -60,7 +37,7 @@ const Chart2 = () => {
       <Tooltip />
       <Legend />
       <Bar
-        dataKey="participants"
+        dataKey="hackathon_count"
         fill="#089BD9"
         activeBar={<Rectangle fill="#00588C" />}
       />
