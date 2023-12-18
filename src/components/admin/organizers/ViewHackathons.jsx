@@ -13,6 +13,7 @@ const ViewHackathons = () => {
     getOrganizerHackathons(organizer_id).then((res) => {
       if (res.status === 200) {
         setOrganizerHackathons(res.data);
+        console.log(res.data);
       }
     });
   };
@@ -27,6 +28,7 @@ const ViewHackathons = () => {
         <h1 className="text-gray-600 font-bold text-[24px] mb-5 mt-5">
           All active Hackathons
         </h1>
+
         {organizerHackathons.length > 0 &&
           organizerHackathons.map((field, index) => (
             <div className="flex flex-wrap space-x-4 mt-5 ml-4">
