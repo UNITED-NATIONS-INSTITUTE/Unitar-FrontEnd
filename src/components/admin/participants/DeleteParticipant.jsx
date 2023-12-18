@@ -7,23 +7,23 @@ import DeleteModal from "./DeleteModal";
 import { deleteParticipantProfile } from "../../../api/accounts/accounts";
 const DeleteParticipant = () => {
   const partProfile = useSelector(selectCurrentParticipantDetail);
-  const participant_code = partProfile.id
+  const participant_code = partProfile.id;
   const [isModalOpen, setModalOpen] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleClick = () => {
     setModalOpen(true);
   };
   const handleDeleteUserAccount = (id) => {
     deleteParticipantProfile(id).then((res) => {
       // to do: show delete modal and navigate back
-      if (res.status === 204){
-        alert("Profile deleted")
+      if (res.status === 204) {
+        alert("Profile deleted");
         // navigate(-1)
-      }else {
-        alert("Error Deleting Acc")
+      } else {
+        alert("Error Deleting Acc");
       }
-    })
-  }
+    });
+  };
   return (
     <div className="right-side min-h-screen bg-pattern">
       <div className="ml-80">
