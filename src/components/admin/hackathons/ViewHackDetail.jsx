@@ -29,7 +29,7 @@ const ViewHackDetail = () => {
           className="w-2 h-2 mt-[4px] "
           alt="chevron"
         />
-        <span>DevIT</span>
+        <span>{hackathon.title}</span>
       </p>
       <div className="ml-60">
         <div className="flex flex-row gap-[150px]">
