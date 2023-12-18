@@ -80,13 +80,13 @@ const AllHackathons = () => {
           </MenuButton>
           <Menu>
             <MenuItem onClick={() => navigate("view")}>View Hackathon</MenuItem>
-            <MenuItem onClick={() => navigate("/admin/hackathons/activate")}>
+            {/* <MenuItem onClick={() => navigate("activate")}>
               Activate Hackathon
             </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/hackathons/deactivate")}>
+            <MenuItem onClick={() => navigate("deactivate")}>
               Deactivate Hackathon
-            </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/hackathons/delete")}>
+            </MenuItem> */}
+            <MenuItem onClick={() => navigate("delete")}>
               Delete Hackathon
             </MenuItem>
           </Menu>
