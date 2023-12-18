@@ -9,8 +9,11 @@ import { useNavigate } from "react-router-dom";
 import { getParticipants } from "../../../api/admins/admins";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
 import AdminProfile from "../AdminLogOut";
+import { useDispatch } from "react-redux";
+import { setCurrentParticipantDetail } from "../../../features/participant/participantSlice";
 const AllParticipants = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [participantsPayload, setParticipantsPayload] = useState([]);
   const fetchParticipants = () => {
     getParticipants().then((res) => {
@@ -19,6 +22,9 @@ const AllParticipants = () => {
       }
     });
   };
+  const handleActionClick = (params) => {
+    dispatch(setCurrentParticipantDetail({ currentParticipantDetail: params }));
+  }
 
   useEffect(() => {
     fetchParticipants();
@@ -37,9 +43,10 @@ const AllParticipants = () => {
       field: "action",
       headerName: "Actions",
       width: 110,
-      renderCell: () => (
+      renderCell: (params) => (
         <Dropdown>
           <MenuButton
+            onClick={() => handleActionClick(params.row)}
             slots={{ root: IconButton }}
             slotProps={{ root: { variant: "outlined", color: "neutral" } }}
           >
