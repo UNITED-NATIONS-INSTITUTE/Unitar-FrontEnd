@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Chart1 from "./charts/Chart1";
 import SearchIcon from "@mui/icons-material/Search";
 import { alpha, styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import { layers, users } from "../../assets";
-import Chart2 from "./charts/Chart2";
 import { getPlatformStats } from "../../api/admins/admins";
 import AdminLogOut from "./AdminLogOut";
+import OrganizersChart from "./charts/OrganisersChart";
+import HackathonChart from "./charts/HackathonCharts";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -87,9 +87,9 @@ const AdminDashboard = () => {
         <div className="flex flex-row gap-[30px]">
           <div className=" rounded-md bg-white shadow-md mt-[30px] w-[700px]">
             <h1 className="text-gray-700 font-semibold text-md mb-5 mt-10 ml-5">
-              Top Seven Most Participated in Hackathons
+              Top Five Most Participated in Hackathons
             </h1>
-            <Chart1 />
+            <HackathonChart />
             {/* <div className="ml-5 text-xs mb-5">
               <p>Y-axis: Participants</p>
               <p>X-axis: Hackathons</p>
@@ -138,7 +138,7 @@ const AdminDashboard = () => {
           <h1 className="text-gray-700 font-semibold text-md mb-5 mt-10 ml-5">
             The Organizations with the most submitted hackathons
           </h1>
-          <Chart2 />
+          <OrganizersChart />
           {/* <div className="ml-5 text-xs mb-5">
             <p>Y-axis: Hackathons</p>
             <p>X-axis: Organizations</p>
