@@ -140,7 +140,7 @@ const App = () => {
           <Route path="organizers" element={<Outlet />}>
             <Route index element={<AllOrganizers />} />
             <Route path="create" element={<CreateOrgHackathon />} />
-            <Route path="view" element={<Outlet />}>
+            <Route path="hackathons" element={<Outlet />}>
               <Route index element={<ViewHackathons />} />
               <Route path="details" element={<ViewHackDetails />} />
             </Route>
