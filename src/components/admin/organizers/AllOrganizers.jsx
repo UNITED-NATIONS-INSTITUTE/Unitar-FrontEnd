@@ -9,9 +9,11 @@ import { useNavigate } from "react-router-dom";
 import { getOrganizers } from "../../../api/admins/admins";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
 import AdminProfile from "../AdminLogOut";
+import { useDispatch } from "react-redux";
+import { setCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
 const AllOrganizers = () => {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const [organizersPayload, setOrganizersPayload] = useState([]);
   const fetchOrganizers = () => {
     getOrganizers().then((res) => {
@@ -19,6 +21,9 @@ const AllOrganizers = () => {
         setOrganizersPayload(res.data);
       }
     });
+  };
+  const handleActionClick = (params) => {
+    dispatch(setCurrentOrganizerDetail({ currentOrganizerDetail: params }));
   };
 
   useEffect(() => {
@@ -36,16 +41,17 @@ const AllOrganizers = () => {
       field: "action",
       headerName: "Actions",
       width: 80,
-      renderCell: () => (
+      renderCell: (params) => (
         <Dropdown>
           <MenuButton
+            onClick={() => handleActionClick(params.row)}
             slots={{ root: IconButton }}
             slotProps={{ root: { variant: "outlined", color: "neutral" } }}
           >
             <MoreVert />
           </MenuButton>
           <Menu>
-            <MenuItem onClick={() => navigate("/admin/organizers/view")}>
+            <MenuItem onClick={() => navigate("hackathons")}>
               View Hackathons
             </MenuItem>
             <MenuItem onClick={() => navigate("/admin/organizers/create")}>
