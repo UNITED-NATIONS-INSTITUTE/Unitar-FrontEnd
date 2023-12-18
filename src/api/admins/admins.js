@@ -36,4 +36,12 @@ export const getSubmissions = async () => {
 export const getPlatformStats = async () => {
   return await axiosApi.get("/platform/statistics");
 };
+
+export const getTopHackathons = async () => {
+  return await axiosApi.get("/hackathon/statistics");
+};
+
+export const getTopOrgs = async () => {
+  return await axiosApi.get("/organization/statistics/hackathons");
+};
 // Destroy, statistics, etc....
