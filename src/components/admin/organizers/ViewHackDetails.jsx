@@ -95,77 +95,82 @@ const ViewHackDetail = ({ hackathonId }) => {
                   />
                 </div>
 
-            <div className="flex items-center flex-1">
-              <h1 className="mt-0 text-custom-blue font-bold text-[48px]">
-                {hackathonDetails.title}
-              </h1>
-            </div>
-          </div>
+                <div className="flex items-center flex-1">
+                  <h1 className="mt-0 text-custom-blue font-bold text-[48px]">
+                    {hackathonDetails.title}
+                  </h1>
+                </div>
+              </div>
 
-          <div className="flex flex-row gap-[200px] mt-10">
-            <div>
-              <div className="flex flex-row gap-10 mt-[30px]">
-                <div className="text-xs">
-                  <p className="font-semibold">Location</p>
-                  <p className="mt-2">{hackathonDetails.location}</p>
-                </div>
-                <div className="text-xs">
-                  <p className="font-semibold">Status</p>
-                  <p className="text-green-500 mt-2">
-                    {hackathonDetails.status}
-                  </p>
-                </div>
-              </div>
-              <div className="mt-[40px]">
-                <p className="font-semibold text-xs">Timelines</p>
-                <div className="mb-5 gap-5">
-                  {hackathonDetails.timelines &&
-                    hackathonDetails.timelines.map((field, index) => (
-                      <p className="text-xs mt-2" key={index}>
-                        {field.period_name}: Start{" "}
-                        {moment(field.start_date).format("Do MMM YYYY")}
+              <div className="flex flex-row gap-[200px] mt-10">
+                <div>
+                  <div className="flex flex-row gap-10 mt-[30px]">
+                    <div className="text-xs">
+                      <p className="font-semibold">Location</p>
+                      <p className="mt-2">{hackathonDetails.location}</p>
+                    </div>
+                    <div className="text-xs">
+                      <p className="font-semibold">Status</p>
+                      <p className="text-green-500 mt-2">
+                        {hackathonDetails.status}
                       </p>
-                    ))}
+                    </div>
+                  </div>
+                  <div className="mt-[40px]">
+                    <p className="font-semibold text-xs">Timelines</p>
+                    <div className="mb-5 gap-5">
+                      {hackathonDetails.timelines &&
+                        hackathonDetails.timelines.map((field, index) => (
+                          <p className="text-xs mt-2" key={index}>
+                            {field.period_name}: Start{" "}
+                            {moment(field.start_date).format("Do MMM YYYY")}
+                          </p>
+                        ))}
+                    </div>
+                    <p className="font-semibold text-xs">Tags</p>
+                    <div className="mt-5 flex gap-5">
+                      {hackathonDetails.tags &&
+                        hackathonDetails.tags.map((field, index) => (
+                          <span
+                            key={index}
+                            className="bg-custom-light-grey rounded-[40px] p-3 text-white text-xs"
+                          >
+                            {field.tag_name}
+                          </span>
+                        ))}
+                    </div>
+                  </div>
+                  <div className="flex flex-col text-xs mt-5">
+                    <p className="font-semibold mt-5 mb-2 ">Prizes</p>
+                    <p>{hackathonDetails.prize}</p>
+                  </div>
                 </div>
-                <p className="font-semibold text-xs">Tags</p>
-                <div className="mt-5 flex gap-5">
-                  {hackathonDetails.tags &&
-                    hackathonDetails.tags.map((field, index) => (
-                      <span
-                        key={index}
-                        className="bg-custom-light-grey rounded-[40px] p-3 text-white text-xs"
-                      >
-                        {field.tag_name}
-                      </span>
-                    ))}
+                <div className="flex flex-col w-[500px]">
+                  <div>
+                    <p className="text-sm font-semibold mt-5">Highlights</p>
+                    <p className="text-xs mt-5">{hackathonDetails.highlight}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold mt-5">Description</p>
+                    <p className="text-xs mt-5">
+                      {hackathonDetails.description}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold mt-5">Deliverables</p>
+                    <p className="text-xs mt-5">
+                      {hackathonDetails.deliverables}
+                    </p>
+                  </div>
+                  <div className="text-xs ">
+                    <p className="font-semibold mt-5">Goals</p>
+                    <p className="mt-2">{hackathonDetails.goals}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex flex-col text-xs mt-5">
-                <p className="font-semibold mt-5 mb-2 ">Prizes</p>
-                <p>{hackathonDetails.prize}</p>
-              </div>
-            </div>
-            <div className="flex flex-col w-[500px]">
-              <div>
-                <p className="text-sm font-semibold mt-5">Highlights</p>
-                <p className="text-xs mt-5">{hackathonDetails.highlight}</p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold mt-5">Description</p>
-                <p className="text-xs mt-5">{hackathonDetails.description}</p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold mt-5">Deliverables</p>
-                <p className="text-xs mt-5">{hackathonDetails.deliverables}</p>
-              </div>
-              <div className="text-xs ">
-                <p className="font-semibold mt-5">Goals</p>
-                <p className="mt-2">{hackathonDetails.goals}</p>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        ))}
     </div>
   );
 };
