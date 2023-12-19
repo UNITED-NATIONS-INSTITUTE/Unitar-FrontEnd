@@ -22,6 +22,8 @@ const AdminSidebar = () => {
       setActivePage("all submissions");
     } else if (pathnameArray[2] === "users") {
       setActivePage("users");
+    } else if (pathnameArray[2] === "tags") {
+      setActivePage("tags");
     }
   }, [pathnameArray]);
   return (
@@ -107,6 +109,19 @@ const AdminSidebar = () => {
             <div className="flex gap-4">
               <img src="/assets/users.svg" className="ml-7 w-7 h-7" />
               <p className=" text-[14px]  ">Users</p>
+            </div>
+          </button>
+
+          <button
+            onClick={() => navigate("/admin/tags")}
+            style={{
+              borderColor: activePage === "tags" ? "#089BD9" : "inherit",
+            }}
+            className="  border rounded-md w-[200px] py-2 mt-5 "
+          >
+            <div className="flex gap-4">
+              <img src="/assets/users.svg" className="ml-7 w-7 h-7" />
+              <p className=" text-[14px]  ">Tags</p>
             </div>
           </button>
         </>
