@@ -1,8 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { useNavigate } from "react-router-dom";
-
+import { selectSelectedHackathonDetail } from "../../../features/hackathon/hackathonSlice";
+import { deleteHackathon } from "../../../api/hackathons/hackathons";
 const style = {
   position: "absolute",
   top: "50%",
@@ -17,6 +19,18 @@ const style = {
 };
 
 export default function DeleteHackModal({ openModal, closeModal }) {
+  const hackathon = useSelector(selectSelectedHackathonDetail)
+  const hackathon_code = hackathon.id
+
+  function handleDelete (id){
+    deleteHackathon(id).then((res) => {
+      if (res.status === 204){
+        alert("Hackathon entry deleted")
+      }else {
+        alert ("error removing entry")
+      }
+    })
+  }
   return (
     <Box>
       <Modal
@@ -46,7 +60,7 @@ export default function DeleteHackModal({ openModal, closeModal }) {
                   </p>
 
                   <div className="flex flex-row gap-5 mt-5 justify-center">
-                    <button className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md ">
+                    <button onClick={() => handleDelete(hackathon_code)} className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md ">
                       Yes, Delete
                     </button>
                     <button
