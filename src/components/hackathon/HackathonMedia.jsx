@@ -43,7 +43,7 @@ const HackathonMedia = () => {
         },
       })
       .then((res) => {
-        if (res.status === 200 && role === "ADMIN") {
+        if (res.status === 200) {
           if (role === "ADMIN") {
             adminValidateHackathon(hackathon_code).then((res) => {
               if (res.status === 200) {
