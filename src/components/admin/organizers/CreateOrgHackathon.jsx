@@ -6,10 +6,10 @@ import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import DatePicker from "../../common/utils/DatePicker";
 import moment from "moment";
 import { selectCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
-import CreateHackathon from "../../organizers/createhackathon/CreateHackathon";
 import { useNavigate } from "react-router-dom";
 import { setCurrentHackathonDetail } from "../../../features/hackathon/hackathonSlice";
 import TagSelector from "../../organizers/createhackathon/TagSelector";
+import { createHackathon } from "../../../api/hackathons/hackathons";
 const CreateOrgHackathon = () => {
   const [tags, setTags] = useState([]);
   const [values, setValues] = useState({
@@ -83,7 +83,7 @@ const CreateOrgHackathon = () => {
       tags: tags,
       organizer_id: org_code,
     };
-    CreateHackathon(hackathonObj)
+    createHackathon(hackathonObj)
       .then((res) => {
         if (res.status === 201) {
           dispatch(
