@@ -8,6 +8,19 @@ const ParticipantProfile = () => {
   const navigate = useNavigate();
   const partProfile = useSelector(selectCurrentParticipantDetail);
 
+  if (!partProfile) {
+    return (
+      <div className="right-side min-h-screen bg-pattern">
+        <div className="ml-80">
+          <h1 className="text-gray-600 text-[24px] font-bold py-3">
+            User Profile
+          </h1>
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="right-side min-h-screen bg-pattern">
       <div className="ml-80">
