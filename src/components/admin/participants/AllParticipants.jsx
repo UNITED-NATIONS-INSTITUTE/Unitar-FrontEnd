@@ -11,7 +11,9 @@ import CustomDataGrid from "../../common/utils/CustomDataGrid";
 import AdminProfile from "../AdminLogOut";
 import { useDispatch } from "react-redux";
 import { setCurrentParticipantDetail } from "../../../features/participant/participantSlice";
+import { LinearProgress } from "@mui/material";
 const AllParticipants = () => {
+  const [loading, setLoading] = useState(true)
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [participantsPayload, setParticipantsPayload] = useState([]);
@@ -19,6 +21,7 @@ const AllParticipants = () => {
     getParticipants().then((res) => {
       if (res.status === 200) {
         setParticipantsPayload(res.data);
+        setLoading(false)
       }
     });
   };
@@ -77,11 +80,12 @@ const AllParticipants = () => {
         <h1 className="text-[24px] font-bold text-gray-600">
           All Participants
         </h1>
-        <CustomDataGrid
+        {loading && <LinearProgress/>}
+        {!loading && <CustomDataGrid
           sx={{ mt: 3 }}
           rows={participantsPayload}
           columns={columns}
-        />
+        />}
       </div>
     </div>
   );
