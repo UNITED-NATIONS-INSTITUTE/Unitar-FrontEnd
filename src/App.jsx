@@ -63,6 +63,9 @@ import ActivateUser from "./components/admin/user/ActivateUser";
 import DeactivateUser from "./components/admin/user/DeactivateUser";
 import VerifyUser from "./components/admin/user/VerifyUser";
 import DeleteUser from "./components/admin/user/DeleteUser";
+import CreateChips from "./components/admin/tags/Chips";
+import CreateTag from "./components/admin/tags/CreateTag";
+import Chips from "./components/admin/tags/Chips";
 const App = () => {
   return (
     <Routes>
@@ -176,6 +179,11 @@ const App = () => {
             <Route path="verify" element={<VerifyUser />} />
             <Route path="delete" element={<DeleteUser />} />
             <Route path="create" element={<CreateUser />} />
+          </Route>
+
+          <Route path="tags" element={<Outlet />}>
+            <Route index element={<Chips />} />
+            <Route path="createtag" element={<CreateTag />} />
           </Route>
         </Route>
       </Route>
