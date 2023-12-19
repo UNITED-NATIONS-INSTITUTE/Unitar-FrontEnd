@@ -62,7 +62,6 @@ const CreatePartProfile = () => {
           setSuccessMessage(true);
           openModal();
 
-          // Close the modal after 2000 milliseconds (2 seconds)
           setTimeout(() => {
             closeModal();
             navigate("/participant");
