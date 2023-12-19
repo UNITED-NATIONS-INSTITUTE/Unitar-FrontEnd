@@ -39,7 +39,7 @@ const LandingPage = () => {
 
             <button
               onClick={() => navigate("/org-signup")}
-              className="py-4 px-[20px]  rounded-[10px] border-2 lg:w-[239px] border-[#089BD9] "
+              className="py-4 px-[20px]  rounded-[10px] border-2 lg:w-[239px] border-[#089BD9]  transition-transform transform hover:-translate-y-1"
             >
               For Organisers
             </button>
@@ -56,7 +56,7 @@ const LandingPage = () => {
           <div className="absolute lg:flex  left-[400px] mt-[120px]  hidden  flex-col justify-center items-center gap-4 p-4 w-[163px] transform -rotate-5 border-2 border-solid border-transparent rounded-10  ">
             <img src={frame} />
           </div>
-          <div className="absolute  left-[760px] mt-[36px]   w-[400px]  rounded-10  ">
+          <div className="absolute  left-[760px] mt-[24px]   w-[400px]  rounded-10  ">
             <img src={views} />
           </div>
         </div>

@@ -5,11 +5,11 @@ import { TextField, Button, Stack, Grid, Typography, Box } from "@mui/material";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import DatePicker from "../../common/utils/DatePicker";
 import moment from "moment";
-import { selectOrganizerCode } from "../../../features/organizer/organizerSlice";
-
+import { selectCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
 import { useNavigate } from "react-router-dom";
 import { setCurrentHackathonDetail } from "../../../features/hackathon/hackathonSlice";
 import TagSelector from "../../organizers/createhackathon/TagSelector";
+import { createHackathon } from "../../../api/hackathons/hackathons";
 const CreateOrgHackathon = () => {
   const [tags, setTags] = useState([]);
   const [values, setValues] = useState({
@@ -36,7 +36,9 @@ const CreateOrgHackathon = () => {
   const readCategories = (categoriesArray) => {
     setTags(categoriesArray);
   };
-  const org_code = useSelector(selectOrganizerCode);
+  const organization = useSelector(selectCurrentOrganizerDetail);
+  const org_code = organization.id;
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleAddTimelineItems = () => {
@@ -67,7 +69,7 @@ const CreateOrgHackathon = () => {
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
-  const handleOrg = (e) => {
+  const createOrgHackathon = (e) => {
     e.preventDefault();
     let hackathonObj = {
       title: title,
@@ -81,13 +83,12 @@ const CreateOrgHackathon = () => {
       tags: tags,
       organizer_id: org_code,
     };
-    Org(hackathonObj)
+    createHackathon(hackathonObj)
       .then((res) => {
         if (res.status === 201) {
           dispatch(
             setCurrentHackathonDetail({ currentHackathonDetail: res.data })
           );
-
           navigate("media");
         }
       })
@@ -109,7 +110,7 @@ const CreateOrgHackathon = () => {
         <div className=" flex">
           <div>
             <ValidatorForm
-              onSubmit={(e) => handleOrg(e)}
+              onSubmit={(e) => createOrgHackathon(e)}
               className="flex gap-[80px]"
             >
               <div className="flex flex-col ">

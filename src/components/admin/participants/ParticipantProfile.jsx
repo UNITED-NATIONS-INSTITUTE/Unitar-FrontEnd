@@ -8,19 +8,6 @@ const ParticipantProfile = () => {
   const navigate = useNavigate();
   const partProfile = useSelector(selectCurrentParticipantDetail);
 
-  if (!partProfile) {
-    return (
-      <div className="right-side min-h-screen bg-pattern">
-        <div className="ml-80">
-          <h1 className="text-gray-600 text-[24px] font-bold py-3">
-            User Profile
-          </h1>
-          <p>Loading...</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="right-side min-h-screen bg-pattern">
       <div className="ml-80">
@@ -28,7 +15,7 @@ const ParticipantProfile = () => {
           User Profile
         </h1>
         <div className="flex flex-row gap-[100px]">
-          <div className="mt-3 flex justify-center bg-[#f0f6ff] w-[400px] h-[350px] rounded-md shadow-lg px-2 py-4">
+          <div className="mt-3 flex justify-center bg-[#f0f6ff] w-[400px] h-[300px] rounded-md shadow-lg px-2 py-4">
             <div>
               <Avatar
                 alt="Profile pic"
@@ -41,12 +28,6 @@ const ParticipantProfile = () => {
                   marginBottom: "10px",
                 }}
               />
-              <button
-                onClick={() => navigate("/admin/participants/edit")}
-                className="bg-custom-blue text-white p-2 rounded-md hover:bg-blue-500 w-[200px] mt-4"
-              >
-                Edit Profile
-              </button>
             </div>
           </div>
           <div className="mt-10">

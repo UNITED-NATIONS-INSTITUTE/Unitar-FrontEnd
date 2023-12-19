@@ -10,15 +10,25 @@ import { getAllHackathons } from "../../../api/hackathons/hackathons";
 import { Chip } from "@mui/material";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
 import AdminProfile from "../AdminLogOut";
+import { useDispatch } from "react-redux";
+import { setSelectedHackathonDetail } from "../../../features/hackathon/hackathonSlice";
+import { LinearProgress } from "@mui/material";
+
 const AllHackathons = () => {
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const [hackathonsPayload, setHackathonsPayload] = useState([]);
+  const dispatch = useDispatch();
   const fetchHackathons = () => {
     getAllHackathons().then((res) => {
       if (res.status === 200) {
         setHackathonsPayload(res.data);
+        setLoading(false);
       }
     });
+  };
+  const handleActionClick = (params) => {
+    dispatch(setSelectedHackathonDetail({ selectedHackathonDetail: params }));
   };
   useEffect(() => {
     fetchHackathons();
@@ -63,25 +73,24 @@ const AllHackathons = () => {
       field: "action",
       headerName: "Actions",
       width: 100,
-      renderCell: () => (
+      renderCell: (params) => (
         <Dropdown>
           <MenuButton
+            onClick={() => handleActionClick(params.row)}
             slots={{ root: IconButton }}
             slotProps={{ root: { variant: "outlined", color: "neutral" } }}
           >
             <MoreVert />
           </MenuButton>
           <Menu>
-            <MenuItem onClick={() => navigate("/admin/hackathons/view")}>
-              View Hackathon
-            </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/hackathons/activate")}>
+            <MenuItem onClick={() => navigate("view")}>View Hackathon</MenuItem>
+            {/* <MenuItem onClick={() => navigate("activate")}>
               Activate Hackathon
             </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/hackathons/deactivate")}>
+            <MenuItem onClick={() => navigate("deactivate")}>
               Deactivate Hackathon
-            </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/hackathons/delete")}>
+            </MenuItem> */}
+            <MenuItem onClick={() => navigate("delete")}>
               Delete Hackathon
             </MenuItem>
           </Menu>
@@ -97,14 +106,16 @@ const AllHackathons = () => {
           <AdminProfile />
         </div>
         <h1 className="text-[24px] font-bold text-gray-600">All Hackathons</h1>
-
-        <div className="flex-grow">
-          <CustomDataGrid
-            sx={{ mt: 3 }}
-            rows={hackathonsPayload}
-            columns={columns}
-          />
-        </div>
+        {loading && <LinearProgress />}
+        {!loading && (
+          <div className="flex-grow">
+            <CustomDataGrid
+              sx={{ mt: 3 }}
+              rows={hackathonsPayload}
+              columns={columns}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

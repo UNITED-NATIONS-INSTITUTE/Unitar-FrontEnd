@@ -10,7 +10,7 @@ export const fetchParticipantProfile = async (user_ref) => {
 };
 // implement PATCH profile in form with form data
 export const deleteParticipantProfile = async (participant_code) => {
-  return await axiosApi.destroy(`/participants/${participant_code}`);
+  return await axiosApi.delete(`/participants/${participant_code}`);
 };
 
 // ORGANIZERS
@@ -23,7 +23,7 @@ export const fetchOrganizerProfile = async (user_ref) => {
 };
 // implement PATCH profile in form with form data
 export const deleterOganizerProfile = async (organizer_code) => {
-  return await axiosApi.destroy(`/participants/${organizer_code}`);
+  return await axiosApi.delete(`/participants/${organizer_code}`);
 };
 
 

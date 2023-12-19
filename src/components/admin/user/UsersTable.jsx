@@ -10,13 +10,17 @@ import { getAllUsers } from "../../../api/admins/admins";
 import { Chip } from "@mui/material";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
 import AdminLogOut from "../AdminLogOut";
+import { LinearProgress } from "@mui/material";
+
 const UsersTable = () => {
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const [usersPayload, setUsersPayload] = useState([]);
   const fetchUsers = () => {
     getAllUsers().then((res) => {
       if (res.status === 200) {
         setUsersPayload(res.data);
+        setLoading(false);
       }
     });
   };
@@ -94,7 +98,7 @@ const UsersTable = () => {
   return (
     <div className="bg-white p-8 right-side min-h-screen min-w-full ">
       <div className="ml-60">
-      <div className="flex justify-end">
+        <div className="flex justify-end">
           <AdminLogOut />
         </div>
         <h1 className="text-[24px] font-bold text-gray-600">Users Actions</h1>
@@ -104,13 +108,16 @@ const UsersTable = () => {
         >
           Create User
         </button>
-        <div className="flex-grow">
-          <CustomDataGrid
-            sx={{ mt: 3 }}
-            rows={usersPayload}
-            columns={columns}
-          />
-        </div>
+        {loading && <LinearProgress />}
+        {!loading && (
+          <div className="flex-grow">
+            <CustomDataGrid
+              sx={{ mt: 3 }}
+              rows={usersPayload}
+              columns={columns}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

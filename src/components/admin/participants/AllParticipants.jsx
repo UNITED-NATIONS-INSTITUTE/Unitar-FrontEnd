@@ -9,15 +9,24 @@ import { useNavigate } from "react-router-dom";
 import { getParticipants } from "../../../api/admins/admins";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
 import AdminProfile from "../AdminLogOut";
+import { useDispatch } from "react-redux";
+import { setCurrentParticipantDetail } from "../../../features/participant/participantSlice";
+import { LinearProgress } from "@mui/material";
 const AllParticipants = () => {
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [participantsPayload, setParticipantsPayload] = useState([]);
   const fetchParticipants = () => {
     getParticipants().then((res) => {
       if (res.status === 200) {
         setParticipantsPayload(res.data);
+        setLoading(false);
       }
     });
+  };
+  const handleActionClick = (params) => {
+    dispatch(setCurrentParticipantDetail({ currentParticipantDetail: params }));
   };
 
   useEffect(() => {
@@ -37,9 +46,10 @@ const AllParticipants = () => {
       field: "action",
       headerName: "Actions",
       width: 110,
-      renderCell: () => (
+      renderCell: (params) => (
         <Dropdown>
           <MenuButton
+            onClick={() => handleActionClick(params.row)}
             slots={{ root: IconButton }}
             slotProps={{ root: { variant: "outlined", color: "neutral" } }}
           >
@@ -49,9 +59,7 @@ const AllParticipants = () => {
             <MenuItem onClick={() => navigate("/admin/participants/detail")}>
               View participant
             </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/participants/edit")}>
-              Edit participant
-            </MenuItem>
+
             <MenuItem onClick={() => navigate("/admin/participants/delete")}>
               Delete participant
             </MenuItem>
@@ -70,11 +78,14 @@ const AllParticipants = () => {
         <h1 className="text-[24px] font-bold text-gray-600">
           All Participants
         </h1>
-        <CustomDataGrid
-          sx={{ mt: 3 }}
-          rows={participantsPayload}
-          columns={columns}
-        />
+        {loading && <LinearProgress />}
+        {!loading && (
+          <CustomDataGrid
+            sx={{ mt: 3 }}
+            rows={participantsPayload}
+            columns={columns}
+          />
+        )}
       </div>
     </div>
   );

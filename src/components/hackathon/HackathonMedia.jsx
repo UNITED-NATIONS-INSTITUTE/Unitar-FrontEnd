@@ -3,7 +3,9 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Typography } from "@mui/material";
 import { axiosApi } from "../../api";
+import { adminValidateHackathon } from "../../api/hackathons/hackathons";
 import { selectCurrentHackathonDetail } from "../../features/hackathon/hackathonSlice";
+import { selectCurrentUserRole } from "../../features/user/userSlice";
 const HackathonMedia = () => {
   const hackathonImageRef = useRef(null);
   const coverImageRef = useRef(null);
@@ -11,11 +13,12 @@ const HackathonMedia = () => {
   const [cover, setCover] = useState(null);
   const [avatar, setAvatar] = useState(null);
   const navigate = useNavigate();
+  const role = useSelector(selectCurrentUserRole);
   const handleChooseFile = (fileInputRef) => {
     fileInputRef.current.click();
   };
-  const hackathonDetails = useSelector(selectCurrentHackathonDetail)
-  const hackathon_code = hackathonDetails.id
+  const hackathonDetails = useSelector(selectCurrentHackathonDetail);
+  const hackathon_code = hackathonDetails.id;
   const handleFileChange = (fileInputRef) => {
     const file = fileInputRef.current.files[0];
     if (file) {
@@ -40,8 +43,16 @@ const HackathonMedia = () => {
         },
       })
       .then((res) => {
-        if (res.status === 200) {
-          navigate("/organizer/hackathons/create/verify");
+        if (res.status === 200 && role === "ADMIN") {
+          if (role === "ADMIN") {
+            adminValidateHackathon(hackathon_code).then((res) => {
+              if (res.status === 200) {
+                alert("Hackathon created and activated");
+              }
+            });
+          } else {
+            navigate("/organizer/hackathons/create/verify");
+          }
         }
       })
       .catch((err) => {

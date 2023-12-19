@@ -1,18 +1,16 @@
 import { Avatar } from "@mui/material";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-
 import DeleteModal from "./DeleteModal";
 import { selectCurrentParticipantDetail } from "../../../features/participant/participantSlice";
 
 const DeleteParticipant = () => {
   const partProfile = useSelector(selectCurrentParticipantDetail);
+  const participant_code = partProfile.id;
   const [isModalOpen, setModalOpen] = useState(false);
-
   const handleClick = () => {
     setModalOpen(true);
   };
-
   return (
     <div className="right-side min-h-screen bg-pattern">
       <div className="ml-80">
@@ -77,6 +75,8 @@ const DeleteParticipant = () => {
       <DeleteModal
         openModal={isModalOpen}
         closeModal={() => setModalOpen(false)}
+        deleteAction={handleDeleteUserAccount}
+        id={participant_code}
       />
     </div>
   );

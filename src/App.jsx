@@ -139,14 +139,18 @@ const App = () => {
           </Route>
           <Route path="organizers" element={<Outlet />}>
             <Route index element={<AllOrganizers />} />
-            <Route path="create" element={<CreateOrgHackathon />} />
-            <Route path="view" element={<Outlet />}>
+            <Route path="createhackathon" element={<Outlet />}>
+              <Route index element={<CreateOrgHackathon />} />
+              <Route path="media" element={<Outlet />}>
+                <Route index element={<AddMedia />} />
+                <Route path="details" element={<HackathonMedia />} />
+              </Route>
+            </Route>
+            <Route path="hackathons" element={<Outlet />}>
               <Route index element={<ViewHackathons />} />
               <Route path="details" element={<ViewHackDetails />} />
             </Route>
-            <Route path="activate" element={<ActivateOrganization />} />
-            <Route path="deactivate" element={<DeactivateOrganization />} />
-            <Route path="delete" element={<DeleteOrganization />} />
+            <Route path="deletehackathon" element={<DeleteOrganization />} />
           </Route>
 
           <Route path="hackathons" element={<Outlet />}>

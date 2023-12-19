@@ -9,16 +9,25 @@ import { useNavigate } from "react-router-dom";
 import { getOrganizers } from "../../../api/admins/admins";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
 import AdminProfile from "../AdminLogOut";
-const AllOrganizers = () => {
-  const navigate = useNavigate();
+import { useDispatch } from "react-redux";
+import { setCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
+import { LinearProgress } from "@mui/material";
 
+const AllOrganizers = () => {
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [organizersPayload, setOrganizersPayload] = useState([]);
   const fetchOrganizers = () => {
     getOrganizers().then((res) => {
       if (res.status === 200) {
         setOrganizersPayload(res.data);
+        setLoading(false);
       }
     });
+  };
+  const handleActionClick = (params) => {
+    dispatch(setCurrentOrganizerDetail({ currentOrganizerDetail: params }));
   };
 
   useEffect(() => {
@@ -36,28 +45,24 @@ const AllOrganizers = () => {
       field: "action",
       headerName: "Actions",
       width: 80,
-      renderCell: () => (
+      renderCell: (params) => (
         <Dropdown>
           <MenuButton
+            onClick={() => handleActionClick(params.row)}
             slots={{ root: IconButton }}
             slotProps={{ root: { variant: "outlined", color: "neutral" } }}
           >
             <MoreVert />
           </MenuButton>
           <Menu>
-            <MenuItem onClick={() => navigate("/admin/organizers/view")}>
+            <MenuItem onClick={() => navigate("hackathons")}>
               View Hackathons
             </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/organizers/create")}>
+            <MenuItem onClick={() => navigate("createhackathon")}>
               Create Hackathon
             </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/organizers/activate")}>
-              Activate Organization
-            </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/organizers/deactivate")}>
-              Deactivate Organization
-            </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/organizers/delete")}>
+
+            <MenuItem onClick={() => navigate("deletehackathon")}>
               Delete Organization
             </MenuItem>
           </Menu>
@@ -73,14 +78,16 @@ const AllOrganizers = () => {
           <AdminProfile />
         </div>
         <h1 className="text-[24px] font-bold text-gray-600">All Organizers</h1>
-
-        <div className="flex-grow">
-          <CustomDataGrid
-            sx={{ mt: 3 }}
-            rows={organizersPayload}
-            columns={columns}
-          />
-        </div>
+        {loading && <LinearProgress />}
+        {!loading && (
+          <div className="flex-grow">
+            <CustomDataGrid
+              sx={{ mt: 3 }}
+              rows={organizersPayload}
+              columns={columns}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
