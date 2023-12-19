@@ -33,7 +33,6 @@ const ViewSubmissions = () => {
               key={submission.id}
               className="flex gap-[100px] rounded-[6px] shadow flex-row border border-gray-100  mb-4  h-full w-full"
             >
-              {/* Image on the right */}
               <div className="flex-shrink-0 rounded-full mt-3 ml-3 mb-3">
                 <img
                   src={submission.hackathon.cover_image_url}

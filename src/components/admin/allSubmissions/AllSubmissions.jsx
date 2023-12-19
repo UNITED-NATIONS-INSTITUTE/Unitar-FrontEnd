@@ -9,14 +9,18 @@ import { useNavigate } from "react-router-dom";
 import { getSubmissions } from "../../../api/admins/admins";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
 import AdminProfile from "../AdminLogOut";
+import { LinearProgress } from "@mui/material";
+
 const AllSubmissions = () => {
+  const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate();
   const [submissionsPayload, setSubmissionsPayload] = useState([]);
   const fetchSubmissions = () => {
     getSubmissions().then((res) => {
       if (res.status === 200) {
         setSubmissionsPayload(res.data);
-        console.log(res.data);
+        setLoading(false);
       }
     });
   };
@@ -72,14 +76,15 @@ const AllSubmissions = () => {
         <div className="flex justify-end">
           <AdminProfile />
         </div>
-        <h1 className="text-[24px] font-bold text-gray-600">
-          All Submissions
-        </h1>
-        <CustomDataGrid
-          sx={{ mt: 3 }}
-          rows={submissionsPayload}
-          columns={columns}
-        />
+        <h1 className="text-[24px] font-bold text-gray-600">All Submissions</h1>
+        {loading && <LinearProgress />}
+        {!loading && (
+          <CustomDataGrid
+            sx={{ mt: 3 }}
+            rows={submissionsPayload}
+            columns={columns}
+          />
+        )}
       </div>
     </div>
   );

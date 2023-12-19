@@ -38,9 +38,9 @@ const SignUp = () => {
 
   function getRole() {
     let user;
-    if (userRole[1] === "org") {
+    if (userRole[1] === "org-signup") {
       user = "ORGANIZER";
-    } else if (userRole[1] === "part") {
+    } else if (userRole[1] === "part-signup") {
       user = "PARTICIPANT";
     } else {
       user = null;

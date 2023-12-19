@@ -97,6 +97,16 @@ export const evaluateHackathon = async (subscription_code, grade) => {
   });
 };
 // XVIII. Delete A participant hackathon Entry
-export const deleterHackathon = async (subscription_code) => {
-  return await axiosApi.destroy(`/subscriptions/${subscription_code}`);
+export const deleteHackathonSubscription = async (subscription_code) => {
+  return await axiosApi.delete(`/subscriptions/${subscription_code}`);
+};
+
+// XVIX
+export const adminValidateHackathon = async (hackathon_id) => {
+  return await axiosApi.patch(`/admin/hackathon/${hackathon_id}/validate`);
+};
+
+// xx
+export const deleteHackathon = async (hackathon_id) => {
+  return await axiosApi.delete(`/hackathons/${hackathon_id}`);
 };

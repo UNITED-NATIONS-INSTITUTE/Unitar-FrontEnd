@@ -1,28 +1,15 @@
 import { Avatar } from "@mui/material";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectCurrentParticipantDetail } from "../../../features/participant/participantSlice";
 import DeleteModal from "./DeleteModal";
-import { deleteParticipantProfile } from "../../../api/accounts/accounts";
+import { selectCurrentParticipantDetail } from "../../../features/participant/participantSlice";
+
 const DeleteParticipant = () => {
   const partProfile = useSelector(selectCurrentParticipantDetail);
   const participant_code = partProfile.id;
   const [isModalOpen, setModalOpen] = useState(false);
-  const navigate = useNavigate();
   const handleClick = () => {
     setModalOpen(true);
-  };
-  const handleDeleteUserAccount = (id) => {
-    deleteParticipantProfile(id).then((res) => {
-      // to do: show delete modal and navigate back
-      if (res.status === 204) {
-        alert("Profile deleted");
-        // navigate(-1)
-      } else {
-        alert("Error Deleting Acc");
-      }
-    });
   };
   return (
     <div className="right-side min-h-screen bg-pattern">
@@ -36,7 +23,7 @@ const DeleteParticipant = () => {
               <Avatar
                 alt="Profile pic"
                 loading="lazy"
-                src={partProfile.profile_image_url}
+                src={partProfile?.profile_image_url || ""}
                 sx={{
                   width: "200px",
                   height: "200px",
@@ -59,27 +46,27 @@ const DeleteParticipant = () => {
             <div className="flex flex-col bg-[#f0f6ff] w-[400px] rounded-md shadow-lg px-2 py-4">
               <p>
                 <strong className="text-custom-blue px-4">First Name:</strong>{" "}
-                {partProfile.first_name}
+                {partProfile?.first_name || ""}
               </p>
               <p className="mt-3">
                 <strong className="text-custom-blue px-4">Last Name:</strong>{" "}
-                {partProfile.last_name}
+                {partProfile?.last_name || ""}
               </p>
               <p className="mt-3">
                 <strong className="text-custom-blue px-4">Residence:</strong>{" "}
-                {partProfile.residence}
+                {partProfile?.residence || ""}
               </p>
             </div>
             <div className="mt-5 flex flex-col bg-[#f0f6ff] w-[400px] rounded-md shadow-lg px-2 py-4">
               <p className="mt-3">
                 <strong className="text-custom-blue px-3">Gender:</strong>{" "}
-                {partProfile.gender}
+                {partProfile?.gender || ""}
               </p>
               <p className="mt-3">
                 <strong className="text-custom-blue px-3">
                   Date of Birth:
                 </strong>{" "}
-                {partProfile.date_of_birth}
+                {partProfile?.date_of_birth || ""}
               </p>
             </div>
           </div>
