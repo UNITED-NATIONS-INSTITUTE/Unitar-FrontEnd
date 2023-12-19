@@ -4,11 +4,13 @@ import { useNavigate } from "react-router-dom";
 import HackathonMedia from "../../common/utils/HackathonMedia";
 import { getOrganizerHackathons } from "../../../api/hackathons/hackathons";
 import { selectCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
+
 const ViewHackathons = () => {
   const organizer = useSelector(selectCurrentOrganizerDetail);
   const organizer_id = organizer.id;
   const navigate = useNavigate();
   const [organizerHackathons, setOrganizerHackathons] = useState([]);
+
   const fetchHackathons = () => {
     getOrganizerHackathons(organizer_id).then((res) => {
       if (res.status === 200) {
