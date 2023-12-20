@@ -183,7 +183,7 @@ const App = () => {
 
           <Route path="tags" element={<Outlet />}>
             <Route index element={<Chips />} />
-            <Route path="createtag" element={<CreateTag />} />
+            <Route path="new" element={<CreateTag />} />
           </Route>
         </Route>
       </Route>
