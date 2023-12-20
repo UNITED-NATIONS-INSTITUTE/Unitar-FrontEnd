@@ -5,7 +5,7 @@ import Menu from "@mui/joy/Menu";
 import MenuButton from "@mui/joy/MenuButton";
 import MenuItem from "@mui/joy/MenuItem";
 import MoreVert from "@mui/icons-material/MoreVert";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getSubmissions } from "../../../api/admins/admins";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
 import AdminProfile from "../AdminLogOut";
@@ -33,6 +33,16 @@ const AllSubmissions = () => {
       field: "live_url",
       headerName: "Submissions",
       width: 250,
+      renderCell: (params) => (
+        <a
+          href={params.row.live_url}
+          target="_blank"
+          className="text-custom-blue underline"
+          rel="noopener noreferrer"
+        >
+          {params.row.live_url}
+        </a>
+      ),
     },
     {
       field: "participantFullName",

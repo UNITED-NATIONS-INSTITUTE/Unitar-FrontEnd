@@ -85,7 +85,7 @@ const OrgProfile = () => {
           <MenuItem onClick={() => navigate("/organizer/profile")}>
             Profile
           </MenuItem>
-          <MenuItem>Settings</MenuItem>
+          {/* <MenuItem>Settings</MenuItem> */}
           <MenuItem onClick={handleLogOut}>Logout</MenuItem>
         </Menu>
       </div>

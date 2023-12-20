@@ -23,7 +23,7 @@ export default function DeleteHackModal({ openModal, closeModal }) {
   const hackathon = useSelector(selectSelectedHackathonDetail);
   const hackathon_code = hackathon.id;
   const [isModalOpen, setModalOpen] = useState(false);
-  const [error, setError] = useState(null); // New state for error
+  const [error, setError] = useState(null);
 
   const navigate = useNavigate();
 

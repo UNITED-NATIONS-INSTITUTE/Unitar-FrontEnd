@@ -47,7 +47,7 @@ const OrgSubmissionPage = () => {
             hackathonsPayload.map((field, index) => (
               <div
                 key={index}
-                className=" hover:border-custom-blue relative overflow-hidden border border-[#C7C7C7]  rounded-[20px] shadow mb-4 w-[300px] h-[360px] transition-transform transform hover:-translate-y-1"
+                className=" hover:border-custom-blue relative overflow-hidden border border-[#C7C7C7]  rounded-[20px] shadow mb-4 w-[300px] h-[380px] transition-transform transform hover:-translate-y-1"
               >
                 <HackathonMedia
                   cover_image_url={field.cover_image_url}
@@ -57,12 +57,12 @@ const OrgSubmissionPage = () => {
                   <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-white p-4 border-[#7C7C7C] border-t rounded-[20px]">
                     <p className="text-sm font-bold mt-4">{field.title}</p>
                     <p className="text-sm text-gray-700">{field.highlight}</p>
-                    <p className="text-xs text-gray-500  mt-2">
+                    <p className="text-xs text-gray-500  mt-2 h-[45px] overflow-hidden">
                       {field.description}
                     </p>{" "}
                   </div>
                 </div>
-                <div className="flex gap-5 mt-[80px] ml-[22px]">
+                <div className="flex gap-5 mt-[110px] ml-[22px]">
                   <button
                     onClick={() => handleViewClick(field)}
                     className="border border-blue-500 rounded-md text-blue-500 w-[250px] text-xs mt-4 py-2 hover:bg-custom-blue hover:text-white"
