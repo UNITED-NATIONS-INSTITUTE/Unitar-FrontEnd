@@ -1,23 +1,30 @@
-import * as React from "react";
-import { styled } from "@mui/material/styles";
+import React, { useState, useEffect } from "react";
 import Chip from "@mui/material/Chip";
-
 import AdminLogOut from "../AdminLogOut";
-import Stack from "@mui/material/Stack";
 import { useNavigate } from "react-router-dom";
 import DeleteChipModal from "./DeleteChipModal";
-
+import { getTags } from "../../../api/hackathons/hackathons";
+import { LinearProgress } from "@mui/material";
 export default function Chips() {
   const navigate = useNavigate();
   const [isModalOpen, setModalOpen] = React.useState(false);
-
-  const handleClick = () => {
-    alert("You clicked the Chip.");
+  const [categories, setCategories] = useState([]);
+  const [categoryId, setCategoryId] = useState("");
+  const [loading, setLoading] = useState(true);
+  const fetchCategories = () => {
+    getTags().then((res) => {
+      setCategories(res.data);
+      setLoading(false);
+    });
   };
 
-  const handleDelete = () => {
+  const handleDelete = (id) => {
+    setCategoryId(id);
     setModalOpen(true);
   };
+  useEffect(() => {
+    fetchCategories();
+  }, []);
 
   return (
     <div className="bg-white p-8 right-side min-h-screen min-w-full ">
@@ -25,50 +32,37 @@ export default function Chips() {
         <div className="flex justify-end">
           <AdminLogOut />
         </div>
-        <h1 className="text-[24px] font-bold text-gray-600">Tags Actions</h1>
+        <h1 className="text-[20px] font-bold text-gray-600">
+          Hackathon Category Actions
+        </h1>
         <button
-          onClick={() => navigate("/admin/tags/createtag")}
+          onClick={() => navigate("new")}
           className="bg-custom-blue w-[150px] rounded-md py-3 px-2 text-white font-semibold mt-5 hover:bg-white hover:text-custom-blue hover:border-custom-blue hover:border mb-4"
         >
-          Create a Tag
+          New Category
         </button>
-        <div className="w-[600px] h-[500px] rounded-lg shadow-md  items-center border border-gray-100">
-          <h1 className=" text-[28px] text-custom-blue text-center font-bold mt-6">
-            Here are all the available tags
-          </h1>
-          <div className=" flex items-center justify-center mt-8">
-            <Stack direction="row" spacing={1}>
-              <Chip
-                label="Utamaduni"
-                onClick={handleClick}
-                onDelete={handleDelete}
-              />
-              <Chip
-                className="bg-black"
-                label="Ukulima"
-                variant="outlined"
-                onClick={handleClick}
-                onDelete={handleDelete}
-              />
-              <Chip
-                label="Finance"
-                variant="outlined"
-                onClick={handleClick}
-                onDelete={handleDelete}
-              />
-              <Chip
-                label=" Technology"
-                variant="outlined"
-                onClick={handleClick}
-                onDelete={handleDelete}
-              />
-            </Stack>
+        <div className="p-4 rounded-lg shadow-md  items-center border border-gray-100">
+          <h1 className=" text-[15px] font-bold mt-6">Configured Categories</h1>
+          <div className=" flex  mt-4">
+            {loading && <LinearProgress />}
+            {!loading &&
+              categories.length > 0 &&
+              categories.map((field, index) => (
+                <Chip
+                  label={field.category}
+                  color="primary"
+                  variant="outlined"
+                  onDelete={() => handleDelete(field.id)}
+                  sx={{ mr: 1 }}
+                />
+              ))}
           </div>
         </div>
       </div>
       <DeleteChipModal
         openModal={isModalOpen}
         closeModal={() => setModalOpen(false)}
+        category={categoryId}
       />
     </div>
   );
