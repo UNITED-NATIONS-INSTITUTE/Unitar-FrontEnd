@@ -38,72 +38,71 @@ const ViewSubmissions = () => {
                   src={submission.hackathon.cover_image_url}
                   alt=""
                   style={{
-                    borderRadius: "50%",
-                    border: "3px solid #089BD9",
-                    width: "400px",
-                    height: "400px",
+                    borderRadius: "20px",
+                    width: "460px",
+                    height: "370px",
                     objectFit: "cover",
                   }}
                 />
               </div>
               <div className="ml-4 mt-5">
-                <p className="mt-3 text-custom-blue">
+                <p className="mt-3 ">
                   Blog:{" "}
                   <span className="text-sm text-black ml-3">
                     {" "}
                     {submission.blog}
                   </span>
                 </p>
-                <p className="mt-3 text-custom-blue">
+                <p className="mt-3 ">
                   Demo Link:
                   <span className="text-sm text-black ml-3">
                     {submission.demo_link}
                   </span>
                 </p>
-                <p className="mt-3 text-custom-blue">
+                <p className="mt-3 ">
                   Description:{" "}
                   <span className="text-sm text-black ml-3">
                     {submission.desc}
                   </span>
                 </p>
 
-                <p className="mt-3 text-custom-blue">
+                <p className="mt-3">
                   Live URL:
                   <span className="text-sm text-black ml-3">
                     {submission.live_url}
                   </span>
                 </p>
-                <p className="mt-3 text-custom-blue">
+                <p className="mt-3 ">
                   Description:{" "}
                   <span className="text-sm text-black ml-3">
                     {submission.desc}
                   </span>
                 </p>
-                <p className="mt-3 text-custom-blue">
+                <p className="mt-3 ">
                   Grade:{" "}
                   <span className="text-sm text-black ml-3">
                     {submission.grade}
                   </span>
                 </p>
-                <p className="mt-3 text-custom-blue">
+                <p className="mt-3 ">
                   GitHub Link:{" "}
                   <span className="text-sm text-black ml-3">
                     {submission.gh_link}
                   </span>
                 </p>
-                <p className="mt-3 text-custom-blue">
+                <p className="mt-3">
                   Prize:{" "}
                   <span className="text-sm text-black ml-3">
                     {submission.hackathon.prize}
                   </span>
                 </p>
-                <p className="mt-3 text-custom-blue">
+                <p className="mt-3 ">
                   Status:{" "}
                   <span className="text-sm text-black ml-3">
                     {submission.hackathon.status}
                   </span>
                 </p>
-                <p className="mt-3 text-custom-blue">
+                <p className="mt-3 ">
                   Location:{" "}
                   <span className="text-sm text-black ml-3">
                     {submission.hackathon.location}
