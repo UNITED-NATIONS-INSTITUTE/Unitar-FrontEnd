@@ -15,7 +15,7 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function DeleteModal({ openModal, closeModal }) {
+export default function DeleteModal({ openModal, closeModal, id }) {
   return (
     <Box>
       <Modal
@@ -45,7 +45,10 @@ export default function DeleteModal({ openModal, closeModal }) {
                     this organization will erase all their data
                   </p>
                   <div className="flex flex-row gap-5 mt-6 justify-center">
-                    <button className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md ">
+                    <button
+                      onClick={() => deleteAction(id)}
+                      className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md "
+                    >
                       Yes, Delete
                     </button>
                     <button

@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import moment from "moment";
-
 import { selectSelectedHackathonDetail } from "../../../features/hackathon/hackathonSlice";
 import AdminProfile from "../AdminLogOut";
 
@@ -36,6 +35,7 @@ const ViewHackDetail = () => {
           <div className="relative">
             {" "}
             <img
+              className="shadow-lg"
               src={
                 hackathon.cover_image_url
                   ? hackathon.cover_image_url
@@ -43,55 +43,49 @@ const ViewHackDetail = () => {
               }
               alt=""
               style={{
-                borderRadius: "50%",
-                border: "3px solid #089BD9",
-                width: "400px",
-                height: "400px",
+                borderRadius: "6px",
+                marginLeft: "30px",
+                width: "450px",
+                height: "350px",
                 objectFit: "cover",
-              }}
-            />
-            <img
-              src={
-                hackathon.avatar_url
-                  ? hackathon.avatar_url
-                  : "/assets/no image (1).jpg"
-              }
-              alt=""
-              style={{
-                objectFit: "cover",
-
-                width: "100px",
-                borderRadius: "50%",
-                border: "3px solid #089BD9",
-                height: "100px",
-                left: "200px",
-                bottom: "-10px",
-                position: "absolute",
               }}
             />
           </div>
-
-          <div className="flex  items-center flex-1">
-            <h1 className="mt-0 text-custom-blue font-bold  text-[48px]">
-              {hackathon.title}
-            </h1>
+          <div className="flex flex-col w-[500px] ">
+            <div>
+              <p className="text-[18px]  font-semibold mt-5 ">Highlights</p>
+              <p className="text-sm mt-5">{hackathon.highlight}</p>
+            </div>
+            <div>
+              <p className="text-[18px] font-semibold mt-5">Description</p>
+              <p className="text-sm mt-5">{hackathon.description}</p>
+            </div>
+            <div>
+              <p className="text-[18px]  font-semibold mt-5">Deliverables</p>
+              <p className="text-sm mt-5">{hackathon.deliverables}</p>
+            </div>
+            <div>
+              <p className=" font-semibold mt-5 text-[18px]">Goals</p>
+              <p className="mt-2 text-sm">{hackathon.goals}</p>
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-row gap-[200px] mt-10">
-          <div>
-            <div className="flex flex-row gap-10 mt-[30px]">
-              <div className="text-xs">
-                <p className="font-semibold">Location</p>
-                <p className="mt-2">{hackathon.location}</p>
-              </div>
-              <div className="text-xs">
-                <p className="font-semibold">Status</p>
-                <p className="text-green-500 mt-2">{hackathon.status}</p>
-              </div>
+        <div className="mt-[80px] ml-[30px]">
+          <hr className="mb-10 border-t border-gray-300  " />
+          <div className="flex flex-row justify-around">
+            <div>
+              <p className="font-semibold  text-[18px]">Location</p>
+              <p className="mt-2 text-sm">{hackathon.location}</p>
             </div>
-            <div className="mt-[40px]">
-              <p className="font-semibold text-xs">Timelines</p>
+            <div>
+              <p className="font-semibold  text-[18px]">Status</p>
+              <p className="text-green-500 mt-2 text-[10px] py-1 border border-green-500 rounded-[20px] px-3">
+                {hackathon.status}
+              </p>
+            </div>
+            <div>
+              <p className="font-semibold  text-[18px]">Timelines</p>
               <div className="mb-5 gap-5">
                 {hackathon.timelines &&
                   hackathon.timelines.map((field, index) => (
@@ -101,8 +95,13 @@ const ViewHackDetail = () => {
                     </p>
                   ))}
               </div>
-              <p className="font-semibold text-xs">Tags</p>
-              <div className="mt-5 flex gap-5">
+            </div>
+          </div>
+          <hr className="mb-10 border-t border-gray-300  " />
+          <div className="flex flex-row ml-[100px] gap-[150px] mb-10 items-center">
+            <div>
+              <p className="font-semibold  text-[18px] mb-2">Tags</p>
+              <div className=" flex gap-5">
                 {hackathon.tags &&
                   hackathon.tags.map((field, index) => (
                     <span
@@ -114,29 +113,13 @@ const ViewHackDetail = () => {
                   ))}
               </div>
             </div>
-            <div className="flex flex-col text-xs mt-5">
-              <p className="font-semibold mt-5 mb-2 ">Prizes</p>
-              <p>{hackathon.prize}</p>
+
+            <div>
+              <p className="font-semibold mb-2 text-[18px] ">Prizes</p>
+              <p className="text-sm"> {hackathon.prize}</p>
             </div>
           </div>
-          <div className="flex flex-col w-[500px]">
-            <div>
-              <p className="text-sm  font-semibold mt-5">Highlights</p>
-              <p className="text-xs mt-5">{hackathon.highlight}</p>
-            </div>
-            <div>
-              <p className="text-sm  font-semibold mt-5">Description</p>
-              <p className="text-xs mt-5">{hackathon.description}</p>
-            </div>
-            <div>
-              <p className="text-sm  font-semibold mt-5">Deliverables</p>
-              <p className="text-xs mt-5">{hackathon.deliverables}</p>
-            </div>
-            <div className="text-xs ">
-              <p className=" font-semibold mt-5">Goals</p>
-              <p className="mt-2">{hackathon.goals}</p>
-            </div>
-          </div>
+          <hr className="mb-10 border-t border-gray-300  " />
         </div>
       </div>
     </div>

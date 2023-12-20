@@ -16,12 +16,7 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function DeleteModal({
-  openModal,
-  closeModal,
-  deleteAction,
-  id,
-}) {
+export default function DeleteModal({ openModal, closeModal, id }) {
   return (
     <Box>
       <Modal

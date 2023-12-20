@@ -19,17 +19,17 @@ const style = {
 };
 
 export default function DeleteHackModal({ openModal, closeModal }) {
-  const hackathon = useSelector(selectSelectedHackathonDetail)
-  const hackathon_code = hackathon.id
+  const hackathon = useSelector(selectSelectedHackathonDetail);
+  const hackathon_code = hackathon.id;
 
-  function handleDelete (id){
+  function handleDelete(id) {
     deleteHackathon(id).then((res) => {
-      if (res.status === 204){
-        alert("Hackathon entry deleted")
-      }else {
-        alert ("error removing entry")
+      if (res.status === 204) {
+        alert("Hackathon entry deleted");
+      } else {
+        alert("error removing entry");
       }
-    })
+    });
   }
   return (
     <Box>
@@ -60,7 +60,10 @@ export default function DeleteHackModal({ openModal, closeModal }) {
                   </p>
 
                   <div className="flex flex-row gap-5 mt-5 justify-center">
-                    <button onClick={() => handleDelete(hackathon_code)} className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md ">
+                    <button
+                      onClick={() => handleDelete(hackathon_code)}
+                      className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md "
+                    >
                       Yes, Delete
                     </button>
                     <button
