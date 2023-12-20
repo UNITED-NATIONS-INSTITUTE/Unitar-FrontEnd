@@ -113,14 +113,14 @@ const AdminSidebar = () => {
           </button>
 
           <button
-            onClick={() => navigate("/admin/tags")}
+            onClick={() => navigate("/admin/category")}
             style={{
               borderColor: activePage === "tags" ? "#089BD9" : "inherit",
             }}
             className="  border rounded-md w-[200px] py-2 mt-5 "
           >
             <div className="flex gap-4">
-              <WorkspacesIcon className="ml-7 w-7 h-7" />
+              <WorkspacesIcon className="ml-7 w-7 h-7 text-custom-blue " />
               <p className=" text-[14px]  ">Categories</p>
             </div>
           </button>
