@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-
+import { deleteHackathonCategory } from "../../../api/hackathons/hackathons";
 const style = {
   position: "absolute",
   top: "50%",
@@ -15,7 +15,18 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function DeleteChipModal({ openModal, closeModal }) {
+export default function DeleteChipModal({ openModal, closeModal, category }) {
+  console.log(category);
+  const handleDelete = () => {
+    deleteHackathonCategory(category).then((res) => {
+      if (res.status === 204) {
+        alert("tag deleted!");
+      } else {
+        alert("errror deleting tag");
+      }
+    });
+  };
+  // to do: handle modal infomatics and navigate back
   return (
     <Box>
       <Modal
@@ -30,7 +41,7 @@ export default function DeleteChipModal({ openModal, closeModal }) {
               <Box className="flex space-x-4 ">
                 <div>
                   <h1 className="font-bold text-[20px]  font-Lexend-Exa  text-center">
-                    Delete Tag
+                    Delete Hackathon Category
                   </h1>
                   <div className="flex justify-center ">
                     <img
@@ -41,17 +52,20 @@ export default function DeleteChipModal({ openModal, closeModal }) {
                   </div>
 
                   <p className="text-sm items-center text-gray-700  ">
-                    Delete this Tag?
+                    Delete this Category?
                   </p>
                   <div className="flex flex-row gap-5 mt-6 justify-center">
-                    <button className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md ">
+                    <button
+                      onClick={() => handleDelete()}
+                      className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md "
+                    >
                       Yes, Delete
                     </button>
                     <button
                       onClick={closeModal}
                       className="py-2 border border-black rounded-md w-[150px]"
                     >
-                      No, Cancel
+                      Cancel
                     </button>
                   </div>
                 </div>
