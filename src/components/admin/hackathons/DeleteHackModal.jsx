@@ -29,14 +29,10 @@ export default function DeleteHackModal({ openModal, closeModal }) {
 
   function handleDelete(id) {
     deleteHackathon(id).then((res) => {
-      if (res.status === 204) {
-        setModalOpen(true);
-        setTimeout(() => {
-          closeModal();
-          navigate("/participants");
-        }, 3000);
-      } else {
-        setError("Error removing entry");
+      if (res.status === 204){
+        alert("Hackathon entry deleted")
+      }else {
+        alert ("error removing entry")
       }
     });
   }
@@ -74,28 +70,23 @@ export default function DeleteHackModal({ openModal, closeModal }) {
                         )}
                       </p>
 
-                      <div className="flex flex-row gap-5 mt-5 justify-center">
-                        <button
-                          onClick={() => handleDelete(hackathon_code)}
-                          className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md "
-                        >
-                          Yes, Delete
-                        </button>
-                        <button
-                          onClick={closeModal}
-                          className="py-2 border border-black rounded-md w-[150px]"
-                        >
-                          No, Cancel
-                        </button>
-                      </div>
-                    </div>
-                  </Box>
-                </Box>
+                  <div className="flex flex-row gap-5 mt-5 justify-center">
+                    <button onClick={() => handleDelete(hackathon_code)} className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md ">
+                      Yes, Delete
+                    </button>
+                    <button
+                      onClick={closeModal}
+                      className="py-2 border border-black rounded-md w-[150px]"
+                    >
+                      No, Cancel
+                    </button>
+                  </div>
+                </div>
               </Box>
             </Box>
-          </Modal>
+          </Box>
         </Box>
-      )}
-    </>
+      </Modal>
+    </Box>
   );
 }

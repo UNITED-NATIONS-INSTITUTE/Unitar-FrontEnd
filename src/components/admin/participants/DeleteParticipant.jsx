@@ -75,7 +75,6 @@ const DeleteParticipant = () => {
       <DeleteModal
         openModal={isModalOpen}
         closeModal={() => setModalOpen(false)}
-        deleteAction={handleDeleteUserAccount}
         id={participant_code}
       />
     </div>
