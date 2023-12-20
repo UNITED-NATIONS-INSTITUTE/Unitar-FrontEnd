@@ -12,6 +12,7 @@ const ViewHackathons = () => {
   const organizer_id = organizer.id;
   const navigate = useNavigate();
   const [organizerHackathons, setOrganizerHackathons] = useState([]);
+
   const fetchHackathons = () => {
     getOrganizerHackathons(organizer_id).then((res) => {
       if (res.status === 200) {
