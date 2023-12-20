@@ -52,7 +52,7 @@ const MyHackathons = () => {
             subscriptionsPayload.map((field, index) => (
               <div
                 key={index}
-                className="flex rounded-[6px] shadow border border-[#C7C7C7] flex-col  hover:border-custom-blue mb-4 w-[300px] h-[350px] transition-transform transform hover:-translate-y-1"
+                className="flex rounded-[6px] shadow border border-[#C7C7C7] flex-col  hover:border-custom-blue mb-4 w-[300px] h-[380px] transition-transform transform hover:-translate-y-1"
               >
                 <img
                   className="rounded-t-md w-[300px] h-[200px]"
@@ -71,12 +71,12 @@ const MyHackathons = () => {
                     <p className="mt-2 text-sm ml-4 font-bold">
                       {field.hackathon.highlight}
                     </p>
-                    <p className="mt-2 text-[12px] ml-4 w-[200px]  text-gray-500">
+                    <p className="mt-2 text-[12px] ml-4 h-[50px] overflow-hidden  text-gray-500">
                       {field.hackathon.description}
                     </p>
                   </div>
                 </div>
-                <div className="flex mt-auto">
+                <div className="flex mt-[100px]">
                   <button
                     onClick={() => handleViewClick(field)}
                     className="border ml-[22px] mb-5 border-blue-500 rounded-md text-blue-500 hover:bg-custom-blue hover:text-white w-[250px] text-xs mt-4 py-2"

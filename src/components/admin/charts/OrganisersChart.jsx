@@ -32,7 +32,7 @@ const OrganizersChart = () => {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
+      <XAxis dataKey="name" className="text-[8px]" />
       <YAxis />
       <Tooltip />
       <Legend />

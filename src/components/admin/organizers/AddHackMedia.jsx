@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const AddMedia = () => {
+const AddHackMedia = () => {
   const navigate = useNavigate();
   return (
     <div className="bg-white right-side min-h-screen">
-      <div className="ml-60">
+      <div className="ml-[300px]">
         {" "}
         <h1 className=" text-gray-600 font-bold  text-[24px] mb-9 mt-10">
           Hackathon media{" "}
@@ -26,8 +26,8 @@ const AddMedia = () => {
           <span>media</span>
         </p>
         <h1 className="text-sm mb-10">
-          Add a personal touch to your Hackathon project!
-          <br /> Do you want to upload an image that inspires your project
+          Add a personal touch to this Hackathon project!
+          <br /> Do you want to upload an image that inspires this project
           goals?
         </h1>
         <div className="flex flex-row gap-3">
@@ -39,7 +39,6 @@ const AddMedia = () => {
             Yes
           </button>
           <button
-            onClick={() => navigate("/organizer/hackathons/create/verify")}
             type="submit"
             className="py-3 px-2 border border-custom-blue rounded-md text-custom-blue  w-[100px] mt-10"
           >
@@ -51,4 +50,4 @@ const AddMedia = () => {
   );
 };
 
-export default AddMedia;
+export default AddHackMedia;

@@ -6,7 +6,9 @@ import { axiosApi } from "../../api";
 import { adminValidateHackathon } from "../../api/hackathons/hackathons";
 import { selectCurrentHackathonDetail } from "../../features/hackathon/hackathonSlice";
 import { selectCurrentUserRole } from "../../features/user/userSlice";
+import AddMediaModal from "./AddMediaModal";
 const HackathonMedia = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
   const hackathonImageRef = useRef(null);
   const coverImageRef = useRef(null);
   const [formData, setFormData] = useState(new FormData());
@@ -43,11 +45,15 @@ const HackathonMedia = () => {
         },
       })
       .then((res) => {
-        if (res.status === 200 && role === "ADMIN") {
+        if (res.status === 200) {
           if (role === "ADMIN") {
             adminValidateHackathon(hackathon_code).then((res) => {
               if (res.status === 200) {
-                alert("Hackathon created and activated");
+                setModalOpen(true);
+                setTimeout(() => {
+                  setModalOpen(false);
+                  navigate("/admin/organizers");
+                }, 3000);
               }
             });
           } else {
@@ -62,14 +68,25 @@ const HackathonMedia = () => {
   };
 
   return (
-    <div className="bg-white right-side min-h-screen">
-      <div className="ml-60 mt-10">
+    <div className="bg-white right-side min-h-screen flex justify-center">
+      <div className="ml-60 mt-10 ">
         <h1 className="text-gray-600 font-bold text-[24px] mb-9">
           Hackathon media
         </h1>
         <p className="text-xs text-gray-500 flex flex-row mb-6">
           <span>Hackathons</span>
-          {/* ... (rest of your code) */}
+          <img
+            src="/assets/chevron-right-solid.svg"
+            className="w-2 h-2 mt-[4px] m-1"
+            alt="chevron"
+          />
+          <span>Create a hackathon</span>
+          <img
+            src="/assets/chevron-right-solid.svg"
+            className="w-2 h-2 mt-[4px] m-1"
+            alt="chevron"
+          />
+          <span>Add Media</span>
         </p>
         <form className="flex flex-col" onSubmit={handleSubmit}>
           <div className="mb-10">
@@ -122,6 +139,12 @@ const HackathonMedia = () => {
           </button>
         </form>
       </div>
+      {isModalOpen && (
+        <AddMediaModal
+          setModalOpen={setModalOpen}
+          closeModal={() => setModalOpen(false)}
+        />
+      )}
     </div>
   );
 };

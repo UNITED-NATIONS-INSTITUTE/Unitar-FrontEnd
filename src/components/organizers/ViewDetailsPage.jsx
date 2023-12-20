@@ -8,8 +8,12 @@ const ViewDetailsPage = ({ openModal }) => {
       {subscription && (
         <div className="flex gap-[80px] mt-10">
           <img
-            src={subscription.image}
-            alt="hackathon"
+            src={
+              subscription.image
+                ? subscription.image
+                : "/assets/no image (1).jpg"
+            }
+            alt=""
             className="w-[400px] rounded-[10px] h-[350px]"
           />
           <div>

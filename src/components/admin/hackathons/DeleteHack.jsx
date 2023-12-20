@@ -35,14 +35,6 @@ const DeleteHack = () => {
         <span>{hackathon.title}</span>
       </p>
       <div className="ml-60">
-        <div className="ml-6">
-          <button
-            onClick={handleClick}
-            className="bg-[#D40C0C] mb-5  text-white px-3 py-2 rounded-md  w-[150px] hover:bg-red-700 "
-          >
-            Delete
-          </button>
-        </div>
         <div className="flex flex-row gap-[150px]">
           <div className="relative">
             {" "}
@@ -132,6 +124,14 @@ const DeleteHack = () => {
             </div>
           </div>
           <hr className="mb-10 border-t border-gray-300  " />
+        </div>
+        <div className="flex justify-end">
+          <button
+            onClick={handleClick}
+            className="bg-[#D40C0C] mb-5  text-white px-3 py-2 rounded-md  w-[150px] hover:bg-red-700 "
+          >
+            Delete
+          </button>
         </div>
       </div>
       <DeleteHackModal

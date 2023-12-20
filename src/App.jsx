@@ -65,6 +65,7 @@ import VerifyUser from "./components/admin/user/VerifyUser";
 import DeleteUser from "./components/admin/user/DeleteUser";
 import Category from "./components/admin/category/Category";
 import CreateTag from "./components/admin/category/CreateCategory";
+import AddHackMedia from "./components/admin/organizers/AddHackMedia";
 
 const App = () => {
   return (
@@ -145,7 +146,7 @@ const App = () => {
             <Route path="createhackathon" element={<Outlet />}>
               <Route index element={<CreateOrgHackathon />} />
               <Route path="media" element={<Outlet />}>
-                <Route index element={<AddMedia />} />
+                <Route index element={<AddHackMedia />} />
                 <Route path="details" element={<HackathonMedia />} />
               </Route>
             </Route>
@@ -181,7 +182,7 @@ const App = () => {
             <Route path="create" element={<CreateUser />} />
           </Route>
 
-          <Route path="category" element={<Outlet />}>
+          <Route path="categories" element={<Outlet />}>
             <Route index element={<Category />} />
             <Route path="createcategory" element={<CreateTag />} />
           </Route>

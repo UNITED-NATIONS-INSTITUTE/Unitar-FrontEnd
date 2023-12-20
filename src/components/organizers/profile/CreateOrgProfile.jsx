@@ -18,7 +18,6 @@ const CreateOrgProfile = () => {
     name: "",
     location: "",
     industry: "",
-    // profile_image: "",
     user_id: org_ref,
   });
   const fileInputRef = useRef(null);
@@ -33,10 +32,6 @@ const CreateOrgProfile = () => {
       const reader = new FileReader();
       reader.onloadend = () => {
         const newPic = reader.result;
-        // setFormData((prevData) => ({
-        //   ...prevData,
-        //   profile_image: newPic,
-        // }));
       };
       reader.readAsDataURL(file);
     }
@@ -58,8 +53,6 @@ const CreateOrgProfile = () => {
         if (res.status === 201) {
           setSuccessMessage(true);
           openModal();
-
-          // Close the modal after 2000 milliseconds (2 seconds)
           setTimeout(() => {
             closeModal();
             navigate("/organizer");

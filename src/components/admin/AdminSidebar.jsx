@@ -22,8 +22,8 @@ const AdminSidebar = () => {
       setActivePage("all submissions");
     } else if (pathnameArray[2] === "users") {
       setActivePage("users");
-    } else if (pathnameArray[2] === "tags") {
-      setActivePage("tags");
+    } else if (pathnameArray[2] === "categories") {
+      setActivePage("categories");
     }
   }, [pathnameArray]);
   return (
@@ -113,15 +113,15 @@ const AdminSidebar = () => {
           </button>
 
           <button
-            onClick={() => navigate("/admin/category")}
+            onClick={() => navigate("/admin/categories")}
             style={{
-              borderColor: activePage === "tags" ? "#089BD9" : "inherit",
+              borderColor: activePage === "categories" ? "#089BD9" : "inherit",
             }}
-            className="  border rounded-md w-[200px] py-2 mt-5 "
+            className="  border rounded-md w-[200px] py-2 mt-5  "
           >
             <div className="flex gap-4">
               <WorkspacesIcon className="ml-7 w-7 h-7 text-custom-blue " />
-              <p className=" text-[14px]  ">Categories</p>
+              <p className=" text-[14px]">Categories</p>
             </div>
           </button>
         </>

@@ -106,7 +106,7 @@ const ViewHackDetail = () => {
                   hackathon.tags.map((field, index) => (
                     <span
                       key={index}
-                      className="bg-custom-light-grey rounded-[40px] p-3 text-white text-xs"
+                      className="border border-custom-blue rounded-[40px] p-3 text-custom-blue text-xs"
                     >
                       {field.tag_name}
                     </span>
