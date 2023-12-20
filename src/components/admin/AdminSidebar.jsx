@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import logo from "../../assets/unitar-logo.svg";
 import { align, layers, line1, users } from "../../assets";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import WorkspacesIcon from "@mui/icons-material/Workspaces";
 const AdminSidebar = () => {
   const [activePage, setActivePage] = useState("Dashboard");
   const navigate = useNavigate();
@@ -120,8 +120,8 @@ const AdminSidebar = () => {
             className="  border rounded-md w-[200px] py-2 mt-5 "
           >
             <div className="flex gap-4">
-              <img src="/assets/users.svg" className="ml-7 w-7 h-7" />
-              <p className=" text-[14px]  ">Tags</p>
+              <WorkspacesIcon className="ml-7 w-7 h-7" />
+              <p className=" text-[14px]  ">Categories</p>
             </div>
           </button>
         </>
