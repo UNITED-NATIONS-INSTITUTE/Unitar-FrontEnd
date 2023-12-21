@@ -4,13 +4,22 @@ import AdminProfile from "../AdminLogOut";
 import { useSelector } from "react-redux";
 import { selectCurrentSubscriptionDetail } from "../../../features/subscription/subscriptionSlice";
 import { deleteHackathonSubscription } from "../../../api/hackathons/hackathons";
+import DeleteSubmissionModal from "./DeleteSubmissionModal";
+import { useNavigate } from "react-router-dom";
 const DeleteSubmission = () => {
+  const navigate = useNavigate();
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
   const submissionDetails = useSelector(selectCurrentSubscriptionDetail);
   const handleDelete = () => {
     deleteHackathonSubscription(submissionDetails.id).then((res) => {
       if (res.status === 204) {
-        alert("Submission deleted");
+        setModalOpen(false);
+        setDeleteModalOpen(true);
+        setTimeout(() => {
+          setDeleteModalOpen(false);
+          navigate(-1);
+        }, 2000);
       } else {
         alert("error");
       }
@@ -56,7 +65,11 @@ const DeleteSubmission = () => {
             openModal={isModalOpen}
             closeModal={() => setModalOpen(false)}
             deleteSub={handleDelete}
-          />{" "}
+          />
+          <DeleteSubmissionModal
+            openModal={isDeleteModalOpen}
+            closeModal={() => setDeleteModalOpen(false)}
+          />
         </div>
       </div>
     </div>

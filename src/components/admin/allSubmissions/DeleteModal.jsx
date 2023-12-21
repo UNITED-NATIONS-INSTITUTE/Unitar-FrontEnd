@@ -46,7 +46,10 @@ export default function DeleteHackModal({ openModal, closeModal, deleteSub }) {
                   </p>
 
                   <div className="flex flex-row gap-5 mt-5 justify-center">
-                    <button onClick={() => deleteSub()} className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md ">
+                    <button
+                      onClick={() => deleteSub()}
+                      className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md "
+                    >
                       Yes, Delete
                     </button>
                     <button
