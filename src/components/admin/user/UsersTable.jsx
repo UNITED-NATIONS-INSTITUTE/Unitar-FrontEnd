@@ -11,11 +11,18 @@ import { Chip } from "@mui/material";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
 import AdminLogOut from "../AdminLogOut";
 import { LinearProgress } from "@mui/material";
-
+import ActivateModal from "./ActivateModal";
+import DeactivateModal from "./DeactivateModal";
+import DeleteModal from "./DeleteModal";
 const UsersTable = () => {
   const [loading, setLoading] = useState(true);
+  const [openActivateModal, setOpenActivateModal] = useState(false);
+  const [openDeactivateModal, setOpenDeactivateModal] = useState(false);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+
   const navigate = useNavigate();
   const [usersPayload, setUsersPayload] = useState([]);
+  const [userCode, setUserCode] = useState("")
   const fetchUsers = () => {
     getAllUsers().then((res) => {
       if (res.status === 200) {
@@ -24,6 +31,11 @@ const UsersTable = () => {
       }
     });
   };
+  const handleActionClick = (params) => {
+    setUserCode(params.row.id)
+    console.log(params.row.id)
+
+  }
 
   useEffect(() => {
     fetchUsers();
@@ -68,25 +80,23 @@ const UsersTable = () => {
       field: "action",
       headerName: "Actions",
       width: 100,
-      renderCell: () => (
+      renderCell: (params) => (
         <Dropdown>
           <MenuButton
+            onClick={() => handleActionClick(params)}
             slots={{ root: IconButton }}
             slotProps={{ root: { variant: "outlined", color: "neutral" } }}
           >
             <MoreVert />
           </MenuButton>
           <Menu>
-            <MenuItem onClick={() => navigate("/admin/users/activate")}>
+            <MenuItem onClick={() => setOpenActivateModal(true)}>
               Activate user
             </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/users/deactivate")}>
+            <MenuItem onClick={() => setOpenDeactivateModal(true)}>
               Deactivate user
             </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/users/verify")}>
-              Verify user
-            </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/users/delete")}>
+            <MenuItem onClick={() => setOpenDeleteModal(true)}>
               Delete user
             </MenuItem>
           </Menu>
@@ -108,6 +118,21 @@ const UsersTable = () => {
         >
           Create User
         </button>
+        <ActivateModal
+          openModal={openActivateModal}
+          closeModal={() => setOpenActivateModal(false)}
+          user_id={userCode}
+        />
+        <DeactivateModal
+          openModal={openDeactivateModal}
+          closeModal={() => setOpenDeactivateModal(false)}
+          user_id={userCode}
+        />
+        <DeleteModal
+          openModal={openDeleteModal}
+          closeModal={() => setOpenDeleteModal(false)}
+          user_id={userCode}
+        />
         {loading && <LinearProgress />}
         {!loading && (
           <div className="flex-grow">
