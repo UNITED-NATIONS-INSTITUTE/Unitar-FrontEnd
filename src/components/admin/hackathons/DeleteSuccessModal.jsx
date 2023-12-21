@@ -37,7 +37,7 @@ export default function DeleteSuccessModal({ openModal, closeModal }) {
                     />
                   </div>
 
-                  <h1 className="font-bold font-Lexend-Exa  text-center">
+                  <h1 className="font-bold font-Lexend-Exa  text-center mt-5">
                     Deletion Successful
                   </h1>
                 </div>
