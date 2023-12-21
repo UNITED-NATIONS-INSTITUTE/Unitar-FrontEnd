@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import UserProfile from "../../participants/profile/UserProfile";
 
 import HackathonMedia from "../../common/utils/HackathonMedia";
 import DeactiveHackModal from "./DeactiveHackModal";
