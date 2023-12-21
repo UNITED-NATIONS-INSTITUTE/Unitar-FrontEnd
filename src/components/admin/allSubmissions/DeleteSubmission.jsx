@@ -1,10 +1,21 @@
 import React, { useState } from "react";
 import DeleteModal from "./DeleteModal";
 import AdminProfile from "../AdminLogOut";
-import { hack } from "../../../assets";
-
+import { useSelector } from "react-redux";
+import { selectCurrentSubscriptionDetail } from "../../../features/subscription/subscriptionSlice";
+import { deleteHackathonSubscription } from "../../../api/hackathons/hackathons";
 const DeleteSubmission = () => {
   const [isModalOpen, setModalOpen] = useState(false);
+  const submissionDetails = useSelector(selectCurrentSubscriptionDetail);
+  const handleDelete = () => {
+    deleteHackathonSubscription(submissionDetails.id).then((res) => {
+      if (res.status === 204) {
+        alert("Submission deleted");
+      } else {
+        alert("error");
+      }
+    });
+  };
   const handleClick = () => {
     setModalOpen(true);
   };
@@ -23,19 +34,15 @@ const DeleteSubmission = () => {
           <div className="flex rounded-[6px] shadow-xl flex-col border border-gray-100   w-[300px] h-[430px] transition-transform transform hover:-translate-y-1">
             <img
               className="rounded-t-[20px] w-[300px] h-[200px]"
-              src={hack}
+              src={submissionDetails.hackathon.cover_image_url}
               alt=""
             />
             <p className=" text-sm ml-4 text-gray-700 mt-3 mb-1 font-bold">
-              EdTechInnovation{" "}
+              {submissionDetails.title}
             </p>
             <p className=" text-sm ml-4 text-gray-500">
-              Redefining synchronous learning experiences.
+              {submissionDetails.desc}
             </p>
-            <p className="mt-2 text-[12px] ml-4 w-[200px]  text-gray-500">
-              A revolutionary platform designed to empower educators with
-              cutting-edge tools for immersive and engaging virtual classrooms.{" "}
-            </p>{" "}
             <div className=" ml-6 ">
               <button
                 onClick={handleClick}
@@ -48,6 +55,7 @@ const DeleteSubmission = () => {
           <DeleteModal
             openModal={isModalOpen}
             closeModal={() => setModalOpen(false)}
+            deleteSub={handleDelete}
           />{" "}
         </div>
       </div>
