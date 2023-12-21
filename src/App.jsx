@@ -14,7 +14,6 @@ import OrgSidebar from "./components/organizers/OrgSidebar";
 import OrgHackathonPage from "./components/organizers/OrgHackathonPage";
 import OrgSubmissionPage from "./components/organizers/OrgSubmissionPage";
 import CreateHackathon from "./components/organizers/createhackathon/CreateHackathon";
-
 import OrgOutlet from "./components/organizers/OrgOutlet";
 import OrgSubmissions from "./components/organizers/OrgSubmissions";
 import OrgViewProject from "./components/organizers/OrgViewProject";
@@ -31,7 +30,6 @@ import OrgProfilePage from "./components/organizers/profile/OrgProfilePage";
 import CreatePartProfile from "./components/participants/profile/CreatePartProfile";
 import PartEditDetails from "./components/participants/profile/PartEditDetails";
 import UserProfilePage from "./components/participants/profile/UserProfilePage";
-
 import UnAuthorized from "./components/common/utils/UnAuthorized";
 import RequireAuth from "./components/common/utils/RequireAuth";
 import AdminSidebar from "./components/admin/AdminSidebar";
@@ -47,8 +45,6 @@ import EditPartProfile from "./components/admin/participants/EditPartProfile";
 import DeleteParticipant from "./components/admin/participants/DeleteParticipant";
 import CreateOrgHackathon from "./components/admin/organizers/CreateOrgHackathon";
 import ViewHackathons from "./components/admin/organizers/ViewHackathons";
-import ActivateOrganization from "./components/admin/organizers/ActivateOrganization";
-import DeactivateOrganization from "./components/admin/organizers/DeactivateOrganization";
 import DeleteOrganization from "./components/admin/organizers/DeleteOrganization";
 import ViewHackDetails from "./components/admin/organizers/ViewHackDetails";
 import ViewHackathon from "./components/admin/hackathons/ViewHachathon";
@@ -59,8 +55,6 @@ import DeleteHack from "./components/admin/hackathons/DeleteHack";
 import ViewSubmissions from "./components/admin/allSubmissions/ViewSubmission";
 import EditSubmission from "./components/admin/allSubmissions/EditSubmission";
 import DeleteSubmission from "./components/admin/allSubmissions/DeleteSubmission";
-import ActivateUser from "./components/admin/user/ActivateUser";
-import DeactivateUser from "./components/admin/user/DeactivateUser";
 import VerifyUser from "./components/admin/user/VerifyUser";
 import DeleteUser from "./components/admin/user/DeleteUser";
 import Category from "./components/admin/category/Category";
@@ -175,8 +169,6 @@ const App = () => {
           </Route>
           <Route path="users" element={<Outlet />}>
             <Route index element={<UsersTable />} />
-            <Route path="activate" element={<ActivateUser />} />
-            <Route path="deactivate" element={<DeactivateUser />} />
             <Route path="verify" element={<VerifyUser />} />
             <Route path="delete" element={<DeleteUser />} />
             <Route path="create" element={<CreateUser />} />
