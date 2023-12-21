@@ -26,7 +26,6 @@ export const deleterOganizerProfile = async (organizer_code) => {
   return await axiosApi.delete(`/participants/${organizer_code}`);
 };
 
-
 export const getOrganizerMetrics = async (user_ref) => {
   return await axiosApi.get(`/organization/${user_ref}/statistics`);
 };
