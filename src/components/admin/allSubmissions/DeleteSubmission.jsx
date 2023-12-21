@@ -11,6 +11,7 @@ const DeleteSubmission = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
   const submissionDetails = useSelector(selectCurrentSubscriptionDetail);
+  const [errorMessage, setErrorMessage] = useState("");
   const handleDelete = () => {
     deleteHackathonSubscription(submissionDetails.id).then((res) => {
       if (res.status === 204) {
@@ -21,7 +22,7 @@ const DeleteSubmission = () => {
           navigate(-1);
         }, 2000);
       } else {
-        alert("Error deleting submission");
+        setErrorMessage("Error deleting submission");
       }
     });
   };
@@ -66,6 +67,7 @@ const DeleteSubmission = () => {
             openModal={isModalOpen}
             closeModal={() => setModalOpen(false)}
             deleteSub={handleDelete}
+            errorMessage={errorMessage}
           />
           <DeleteSubmissionModal
             openModal={isDeleteModalOpen}

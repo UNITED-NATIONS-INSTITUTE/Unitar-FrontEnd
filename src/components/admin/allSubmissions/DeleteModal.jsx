@@ -16,7 +16,12 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function DeleteHackModal({ openModal, closeModal, deleteSub }) {
+export default function DeleteHackModal({
+  openModal,
+  closeModal,
+  deleteSub,
+  errorMessage,
+}) {
   return (
     <Box>
       <Modal
@@ -33,6 +38,9 @@ export default function DeleteHackModal({ openModal, closeModal, deleteSub }) {
                   <h1 className="font-bold text-[20px]  font-Lexend-Exa  text-center">
                     Delete Hackathon
                   </h1>
+                  {errorMessage && (
+                    <p className="text-red-500 text-xs">{{ errorMessage }}</p>
+                  )}
                   <div className="flex justify-center ">
                     <img
                       src="/assets/bin.jpg"
