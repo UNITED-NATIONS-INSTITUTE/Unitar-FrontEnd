@@ -22,8 +22,8 @@ export const fetchOrganizerProfile = async (user_ref) => {
   return await axiosApi.get(`/organizers/${user_ref}/profile`);
 };
 // implement PATCH profile in form with form data
-export const deleterOganizerProfile = async (organizer_code) => {
-  return await axiosApi.delete(`/participants/${organizer_code}`);
+export const deleteOrganizerProfile = async (organizer_code) => {
+  return await axiosApi.delete(`/organizers/${organizer_code}`);
 };
 
 export const getOrganizerMetrics = async (user_ref) => {
