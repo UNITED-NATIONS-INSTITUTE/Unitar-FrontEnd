@@ -25,7 +25,7 @@ const CreateCategory = () => {
         setModalOpen(true);
         setTimeout(() => {
           closeModal();
-          navigate("/admin/category");
+          navigate("/admin/categories");
         }, 3000);
       } else {
         alert("Error!");
