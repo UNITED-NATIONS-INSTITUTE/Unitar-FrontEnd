@@ -25,6 +25,7 @@ export default function DeleteHackModal({ openModal, closeModal }) {
   const hackathon_code = hackathon.id;
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
   const [error, setError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -38,7 +39,7 @@ export default function DeleteHackModal({ openModal, closeModal }) {
           navigate(-1);
         }, 2000);
       } else {
-        alert("error removing entry");
+        setErrorMessage("Error deleting hackathon");
       }
     });
   }
@@ -67,6 +68,9 @@ export default function DeleteHackModal({ openModal, closeModal }) {
                     <h1 className="font-bold text-[20px] font-Lexend-Exa text-center">
                       Delete Hackathon
                     </h1>
+                    {errorMessage && (
+                      <p className="text-red-500 text-xs">{{ errorMessage }}</p>
+                    )}
                     <div className="flex justify-center ">
                       <img
                         src="/assets/bin.jpg"
