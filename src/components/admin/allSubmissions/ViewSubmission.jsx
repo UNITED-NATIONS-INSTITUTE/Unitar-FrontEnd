@@ -1,21 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import AdminProfile from "../AdminLogOut";
-import { getSubmissions } from "../../../api/admins/admins";
+import { useSelector } from "react-redux";
+import { selectCurrentSubscriptionDetail } from "../../../features/subscription/subscriptionSlice";
 
 const ViewSubmissions = () => {
-  const [submission, setSubmission] = useState(null);
-  const fetchSubmissions = () => {
-    getSubmissions().then((res) => {
-      if (res.status === 200) {
-        setSubmission(res.data[0]);
-        console.log(res.data);
-      }
-    });
-  };
+  const submissionDetails = useSelector(selectCurrentSubscriptionDetail)
 
-  useEffect(() => {
-    fetchSubmissions();
-  }, []);
   return (
     <div className="bg-white right-side min-h-screen min-w-full">
       <div className="ml-[280px]">
@@ -28,14 +18,14 @@ const ViewSubmissions = () => {
           </div>
         </div>
         <div className="flex flex-wrap  space-x-4 mt-5 ml-4">
-          {submission && (
+          {submissionDetails && (
             <div
-              key={submission.id}
+              key={submissionDetails.id}
               className="flex gap-[100px] rounded-[6px] shadow flex-row border border-gray-100  mb-4  h-full w-full"
             >
               <div className="flex-shrink-0 rounded-full mt-3 ml-3 mb-3">
                 <img
-                  src={submission.hackathon.cover_image_url}
+                  src={submissionDetails.hackathon.cover_image_url}
                   alt=""
                   style={{
                     borderRadius: "20px",
@@ -50,62 +40,62 @@ const ViewSubmissions = () => {
                   Blog:{" "}
                   <span className="text-sm text-black ml-3">
                     {" "}
-                    {submission.blog}
+                    {submissionDetails.blog}
                   </span>
                 </p>
                 <p className="mt-3 ">
                   Demo Link:
                   <span className="text-sm text-black ml-3">
-                    {submission.demo_link}
+                    {submissionDetails.demo_link}
                   </span>
                 </p>
                 <p className="mt-3 ">
                   Description:{" "}
                   <span className="text-sm text-black ml-3">
-                    {submission.desc}
+                    {submissionDetails.desc}
                   </span>
                 </p>
 
                 <p className="mt-3">
                   Live URL:
                   <span className="text-sm text-black ml-3">
-                    {submission.live_url}
+                    {submissionDetails.live_url}
                   </span>
                 </p>
                 <p className="mt-3 ">
                   Description:{" "}
                   <span className="text-sm text-black ml-3">
-                    {submission.desc}
+                    {submissionDetails.desc}
                   </span>
                 </p>
                 <p className="mt-3 ">
                   Grade:{" "}
                   <span className="text-sm text-black ml-3">
-                    {submission.grade}
+                    {submissionDetails.grade}
                   </span>
                 </p>
                 <p className="mt-3 ">
                   GitHub Link:{" "}
                   <span className="text-sm text-black ml-3">
-                    {submission.gh_link}
+                    {submissionDetails.gh_link}
                   </span>
                 </p>
                 <p className="mt-3">
                   Prize:{" "}
                   <span className="text-sm text-black ml-3">
-                    {submission.hackathon.prize}
+                    {submissionDetails.hackathon.prize}
                   </span>
                 </p>
                 <p className="mt-3 ">
                   Status:{" "}
                   <span className="text-sm text-black ml-3">
-                    {submission.hackathon.status}
+                    {submissionDetails.hackathon.status}
                   </span>
                 </p>
                 <p className="mt-3 ">
                   Location:{" "}
                   <span className="text-sm text-black ml-3">
-                    {submission.hackathon.location}
+                    {submissionDetails.hackathon.location}
                   </span>
                 </p>
               </div>
