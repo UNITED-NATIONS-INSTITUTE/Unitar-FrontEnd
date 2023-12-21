@@ -20,6 +20,7 @@ const style = {
 
 export default function DeleteChipModal({ openModal, closeModal, category }) {
   const [isModalOpen, setModalOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const closeDeleteModal = () => {
     setModalOpen(false);
@@ -29,13 +30,12 @@ export default function DeleteChipModal({ openModal, closeModal, category }) {
     deleteHackathonCategory(category).then((res) => {
       if (res.status === 204) {
         setModalOpen(true);
-
         setTimeout(() => {
           closeDeleteModal();
           navigate("/admin/category");
         }, 3000);
       } else {
-        alert("errror deleting tag");
+        setErrorMessage("Error creating tag");
       }
     });
   };
@@ -56,6 +56,9 @@ export default function DeleteChipModal({ openModal, closeModal, category }) {
                   <h1 className="font-bold text-[20px]  font-Lexend-Exa  text-center">
                     Delete Hackathon Category
                   </h1>
+                  {errorMessage && (
+                    <p className="text-red-500 text-xs">{{ errorMessage }}</p>
+                  )}
                   <div className="flex justify-center ">
                     <img
                       src="/assets/bin.jpg"
