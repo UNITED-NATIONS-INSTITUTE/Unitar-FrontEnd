@@ -7,7 +7,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 500,
+  width: 450,
   height: 200,
   bgcolor: "background.paper",
   boxShadow: 24,
@@ -15,7 +15,7 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function DeleteSuccessModal({ openModal, closeModal }) {
+export default function DeleteSubmissionModal({ openModal, closeModal }) {
   return (
     <Box>
       <Modal
@@ -29,6 +29,9 @@ export default function DeleteSuccessModal({ openModal, closeModal }) {
             <Box>
               <Box className="flex space-x-4 ">
                 <div>
+                  <h1 className="font-bold text-[20px] font-Lexend-Exa  text-center">
+                    Delete Submission
+                  </h1>
                   <div className="flex justify-center">
                     <img
                       src="/assets/success.svg"
@@ -36,10 +39,9 @@ export default function DeleteSuccessModal({ openModal, closeModal }) {
                       className="w-[80px] h-[80px]"
                     />
                   </div>
-
-                  <h1 className="font-bold font-Lexend-Exa  text-center mt-5">
-                    Deletion Successful
-                  </h1>
+                  <p className=" items-center text-gray-700 text-sm mt-2 ">
+                    Submission Deleted Successfully
+                  </p>
                 </div>
               </Box>
             </Box>

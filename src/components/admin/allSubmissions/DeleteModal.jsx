@@ -16,7 +16,12 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function DeleteHackModal({ openModal, closeModal, deleteSub }) {
+export default function DeleteHackModal({
+  openModal,
+  closeModal,
+  deleteSub,
+  errorMessage,
+}) {
   return (
     <Box>
       <Modal
@@ -33,6 +38,9 @@ export default function DeleteHackModal({ openModal, closeModal, deleteSub }) {
                   <h1 className="font-bold text-[20px]  font-Lexend-Exa  text-center">
                     Delete Hackathon
                   </h1>
+                  {errorMessage && (
+                    <p className="text-red-500 text-xs">{{ errorMessage }}</p>
+                  )}
                   <div className="flex justify-center ">
                     <img
                       src="/assets/bin.jpg"
@@ -46,7 +54,10 @@ export default function DeleteHackModal({ openModal, closeModal, deleteSub }) {
                   </p>
 
                   <div className="flex flex-row gap-5 mt-5 justify-center">
-                    <button onClick={() => deleteSub()} className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md ">
+                    <button
+                      onClick={() => deleteSub()}
+                      className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md "
+                    >
                       Yes, Delete
                     </button>
                     <button

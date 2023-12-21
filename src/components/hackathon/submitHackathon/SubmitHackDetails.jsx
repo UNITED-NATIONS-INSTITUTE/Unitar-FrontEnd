@@ -5,7 +5,9 @@ import { TextField } from "@mui/material";
 import UserProfile from "../../participants/profile/UserProfile";
 import { submitHackathonResponse } from "../../../api/hackathons/hackathons";
 import { selectCurrentSubscriptionDetail } from "../../../features/subscription/subscriptionSlice";
+import SubmitModal from "./SubmitModal";
 const SubmitHackDetails = () => {
+  const [isSubmitModalOpen, setSubmitModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     title: "",
     desc: "",
@@ -16,6 +18,7 @@ const SubmitHackDetails = () => {
     blog: "",
   });
   const subscription = useSelector(selectCurrentSubscriptionDetail);
+
   const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,13 +32,21 @@ const SubmitHackDetails = () => {
     e.preventDefault();
     submitHackathonResponse(subscription.id, formData).then((res) => {
       if (res.status === 200) {
-        navigate(-1);
+        setSubmitModalOpen(true);
+        setTimeout(() => {
+          setSubmitModalOpen(false);
+          navigate(-1);
+        }, 2000);
       }
     });
   };
   useEffect(() => {
     setFormData(subscription);
   }, []);
+
+  const handleModalClose = () => {
+    setSubmitModalOpen(false);
+  };
 
   return (
     <div className="ml-[260px]">
@@ -171,6 +182,10 @@ const SubmitHackDetails = () => {
           </div>
         </div>
       </form>
+      <SubmitModal
+        handleClose={handleModalClose}
+        openModal={isSubmitModalOpen}
+      />
     </div>
   );
 };

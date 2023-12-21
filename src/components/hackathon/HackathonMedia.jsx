@@ -60,10 +60,6 @@ const HackathonMedia = () => {
             navigate("/organizer/hackathons/create/verify");
           }
         }
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Noma!");
       });
   };
 

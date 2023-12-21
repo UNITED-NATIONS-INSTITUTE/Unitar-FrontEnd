@@ -15,7 +15,7 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function DeleteSuccessModal({ openModal, closeModal }) {
+export default function SuccessfulDeactivationModal({ openModal, closeModal }) {
   return (
     <Box>
       <Modal
@@ -38,7 +38,7 @@ export default function DeleteSuccessModal({ openModal, closeModal }) {
                   </div>
 
                   <h1 className="font-bold font-Lexend-Exa  text-center mt-5">
-                    Deletion Successful
+                    Deactivation Successful
                   </h1>
                 </div>
               </Box>

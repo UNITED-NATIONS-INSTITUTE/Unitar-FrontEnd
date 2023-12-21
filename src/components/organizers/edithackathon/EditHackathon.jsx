@@ -50,7 +50,7 @@ const EditHackathon = () => {
           />
           <span>Basic details</span>
         </p>
-        {/* <p className="font-bold mt-5 mb-5">Create a hackathon</p> */}
+
         <div className=" flex">
           <div>
             <form className="flex gap-[100px] " onSubmit={handleSubmit}>
@@ -71,9 +71,7 @@ const EditHackathon = () => {
                   placeholder="Stack a Stake Competition"
                   required
                 />
-                {/* <span className="text-xs text-gray-400 mt-2">
-                  Do not exceed 20 character writing the project name
-                </span> */}
+
                 <label
                   className="mt-5 mb-2 text-xs font-semibold"
                   name="highlightPhrase"
@@ -140,12 +138,7 @@ const EditHackathon = () => {
                   Timelines
                 </label>
                 <div className="flex flex-row gap-5">
-                  <Button
-                    variant="outlined"
-                    // onClick={() => handleAddContactItems()}
-                  >
-                    Create Timeline
-                  </Button>
+                  <Button variant="outlined">Create Timeline</Button>
                 </div>
               </div>
               <div className="flex flex-col">

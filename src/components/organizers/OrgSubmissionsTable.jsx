@@ -43,11 +43,6 @@ const OrgSubmissionsTable = ({ hackathonId }) => {
 
   const columns = [
     {
-      field: "image",
-      headerName: "Image",
-      width: 100,
-    },
-    {
       field: "blog",
       headerName: "Blog",
       width: 115,
@@ -107,6 +102,11 @@ const OrgSubmissionsTable = ({ hackathonId }) => {
           {params.row.live_url}
         </a>
       ),
+    },
+    {
+      field: "grade",
+      headerName: "Grade",
+      width: 100,
     },
     {
       field: "action",

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import DeleteModal from "./DeleteModal";
 
 const DeleteUser = () => {
-  const [isModalOpen, setModalOpen] = useState(false); ///
+  const [isModalOpen, setModalOpen] = useState(false);
   const handleClick = () => {
     setModalOpen(true);
   };

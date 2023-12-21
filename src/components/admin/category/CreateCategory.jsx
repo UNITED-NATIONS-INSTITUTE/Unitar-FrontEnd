@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import AdminLogOut from "../AdminLogOut";
 
 const CreateCategory = () => {
+  const [errorMessage, setErrorMessage] = useState("");
   const [values, setValues] = useState({
     category: "",
   });
@@ -25,10 +26,10 @@ const CreateCategory = () => {
         setModalOpen(true);
         setTimeout(() => {
           closeModal();
-          navigate("/admin/category");
+          navigate("/admin/categories");
         }, 3000);
       } else {
-        alert("Error!");
+        setErrorMessage("Error Creating Category");
       }
     });
   };
@@ -47,6 +48,9 @@ const CreateCategory = () => {
             <h1 className=" text-[20px] text-center font-bold mt-6 text-custom-blue">
               Create a new hackathon category
             </h1>
+            {errorMessage && (
+              <p className="text-red-500 text-xs">{{ errorMessage }}</p>
+            )}
             <form onSubmit={(e) => handleSubmit(e)}>
               <div className="m-4">
                 <label className="block text-sm m-2">Category Name</label>
