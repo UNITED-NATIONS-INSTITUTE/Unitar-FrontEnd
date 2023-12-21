@@ -33,7 +33,7 @@ const DeleteSubmission = () => {
         <div className="flex flex-wrap space-x-4  ml-4">
           <div className="flex rounded-[6px] shadow-xl flex-col border border-gray-100   w-[300px] h-[430px] transition-transform transform hover:-translate-y-1">
             <img
-              className="rounded-t-[20px] w-[300px] h-[200px]"
+              className="rounded-t-[20px] w-[300px] h-[200px] object-cover"
               src={submissionDetails.hackathon.cover_image_url}
               alt=""
             />
@@ -43,7 +43,7 @@ const DeleteSubmission = () => {
             <p className=" text-sm ml-4 text-gray-500">
               {submissionDetails.desc}
             </p>
-            <div className=" ml-6 ">
+            <div className=" ml-6 mt-[100px] ">
               <button
                 onClick={handleClick}
                 className="bg-red-500 text-white px-2 py-1 rounded-md mt-5 w-[250px]  hover:bg-red-600 "
