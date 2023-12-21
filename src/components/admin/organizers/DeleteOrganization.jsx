@@ -1,8 +1,12 @@
 import { Avatar } from "@mui/material";
 import React, { useState } from "react";
 import DeleteModal from "./DeleteModal";
+import { selectCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
+import { useSelector } from "react-redux";
 
 const DeleteOrganization = () => {
+  const orgProfile = useSelector(selectCurrentOrganizerDetail);
+  const organizer_code = orgProfile.id;
   const [isModalOpen, setModalOpen] = useState(false);
   const handleClick = () => {
     setModalOpen(true);
@@ -55,6 +59,7 @@ const DeleteOrganization = () => {
       <DeleteModal
         openModal={isModalOpen}
         closeModal={() => setModalOpen(false)}
+        id={organizer_code}
       />
     </div>
   );

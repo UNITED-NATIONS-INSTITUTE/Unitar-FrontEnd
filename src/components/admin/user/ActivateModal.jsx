@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-
+import { activateUserAccount } from "../../../api/admins/admins";
 const style = {
   position: "absolute",
   top: "50%",
@@ -15,7 +15,18 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function ActivateModal({ openModal, closeModal }) {
+export default function ActivateModal({ openModal, closeModal, user_id }) {
+  const adminActivateUser = () => {
+    activateUserAccount(user_id).then((res) => {
+      if (res.status === 200) {
+        // raise success message and close the activate modal
+        closeModal();
+      } else {
+        // raise error message
+        console.log(res.data);
+      }
+    });
+  };
   return (
     <Box>
       <Modal
@@ -43,7 +54,10 @@ export default function ActivateModal({ openModal, closeModal }) {
                     Do you really want to activate this account?
                   </p>
                   <div className="flex flex-row gap-5 mt-10">
-                    <button className="bg-[#06BD0E] text-white font-bold w-[150px] py-2 px-2 rounded-md ">
+                    <button
+                      onClick={() => adminActivateUser()}
+                      className="bg-[#06BD0E] text-white font-bold w-[150px] py-2 px-2 rounded-md "
+                    >
                       Yes, Activate
                     </button>
                     <button

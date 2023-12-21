@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import HackathonMedia from "../../common/utils/HackathonMedia";
-import DeleteHackModal from "./DeleteHackModal";
+import { useSelector } from "react-redux";
+import moment from "moment";
+import { selectSelectedHackathonDetail } from "../../../features/hackathon/hackathonSlice";
 import AdminProfile from "../AdminLogOut";
+import DeleteHackModal from "./DeleteHackModal";
 
 const DeleteHack = () => {
+  const hackathon = useSelector(selectSelectedHackathonDetail);
   const [isModalOpen, setModalOpen] = useState(false);
   const handleClick = () => {
     setModalOpen(true);
@@ -17,48 +20,93 @@ const DeleteHack = () => {
             Hackathon
           </h1>
         </div>
-        <AdminProfile />
+        <div>
+          {" "}
+          <AdminProfile />
+        </div>
       </div>
-      <p className="text-xs text-gray-500  flex flex-row mb-10 ml-60">
+      <p className="text-xs text-gray-500  flex flex-row mb-6 ml-60">
         <span>Hackathons</span>
         <img
           src="/assets/chevron-right-solid.svg"
           className="w-2 h-2 mt-[4px] "
           alt="chevron"
         />
-        <span>DevIT</span>
+        <span>{hackathon.title}</span>
       </p>
-      <div className="flex gap-[100px] ml-60">
-        <div className="flex flex-col">
-          <HackathonMedia
-            cover_image_url="/assets/image2.png"
-            avatar_url="/assets/image3.png"
-          />
-          <div className="flex flex-row gap-10 mt-[30px]">
-            <div className="text-xs">
-              <p className="font-semibold">Location</p>
-              <p className="mt-2">Nairobi</p>
+      <div className="ml-60">
+        <div className="flex flex-row gap-[150px]">
+          <div className="relative">
+            {" "}
+            <img
+              className="shadow-lg"
+              src={
+                hackathon.cover_image_url
+                  ? hackathon.cover_image_url
+                  : "/assets/no image (1).jpg"
+              }
+              alt=""
+              style={{
+                borderRadius: "6px",
+                marginLeft: "30px",
+                width: "450px",
+                height: "350px",
+                objectFit: "cover",
+              }}
+            />
+          </div>
+          <div className="flex flex-col w-[500px] ">
+            <div>
+              <p className="text-[18px]  font-semibold mt-5 ">Highlights</p>
+              <p className="text-sm mt-5">{hackathon.highlight}</p>
             </div>
-            <div className="text-xs">
-              <p className="font-semibold">Status</p>
-              <p className="text-green-500 mt-2">Active</p>
+            <div>
+              <p className="text-[18px] font-semibold mt-5">Description</p>
+              <p className="text-sm mt-5">{hackathon.description}</p>
+            </div>
+            <div>
+              <p className="text-[18px]  font-semibold mt-5">Deliverables</p>
+              <p className="text-sm mt-5">{hackathon.deliverables}</p>
+            </div>
+            <div>
+              <p className=" font-semibold mt-5 text-[18px]">Goals</p>
+              <p className="mt-2 text-sm">{hackathon.goals}</p>
             </div>
           </div>
-          <div className="mt-[40px]">
-            <p className="font-semibold text-xs">Timelines</p>
-            <div className="mt-5  gap-5">
-              <div className="mt-5 gap-5">
-                {/* {hackathon.timelines &&
+        </div>
+
+        <div className="mt-[80px] ml-[30px]">
+          <hr className="mb-10 border-t border-gray-300  " />
+          <div className="flex flex-row justify-around">
+            <div>
+              <p className="font-semibold  text-[18px]">Location</p>
+              <p className="mt-2 text-sm">{hackathon.location}</p>
+            </div>
+            <div>
+              <p className="font-semibold  text-[18px]">Status</p>
+              <p className="text-green-500 mt-2 text-[10px] py-1 border border-green-500 rounded-[20px] px-3">
+                {hackathon.status}
+              </p>
+            </div>
+            <div>
+              <p className="font-semibold  text-[18px]">Timelines</p>
+              <div className="mb-5 gap-5">
+                {hackathon.timelines &&
                   hackathon.timelines.map((field, index) => (
-                    <p className="mt-2" key={index}>
+                    <p className="text-xs mt-2" key={index}>
                       {field.period_name}: Start{" "}
-                      {moment(field.start_date).format("Do MMM YYYY ")}
+                      {moment(field.start_date).format("Do MMM YYYY")}
                     </p>
-                  ))} */}
+                  ))}
               </div>
-              <p className="font-semibold text-xs">Tags</p>
-              <div className="mt-5 flex gap-5">
-                {/* {hackathon.tags &&
+            </div>
+          </div>
+          <hr className="mb-10 border-t border-gray-300  " />
+          <div className="flex flex-row ml-[100px] gap-[150px] mb-10 items-center">
+            <div>
+              <p className="font-semibold  text-[18px] mb-2">Tags</p>
+              <div className=" flex gap-5">
+                {hackathon.tags &&
                   hackathon.tags.map((field, index) => (
                     <span
                       key={index}
@@ -66,64 +114,24 @@ const DeleteHack = () => {
                     >
                       {field.tag_name}
                     </span>
-                  ))} */}
+                  ))}
               </div>
             </div>
-            <div className="flex flex-col text-xs mt-5">
-              <p className="font-semibold mt-5 mb-2 ">Prizes</p>
-              <p className="font-semibold ">3800$</p>
+
+            <div>
+              <p className="font-semibold mb-2 text-[18px] ">Prizes</p>
+              <p className="text-sm"> {hackathon.prize}</p>
             </div>
           </div>
+          <hr className="mb-10 border-t border-gray-300  " />
         </div>
-        <div>
-          <div className="flex flex-col w-[500px]">
-            <h1 className="mt-0 text-gray-600 font-bold  text-[20px]">
-              EdTechInnovation{" "}
-            </h1>
-
-            <div>
-              <p className="text-sm  font-semibold mt-5">Highlights</p>
-              <p className="text-xs mt-5">
-                {" "}
-                Redefining synchronous learning experiences.
-              </p>
-            </div>
-            <div>
-              <p className="text-sm  font-semibold mt-5">Description</p>
-              <p className="text-xs mt-5">
-                {" "}
-                A revolutionary platform designed to empower educators with
-                cutting-edge tools for immersive and engaging virtual
-                classrooms.
-              </p>
-            </div>
-            <div>
-              <p className="text-sm  font-semibold mt-5">Deliverables</p>
-              <p className="text-xs mt-5">
-                Pitch Presentation, Prototype/MVP,Demo Video{" "}
-              </p>
-            </div>
-            <div>
-              <p className="text-sm font-semibold mt-5">Goals</p>
-              <div className="text-xs">
-                1.Prototype Development: Goal: Create a functional prototype
-                showcasing the core features of the EdTech solution. User
-                2.Engagement: Goal: Collect valuable feedback from judges and
-                potential users to enhance the project. 3.Effective Pitch: Goal:
-                Deliver a compelling pitch presentation highlighting the
-                problem, solution, and impact of the EdTechInnovation.
-              </div>
-            </div>
-
-            <div>
-              <button
-                onClick={handleClick}
-                className="bg-[#D40C0C] text-white px-3 py-2 rounded-md mt-5 w-[150px] hover:bg-red-700 "
-              >
-                Delete
-              </button>
-            </div>
-          </div>
+        <div className="flex justify-end">
+          <button
+            onClick={handleClick}
+            className="bg-[#D40C0C] mb-5  text-white px-3 py-2 rounded-md  w-[150px] hover:bg-red-700 "
+          >
+            Delete
+          </button>
         </div>
       </div>
       <DeleteHackModal

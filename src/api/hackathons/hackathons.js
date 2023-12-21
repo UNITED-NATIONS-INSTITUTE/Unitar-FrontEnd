@@ -110,3 +110,8 @@ export const adminValidateHackathon = async (hackathon_id) => {
 export const deleteHackathon = async (hackathon_id) => {
   return await axiosApi.delete(`/hackathons/${hackathon_id}`);
 };
+
+// xxi
+export const deleteHackathonCategory = async (tag_id) => {
+  return await axiosApi.delete(`/tags/${tag_id}`);
+};

@@ -12,15 +12,14 @@ const style = {
   bgcolor: "background.paper",
   boxShadow: 24,
   p: 4,
-
   borderRadius: "10px",
 };
 
-export default function SuccessModal({ openModal, closeModal }) {
+export default function AddMediaModal({ setModalOpen, closeModal }) {
   return (
     <Box>
       <Modal
-        open={openModal}
+        open={setModalOpen}
         onClose={closeModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
@@ -39,11 +38,11 @@ export default function SuccessModal({ openModal, closeModal }) {
                   </div>
 
                   <h1 className="font-bold font-Lexend-Exa  text-center">
-                    Profile Creation
+                    Create Hackathon
                   </h1>
 
                   <p className="items-center text-gray-700  ">
-                    You have successfully created your profile
+                    Hackathon successfully created and activated
                   </p>
                 </div>
               </Box>

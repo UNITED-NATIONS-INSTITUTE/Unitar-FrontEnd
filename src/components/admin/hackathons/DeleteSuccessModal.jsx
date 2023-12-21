@@ -12,11 +12,10 @@ const style = {
   bgcolor: "background.paper",
   boxShadow: 24,
   p: 4,
-
   borderRadius: "10px",
 };
 
-export default function SuccessModal({ openModal, closeModal }) {
+export default function DeleteSuccessModal({ openModal, closeModal }) {
   return (
     <Box>
       <Modal
@@ -39,12 +38,8 @@ export default function SuccessModal({ openModal, closeModal }) {
                   </div>
 
                   <h1 className="font-bold font-Lexend-Exa  text-center">
-                    Profile Creation
+                    Deletion Successful
                   </h1>
-
-                  <p className="items-center text-gray-700  ">
-                    You have successfully created your profile
-                  </p>
                 </div>
               </Box>
             </Box>

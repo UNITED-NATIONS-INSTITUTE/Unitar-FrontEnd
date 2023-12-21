@@ -12,7 +12,10 @@ import CustomDataGrid from "../../common/utils/CustomDataGrid";
 import AdminProfile from "../AdminLogOut";
 import { useDispatch } from "react-redux";
 import { setSelectedHackathonDetail } from "../../../features/hackathon/hackathonSlice";
+import { LinearProgress } from "@mui/material";
+
 const AllHackathons = () => {
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const [hackathonsPayload, setHackathonsPayload] = useState([]);
   const dispatch = useDispatch();
@@ -20,6 +23,7 @@ const AllHackathons = () => {
     getAllHackathons().then((res) => {
       if (res.status === 200) {
         setHackathonsPayload(res.data);
+        setLoading(false);
       }
     });
   };
@@ -102,14 +106,16 @@ const AllHackathons = () => {
           <AdminProfile />
         </div>
         <h1 className="text-[24px] font-bold text-gray-600">All Hackathons</h1>
-
-        <div className="flex-grow">
-          <CustomDataGrid
-            sx={{ mt: 3 }}
-            rows={hackathonsPayload}
-            columns={columns}
-          />
-        </div>
+        {loading && <LinearProgress />}
+        {!loading && (
+          <div className="flex-grow">
+            <CustomDataGrid
+              sx={{ mt: 3 }}
+              rows={hackathonsPayload}
+              columns={columns}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

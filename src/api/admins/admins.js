@@ -19,8 +19,17 @@ export const adminCreateUser = async (
   });
 };
 export const activateUserAccount = async (user_code) => {
-  return await axiosApi.get(`admins/users/activate/${user_code}`);
+  return await axiosApi.patch(`admins/users/activate/${user_code}`);
 };
+
+export const deactivateUserAccount = async (user_code) => {
+  return await axiosApi.patch(`admins/users/deactivate/${user_code}`);
+};
+
+export const deleteUserAccount = async (user_code) => {
+  return await axiosApi.delete(`/users/${user_code}`);
+};
+
 export const getParticipants = async () => {
   return await axiosApi.get("/admins/participants/");
 };

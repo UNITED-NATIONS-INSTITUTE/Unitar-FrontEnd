@@ -82,7 +82,7 @@ const UserProfile = () => {
           <MenuItem onClick={() => navigate("/participant/profile")}>
             Profile
           </MenuItem>
-          <MenuItem>Settings</MenuItem>
+          {/* <MenuItem>Settings</MenuItem> */}
           <MenuItem onClick={handleLogOut}>Logout</MenuItem>
         </Menu>
       </div>

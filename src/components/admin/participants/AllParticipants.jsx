@@ -13,7 +13,7 @@ import { useDispatch } from "react-redux";
 import { setCurrentParticipantDetail } from "../../../features/participant/participantSlice";
 import { LinearProgress } from "@mui/material";
 const AllParticipants = () => {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [participantsPayload, setParticipantsPayload] = useState([]);
@@ -21,13 +21,13 @@ const AllParticipants = () => {
     getParticipants().then((res) => {
       if (res.status === 200) {
         setParticipantsPayload(res.data);
-        setLoading(false)
+        setLoading(false);
       }
     });
   };
   const handleActionClick = (params) => {
     dispatch(setCurrentParticipantDetail({ currentParticipantDetail: params }));
-  }
+  };
 
   useEffect(() => {
     fetchParticipants();
@@ -59,9 +59,7 @@ const AllParticipants = () => {
             <MenuItem onClick={() => navigate("/admin/participants/detail")}>
               View participant
             </MenuItem>
-            <MenuItem onClick={() => navigate("/admin/participants/edit")}>
-              Edit participant
-            </MenuItem>
+
             <MenuItem onClick={() => navigate("/admin/participants/delete")}>
               Delete participant
             </MenuItem>
@@ -80,12 +78,14 @@ const AllParticipants = () => {
         <h1 className="text-[24px] font-bold text-gray-600">
           All Participants
         </h1>
-        {loading && <LinearProgress/>}
-        {!loading && <CustomDataGrid
-          sx={{ mt: 3 }}
-          rows={participantsPayload}
-          columns={columns}
-        />}
+        {loading && <LinearProgress />}
+        {!loading && (
+          <CustomDataGrid
+            sx={{ mt: 3 }}
+            rows={participantsPayload}
+            columns={columns}
+          />
+        )}
       </div>
     </div>
   );

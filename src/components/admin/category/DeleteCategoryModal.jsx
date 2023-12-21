@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { useNavigate } from "react-router-dom";
 
+import { deleteHackathonCategory } from "../../../api/hackathons/hackathons";
+import SuccessfulDeletionModal from "./SuccessfulDeletionModal";
 const style = {
   position: "absolute",
   top: "50%",
@@ -16,7 +18,28 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function DeleteHackModal({ openModal, closeModal, deleteSub }) {
+export default function DeleteChipModal({ openModal, closeModal, category }) {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
+  const closeDeleteModal = () => {
+    setModalOpen(false);
+  };
+  console.log(category);
+  const handleDelete = () => {
+    deleteHackathonCategory(category).then((res) => {
+      if (res.status === 204) {
+        setModalOpen(true);
+
+        setTimeout(() => {
+          closeDeleteModal();
+          navigate("/admin/category");
+        }, 3000);
+      } else {
+        alert("errror deleting tag");
+      }
+    });
+  };
+
   return (
     <Box>
       <Modal
@@ -31,7 +54,7 @@ export default function DeleteHackModal({ openModal, closeModal, deleteSub }) {
               <Box className="flex space-x-4 ">
                 <div>
                   <h1 className="font-bold text-[20px]  font-Lexend-Exa  text-center">
-                    Delete Hackathon
+                    Delete Hackathon Category
                   </h1>
                   <div className="flex justify-center ">
                     <img
@@ -40,22 +63,28 @@ export default function DeleteHackModal({ openModal, closeModal, deleteSub }) {
                       className="w-[80px] h-[80px]"
                     />
                   </div>
-                  <p className=" text-center text-gray-700 text-sm ">
-                    Do you really want to delete this Submission? Deleting this
-                    subission will erase all it's data
-                  </p>
 
-                  <div className="flex flex-row gap-5 mt-5 justify-center">
-                    <button onClick={() => deleteSub()} className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md ">
+                  <p className="text-sm items-center text-gray-700  ">
+                    Delete this Category?
+                  </p>
+                  <div className="flex flex-row gap-5 mt-6 justify-center">
+                    <button
+                      onClick={() => handleDelete()}
+                      className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md "
+                    >
                       Yes, Delete
                     </button>
                     <button
                       onClick={closeModal}
                       className="py-2 border border-black rounded-md w-[150px]"
                     >
-                      No, Cancel
+                      Cancel
                     </button>
                   </div>
+                  <SuccessfulDeletionModal
+                    openModal={isModalOpen}
+                    closeModal={closeDeleteModal}
+                  />
                 </div>
               </Box>
             </Box>

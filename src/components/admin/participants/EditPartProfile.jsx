@@ -29,7 +29,6 @@ const EditPartProfile = () => {
       setModalOpen(true);
       setTimeout(() => {
         setModalOpen(false);
-
         navigate("/admin/participants");
       }, 1500);
     } catch (error) {
@@ -71,7 +70,7 @@ const EditPartProfile = () => {
               <input
                 type="text"
                 name="first_name"
-                value={formData.first_name || " "}
+                value={formData?.first_name || ""}
                 onChange={handleChange}
                 className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
           focus:outline-none focus:border-custom-blue"
@@ -84,7 +83,7 @@ const EditPartProfile = () => {
               <input
                 type="text"
                 name="last_name"
-                value={formData.last_name || " "}
+                value={formData?.last_name || ""}
                 onChange={handleChange}
                 className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
           focus:outline-none focus:border-custom-blue"
@@ -97,7 +96,7 @@ const EditPartProfile = () => {
               <input
                 type="text"
                 name="residence"
-                value={formData.residence || " "}
+                value={formData?.residence || ""}
                 onChange={handleChange}
                 className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
           focus:outline-none focus:border-custom-blue"
@@ -110,7 +109,7 @@ const EditPartProfile = () => {
               <input
                 type="text"
                 name="date_of_birth"
-                value={formData.date_of_birth || " "}
+                value={formData?.date_of_birth || ""}
                 onChange={handleChange}
                 className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
           focus:outline-none focus:border-custom-blue"
@@ -132,7 +131,7 @@ const EditPartProfile = () => {
           </div>
           <Avatar
             alt="Profile pic"
-            src={formData.profile_image_url}
+            src={formData?.profile_image_url || ""}
             sx={{ width: "100px", height: "100px", marginTop: "50px" }}
           />
           <span className="text-sm mt-5">Your photo</span>

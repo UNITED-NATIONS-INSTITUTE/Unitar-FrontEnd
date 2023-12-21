@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-
+import { deactivateUserAccount } from "../../../api/admins/admins";
 const style = {
   position: "absolute",
   top: "50%",
@@ -15,7 +15,18 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function DeactivateModal({ openModal, closeModal }) {
+export default function DeactivateModal({ openModal, closeModal, user_id }) {
+  const adminDeactivateUser = () => {
+    deactivateUserAccount(user_id).then((res) => {
+      if (res.status === 200) {
+        // raise success message and close the deactivate modal
+        closeModal();
+      } else {
+        // raise error message
+        console.log(res.data);
+      }
+    });
+  };
   return (
     <Box>
       <Modal
@@ -45,7 +56,10 @@ export default function DeactivateModal({ openModal, closeModal }) {
                   </p>
 
                   <div className="flex flex-row gap-5 mt-6">
-                    <button className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md  ">
+                    <button
+                      onClick={() => adminDeactivateUser()}
+                      className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md  "
+                    >
                       Yes, Deactivate
                     </button>
                     <button

@@ -76,7 +76,6 @@ const SubmitHackDetails = () => {
             className="w-[400px] px-3 py-2 border border-gray-400 rounded text-xs
               focus:outline-none focus:border-custom-blue "
             placeholder=""
-            required
           />
           <span className="text-xs text-gray-500 mt-2">
             Do not exceed 20 characters writing the project name
@@ -108,7 +107,6 @@ const SubmitHackDetails = () => {
             className="w-[400px] px-3 py-2 border border-gray-400 rounded text-xs
               focus:outline-none focus:border-custom-blue "
             placeholder=""
-            required
           />
         </div>
         <div className="flex-col flex">
@@ -122,7 +120,6 @@ const SubmitHackDetails = () => {
               className="w-[300px] px-3 py-2 border border-grey-600 rounded text-xs
         focus:outline-none focus:border-custom-blue "
               placeholder=""
-              required
             />
             <span className="text-gray-400 text-xs mt-2">Must be a URL</span>
 
@@ -137,7 +134,6 @@ const SubmitHackDetails = () => {
               className="w-[300px] px-3 py-2 border border-grey-600 rounded text-xs
         focus:outline-none focus:border-custom-blue "
               placeholder=""
-              required
             />
 
             <label className="mt-5 mb-2 text-xs">Project live link</label>
@@ -149,7 +145,6 @@ const SubmitHackDetails = () => {
               className="w-[300px] px-3 py-2 border border-grey-600 rounded text-xs
         focus:outline-none focus:border-custom-blue"
               placeholder=""
-              required
             />
 
             <label className="mt-5 mb-2 text-xs">
