@@ -21,7 +21,7 @@ const DeleteSubmission = () => {
           navigate(-1);
         }, 2000);
       } else {
-        alert("error");
+        alert("Error deleting submission");
       }
     });
   };
@@ -49,6 +49,7 @@ const DeleteSubmission = () => {
             <p className=" text-sm ml-4 text-gray-700 mt-3 mb-1 font-bold">
               {submissionDetails.title}
             </p>
+
             <p className=" text-sm ml-4 text-gray-500">
               {submissionDetails.desc}
             </p>

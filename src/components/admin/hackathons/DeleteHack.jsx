@@ -37,7 +37,6 @@ const DeleteHack = () => {
       <div className="ml-60">
         <div className="flex flex-row gap-[150px]">
           <div className="relative">
-            {" "}
             <img
               className="shadow-lg"
               src={
