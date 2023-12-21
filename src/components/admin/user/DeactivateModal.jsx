@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { deactivateUserAccount } from "../../../api/admins/admins";
+import SuccessfulDeactivationModal from "./SuccessfulDeactivationModal";
 const style = {
   position: "absolute",
   top: "50%",
@@ -16,65 +17,78 @@ const style = {
 };
 
 export default function DeactivateModal({ openModal, closeModal, user_id }) {
+  const [isSuccessModalOpen, setSuccessModalOpen] = useState(false);
+
   const adminDeactivateUser = () => {
     deactivateUserAccount(user_id).then((res) => {
       if (res.status === 200) {
-        // raise success message and close the deactivate modal
         closeModal();
+        setSuccessModalOpen(true);
+        setTimeout(() => {
+          setSuccessModalOpen(false);
+          window.location.reload();
+        }, 2000);
       } else {
-        // raise error message
-        console.log(res.data);
+        alert("Error deactivating user");
       }
     });
   };
   return (
-    <Box>
-      <Modal
-        open={openModal}
-        onClose={closeModal}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Box className=" flex items-center justify-center">
-            <Box>
-              <Box className="flex space-x-4 ">
-                <div>
-                  <h1 className="font-bold text-[20px] font-Lexend-Exa  text-center">
-                    Deactivate Account
-                  </h1>
-                  <div className="flex justify-center ">
-                    <img
-                      src="/assets/deactivate.jpg"
-                      alt=""
-                      className="w-[100px] h-[100px]"
-                    />
-                  </div>
+    <>
+      {isSuccessModalOpen && (
+        <SuccessfulDeactivationModal
+          CloseModal={() => setSuccessModalOpen(false)}
+          openModal={isSuccessModalOpen}
+        />
+      )}
+      <Box>
+        <Modal
+          open={openModal}
+          onClose={closeModal}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Box className=" flex items-center justify-center">
+              <Box>
+                <Box className="flex space-x-4 ">
+                  <div>
+                    <h1 className="font-bold text-[20px] font-Lexend-Exa  text-center">
+                      Deactivate Account
+                    </h1>
+                    <div className="flex justify-center ">
+                      <img
+                        src="/assets/deactivate.jpg"
+                        alt=""
+                        className="w-[100px] h-[100px]"
+                      />
+                    </div>
 
-                  <p className=" text-center text-gray-700 text-sm ">
-                    Do you really want to deactivate this account?
-                  </p>
+                    <p className=" text-center text-gray-700 text-sm ">
+                      Do you really want to deactivate this account?
+                    </p>
 
-                  <div className="flex flex-row gap-5 mt-6">
-                    <button
-                      onClick={() => adminDeactivateUser()}
-                      className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md  "
-                    >
-                      Yes, Deactivate
-                    </button>
-                    <button
-                      onClick={closeModal}
-                      className="border  border-black rounded-md w-[150px] py-2 px-2 "
-                    >
-                      No, Cancel
-                    </button>
+                    <div className="flex flex-row gap-5 mt-6">
+                      <button
+                        onClick={() => adminDeactivateUser()}
+                        className="bg-[#D40C0C] text-white font-bold w-[150px] py-2 px-2 rounded-md  "
+                      >
+                        Yes, Deactivate
+                      </button>
+                      <button
+                        onClick={closeModal}
+                        className="border  border-black rounded-md w-[150px] py-2 px-2 "
+                      >
+                        No, Cancel
+                      </button>
+                    </div>
                   </div>
-                </div>
+                </Box>
               </Box>
             </Box>
           </Box>
-        </Box>
-      </Modal>
-    </Box>
+        </Modal>
+      </Box>
+    </>
   );
 }
