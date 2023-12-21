@@ -3,13 +3,32 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import DeleteModal from "./DeleteModal";
 import { selectCurrentParticipantDetail } from "../../../features/participant/participantSlice";
+import { deleteParticipantProfile } from "../../../api/accounts/accounts";
+import DeleteSuccessModal from "../hackathons/DeleteSuccessModal";
+import { useNavigate } from "react-router-dom";
 
 const DeleteParticipant = () => {
+  const navigate = useNavigate();
+  const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
   const partProfile = useSelector(selectCurrentParticipantDetail);
   const participant_code = partProfile.id;
   const [isModalOpen, setModalOpen] = useState(false);
   const handleClick = () => {
     setModalOpen(true);
+  };
+  const handleDeleteUserAccount = (id) => {
+    deleteParticipantProfile(id).then((res) => {
+      if (res.status === 204) {
+        setModalOpen(false);
+        setDeleteModalOpen(true);
+        setTimeout(() => {
+          setDeleteModalOpen(false);
+          navigate(-1);
+        }, 2000);
+      } else {
+        alert("Error Deleting Account");
+      }
+    });
   };
   return (
     <div className="right-side min-h-screen bg-pattern">
@@ -76,6 +95,11 @@ const DeleteParticipant = () => {
         openModal={isModalOpen}
         closeModal={() => setModalOpen(false)}
         id={participant_code}
+        deleteAction={handleDeleteUserAccount}
+      />
+      <DeleteSuccessModal
+        openModal={isDeleteModalOpen}
+        closeModal={() => setDeleteModalOpen(false)}
       />
     </div>
   );
