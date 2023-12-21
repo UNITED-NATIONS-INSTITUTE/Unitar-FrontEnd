@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import HackathonMedia from "../../common/utils/HackathonMedia";
 import { getOrganizerHackathons } from "../../../api/hackathons/hackathons";
 import { selectCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
 import { CircularProgress } from "@mui/material";
-
+import { setCurrentHackathonDetail } from "../../../features/hackathon/hackathonSlice";
 const ViewHackathons = () => {
   const [loading, setLoading] = useState(true);
   const organizer = useSelector(selectCurrentOrganizerDetail);
   const organizer_id = organizer.id;
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [organizerHackathons, setOrganizerHackathons] = useState([]);
 
   const fetchHackathons = () => {
@@ -20,6 +21,13 @@ const ViewHackathons = () => {
         setLoading(false);
       }
     });
+  };
+
+  const handleViewhackathonDetails = (hackathonDetail) => {
+    dispatch(
+      setCurrentHackathonDetail({ currentHackathonDetail: hackathonDetail })
+    );
+    navigate("details");
   };
 
   useEffect(() => {
@@ -59,7 +67,7 @@ const ViewHackathons = () => {
                 </div>
                 <div className="flex gap-5 mt-[100px] ml-[22px]">
                   <button
-                    onClick={() => navigate("details")}
+                    onClick={() => handleViewhackathonDetails(field)}
                     className="border border-blue-500 rounded-md text-blue-500 w-[250px] text-xs mt-[50px] py-1 hover:bg-custom-blue mb-3 hover:text-white"
                   >
                     View Details
