@@ -5,6 +5,7 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { evaluateHackathon } from "../../api/hackathons/hackathons";
 import { selectCurrentSubscriptionDetail } from "../../features/subscription/subscriptionSlice";
+import { useNavigate } from "react-router-dom";
 const style = {
   position: "absolute",
   top: "50%",
@@ -31,11 +32,16 @@ export default function GradingModal({ openModal, handleClose }) {
   const subscription = useSelector(selectCurrentSubscriptionDetail);
   const [graded, setGraded] = useState("");
   const [grade, setGrade] = useState(0);
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     evaluateHackathon(subscription.id, grade).then((res) => {
       if (res.status === 200) {
         setGraded("Submission graded successfully!");
+        setTimeout(() => {
+          handleClose();
+          navigate(-1);
+        }, 2000);
       }
     });
   };
