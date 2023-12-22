@@ -3,6 +3,7 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { activateUserAccount } from "../../../api/admins/admins";
 import SuccessfulActivationModal from "./SuccessfulActivation";
+import VerifiedIcon from "@mui/icons-material/Verified";
 const style = {
   position: "absolute",
   top: "50%",
@@ -53,14 +54,10 @@ export default function ActivateModal({ openModal, closeModal, user_id }) {
                 <Box className="flex space-x-4 ">
                   <div>
                     <h1 className="font-bold text-[20px]  font-Lexend-Exa  text-center">
-                      Activate User's Account
+                      Activate User Account
                     </h1>
                     <div className="flex justify-center ">
-                      <img
-                        src="/assets/activate.jpg"
-                        alt=""
-                        className="w-[100px] h-[100px]"
-                      />
+                      <VerifiedIcon fontSize="large" color="primary" />
                     </div>
                     <p className=" text-center text-gray-700 text-sm mt-2 ">
                       Do you really want to activate this account?
