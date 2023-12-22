@@ -7,12 +7,12 @@ import Footer from "./Footer";
 
 const BannerItem = () => {
   return (
-    <div className="bg-[#1C272E]">
-      <h3 className="text-white text-4xl font-bold text-center pt-20">
+    <div className="bg-[#1C272E] w-full min-w-full">
+      <h3 className="text-white text-4xl font-bold text-[24px] text-center pt-20">
         Check all features
       </h3>
 
-      <div className=" grid grid-cols-3 gap-4 mx-auto pr-20 py-16">
+      <div className=" lg:grid lg:grid-cols-3 flex-col  gap-4 mx-auto lg:pr-20 lg:py-16">
         <FeatureBanner
           icon={icon1}
           heading="Diverse Hackathons"

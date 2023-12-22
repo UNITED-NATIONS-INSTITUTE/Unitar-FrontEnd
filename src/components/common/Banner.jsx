@@ -12,7 +12,7 @@ import {
 } from "../../assets";
 const Banner = () => {
   return (
-    <section className=" relative md:mt-[170px] w-full md:h-[472px] bg-[#1c272e] ">
+    <section className=" relative lg:mt-[170px] min-w-full md:h-[472px] bg-[#1c272e] ">
       <p className=" text-center text-white font-lexend-exa text-24 font-semibold leading-34 tracking-wide pt-[100px]  ">
         Brands that are collaborating with us
       </p>
@@ -22,7 +22,7 @@ const Banner = () => {
         <img src={virogan} />
       </div>
 
-      <div className="flex-wrap w-full gap-11 flex justify-center items-center flex-shrink-0 mt-10 ">
+      <div className="flex-wrap w-full pb-10 gap-11 flex justify-center items-center flex-shrink-0 mt-10 ">
         <img src={vertex} />
         <img src={aromix} />
         <img src={fireli} />
