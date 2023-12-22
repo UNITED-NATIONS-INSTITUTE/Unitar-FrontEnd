@@ -6,16 +6,16 @@ const Showcase = () => {
   return (
     <>
       <div className=" bg-[white]   ">
-        <div className=" lg:flex items-center gap-10 bg-[#F9FAFE] lg:ml-[98px] rounded-3xl lg:mr-[98px]">
+        <div className=" lg:flex items-center gap-10 bg-[#F9FAFE] lg:ml-[98px] rounded-3xl  lg:mr-[40px]">
           <img
             src={woman}
-            className="lg:w-[600px] w-full mt-11 lg:ml-11 rounded-lg"
+            className="lg:w-[600px] w-full mt-11 lg:ml-11 rounded-lg mb-10"
           />
           <div>
-            <h4 className="text-[#12141D] text-center lg:text-left lg:text-4xl font-lexend-exa mb-11  font-semibold ">
+            <h4 className="text-[#12141D] text-center text-[24px] lg:text-left lg:text-4xl font-lexend-exa  font-semibold ">
               Showcase Your <br /> Skills
             </h4>
-            <p className="text-[#12141D] mr-1 text-[18px] mt-3 lg:text-left lg:w-[440px] text-center">
+            <p className="text-[#12141D]  text-[18px] mt-3 lg:text-left lg:w-[440px] text-center">
               Make your mark in the tech and innovation landscape. Showcase your
               talents through innovative solutions, and grab the attention of
               potential employers and collaborators.
@@ -23,14 +23,14 @@ const Showcase = () => {
           </div>
         </div>
 
-        <h2 className=" mt-11  text-[#12141D] text-center  lg:text-4xl font-lexend-exa   font-semibold ">
+        <h2 className=" mt-11 text-[24px]  text-[#12141D] text-center  lg:text-4xl font-lexend-exa   font-semibold ">
           For Organizers
         </h2>
-        <div className="bg-[#F9FAFE] mt-[100px]">
+        <div className="bg-[#F9FAFE] lg:mt-[100px]">
           <div className="lg:flex items-center justify-center mt-11 ">
             <img src={karen} />
             <div className="lg:mt-[115px] mt-5 mr-[20px]">
-              <h5 className="text-[#12141D] font-lexend-exa lg:text-[28px] lg:text-left text-[20px] text-center font-bold lg:ml-[100px]   ">
+              <h5 className="text-[#12141D] font-lexend-exa lg:text-[28px] lg:text-left text-[24px] text-center font-bold lg:ml-[100px]   ">
                 Tap into Talent
               </h5>
               <p className="mt-5 text-[#12141D] text-center lg:text-left  text-[18px] lg:ml-[100px] ">
@@ -45,7 +45,7 @@ const Showcase = () => {
         <div className="mt-10 bg-white  w-full min-h-screen p-2 ">
           <div className=" lg:flex justify-center items-center ">
             <div className="lg:w-[494px] ">
-              <h4 className="text-[#12141D] text-center lg:text-left lg:text-4xl font-lexend-exa  font-semibold ">
+              <h4 className="text-[#12141D] text-[24px] text-center lg:text-left lg:text-4xl font-lexend-exa  font-semibold ">
                 Drive Innovation
               </h4>
               <p className="text-[#12141D] text-[18px] mt-3 lg:text-left text-center">
@@ -62,20 +62,19 @@ const Showcase = () => {
               />{" "}
             </div>
           </div>
-        </div>
-
-        <div className=" lg:flex items-center gap-10 bg-[#F9FAFE] lg:ml-[98px] rounded-3xl lg:mr-[98px]">
-          <img src={man} className="w-[600px] lg:mt-11 lg:ml-11 rounded-lg" />
-          <div>
-            <h4 className="text-[#12141D] text-center lg:text-left lg:text-4xl font-lexend-exa mb-11  font-semibold ">
-              Boost Your Brand
-            </h4>
-            <p className="text-[#12141D] text-[18px] mt-3 lg:text-left lg:w-[440px] text-center">
-              Associate your organization with innovation. Be a catalyst for
-              change and join a community that values pushing the boundaries of
-              what's possible.
-            </p>
-          </div>
+          <div className=" lg:flex items-center gap-10 bg-[#F9FAFE] lg:ml-[98px] rounded-3xl lg:mr-[40px]">
+            <img src={man} className="w-[600px] lg:mt-11 lg:ml-11 rounded-lg" />
+            <div>
+              <h4 className="text-[#12141D]  mt-6 text-[24px] text-center lg:text-left lg:text-4xl font-lexend-exa   font-semibold ">
+                Boost Your Brand
+              </h4>
+              <p className="text-[#12141D] text-[18px] mt-3 lg:text-left lg:w-[440px] text-center">
+                Associate your organization with innovation. Be a catalyst for
+                change and join a community that values pushing the boundaries
+                of what's possible.
+              </p>
+            </div>
+          </div>{" "}
         </div>
       </div>{" "}
       {/* <FeatureBanner /> */}

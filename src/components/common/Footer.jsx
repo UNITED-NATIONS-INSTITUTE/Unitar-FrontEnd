@@ -17,7 +17,7 @@ const Footer = () => {
         Ignite innovation today - <br /> sign up now for the ultimate <br />{" "}
         hackathon experience
       </div>
-      <div className="flex items-center justify-center mt-4">
+      <div className="flex items-center justify-center lg:mt-4 mt-9">
         <button
           onClick={() => navigate("/login")}
           className="bg-[#089BD9] text-white p-[16px] text-center h-[55px] w-[192px] rounded-[5px]"
@@ -26,14 +26,14 @@ const Footer = () => {
         </button>
       </div>
 
-      <div className="flex justify-between mt-[200px] ml-[40px] border-b-3 border-black">
+      <div className="lg:flex  justify-between lg:mt-[200px] mt-10 lg:ml-[40px] ml-[70px] border-b-3 border-black">
         <img src={logo} />
 
-        <div className="flex justify-center gap-6 mr-[50px]">
-          <FaFacebookF />
-          <FaTwitter />
-          <FaInstagram />
-          <FaGithub />
+        <div className="flex justify-center gap-6 mr-[80px] lg:mr-[50px] mt-10 lg:mt-1 text-custom-blue">
+          <FaFacebookF size="30" />
+          <FaTwitter size="30" />
+          <FaInstagram size="30" />
+          <FaGithub size="30" />
         </div>
       </div>
       <img src={line} className="mt-3" />

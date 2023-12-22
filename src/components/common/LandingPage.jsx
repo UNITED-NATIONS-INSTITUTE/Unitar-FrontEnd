@@ -12,17 +12,17 @@ const LandingPage = () => {
   const closeModal = () => setOpenSignUpModal(false);
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="">
       <Navbar openModal={openModal} />
       <BasicModal openModal={openSignUpModal} handleClose={closeModal} />
       <div className="w-full h-screen text-center  ">
         <div className="w-full h-screen text-center relative ">
           <div className=" mx-auto p-2 flex justify-center">
-            <div className="mt-[60px]">
-              <h1 className=" text-[12141D] items-center text-center font-Lexend-Exa lg:text-6xl font-extrabold leading-11 tracking-wider  ">
+            <div className="mt-[60px] z-10">
+              <h1 className=" text-[12141D] items-center text-center font-Lexend-Exa text-[24px] lg:text-6xl font-extrabold leading-11 tracking-wider  ">
                 Unleashing Innovation, <br /> One Hackathon at a Time!
               </h1>
-              <p className="text-center lg:w-[588px] mt-7 ml-20 font-normal">
+              <p className="text-center lg:w-[588px] mt-7 lg:ml-20 font-normal text-[18px] ">
                 Join a global community of thinkers, dreamers, and doers.
                 Whether you're here to conquer challenges or host groundbreaking
                 hackathons, this is where innovation takes center stage.
@@ -56,7 +56,7 @@ const LandingPage = () => {
           <div className="absolute lg:flex  left-[400px] mt-[120px]  hidden  flex-col justify-center items-center gap-4 p-4 w-[163px] transform -rotate-5 border-2 border-solid border-transparent rounded-10  ">
             <img src={frame} />
           </div>
-          <div className="absolute  left-[760px] mt-[24px]   w-[400px]  rounded-10  ">
+          <div className="absolute lg:flex  left-[760px] mt-[14px] hidden    w-[400px]  rounded-10  ">
             <img src={views} />
           </div>
         </div>

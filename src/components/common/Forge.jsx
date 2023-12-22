@@ -7,7 +7,7 @@ const Forge = () => {
     <div className="mt-10 bg-white  w-full min-h-screen p-2 ">
       <div className=" lg:flex justify-center items-center ">
         <div className="lg:w-[494px] ">
-          <h4 className="text-[#12141D] text-center lg:text-left lg:text-4xl font-lexend-exa  font-semibold ">
+          <h4 className="text-[#12141D] text-center text-[24px] lg:text-left lg:text-4xl font-lexend-exa  font-semibold ">
             Forge Connections
           </h4>
           <p className="text-[#12141D] text-[18px] mt-3 lg:text-left text-center">
@@ -24,6 +24,7 @@ const Forge = () => {
           />{" "}
         </div>
       </div>
+      <Showcase />
     </div>
   );
 };
