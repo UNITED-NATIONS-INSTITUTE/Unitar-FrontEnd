@@ -53,7 +53,7 @@ const OpenHackathon = () => {
                   <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-white p-4 rounded-[20px] border-[#7C7C7C] border-t">
                     <p className="text-sm font-bold mt-4">{field.title}</p>
                     <p className="text-sm text-gray-700">{field.highlight}</p>
-                    <p className="text-xs text-gray-500  mt-2 h-[45px] overflow-hidden">
+                    <p className="text-xs text-gray-500  mt-2 h-[30px] overflow-hidden">
                       {field.description}
                     </p>{" "}
                   </div>
