@@ -24,7 +24,7 @@ const CodeVerification = () => {
   };
   return (
     <div className="min-h-screen bg-white right-side">
-      <div className="ml-60">
+      <div className="ml-80">
         <h1 className=" text-gray-600 font-bold  text-[24px] mb-9 mt-10">
           Code Verification
         </h1>{" "}
