@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { selectSelectedHackathonDetail } from "../../../features/hackathon/hackathonSlice";
 import { deleteHackathon } from "../../../api/hackathons/hackathons";
 import DeleteSuccessModal from "./DeleteSuccessModal";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const style = {
   position: "absolute",
@@ -72,10 +73,13 @@ export default function DeleteHackModal({ openModal, closeModal }) {
                       <p className="text-red-500 text-xs">{{ errorMessage }}</p>
                     )}
                     <div className="flex justify-center ">
-                      <img
-                        src="/assets/bin.jpg"
-                        alt=""
-                        className="w-[80px] h-[80px]"
+                      <DeleteIcon
+                        fontSize="large"
+                        style={{
+                          color: "#D40C0C",
+                          width: "80px",
+                          height: "80px",
+                        }}
                       />
                     </div>
                     <p className="text-center text-gray-700 text-sm ">
