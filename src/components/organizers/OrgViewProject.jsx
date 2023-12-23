@@ -100,7 +100,7 @@ const OrgViewProject = () => {
             </div>
           </div>
           <hr className="mb-10 border-t border-gray-300  " />
-          <div className="flex flex-row ml-[100px] gap-[150px] mb-10 items-center">
+          <div className="flex  justify-around gap-[150px] mb-10 items-center">
             <div>
               <p className="font-semibold  text-[18px] mb-2">Tags</p>
               <div className=" flex gap-5">
@@ -122,16 +122,16 @@ const OrgViewProject = () => {
             </div>
           </div>
           <hr className="mb-10 border-t border-gray-300  " />
+          <div className="flex justify-end">
+            <button
+              onClick={() => navigate("/organizer/hackathons/edit")}
+              type="submit"
+              className="  text-white  text-xs font-semibold bg-custom-blue mr-[200px] rounded-md p-2 w-[130px] mt-[50px]"
+            >
+              Edit Details
+            </button>
+          </div>
         </div>{" "}
-        <div className="flex justify-end">
-          <button
-            onClick={() => navigate("/organizer/hackathons/edit")}
-            type="submit"
-            className="  text-white  text-xs font-semibold bg-custom-blue mr-[200px] rounded-md p-2 w-[150px] mt-[50px]"
-          >
-            Edit Details
-          </button>
-        </div>
       </div>
     </div>
   );
