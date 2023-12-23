@@ -10,7 +10,7 @@ const OrgProfilePage = () => {
 
   return (
     <div className="right-side min-h-screen bg-pattern">
-      <div className="ml-60">
+      <div className="ml-80">
         <h1 className="text-gray-600 text-[24px] font-bold">User Profile</h1>
         <div className="flex flex-row gap-[100px]">
           <div className="mt-3 flex flex-col items-center justify-center bg-[#f0f6ff] w-[400px] rounded-md shadow-lg p-4">
