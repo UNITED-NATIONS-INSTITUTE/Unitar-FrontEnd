@@ -58,7 +58,14 @@ export default function DeactivateModal({ openModal, closeModal, user_id }) {
                       Deactivate Account
                     </h1>
                     <div className="flex justify-center ">
-                      <NoAccountsIcon fontSize="large" color="error"/>
+                      <NoAccountsIcon
+                        fontSize="large"
+                        style={{
+                          color: "#D40C0C",
+                          width: "80px",
+                          height: "80px",
+                        }}
+                      />
                     </div>
 
                     <p className=" text-center text-gray-700 text-sm ">
