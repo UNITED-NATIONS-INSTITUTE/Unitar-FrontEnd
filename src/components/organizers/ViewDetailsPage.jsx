@@ -6,7 +6,7 @@ const ViewDetailsPage = ({ openModal }) => {
   const subscription = useSelector(selectCurrentSubscriptionDetail);
 
   return (
-    <div>
+    <div className="bg-white border shadow-lg mt-10 p-8 rounded-md">
       {subscription && (
         <div className="flex gap-[80px] mt-10">
           <img
