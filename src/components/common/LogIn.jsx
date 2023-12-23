@@ -125,7 +125,7 @@ const LogIn = () => {
                   onClick={handleTogglePassword}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-sm focus:outline-none"
                 >
-                  {showPassword ? <FiEyeOff size={15} /> : <FiEye size={15} />}
+                  {showPassword ? <FiEye size={15} /> : <FiEyeOff size={15} />}
                 </button>
               </div>
               <button
