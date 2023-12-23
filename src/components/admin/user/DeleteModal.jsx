@@ -57,7 +57,14 @@ export default function DeleteModal({ openModal, closeModal, user_id }) {
                       Delete User Account
                     </h1>
                     <div className="flex justify-center ">
-                      <DeleteIcon fontSize="large" color="error" />
+                      <DeleteIcon
+                        fontSize="large"
+                        style={{
+                          color: "#D40C0C",
+                          width: "80px",
+                          height: "80px",
+                        }}
+                      />
                     </div>
 
                     <p className="text-sm items-center text-gray-700  ">
