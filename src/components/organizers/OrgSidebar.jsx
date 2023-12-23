@@ -18,7 +18,7 @@ const OrgSidebar = () => {
   }, [pathnameArray]);
   return (
     <div className=" flex ">
-      <div className="bg-light-blue left-side  p-5 h-screen fixed left-0 top-0 ">
+      <div className="bg-light-blue w-[250px]  p-5 h-screen fixed left-0 top-0 ">
         <div className="flex justify-between">
           <img src={logo} alt="logo" width="100" height="54" />
           <img src="/assets/back.svg" alt="back" width="20" height="20" />
