@@ -7,7 +7,7 @@ const Navbar = ({ openModal }) => {
   const navigate = useNavigate();
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
-      <img src={logo} alt="logo" className="ml-5" />{" "}
+      <img src={logo} alt="logo" className="ml-5 w-[200px]" />{" "}
       <div className=" sm:flex hidden justify-end items-center flex-1 gap-10">
         <button
           onClick={() => navigate("/login")}
