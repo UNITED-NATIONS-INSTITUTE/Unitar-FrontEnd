@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import OrgHackathons from "./OrgHackathons";
 import { useNavigate } from "react-router-dom";
 import OrgProfile from "./profile/OrgProfile";
+import { LinearProgress } from "@mui/material";
 
 const OrgHackathonPage = () => {
   const navigate = useNavigate();
