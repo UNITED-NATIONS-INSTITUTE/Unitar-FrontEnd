@@ -83,12 +83,7 @@ const ViewSubmissions = () => {
                     {submissionDetails.live_url}
                   </a>
                 </p>
-                <p className="mt-3 ">
-                  Description:{" "}
-                  <span className="text-sm text-gray-600 ml-3">
-                    {submissionDetails.desc}
-                  </span>
-                </p>
+
                 <p className="mt-3 ">
                   Grade:{" "}
                   <span className="text-sm text-gray-600 ml-3">
