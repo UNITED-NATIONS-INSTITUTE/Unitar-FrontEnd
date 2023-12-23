@@ -57,7 +57,14 @@ export default function ActivateModal({ openModal, closeModal, user_id }) {
                       Activate User Account
                     </h1>
                     <div className="flex justify-center ">
-                      <VerifiedIcon fontSize="large" color="primary" />
+                      <VerifiedIcon
+                        fontSize="large"
+                        style={{
+                          color: "#06BD0E",
+                          width: "80px",
+                          height: "80px",
+                        }}
+                      />
                     </div>
                     <p className=" text-center text-gray-700 text-sm mt-2 ">
                       Do you really want to activate this account?
