@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-// import UserProfile from "../../participants/profile/UserProfile";
-
 import HackathonMedia from "../../common/utils/HackathonMedia";
-import DeactiveHackModal from "./DeactiveHackModal";
 import AdminProfile from "../AdminLogOut";
+import DeactivateHackModal from "./DeactivateHackModal";
 
 const Deactivate = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -128,7 +126,7 @@ const Deactivate = () => {
           </div>
         </div>
       </div>
-      <DeactiveHackModal
+      <DeactivateHackModal
         openModal={isModalOpen}
         closeModal={() => setModalOpen(false)}
       />

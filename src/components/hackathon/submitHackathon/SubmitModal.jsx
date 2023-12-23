@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const style = {
   position: "absolute",
@@ -39,10 +40,13 @@ export default function SubmitModal({ openModal, handleClose }) {
                     Submission Successful
                   </Typography>
                   <div className="flex justify-center">
-                    <img
-                      src="/assets/success.svg"
-                      alt=""
-                      className="w-[80px] h-[80px] mt-4"
+                    <CheckCircleIcon
+                      fontSize="large"
+                      style={{
+                        color: "#089BD9",
+                        width: "80px",
+                        height: "80px",
+                      }}
                     />
                   </div>
                   <h1 className="mt-4  font-Lexend-Exa  text-center">

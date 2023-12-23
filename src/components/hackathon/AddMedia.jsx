@@ -5,7 +5,7 @@ const AddMedia = () => {
   const navigate = useNavigate();
   return (
     <div className="bg-white right-side min-h-screen">
-      <div className="ml-60">
+      <div className="ml-80">
         {" "}
         <h1 className=" text-gray-600 font-bold  text-[24px] mb-9 mt-10">
           Hackathon media{" "}

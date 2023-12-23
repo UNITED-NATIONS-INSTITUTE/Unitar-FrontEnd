@@ -8,12 +8,38 @@ import MoreVert from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
 import { getAllUsers } from "../../../api/admins/admins";
 import { Chip } from "@mui/material";
+import { red, green } from "@mui/material/colors";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
 import AdminLogOut from "../AdminLogOut";
 import { LinearProgress } from "@mui/material";
 import ActivateModal from "./ActivateModal";
 import DeactivateModal from "./DeactivateModal";
 import DeleteModal from "./DeleteModal";
+function getChipProps(params) {
+  if (params.value === "ACTIVE") {
+    return {
+      label: params.value,
+      style: {
+        width: "200px",
+        color: green[600],
+        borderColor: green[100],
+        backgroundColor: green[100],
+        borderRadius: 5,
+      },
+    };
+  } else {
+    return {
+      label: params.value,
+      style: {
+        width: "200px",
+        color: red[600],
+        borderColor: red[100],
+        backgroundColor: red[100],
+        borderRadius: 5,
+      },
+    };
+  }
+}
 const UsersTable = () => {
   const [loading, setLoading] = useState(true);
   const [openActivateModal, setOpenActivateModal] = useState(false);
@@ -22,7 +48,7 @@ const UsersTable = () => {
 
   const navigate = useNavigate();
   const [usersPayload, setUsersPayload] = useState([]);
-  const [userCode, setUserCode] = useState("")
+  const [userCode, setUserCode] = useState("");
   const fetchUsers = () => {
     getAllUsers().then((res) => {
       if (res.status === 200) {
@@ -32,27 +58,13 @@ const UsersTable = () => {
     });
   };
   const handleActionClick = (params) => {
-    setUserCode(params.row.id)
-    console.log(params.row.id)
-
-  }
+    setUserCode(params.row.id);
+  };
 
   useEffect(() => {
     fetchUsers();
   }, []);
 
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "ACTIVE":
-        return "rgba(0, 128, 0, 0.80)";
-      case "PENDING":
-        return "rgba(255, 165, 0, 0.80)";
-      case "DEACTIVATED":
-        return "rgba(255, 0, 0, 0.80)";
-      default:
-        return "rgba(169, 169, 169, 0.5)";
-    }
-  };
   const columns = [
     {
       field: "username",
@@ -66,13 +78,7 @@ const UsersTable = () => {
       headerName: "Status",
       width: 200,
       renderCell: (params) => (
-        <Chip
-          label={params.value}
-          style={{
-            backgroundColor: getStatusColor(params.value),
-            color: "white",
-          }}
-        />
+        <Chip variant="outlined" size="medium" {...getChipProps(params)} />
       ),
     },
 

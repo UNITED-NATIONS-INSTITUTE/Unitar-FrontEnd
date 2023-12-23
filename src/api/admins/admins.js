@@ -8,7 +8,8 @@ export const adminCreateUser = async (
   role,
   username,
   password,
-  password_confirmation
+  password_confirmation,
+  email
 ) => {
   return await axiosApi.post("/admins/users", {
     role,

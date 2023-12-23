@@ -2,14 +2,34 @@ import { Avatar } from "@mui/material";
 import React, { useState } from "react";
 import DeleteModal from "./DeleteModal";
 import { selectCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
+import { deleteOrganizerProfile } from "../../../api/accounts/accounts";
 import { useSelector } from "react-redux";
+import DeleteSuccessModal from "../hackathons/DeleteSuccessModal";
+import { useNavigate } from "react-router-dom";
 
 const DeleteOrganization = () => {
+  const navigate = useNavigate();
   const orgProfile = useSelector(selectCurrentOrganizerDetail);
   const organizer_code = orgProfile.id;
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
+
   const handleClick = () => {
     setModalOpen(true);
+  };
+  const handleDeleteUserAccount = (id) => {
+    deleteOrganizerProfile(id).then((res) => {
+      if (res.status === 204) {
+        setModalOpen(false);
+        setDeleteModalOpen(true);
+        setTimeout(() => {
+          setDeleteModalOpen(false);
+          navigate(-1);
+        }, 2000);
+      } else {
+        alert("Error Deleting Account");
+      }
+    });
   };
   return (
     <div className="right-side min-h-screen bg-pattern">
@@ -60,6 +80,11 @@ const DeleteOrganization = () => {
         openModal={isModalOpen}
         closeModal={() => setModalOpen(false)}
         id={organizer_code}
+        deleteAction={handleDeleteUserAccount}
+      />
+      <DeleteSuccessModal
+        openModal={isDeleteModalOpen}
+        closeModal={() => setDeleteModalOpen(false)}
       />
     </div>
   );

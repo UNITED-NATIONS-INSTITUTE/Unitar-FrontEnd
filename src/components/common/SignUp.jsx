@@ -171,7 +171,7 @@ const SignUp = () => {
                   onClick={handleTogglePassword}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-sm focus:outline-none"
                 >
-                  {showPassword ? <FiEyeOff size={15} /> : <FiEye size={15} />}
+                  {showPassword ? <FiEye size={15} /> : <FiEyeOff size={15} />}
                 </button>
               </div>
               {passwordError && (
@@ -181,13 +181,22 @@ const SignUp = () => {
                 {" "}
                 Confirm password
               </label>
-              <input
-                type="password"
-                className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
-                placeholder="******"
-                value={password_confirmation}
-                onChange={handleChange("password_confirmation")}
-              />
+              <div className="relative">
+                <input
+                  type="password"
+                  className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
+                  placeholder="******"
+                  value={password_confirmation}
+                  onChange={handleChange("password_confirmation")}
+                />
+                <button
+                  type="button"
+                  onClick={handleTogglePassword}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-sm focus:outline-none"
+                >
+                  {showPassword ? <FiEye size={15} /> : <FiEyeOff size={15} />}
+                </button>
+              </div>
               <button
                 type="submit"
                 className="w-full bg-custom-blue text-white py-2 mt-4 rounded hover:bg-white hover:text-custom-blue hover:border-2 hover:border-custom-blue "

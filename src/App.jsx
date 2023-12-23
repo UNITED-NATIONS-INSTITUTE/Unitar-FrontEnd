@@ -49,8 +49,8 @@ import DeleteOrganization from "./components/admin/organizers/DeleteOrganization
 import ViewHackDetails from "./components/admin/organizers/ViewHackDetails";
 import ViewHackathon from "./components/admin/hackathons/ViewHachathon";
 import ViewHackDetail from "./components/admin/hackathons/ViewHackDetail";
-import ActivateHack from "./components/admin/hackathons/ActivateHack";
-import Deactivate from "./components/admin/hackathons/Deactivate";
+import ActivateHack from "./components/admin/hackathons/ActivateHack.jsx";
+import Deactivate from "./components/admin/hackathons/Deactivate.jsx";
 import DeleteHack from "./components/admin/hackathons/DeleteHack";
 import ViewSubmissions from "./components/admin/allSubmissions/ViewSubmission";
 import EditSubmission from "./components/admin/allSubmissions/EditSubmission";

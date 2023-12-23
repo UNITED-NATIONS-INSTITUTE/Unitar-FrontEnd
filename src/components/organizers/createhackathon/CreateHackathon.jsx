@@ -117,7 +117,7 @@ const CreateHackathon = () => {
           />
           <span>Basic details</span>
         </p>
-        {/* <p className="font-bold mt-5 mb-5">Create a hackathon</p> */}
+
         <div className=" flex">
           <div>
             <ValidatorForm
@@ -141,9 +141,7 @@ const CreateHackathon = () => {
                   name="title"
                   value={title}
                 />
-                {/* <span className="text-xs text-gray-400 mt-2">
-                  Do not exceed 20 character writing the project name
-                </span> */}
+
                 <label
                   className="mt-5 mb-2 text-xs font-semibold"
                   name="projectName"

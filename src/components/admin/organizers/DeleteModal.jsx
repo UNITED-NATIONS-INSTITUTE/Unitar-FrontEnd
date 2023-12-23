@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const style = {
   position: "absolute",
@@ -15,7 +16,12 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function DeleteModal({ openModal, closeModal, id }) {
+export default function DeleteModal({
+  openModal,
+  closeModal,
+  id,
+  deleteAction,
+}) {
   return (
     <Box>
       <Modal
@@ -33,10 +39,13 @@ export default function DeleteModal({ openModal, closeModal, id }) {
                     Delete Organization
                   </h1>
                   <div className="flex justify-center ">
-                    <img
-                      src="/assets/bin.jpg"
-                      alt=""
-                      className="w-[100px] h-[100px]"
+                    <DeleteIcon
+                      fontSize="large"
+                      style={{
+                        color: "#D40C0C",
+                        width: "80px",
+                        height: "80px",
+                      }}
                     />
                   </div>
 

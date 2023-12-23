@@ -3,6 +3,7 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { deactivateUserAccount } from "../../../api/admins/admins";
 import SuccessfulDeactivationModal from "./SuccessfulDeactivationModal";
+import NoAccountsIcon from "@mui/icons-material/NoAccounts";
 const style = {
   position: "absolute",
   top: "50%",
@@ -57,10 +58,13 @@ export default function DeactivateModal({ openModal, closeModal, user_id }) {
                       Deactivate Account
                     </h1>
                     <div className="flex justify-center ">
-                      <img
-                        src="/assets/deactivate.jpg"
-                        alt=""
-                        className="w-[100px] h-[100px]"
+                      <NoAccountsIcon
+                        fontSize="large"
+                        style={{
+                          color: "#D40C0C",
+                          width: "80px",
+                          height: "80px",
+                        }}
                       />
                     </div>
 

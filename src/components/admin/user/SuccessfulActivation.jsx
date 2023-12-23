@@ -1,7 +1,6 @@
 import React from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const style = {
   position: "absolute",
@@ -16,7 +15,7 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function UpdateProfileModal({ openModal, closeModal }) {
+export default function SuccessfulActivationModal({ openModal, closeModal }) {
   return (
     <Box>
       <Modal
@@ -31,23 +30,16 @@ export default function UpdateProfileModal({ openModal, closeModal }) {
               <Box className="flex space-x-4 ">
                 <div>
                   <div className="flex justify-center">
-                    <CheckCircleIcon
-                      fontSize="large"
-                      style={{
-                        color: "#089BD9",
-                        width: "80px",
-                        height: "80px",
-                      }}
+                    <img
+                      src="/assets/success.svg"
+                      alt=""
+                      className="w-[80px] h-[80px]"
                     />
                   </div>
 
-                  <h1 className="font-bold font-Lexend-Exa  text-center">
-                    Profile Update
+                  <h1 className="font-bold font-Lexend-Exa  text-center mt-5">
+                    Activation Successful
                   </h1>
-
-                  <p className="items-center text-gray-700  ">
-                    Profile successfully updated
-                  </p>
                 </div>
               </Box>
             </Box>

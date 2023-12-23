@@ -3,6 +3,7 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { deleteUserAccount } from "../../../api/admins/admins";
 import DeleteSuccessModal from "../hackathons/DeleteSuccessModal";
+import DeleteIcon from "@mui/icons-material/Delete";
 const style = {
   position: "absolute",
   top: "50%",
@@ -56,10 +57,13 @@ export default function DeleteModal({ openModal, closeModal, user_id }) {
                       Delete User Account
                     </h1>
                     <div className="flex justify-center ">
-                      <img
-                        src="/assets/bin.jpg"
-                        alt=""
-                        className="w-[80px] h-[80px]"
+                      <DeleteIcon
+                        fontSize="large"
+                        style={{
+                          color: "#D40C0C",
+                          width: "80px",
+                          height: "80px",
+                        }}
                       />
                     </div>
 

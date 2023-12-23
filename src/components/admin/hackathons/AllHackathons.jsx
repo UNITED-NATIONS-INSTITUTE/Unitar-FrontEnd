@@ -13,7 +13,33 @@ import AdminProfile from "../AdminLogOut";
 import { useDispatch } from "react-redux";
 import { setSelectedHackathonDetail } from "../../../features/hackathon/hackathonSlice";
 import { LinearProgress } from "@mui/material";
+import { green, red } from "@mui/material/colors";
 
+function getChipProps(params) {
+  if (params.value === "ACTIVE") {
+    return {
+      label: params.value,
+      style: {
+        width: "200px",
+        color: green[600],
+        borderColor: green[100],
+        backgroundColor: green[100],
+        borderRadius: 5,
+      },
+    };
+  } else {
+    return {
+      label: params.value,
+      style: {
+        width: "200px",
+        color: red[600],
+        borderColor: red[100],
+        backgroundColor: red[100],
+        borderRadius: 5,
+      },
+    };
+  }
+}
 const AllHackathons = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -34,38 +60,17 @@ const AllHackathons = () => {
     fetchHackathons();
   }, []);
 
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "CREATION STAGE":
-        return "rgba(8, 155, 217, 0.80)";
-      case "ACTIVE":
-        return "rgba(0, 128, 0, 0.80)";
-      case "PENDING VALIDATION":
-        return "rgba(255, 165, 0, 0.80)";
-      case "DEACTIVATED":
-        return "rgba(255, 0, 0, 0.80)";
-      default:
-        return "rgba(169, 169, 169, 0.5)";
-    }
-  };
-
   const columns = [
     { field: "title", headerName: "Title", width: 200 },
     { field: "location", headerName: "Location", width: 130 },
-    { field: "highlight", headerName: "Highlight", width: 160 },
-    { field: "prize", headerName: "Prizes", width: 160 },
+    { field: "highlight", headerName: "Highlight", width: 180 },
+    { field: "prize", headerName: "Prizes", width: 130 },
     {
       field: "status",
       headerName: "Status",
       width: 180,
       renderCell: (params) => (
-        <Chip
-          label={params.value}
-          style={{
-            backgroundColor: getStatusColor(params.value),
-            color: "white",
-          }}
-        />
+        <Chip variant="outlined" size="medium" {...getChipProps(params)} />
       ),
     },
 
@@ -84,12 +89,6 @@ const AllHackathons = () => {
           </MenuButton>
           <Menu>
             <MenuItem onClick={() => navigate("view")}>View Hackathon</MenuItem>
-            {/* <MenuItem onClick={() => navigate("activate")}>
-              Activate Hackathon
-            </MenuItem>
-            <MenuItem onClick={() => navigate("deactivate")}>
-              Deactivate Hackathon
-            </MenuItem> */}
             <MenuItem onClick={() => navigate("delete")}>
               Delete Hackathon
             </MenuItem>

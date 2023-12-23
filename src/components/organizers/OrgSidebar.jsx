@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import logo from "../../assets/unitar-logo.svg";
 import { Outlet } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
+import { align, layers } from "../../assets";
 const OrgSidebar = () => {
   const [activePage, setActivePage] = useState("Dashboard");
   const navigate = useNavigate();
@@ -18,25 +19,21 @@ const OrgSidebar = () => {
   }, [pathnameArray]);
   return (
     <div className=" flex ">
-      <div className="bg-light-blue left-side  p-5 h-screen fixed left-0 top-0 ">
+      <div className="bg-light-blue w-[250px]  p-5 h-screen fixed left-0 top-0 ">
         <div className="flex justify-between">
-          <img src={logo} alt="logo" width="100" height="54" />
-          <img src="/assets/back.svg" alt="back" width="20" height="20" />
+          <img src={logo} alt="" />
+          {/* <img src="/assets/back.svg" alt="back" width="20" height="20" /> */}
         </div>
         <button
           onClick={() => navigate("/organizer/dashboard")}
           style={{
-            backgroundColor: activePage === "dashboard" ? "#089BD9" : "inherit",
+            borderColor: activePage === "dashboard" ? "#089BD9" : "inherit",
+            transition: "border-color 0.3s",
           }}
-          className="py-2 pl-6 pr-8 border rounded-md hover:bg-custom-blue mt-16  "
+          className="py-2 pl-6 pr-5 border rounded-md   mt-16"
         >
-          <div className="flex gap-5 ">
-            <img
-              src="/assets/dashboard.svg"
-              alt="icon"
-              width="20"
-              height="20"
-            />
+          <div className="flex gap-5">
+            <img src={align} alt="" />
             <span>Dashboard</span>
           </div>
         </button>
@@ -44,31 +41,27 @@ const OrgSidebar = () => {
         <button
           onClick={() => navigate("/organizer/hackathons")}
           style={{
-            backgroundColor:
-              activePage === "hackathons" ? "#089BD9" : "inherit",
+            borderColor: activePage === "hackathons" ? "#089BD9" : "inherit",
+            transition: "border-color 0.3s",
           }}
-          className="py-2 pl-6 pr-8 border rounded-md mt-5 hover:bg-custom-blue"
+          className="py-2 pl-6 pr-5 border rounded-md hover:border-custom-blue mt-5"
         >
           <div className="flex gap-5">
-            <img
-              src="/assets/hackathon.svg"
-              alt="icon"
-              width="20"
-              height="20"
-            />
+            <img src={layers} alt="" />
             <span>Hackathons</span>
           </div>
         </button>
+
         <button
           onClick={() => navigate("/organizer/submissions")}
           style={{
-            backgroundColor:
-              activePage === "submissions" ? "#089BD9" : "inherit",
+            borderColor: activePage === "submissions" ? "#089BD9" : "inherit",
+            transition: "border-color 0.3s",
           }}
-          className="py-2 px-6 border rounded-md mt-5 hover:bg-custom-blue"
+          className="py-2 px-6 border rounded-md mt-5"
         >
           <div className="flex gap-5">
-            <img src="/assets/projects.svg" alt="icon" width="20" height="20" />
+            <img src="/assets/submissions.svg" />
             <span>Submissions</span>
           </div>
         </button>

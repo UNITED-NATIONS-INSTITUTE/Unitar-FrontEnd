@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { adminCreateUser } from "../../../api/admins/admins";
+import AdminProfile from "../AdminLogOut";
+
 const CreateUser = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -80,6 +82,9 @@ const CreateUser = () => {
 
   return (
     <div className="min-h-screen bg-white right-side">
+      <div className="flex justify-end mr-[20px] mt-6">
+        <AdminProfile />
+      </div>
       <div className=" flex items-center justify-center mt-10  ">
         <div className="ml-60">
           <div className="bg-white p-8 rounded shadow-md w-100 border border-custom-blue overflow-y-auto ">

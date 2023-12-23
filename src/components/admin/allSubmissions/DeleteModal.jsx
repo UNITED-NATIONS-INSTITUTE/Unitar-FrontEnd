@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import { useNavigate } from "react-router-dom";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const style = {
   position: "absolute",
@@ -16,7 +16,12 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function DeleteHackModal({ openModal, closeModal, deleteSub }) {
+export default function DeleteHackModal({
+  openModal,
+  closeModal,
+  deleteSub,
+  errorMessage,
+}) {
   return (
     <Box>
       <Modal
@@ -33,11 +38,17 @@ export default function DeleteHackModal({ openModal, closeModal, deleteSub }) {
                   <h1 className="font-bold text-[20px]  font-Lexend-Exa  text-center">
                     Delete Hackathon
                   </h1>
+                  {errorMessage && (
+                    <p className="text-red-500 text-xs">{{ errorMessage }}</p>
+                  )}
                   <div className="flex justify-center ">
-                    <img
-                      src="/assets/bin.jpg"
-                      alt=""
-                      className="w-[80px] h-[80px]"
+                    <DeleteIcon
+                      fontSize="large"
+                      style={{
+                        color: "#D40C0C",
+                        width: "80px",
+                        height: "80px",
+                      }}
                     />
                   </div>
                   <p className=" text-center text-gray-700 text-sm ">

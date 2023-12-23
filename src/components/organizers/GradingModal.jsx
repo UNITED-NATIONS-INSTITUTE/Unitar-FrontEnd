@@ -5,6 +5,9 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { evaluateHackathon } from "../../api/hackathons/hackathons";
 import { selectCurrentSubscriptionDetail } from "../../features/subscription/subscriptionSlice";
+import { useNavigate } from "react-router-dom";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -31,11 +34,16 @@ export default function GradingModal({ openModal, handleClose }) {
   const subscription = useSelector(selectCurrentSubscriptionDetail);
   const [graded, setGraded] = useState("");
   const [grade, setGrade] = useState(0);
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     evaluateHackathon(subscription.id, grade).then((res) => {
       if (res.status === 200) {
         setGraded("Submission graded successfully!");
+        setTimeout(() => {
+          handleClose();
+          navigate(-1);
+        }, 2000);
       }
     });
   };
@@ -59,10 +67,13 @@ export default function GradingModal({ openModal, handleClose }) {
               {graded && (
                 <div className="flex justify-center flex-col ml-[80px] mt-10 ">
                   <div className="flex justify-center">
-                    <img
-                      src="/assets/success.svg"
-                      alt=""
-                      className="w-[80px] h-[80px]"
+                    <CheckCircleIcon
+                      fontSize="large"
+                      style={{
+                        color: "#089BD9",
+                        width: "80px",
+                        height: "80px",
+                      }}
                     />
                   </div>
                   <p className=" mt-5 text-center">{graded}</p>

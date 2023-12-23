@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { selectSelectedHackathonDetail } from "../../../features/hackathon/hackathonSlice";
 import { deleteHackathon } from "../../../api/hackathons/hackathons";
 import DeleteSuccessModal from "./DeleteSuccessModal";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const style = {
   position: "absolute",
@@ -25,6 +26,7 @@ export default function DeleteHackModal({ openModal, closeModal }) {
   const hackathon_code = hackathon.id;
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
   const [error, setError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -38,7 +40,7 @@ export default function DeleteHackModal({ openModal, closeModal }) {
           navigate(-1);
         }, 2000);
       } else {
-        alert("error removing entry");
+        setErrorMessage("Error deleting hackathon");
       }
     });
   }
@@ -67,11 +69,17 @@ export default function DeleteHackModal({ openModal, closeModal }) {
                     <h1 className="font-bold text-[20px] font-Lexend-Exa text-center">
                       Delete Hackathon
                     </h1>
+                    {errorMessage && (
+                      <p className="text-red-500 text-xs">{{ errorMessage }}</p>
+                    )}
                     <div className="flex justify-center ">
-                      <img
-                        src="/assets/bin.jpg"
-                        alt=""
-                        className="w-[80px] h-[80px]"
+                      <DeleteIcon
+                        fontSize="large"
+                        style={{
+                          color: "#D40C0C",
+                          width: "80px",
+                          height: "80px",
+                        }}
                       />
                     </div>
                     <p className="text-center text-gray-700 text-sm ">
