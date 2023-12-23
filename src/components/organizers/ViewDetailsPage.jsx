@@ -1,8 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectCurrentSubscriptionDetail } from "../../features/subscription/subscriptionSlice";
+
 const ViewDetailsPage = ({ openModal }) => {
   const subscription = useSelector(selectCurrentSubscriptionDetail);
+
   return (
     <div>
       {subscription && (
@@ -19,38 +21,57 @@ const ViewDetailsPage = ({ openModal }) => {
           <div>
             <p className="font-semibold ">{subscription.title}</p>
             <p className="mt-6 text-xs w-[400px]">{subscription.desc}</p>{" "}
-            <div className="flex flex-row gap-[100px] mt-10">
-              <div className="flex flex-col ">
-                <p className="text-xs font-bold ">Demo Presentation Link</p>
-                <p className="text-xs mt-2 text-[#6E7079]">
+            <div className="flex flex-col gap-[10px] mt-10">
+              <div>
+                <p className="text-xs font-bold">Demo Presentation Link</p>
+                <a
+                  href={subscription.demo_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs  text-custom-blue hover:underline"
+                >
                   {subscription.demo_link}
-                </p>
+                </a>
               </div>
-              <div className="flex flex-col  ">
-                <p className="text-xs font-bold">Blog Link(optional)</p>
-                <p className="text-xs text-[#6E7079]  mt-2">
+              <div>
+                <p className="text-xs font-bold mt-2">Blog Link</p>
+                <a
+                  href={subscription.blog}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs  text-custom-blue hover:underline"
+                >
                   {subscription.blog}
-                </p>
+                </a>
               </div>
             </div>
-            <div className="flex flex-row gap-[100px] mt-5">
-              <div className="flex flex-col ">
-                <p className="text-xs font-bold">Live Link</p>
-                <p className="text-xs text-[#6E7079]  mt-2 ">
+            <div className="flex flex-col gap-[10px] mt-5">
+              <div>
+                <p className="text-xs font-bold mt-2">Live Link</p>
+                <a
+                  href={subscription.live_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-custom-blue hover:underline"
+                >
                   {subscription.live_url}
-                </p>
+                </a>
               </div>
-              <div className="flex flex-col  ">
-                <p className="text-xs font-bold">Github Link</p>
-                <p className="text-xs text-[#6E7079]  mt-2 ">
+              <div>
+                <p className="text-xs font-bold mt-2">GitHub Link</p>
+                <a
+                  href={subscription.gh_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-custom-blue hover:underline"
+                >
                   {subscription.gh_link}
-                </p>
+                </a>
               </div>
             </div>
-            <div className="flex flex-col mt-6 ">
+            <div className="flex flex-col mt-6">
               <p className="text-xs font-bold">Submitted by</p>
-              <p className="text-xs text-[#6E7079]  mt-2 ">
-                {" "}
+              <p className="text-xs text-[#6E7079] mt-2">
                 {subscription.participant.first_name}{" "}
                 {subscription.participant.last_name}
               </p>
