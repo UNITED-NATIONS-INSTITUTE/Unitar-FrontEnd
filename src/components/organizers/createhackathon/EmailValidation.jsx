@@ -28,7 +28,7 @@ const EmailValidation = () => {
   };
   return (
     <div className="bg-white min-h-screen right-side">
-      <div className="ml-60">
+      <div className="ml-80">
         <h1 className=" text-gray-600 font-bold  text-[24px] mb-9 mt-10">
           Email Validation
         </h1>{" "}
