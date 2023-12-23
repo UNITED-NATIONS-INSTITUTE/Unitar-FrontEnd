@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const style = {
   position: "absolute",
@@ -31,10 +32,13 @@ export default function SuccessModal({ openModal, closeModal }) {
               <Box className="flex space-x-4 ">
                 <div>
                   <div className="flex justify-center">
-                    <img
-                      src="/assets/success.svg"
-                      alt=""
-                      className="w-[80px] h-[80px]"
+                    <CheckCircleIcon
+                      fontSize="large"
+                      style={{
+                        color: "#089BD9",
+                        width: "80px",
+                        height: "80px",
+                      }}
                     />
                   </div>
 
