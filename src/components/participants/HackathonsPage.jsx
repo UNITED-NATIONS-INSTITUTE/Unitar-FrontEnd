@@ -55,7 +55,7 @@ const HackathonsPage = () => {
                   <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-white p-4 border-[#7C7C7C] border-t rounded-[20px]">
                     <p className="text-sm font-bold mt-4">{field.title}</p>
                     <p className="text-sm text-gray-700">{field.highlight}</p>
-                    <p className="text-xs text-gray-500  mt-2 overflow-hidden h-[45px]">
+                    <p className="text-xs text-gray-500  mt-2 overflow-hidden h-[30px]">
                       {field.description}
                     </p>{" "}
                   </div>
