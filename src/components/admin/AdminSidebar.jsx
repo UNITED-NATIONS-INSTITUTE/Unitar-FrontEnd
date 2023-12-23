@@ -38,6 +38,7 @@ const AdminSidebar = () => {
             onClick={() => navigate("/admin/dashboard")}
             style={{
               borderColor: activePage === "dashboard" ? "#089BD9" : "inherit",
+              transition: "border-color 0.3s",
             }}
             className="  border rounded-md w-[200px] py-2 mt-5 "
           >
@@ -52,6 +53,7 @@ const AdminSidebar = () => {
             style={{
               borderColor:
                 activePage === "participants" ? "#089BD9" : "inherit",
+              transition: "border-color 0.3s",
             }}
             className="  border rounded-md w-[200px] py-2 mt-5 "
           >
@@ -65,6 +67,7 @@ const AdminSidebar = () => {
             style={{
               borderColor:
                 activePage === "all organizers" ? "#089BD9" : "inherit",
+              transition: "border-color 0.3s",
             }}
             className="  border rounded-md w-[200px] py-2 mt-5 "
           >
@@ -78,6 +81,7 @@ const AdminSidebar = () => {
             style={{
               borderColor:
                 activePage === "all hackathons" ? "#089BD9" : "inherit",
+              transition: "border-color 0.3s",
             }}
             className="  border rounded-md w-[200px] py-2 mt-5 "
           >
@@ -91,6 +95,7 @@ const AdminSidebar = () => {
             style={{
               borderColor:
                 activePage === "all submissions" ? "#089BD9" : "inherit",
+              transition: "border-color 0.3s",
             }}
             className="  border rounded-md w-[200px] py-2 mt-5 "
           >
@@ -103,6 +108,7 @@ const AdminSidebar = () => {
             onClick={() => navigate("/admin/users")}
             style={{
               borderColor: activePage === "users" ? "#089BD9" : "inherit",
+              transition: "border-color 0.3s",
             }}
             className="  border rounded-md w-[200px] py-2 mt-5 "
           >
@@ -116,6 +122,7 @@ const AdminSidebar = () => {
             onClick={() => navigate("/admin/categories")}
             style={{
               borderColor: activePage === "categories" ? "#089BD9" : "inherit",
+              transition: "border-color 0.3s",
             }}
             className="  border rounded-md w-[200px] py-2 mt-5  "
           >
