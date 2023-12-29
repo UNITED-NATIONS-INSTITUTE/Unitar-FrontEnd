@@ -27,7 +27,10 @@ const UserProfile = () => {
     store.dispatch(logOut());
   };
 
-  const closeModal = () => setopenProfilePrompt(false);
+  const closeModal = () => {
+    setopenProfilePrompt(false);
+    handleLogOut();
+  };
   const fetchProfile = () => {
     fetchParticipantProfile(part_ref)
       .then((res) => {
