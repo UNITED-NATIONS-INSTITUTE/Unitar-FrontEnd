@@ -23,13 +23,21 @@ export default function ProfilePrompt({ openModal, handleClose }) {
     <Box>
       <Modal
         open={openModal}
-        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
           <Box className=" flex items-center justify-center">
             <Box>
+              <div className="flex justify-end mb-5">
+                <button onClick={handleClose}>
+                  <img
+                    src="/assets/Vector (2).svg"
+                    alt="close"
+                    className="w-[15px] h-[15px]"
+                  />
+                </button>
+              </div>
               <Typography variant="h6" component="h4">
                 Complete account set up by creating your profile
               </Typography>
