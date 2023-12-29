@@ -29,7 +29,10 @@ const OrgProfile = () => {
     store.dispatch(logOut());
   };
 
-  const closeModal = () => setopenProfilePrompt(false);
+  const closeModal = () => {
+    setopenProfilePrompt(false);
+    handleLogOut();
+  };
   const fetchProfile = () => {
     fetchOrganizerProfile(org_ref)
       .then((res) => {
