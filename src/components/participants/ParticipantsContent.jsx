@@ -14,30 +14,38 @@ const ParticipantsContent = () => {
     });
   }, []);
   return (
-    <div className=" ml-60">
-      <div className="flex justify-between">
-        <h1 className="text-gray-600 font-bold text-[24px]">Dashboard</h1>
+    <div className=" md:ml-60">
+      <div className="md:flex justify-between">
+        <h1 className="text-gray-600 pt-4 font-bold text-[32px] text-center md:text-[24px]">
+          Dashboard
+        </h1>
         <UserProfile />
       </div>
 
-      <div className="flex mt-12">
-        <div className="border bg-custom-blue rounded-md text-white pr-20 pt-5 mr-5">
-          <span className="text-xs p-5">Your Hackathons</span>
+      <div className="md:flex mt-7 md:mt-12">
+        <div className="border bg-custom-blue rounded-md text-white  w-full md:w-[250px] h-[130px] pt-5 md:mr-5">
+          <span className="md:text-xs text-[18px] pt-5 p-5">
+            Your Hackathons
+          </span>
           <p className="p-5 font-bold">{stats.total_hackathons}</p>
         </div>
-        <div className="border bg-custom-grey rounded-md  pr-20  pt-5 mr-5">
-          <span className="text-xs p-5">Affiliated Organizations</span>
+        <div className="border bg-custom-grey rounded-md   mt-5 md:mt-0 w-full md:w-[250px] h-[130px] pt-5 md:mr-5">
+          <span className="md:text-xs text-[18px] p-5">
+            Affiliated Organizations
+          </span>
           <p className="p-5 font-bold">{stats.total_organizers}</p>
         </div>
-        <div className="border bg-custom-grey rounded-md  pr-20  pt-5 mr-5">
-          <span className="text-xs p-5">Submitted projects</span>
+        <div className="border bg-custom-grey rounded-md  mt-5 md:mt-0 w-full md:w-[250px] h-[130px] pt-5 md:mr-5">
+          <span className="md:text-xs text-[18px] p-5">Submitted projects</span>
           <p className="p-5 font-bold">{stats.total_submissions}</p>
         </div>
       </div>
       <div className="mt-10">
-        <h1 className="text-gray-600 font-semibold">Ongoing hackathons</h1>
-        <h3 className="mt-3 text-sm font-bold">Hackathons</h3>
-        <p className="text-gray-500 text-xs mt-2 ">
+        <h1 className="text-gray-600 font-semibold text-[20px] text-center md:text-left">
+          Ongoing hackathons
+        </h1>
+        <h3 className="mt-3 md:text-sm text-[18px] font-bold">Hackathons</h3>
+        <p className="text-gray-500 md:text-xs  text-[16px] mt-2 ">
           Active Hackathons are listed here
         </p>
         <HackathonsPage />
