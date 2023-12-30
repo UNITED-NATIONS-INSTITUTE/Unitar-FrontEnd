@@ -16,16 +16,16 @@ const MyHackathons = () => {
   const [subscriptionsPayload, setSubscriptionsPayload] = useState([]);
 
   const fetchSubscriptions = () => {
-    getParticipantHackathonSubscriptions(participantDetails.id)
-      .then((res) => {
-        if (res.status === 200) {
-          setSubscriptionsPayload(res.data);
-          setLoading(false);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // getParticipantHackathonSubscriptions(participantDetails.id)
+    //   .then((res) => {
+    //     if (res.status === 200) {
+    //       setSubscriptionsPayload(res.data);
+    //       setLoading(false);
+    //     }
+    //   })
+    // .catch((err) => {
+    //   console.log(err);
+    // });
   };
 
   useEffect(() => {
@@ -42,8 +42,8 @@ const MyHackathons = () => {
   };
 
   return (
-    <div className="bg-white right-side min-h-screen min-w-full">
-      <div className="ml-[280px]">
+    <div className="bg-white md:right-side min-h-screen min-w-full">
+      <div className="md:ml-[280px]">
         <div className="flex justify-between mt-8">
           <h1 className="text-gray-600 font-bold text-[24px]">My Hackathons</h1>
           <div className="mr-10">
