@@ -78,8 +78,8 @@ const CreatePartProfile = () => {
         <SuccessModal openModal={openModal} handleClose={closeModal} />
       )}
 
-      <div className="right-side bg-white min-h-screen bg-pattern">
-        <form className=" ml-80 mt-4" onSubmit={handleSubmit}>
+      <div className="md:right-side bg-white min-h-screen bg-pattern">
+        <form className=" md:ml-80 mt-4" onSubmit={handleSubmit}>
           <h1 className="text-gray-600 text-[24px] font-bold">
             Profile Details
           </h1>

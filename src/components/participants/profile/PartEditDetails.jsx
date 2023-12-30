@@ -52,8 +52,8 @@ const PartEditDetails = () => {
   }
 
   return (
-    <div className="bg-white p-8 right-side min-h-screen">
-      <div className="overflow-y-auto ml-60 flex profile-details">
+    <div className="bg-white p-8 md:right-side min-h-screen">
+      <div className="overflow-y-auto md:ml-60 flex profile-details">
         <div className="flex flex-col flex-1">
           <h1 className="mt-0 text-gray-600 font-bold mb-10 text-[20px]">
             Profile
