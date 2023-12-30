@@ -85,18 +85,18 @@ const CreatePartProfile = () => {
           <h1 className="text-gray-600 text-[24px] font-bold">
             Profile Information
           </h1>
-          <div className="lg:w-[800px] h-[210px] md:h-[250px] sm:h-[300px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5 px-5 py-3">
+          <div className="lg:w-[800px] h-[210px] lg:h-[180px] md:h-[250px] sm:h-[300px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5 px-5 py-3">
             <div>
               <h1 className="text-gray-600 text-[20px] font-bold ">
                 Dear Learner,
               </h1>
-              <p className="text-sm  md:text-[24px] md:leading-8  mt-3 text-gray-700 ">
+              <p className="lg:text-sm  md:text-[24px] md:leading-8  mt-3 text-gray-700 ">
                 Thank you for completing the assigned Learning Pathway(Phase1)
                 of the UNITAR training programme on "Developing Essential
                 Digital Skills for Women and Youth in Africa: Enhancing
                 Empoyment and Livelihood Development in the Digital Economy"
               </p>
-              <p className="font-bold text-sm md:text-[23px] mt-3 xs:text-[16px] md:mt-4">
+              <p className="font-bold lg:text-sm md:text-[23px] mt-3 xs:text-[16px] md:mt-4">
                 Please complete your profile below to proceed
               </p>
             </div>
@@ -130,7 +130,7 @@ const CreatePartProfile = () => {
             <div className="lg:flex flex-row gap-[40px]">
               <div className=" px-10 py-3 lg:w-[400px] h-[450px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5">
                 <label className="flex flex-col">
-                  <span className="text-gray-700 text-xs md:text-[18px]   mt-[10px]">
+                  <span className="text-gray-700 lg:text-xs md:text-[18px]   mt-[10px]">
                     Full Name
                   </span>
                   <input
@@ -143,7 +143,7 @@ const CreatePartProfile = () => {
                   />
                 </label>
                 <label className="flex flex-col">
-                  <span className="text-gray-700 md:text-[18px]  text-xs">
+                  <span className="text-gray-700 md:text-[18px]  lg:text-xs">
                     Email
                   </span>
                   <input
@@ -157,7 +157,7 @@ const CreatePartProfile = () => {
                 </label>
 
                 <label className="flex flex-col">
-                  <span className="text-gray-700 text-xs md:text-[18px]   ">
+                  <span className="text-gray-700 lg:text-xs md:text-[18px]   ">
                     City
                   </span>
                   <input
@@ -169,7 +169,7 @@ const CreatePartProfile = () => {
                   />
                 </label>
                 <label className="flex flex-col">
-                  <span className="text-gray-700 text-xs md:text-[18px]  mt-5">
+                  <span className="text-gray-700 lg:text-xs md:text-[18px]  mt-5">
                     Gender
                   </span>
                   <select
@@ -185,7 +185,7 @@ const CreatePartProfile = () => {
                   </select>
                 </label>
                 <label className="flex flex-col">
-                  <span className="text-gray-700 md:text-[18px]   text-xs">
+                  <span className="text-gray-700 md:text-[18px]   lg:text-xs">
                     Date of Birth
                   </span>
                   <input
@@ -199,7 +199,7 @@ const CreatePartProfile = () => {
               </div>
               <div className=" px-10 lg:w-[400px] h-[300px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5">
                 <label className="flex flex-col">
-                  <span className="text-gray-700 text-xs md:text-[18px]    mt-5">
+                  <span className="text-gray-700 lg:text-xs md:text-[18px]    mt-5">
                     Select Learning Pathway
                   </span>
                   <select
@@ -217,7 +217,7 @@ const CreatePartProfile = () => {
                 </label>
 
                 <label className="flex flex-col">
-                  <span className="text-gray-700 text-xs">
+                  <span className="text-gray-700 lg:text-xs">
                     Select Hackathon Theme
                   </span>
                   <select
