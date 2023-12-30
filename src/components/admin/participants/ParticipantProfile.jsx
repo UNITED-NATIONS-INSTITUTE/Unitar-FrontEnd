@@ -1,11 +1,9 @@
 import { Avatar } from "@mui/material";
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCurrentParticipantDetail } from "../../../features/participant/participantSlice";
 
 const ParticipantProfile = () => {
-  const navigate = useNavigate();
   const partProfile = useSelector(selectCurrentParticipantDetail);
 
   return (
@@ -36,29 +34,33 @@ const ParticipantProfile = () => {
             </h1>
             <div className="flex flex-col bg-[#f0f6ff] w-[400px] rounded-md shadow-lg px-2 py-4">
               <p>
-                <strong className="text-custom-blue px-4">First Name:</strong>{" "}
-                {partProfile.first_name}
+                <strong className="text-custom-blue px-4">Full Name:</strong>{" "}
+                {partProfile.full_name}
               </p>
               <p className="mt-3">
-                <strong className="text-custom-blue px-4">Last Name:</strong>{" "}
-                {partProfile.last_name}
+                <strong className="text-custom-blue px-4">Email:</strong>{" "}
+                {partProfile.email}
               </p>
               <p className="mt-3">
-                <strong className="text-custom-blue px-4">Residence:</strong>{" "}
-                {partProfile.residence}
+                <strong className="text-custom-blue px-4">City:</strong>{" "}
+                {partProfile.city}
               </p>
-            </div>
-            <div className="mt-5 flex flex-col bg-[#f0f6ff] w-[400px] rounded-md shadow-lg px-2 py-4">
               <p className="mt-3">
-                <strong className="text-custom-blue px-3">Gender:</strong>{" "}
+                <strong className="text-custom-blue px-4">Gender:</strong>{" "}
                 {partProfile.gender}
               </p>
               <p className="mt-3">
-                <strong className="text-custom-blue px-3">
+                <strong className="text-custom-blue px-4">
                   Date of Birth:
                 </strong>{" "}
                 {partProfile.date_of_birth}
               </p>
+            </div>
+            <div className="mt-5 flex flex-col bg-[#f0f6ff] w-[400px] rounded-md shadow-lg px-2 py-4">
+              <p className="mt-3 text-custom-blue px-3"> Learning Pathway</p>
+              <p className="px-3">{partProfile.pathway}</p>
+              <p className="mt-3 text-custom-blue px-3"> Hackathon Theme</p>
+              <p className="px-3">{partProfile.hackathon_theme}</p>
             </div>
           </div>
         </div>
