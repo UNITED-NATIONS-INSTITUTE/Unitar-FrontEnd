@@ -24,13 +24,12 @@ const Sidebar = () => {
 
   const handleNavigation = (page) => {
     navigate(`/participant/${page}`);
-    setToggle(false); // Close the mobile menu after navigation
+    setToggle(false);
   };
 
   return (
     <>
       {isMobile ? (
-        // Mobile code block
         <div className="w-full md:hidden   py-6 shadow-xl">
           <div className=" flex justify-between ">
             <img
@@ -47,8 +46,7 @@ const Sidebar = () => {
           </div>{" "}
         </div>
       ) : (
-        // Desktop code block
-        <div className="md:flex hidden">
+        <div className="lg:flex hidden">
           <div className="bg-light-blue p-4 h-screen fixed left-0 top-0 w-[250px]">
             <div className="flex justify-between">
               <img src={logo} alt="" />
@@ -102,11 +100,10 @@ const Sidebar = () => {
       )}
 
       {isMobile && (
-        // Additional mobile code block
         <div
           className={`${
             !toggle ? "hidden" : "flex"
-          } p-12 md:hidden fixed z-[1000] bg-black/90 top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl w-full h-screen`}
+          } p-12 lg:hidden fixed z-[1000] bg-black/90 top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl w-full h-screen`}
         >
           <div className="">
             <button
