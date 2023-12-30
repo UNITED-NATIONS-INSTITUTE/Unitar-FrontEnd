@@ -20,7 +20,7 @@ const Sidebar = () => {
 
   const [toggle, setToggle] = useState(false);
 
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 1024px)");
 
   const handleNavigation = (page) => {
     navigate(`/participant/${page}`);
@@ -32,7 +32,7 @@ const Sidebar = () => {
       {isMobile ? (
         // Mobile code block
         <div className="w-full md:hidden   py-6 shadow-xl">
-          <div className=" flex justify-between  items-center gap-[200px] text-custom-blue w-[100px]">
+          <div className=" flex justify-between ">
             <img
               src={logo}
               alt="logo"
@@ -41,7 +41,7 @@ const Sidebar = () => {
             <img
               src={toggle ? close : menu}
               alt="menu"
-              className="w-[28px] h-[28px] object-contain text-custom-blue"
+              className="w-[28px] h-[28px] object-contain text-custom-blue "
               onClick={() => setToggle(!toggle)}
             />
           </div>{" "}
