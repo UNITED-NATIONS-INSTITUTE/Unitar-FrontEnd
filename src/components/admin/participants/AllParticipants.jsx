@@ -34,12 +34,12 @@ const AllParticipants = () => {
   }, []);
   const columns = [
     {
-      field: "first_name",
-      headerName: "First Name",
+      field: "full_name",
+      headerName: "Full Name",
       width: 150,
     },
-    { field: "last_name", headerName: "Last Name", width: 150 },
-    { field: "residence", headerName: "Country", width: 160 },
+    { field: "email", headerName: "Email", width: 150 },
+    { field: "city", headerName: "City", width: 160 },
     { field: "gender", headerName: "Gender", width: 160 },
     { field: "date_of_birth", headerName: "DOB", width: 160 },
     {
