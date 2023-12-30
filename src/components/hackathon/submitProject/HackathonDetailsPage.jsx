@@ -9,7 +9,6 @@ import { selectCurrentParticipantDetail } from "../../../features/participant/pa
 import { useNavigate } from "react-router-dom";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import BookIcon from "@mui/icons-material/Book";
-import DateRangeIcon from "@mui/icons-material/DateRange";
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import { Chip, Stack } from "@mui/material";
 
@@ -20,9 +19,10 @@ const HackathonDetailsPage = () => {
   const hackathon = useSelector(selectSelectedHackathonDetail);
   const participant = useSelector(selectCurrentParticipantDetail);
   const navigate = useNavigate();
+  // const hasEnrolled = participant.enrolledHackathons.includes(hackathon.id);
 
   function subscribeToHackathon() {
-    console.log(hackathon.id, participant.id);
+    console.log(participant);
     enrolToHackathon(hackathon.id, participant.id)
       .then((res) => {
         if (res.status === 200) {
@@ -219,12 +219,21 @@ const HackathonDetailsPage = () => {
             </div>
           </div>
           <div className="flex justify-end">
+            {/* {participant.hasEnrolled ? (
+              <button
+                onClick={() => navigate("/participant/myhackathons")}
+                className="text-white text-xs font-semibold bg-custom-blue rounded-md p-2 mr-[200px] w-[150px] mt-[4px]"
+              >
+                Make Submission
+              </button>
+            ) : ( */}
             <button
               onClick={() => subscribeToHackathon()}
-              className="  text-white  text-xs font-semibold bg-custom-blue  rounded-md p-2 mr-[200px] w-[150px] mt-[4px]"
+              className="text-white text-xs font-semibold bg-custom-blue rounded-md p-2 mr-[200px] w-[150px] mt-[4px]"
             >
               Participate
             </button>
+            {/* )} */}
           </div>
         </div>
       </div>
