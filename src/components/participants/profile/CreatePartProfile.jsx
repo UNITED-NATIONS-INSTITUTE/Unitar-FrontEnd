@@ -80,12 +80,12 @@ const CreatePartProfile = () => {
         <SuccessModal openModal={openModal} handleClose={closeModal} />
       )}
 
-      <div className="md:right-side bg-white min-h-screen bg-pattern">
-        <form className=" md:ml-80 mt-4" onSubmit={handleSubmit}>
+      <div className="lg:right-side bg-white min-h-screen md:bg-pattern">
+        <form className=" lg:ml-80 " onSubmit={handleSubmit}>
           <h1 className="text-gray-600 text-[24px] font-bold">
             Profile Information
           </h1>
-          <div className="w-[800px] h-[180px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5 px-5 py-3">
+          <div className="lg:w-[800px] h-[180px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5 px-5 py-3">
             <div>
               <h1 className="text-gray-600 text-[18px] font-bold ">
                 Dear Learner,
@@ -96,14 +96,16 @@ const CreatePartProfile = () => {
                 Digital Skills for Women and Youth in Africa: Enhancing
                 Empoyment and Livelihood Development in the Digital Economy"
               </p>
-              <p className="font-bold text-sm mt-5">
+              <p className="font-bold text-sm mb:mt-5 xs:mt-9 xs:text-[16px] xs:pt-5 mt-4 ">
                 Please complete your profile below to proceed
               </p>
             </div>
           </div>
-          <h1 className="mb-2 text-gray-600 font-semibold">Profile Details</h1>
+          <h1 className="text-[24px] xs:pt-11 pt-5 text-gray-600 font-semibold">
+            Profile Details
+          </h1>
 
-          <div className="w-[500px] h-[140px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5">
+          <div className="lg:w-[500px] h-[140px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5">
             <div className="flex items-center ml-4 justify-between">
               <Avatar
                 alt="Profile pic"
@@ -115,20 +117,18 @@ const CreatePartProfile = () => {
                   marginBottom: "50px",
                 }}
               />
-              <div>
-                <label
-                  className=" mr-5  bg-transparent w-[120px]   text-xs border text-custom-blue border-custom-blue  px-2 py-2 rounded-md cursor-pointer"
-                  onClick={handleChooseFile}
-                >
-                  Add an Image
-                  <input type="file" style={{ display: "none" }} />
-                </label>
-              </div>
+              <label
+                className=" mr-5  bg-transparent md:w-[120px]   text-xs border text-custom-blue border-custom-blue  px-2 py-2 rounded-md cursor-pointer"
+                onClick={handleChooseFile}
+              >
+                Add an Image
+                <input type="file" style={{ display: "none" }} />
+              </label>
             </div>
           </div>
-          <div className="grid grid-cols-1 gap-6">
-            <div className="flex flex-row gap-[40px]">
-              <div className=" px-10 py-3 w-[400px] h-[450px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5">
+          <div className="lg:grid lg:grid-cols-1 gap-6">
+            <div className="lg:flex flex-row gap-[40px]">
+              <div className=" px-10 py-3 lg:w-[400px] h-[450px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5">
                 <label className="flex flex-col">
                   <span className="text-gray-700 text-xs mt-[10px]">
                     Full Name
@@ -189,7 +189,7 @@ const CreatePartProfile = () => {
                   />
                 </label>
               </div>
-              <div className=" px-10 w-[400px] h-[300px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5">
+              <div className=" px-10 lg:w-[400px] h-[300px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5">
                 <label className="flex flex-col">
                   <span className="text-gray-700 text-xs mt-5">
                     Select Learning Pathway
