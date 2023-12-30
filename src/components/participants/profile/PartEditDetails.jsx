@@ -66,38 +66,34 @@ const PartEditDetails = () => {
           <div className="flex flex-col">
             <form className="flex flex-col" onSubmit={handleSubmit}>
               <label className="mt-5 mb-2 text-sm text-gray-700">
-                First Name
+                Full Name
               </label>
               <input
                 type="text"
-                name="first_name"
-                value={formData.first_name || " "}
+                name="full_name"
+                value={formData.full_name || " "}
                 onChange={handleChange}
                 className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
           focus:outline-none focus:border-custom-blue"
                 placeholder="John"
               />
 
-              <label className="mt-5 mb-2 text-sm text-gray-700">
-                Last Name
-              </label>
+              <label className="mt-5 mb-2 text-sm text-gray-700">Email</label>
               <input
                 type="text"
-                name="last_name"
-                value={formData.last_name || " "}
+                name="email"
+                value={formData.email || " "}
                 onChange={handleChange}
                 className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
           focus:outline-none focus:border-custom-blue"
                 placeholder="Doe"
               />
 
-              <label className="mt-5 mb-2 text-sm text-gray-700">
-                Residence
-              </label>
+              <label className="mt-5 mb-2 text-sm text-gray-700">City</label>
               <input
                 type="text"
-                name="residence"
-                value={formData.residence || " "}
+                name="city"
+                value={formData.city || " "}
                 onChange={handleChange}
                 className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
           focus:outline-none focus:border-custom-blue"

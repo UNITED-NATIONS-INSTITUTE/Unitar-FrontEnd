@@ -27,7 +27,10 @@ const UserProfile = () => {
     store.dispatch(logOut());
   };
 
-  const closeModal = () => setopenProfilePrompt(false);
+  const closeModal = () => {
+    setopenProfilePrompt(false);
+    handleLogOut();
+  };
   const fetchProfile = () => {
     fetchParticipantProfile(part_ref)
       .then((res) => {
@@ -60,7 +63,7 @@ const UserProfile = () => {
               src={partProfile.profile_image_url}
               sx={{ width: "24px", height: "24px" }}
             />
-            <span className="text-xs">{partProfile.first_name}</span>
+            <span className="text-xs">{partProfile.full_name}</span>
           </div>
         ) : null}
         <Menu

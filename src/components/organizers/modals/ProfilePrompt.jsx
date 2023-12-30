@@ -23,7 +23,6 @@ export default function ProfilePrompt({ openModal, handleClose }) {
     <Box>
       <Modal
         open={openModal}
-        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -42,25 +41,17 @@ export default function ProfilePrompt({ openModal, handleClose }) {
         >
           <Box className=" flex items-center justify-center">
             <Box>
-              <Typography
-                variant="h6"
-                component="h4"
-                sx={{
-                  "@media (max-width: 600px)": {
-                    fontSize: "20px",
-                    marginLeft: "28px",
-                    alignItems: "center",
-                    paddingTop: "20px",
-                  },
-                  "@media (min-width: 768px)": {
-                    fontSize: "32px",
-                    marginLeft: "28px",
-                    paddingTop: "23px",
-                  },
-                }}
-              >
-                Complete account set up by
-                <br /> creating your profile
+              <div className="flex justify-end mb-5">
+                <button onClick={handleClose}>
+                  <img
+                    src="/assets/Vector (2).svg"
+                    alt="close"
+                    className="w-[15px] h-[15px]"
+                  />
+                </button>
+              </div>
+              <Typography variant="h6" component="h4">
+                Complete account set up by creating your profile
               </Typography>
               <Box className="flex space-x-4  mt-[40px]">
                 <button

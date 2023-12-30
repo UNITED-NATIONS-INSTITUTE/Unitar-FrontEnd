@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  verifyUserAccount,
-  // resendVerificationCode,
-} from "../../api/security/security";
+import { verifyUserAccount } from "../../api/security/security";
+import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
 
 const VerificationModal = ({ user_code, onClose }) => {
   const [verificationCode, setVerificationCode] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+  const inputRefs = useRef(Array.from({ length: 6 }, () => React.createRef()));
 
   const verifyUser = () => {
-    verifyUserAccount(user_code, verificationCode)
+    const joinedVerificationCode = verificationCode.join("");
+    verifyUserAccount(user_code, joinedVerificationCode)
       .then((res) => {
         if (res.status === 200) {
           setSuccessMessage(
@@ -33,6 +33,14 @@ const VerificationModal = ({ user_code, onClose }) => {
     e.preventDefault();
     verifyUser();
   };
+  const handleVerificationCodeChange = (e, index) => {
+    const newVerificationCode = [...verificationCode];
+    newVerificationCode[index] = e.target.value;
+    setVerificationCode(newVerificationCode);
+    if (e.target.value !== "" && index < inputRefs.current.length - 1) {
+      inputRefs.current[index + 1].focus();
+    }
+  };
 
   return (
     <div className="overlay">
@@ -47,10 +55,13 @@ const VerificationModal = ({ user_code, onClose }) => {
           </button>
         </div>
         <div className="flex justify-center">
-          <img
-            src="/assets/amico.svg"
-            className="w-[200px] h-[120px]"
-            alt="logo"
+          <MarkEmailReadIcon
+            sx={{
+              width: "200px",
+              height: "120px",
+              color: "#089BD9",
+              marginBottom: "5px",
+            }}
           />
         </div>
         <p className="font-semibold text-sm">
@@ -65,15 +76,22 @@ const VerificationModal = ({ user_code, onClose }) => {
             <label htmlFor="verificationCode" className="text-xs mr-[10px]">
               Enter the code below to activate your account
             </label>
-            <input
-              className="border border-gray-600 focus:outline-none focus:border-custom-blue rounded h-[50px]"
-              type="text"
-              id="verificationCode"
-              name="verificationCode"
-              value={verificationCode}
-              onChange={(e) => setVerificationCode(e.target.value)}
-              required
-            />
+            <div className="verification-code-input flex justify-center mt-3">
+              {Array.from({ length: 6 }, (_, index) => (
+                <input
+                  key={index}
+                  className="verification-code-char"
+                  type="text"
+                  maxLength="1"
+                  id={`verificationCode${index}`}
+                  name="verificationCode"
+                  value={verificationCode[index] || ""}
+                  onChange={(e) => handleVerificationCodeChange(e, index)}
+                  ref={(inputRef) => (inputRefs.current[index] = inputRef)}
+                  required
+                />
+              ))}
+            </div>
             <div className="flex justify-center">
               <button
                 type="submit"
@@ -84,12 +102,6 @@ const VerificationModal = ({ user_code, onClose }) => {
             </div>
           </form>
         )}
-        {/* <p className="text-xs">
-          Can't see the code?{" "}
-          <button onClick={resendCode} className="text-custom-blue mt-5">
-            Resend code
-          </button>
-        </p> */}
       </div>
     </div>
   );

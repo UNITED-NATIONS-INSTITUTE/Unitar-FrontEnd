@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { frame, man1, man2, views } from "../../assets";
 import Banner from "./Banner";
 import ForParticipants from "./ForParticipants";

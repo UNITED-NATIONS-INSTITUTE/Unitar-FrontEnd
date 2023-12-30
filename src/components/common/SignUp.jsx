@@ -35,7 +35,6 @@ const SignUp = () => {
   const handleTogglePassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
-
   function getRole() {
     let user;
     if (userRole[1] === "org-signup") {
@@ -189,13 +188,6 @@ const SignUp = () => {
                   value={password_confirmation}
                   onChange={handleChange("password_confirmation")}
                 />
-                <button
-                  type="button"
-                  onClick={handleTogglePassword}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-sm focus:outline-none"
-                >
-                  {showPassword ? <FiEye size={15} /> : <FiEyeOff size={15} />}
-                </button>
               </div>
               <button
                 type="submit"

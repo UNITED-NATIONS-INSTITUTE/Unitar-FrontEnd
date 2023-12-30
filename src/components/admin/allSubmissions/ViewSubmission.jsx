@@ -7,7 +7,7 @@ const ViewSubmissions = () => {
   const submissionDetails = useSelector(selectCurrentSubscriptionDetail);
 
   return (
-    <div className="bg-white right-side min-h-screen min-w-full">
+    <div className="bg-[#FAF9F6] right-side min-h-screen min-w-full">
       <div className="ml-[280px]">
         <div className="flex justify-between mt-8">
           <h1 className="text-gray-600 font-bold text-[24px]">
@@ -17,34 +17,37 @@ const ViewSubmissions = () => {
             <AdminProfile />
           </div>
         </div>
+        <p className="mt-3 ">
+          Project Name:
+          <span className="text-sm  ml-3">{submissionDetails.title}</span>
+        </p>
         <div className="flex flex-wrap  space-x-4 mt-5 ml-4">
           {submissionDetails && (
             <div
               key={submissionDetails.id}
-              className="flex gap-[100px] rounded-[6px] shadow flex-row border border-gray-100  p-10 h-full w-full "
+              className="flex gap-[100px] rounded-[6px] shadow flex-row border border-gray-100  p-10 w-[900px]  "
             >
               <div className="flex-shrink-0 rounded-full mt-3 ml-3 mb-3">
                 <img
                   src={submissionDetails.hackathon.cover_image_url}
                   alt=""
                   style={{
-                    borderRadius: "20px",
-                    width: "460px",
-                    height: "370px",
-                    objectFit: "cover",
+                    borderRadius: "50%",
+                    width: "350px",
+                    height: "350px",
+                    objectFit: "fill",
                   }}
                 />
               </div>
               <div className="ml-4 mt-5">
                 <p className="mt-3 ">
-                  Project Name:
+                  Description:{" "}
                   <span className="text-sm text-gray-600 ml-3">
-                    {submissionDetails.title}
+                    {submissionDetails.desc}
                   </span>
                 </p>
-
                 <p className="mt-3 ">
-                  Blog:{" "}
+                  Blog:
                   <a
                     href={submissionDetails.blog}
                     target="_blank"
@@ -65,13 +68,6 @@ const ViewSubmissions = () => {
                     {submissionDetails.demo_link}
                   </a>
                 </p>
-                <p className="mt-3 ">
-                  Description:{" "}
-                  <span className="text-sm text-gray-600 ml-3">
-                    {submissionDetails.desc}
-                  </span>
-                </p>
-
                 <p className="mt-3">
                   Live URL:
                   <a
@@ -82,13 +78,6 @@ const ViewSubmissions = () => {
                   >
                     {submissionDetails.live_url}
                   </a>
-                </p>
-
-                <p className="mt-3 ">
-                  Grade:{" "}
-                  <span className="text-sm text-gray-600 ml-3">
-                    {submissionDetails.grade}
-                  </span>
                 </p>
                 <p className="mt-3 ">
                   GitHub Link:{" "}
@@ -101,6 +90,13 @@ const ViewSubmissions = () => {
                     {submissionDetails.gh_link}
                   </a>
                 </p>
+                <p className="mt-3 ">
+                  Grade:{" "}
+                  <span className="text-sm text-gray-600 ml-3">
+                    {submissionDetails.grade}
+                  </span>
+                </p>
+
                 <p className="mt-3">
                   Prize:{" "}
                   <span className="text-sm text-gray-600 ml-3">
