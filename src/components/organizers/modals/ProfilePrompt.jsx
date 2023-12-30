@@ -32,7 +32,11 @@ export default function ProfilePrompt({ openModal, handleClose }) {
             ...style,
             "@media (max-width: 600px)": {
               width: 900,
-              height: 500,
+              height: 300,
+            },
+            "@media (min-width: 768px)": {
+              width: 900,
+              height: 350,
             },
           }}
         >
@@ -43,17 +47,25 @@ export default function ProfilePrompt({ openModal, handleClose }) {
                 component="h4"
                 sx={{
                   "@media (max-width: 600px)": {
-                    fontSize: "40px",
+                    fontSize: "20px",
                     marginLeft: "28px",
+                    alignItems: "center",
+                    paddingTop: "20px",
+                  },
+                  "@media (min-width: 768px)": {
+                    fontSize: "32px",
+                    marginLeft: "28px",
+                    paddingTop: "23px",
                   },
                 }}
               >
-                Complete account set up by creating your profile
+                Complete account set up by
+                <br /> creating your profile
               </Typography>
               <Box className="flex space-x-4  mt-[40px]">
                 <button
                   onClick={() => navigate("profile/create")}
-                  className=" bg-custom-blue rounded-md lg:w-full sm:ml-[68px] ml-[280px] md:ml-3 lg:ml-1  w-[300px] text-center  py-6 md:py-1 lg:py-2 text-[30px] text-white hover:bg-blue-500 lg:text-[16px] "
+                  className=" bg-custom-blue rounded-md md:w-full  ml-[60px]  w-[180px] text-center  py-6 md:text-[27px] text-[22px] text-white hover:bg-blue-500 lg:text-[16px] "
                 >
                   Proceed
                 </button>
