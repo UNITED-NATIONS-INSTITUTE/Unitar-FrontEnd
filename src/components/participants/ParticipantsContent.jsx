@@ -41,11 +41,11 @@ const ParticipantsContent = () => {
         </div>
       </div>
       <div className="mt-10">
-        <h1 className="text-gray-600 font-semibold text-[20px] text-center md:text-left">
+        <h1 className="text-gray-600 md:font-semibold font-bold text-[20px] text-center md:text-left">
           Ongoing hackathons
         </h1>
         <h3 className="mt-3 md:text-sm text-[18px] font-bold">Hackathons</h3>
-        <p className="text-gray-500 md:text-xs  text-[16px] mt-2 ">
+        <p className="text-gray-500 lg:text-sm md:text-[20px]  text-[16px] mt-2 ">
           Active Hackathons are listed here
         </p>
         <HackathonsPage />
