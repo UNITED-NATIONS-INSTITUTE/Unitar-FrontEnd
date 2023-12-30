@@ -50,7 +50,7 @@ const Sidebar = () => {
           <div className="bg-light-blue p-4 h-screen fixed left-0 top-0 w-[250px]">
             <div className="flex justify-between">
               <img src={logo} alt="" />
-              <img src="/assets/back.svg" alt="back" width="20" height="20" />
+              {/* <img src="/assets/back.svg" alt="back" width="20" height="20" /> */}
             </div>
             <button
               onClick={() => handleNavigation("dashboard")}
