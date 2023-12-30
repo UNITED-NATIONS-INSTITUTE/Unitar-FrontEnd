@@ -20,7 +20,7 @@ const Sidebar = () => {
 
   const [toggle, setToggle] = useState(false);
 
-  const isMobile = useMediaQuery("(max-width: 1024px)");
+  const isMobile = useMediaQuery("(max-width: 1050px)");
 
   const handleNavigation = (page) => {
     navigate(`/participant/${page}`);
@@ -30,7 +30,7 @@ const Sidebar = () => {
   return (
     <>
       {isMobile ? (
-        <div className="w-full md:hidden   py-6 shadow-xl">
+        <div className="w-full xl:hidden   py-6 shadow-xl">
           <div className=" flex justify-between ">
             <img
               src={logo}
@@ -46,7 +46,7 @@ const Sidebar = () => {
           </div>{" "}
         </div>
       ) : (
-        <div className="lg:flex hidden">
+        <div className="xl:flex hidden">
           <div className="bg-light-blue p-4 h-screen fixed left-0 top-0 w-[250px]">
             <div className="flex justify-between">
               <img src={logo} alt="" />
@@ -103,7 +103,7 @@ const Sidebar = () => {
         <div
           className={`${
             !toggle ? "hidden" : "flex"
-          } p-12 lg:hidden fixed z-[1000] bg-black/90 top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl w-full h-screen`}
+          } p-12 xl:hidden fixed z-[1000] bg-black/90 top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl w-full h-screen`}
         >
           <div className="">
             <button

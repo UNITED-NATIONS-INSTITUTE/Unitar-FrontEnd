@@ -80,23 +80,23 @@ const CreatePartProfile = () => {
         <SuccessModal openModal={openModal} handleClose={closeModal} />
       )}
 
-      <div className="lg:right-side bg-white min-h-screen md:bg-pattern">
-        <form className=" lg:ml-80 " onSubmit={handleSubmit}>
+      <div className="xl:right-side bg-white  min-h-screen md:bg-pattern">
+        <form className=" xl:ml-80 " onSubmit={handleSubmit}>
           <h1 className="text-gray-600 text-[24px] font-bold">
             Profile Information
           </h1>
-          <div className="lg:w-[800px] h-[180px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5 px-5 py-3">
+          <div className="lg:w-[800px] h-[210px] md:h-[250px] sm:h-[300px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5 px-5 py-3">
             <div>
-              <h1 className="text-gray-600 text-[18px] font-bold ">
+              <h1 className="text-gray-600 text-[20px] font-bold ">
                 Dear Learner,
               </h1>
-              <p className="text-sm mt-3 text-gray-700 ">
+              <p className="text-sm  md:text-[24px] md:leading-8  mt-3 text-gray-700 ">
                 Thank you for completing the assigned Learning Pathway(Phase1)
                 of the UNITAR training programme on "Developing Essential
                 Digital Skills for Women and Youth in Africa: Enhancing
                 Empoyment and Livelihood Development in the Digital Economy"
               </p>
-              <p className="font-bold text-sm mb:mt-5 xs:mt-9 xs:text-[16px] xs:pt-5 mt-4 ">
+              <p className="font-bold text-sm md:text-[23px] mt-3 xs:text-[16px] md:mt-4">
                 Please complete your profile below to proceed
               </p>
             </div>
@@ -118,7 +118,7 @@ const CreatePartProfile = () => {
                 }}
               />
               <label
-                className=" mr-5  bg-transparent md:w-[120px]   text-xs border text-custom-blue border-custom-blue  px-2 py-2 rounded-md cursor-pointer"
+                className=" mr-5  bg-transparent md:w-[120px] md:text-[14px]  text-xs border text-custom-blue border-custom-blue  px-2 py-2 rounded-md cursor-pointer"
                 onClick={handleChooseFile}
               >
                 Add an Image
@@ -130,7 +130,7 @@ const CreatePartProfile = () => {
             <div className="lg:flex flex-row gap-[40px]">
               <div className=" px-10 py-3 lg:w-[400px] h-[450px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5">
                 <label className="flex flex-col">
-                  <span className="text-gray-700 text-xs mt-[10px]">
+                  <span className="text-gray-700 text-xs md:text-[18px]   mt-[10px]">
                     Full Name
                   </span>
                   <input
@@ -138,39 +138,45 @@ const CreatePartProfile = () => {
                     name="full_name"
                     value={formData.full_name}
                     onChange={handleChange}
-                    className="mt-1 mb-2 p-2 w-[300px] border bg-inherit border-gray-600 rounded-md focus:outline-none focus:border-custom-blue"
+                    className="mt-1 mb-2 p-2 w-[300px] sm:w-[240px] border bg-inherit border-gray-600 rounded-md focus:outline-none focus:border-custom-blue"
                     required
                   />
                 </label>
                 <label className="flex flex-col">
-                  <span className="text-gray-700 text-xs">Email</span>
+                  <span className="text-gray-700 md:text-[18px]  text-xs">
+                    Email
+                  </span>
                   <input
                     type="text"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="mt-2 mb-2 p-2 w-[300px] border bg-inherit border-gray-600 rounded-md focus:outline-none focus:border-custom-blue"
+                    className="mt-2 mb-2 p-2 w-[300px] sm:w-[240px]  border bg-inherit border-gray-600 rounded-md focus:outline-none focus:border-custom-blue"
                     required
                   />
                 </label>
 
                 <label className="flex flex-col">
-                  <span className="text-gray-700 text-xs ">City</span>
+                  <span className="text-gray-700 text-xs md:text-[18px]   ">
+                    City
+                  </span>
                   <input
                     type="text"
                     name="city"
                     value={formData.city}
                     onChange={handleChange}
-                    className="mt-2 p-2 w-[300px] bg-inherit border-gray-600 border rounded-md focus:outline-none focus:border-custom-blue"
+                    className="mt-2 p-2 w-[300px] sm:w-[240px] bg-inherit border-gray-600 border rounded-md focus:outline-none focus:border-custom-blue"
                   />
                 </label>
                 <label className="flex flex-col">
-                  <span className="text-gray-700 text-xs mt-5">Gender</span>
+                  <span className="text-gray-700 text-xs md:text-[18px]  mt-5">
+                    Gender
+                  </span>
                   <select
                     name="gender"
                     value={formData.gender}
                     onChange={handleChange}
-                    className="mt-1 p-2 w-[300px] mb-8 text-sm border  bg-inherit border-gray-600 rounded-md focus:outline-none focus:border-custom-blue"
+                    className="mt-1 p-2 w-[300px] sm:w-[240px]  mb-8 text-sm border md:text-[18px]    bg-inherit border-gray-600 rounded-md focus:outline-none focus:border-custom-blue"
                   >
                     {" "}
                     <option value="Select...">Select...</option>
@@ -179,26 +185,28 @@ const CreatePartProfile = () => {
                   </select>
                 </label>
                 <label className="flex flex-col">
-                  <span className="text-gray-700 text-xs">Date of Birth</span>
+                  <span className="text-gray-700 md:text-[18px]   text-xs">
+                    Date of Birth
+                  </span>
                   <input
                     type="date"
                     name="date_of_birth"
                     value={formData.date_of_birth}
                     onChange={handleChange}
-                    className="mt-1 p-2 w-[300px] text-xs border bg-inherit border-gray-600 rounded-md focus:outline-none focus:border-custom-blue"
+                    className="mt-1 p-2 w-[300px] sm:w-[240px]  text-xs border bg-inherit border-gray-600 rounded-md focus:outline-none focus:border-custom-blue"
                   />
                 </label>
               </div>
               <div className=" px-10 lg:w-[400px] h-[300px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5">
                 <label className="flex flex-col">
-                  <span className="text-gray-700 text-xs mt-5">
+                  <span className="text-gray-700 text-xs md:text-[18px]    mt-5">
                     Select Learning Pathway
                   </span>
                   <select
                     name="pathway"
                     value={formData.pathway}
                     onChange={handleChange}
-                    className="mt-1 p-2 w-[300px] mb-8 text-sm border  bg-inherit border-gray-600 rounded-md focus:outline-none focus:border-custom-blue"
+                    className="mt-1 p-2 w-[300px] sm:w-[240px] mb-8 text-sm md:text-[18px]   border  bg-inherit border-gray-600 rounded-md focus:outline-none focus:border-custom-blue"
                   >
                     <option value="Select...">Select...</option>
                     <option value="IBM Learning">IBM Learning</option>
@@ -216,7 +224,7 @@ const CreatePartProfile = () => {
                     name="hackathon_theme"
                     value={formData.hackathon_theme}
                     onChange={handleChange}
-                    className="mt-1 p-2 w-[300px] mb-8 text-sm border  bg-inherit border-gray-600 rounded-md focus:outline-none focus:border-custom-blue"
+                    className="mt-1 p-2 w-[300px] sm:w-[240px]  mb-8 text-sm border  bg-inherit border-gray-600 rounded-md focus:outline-none focus:border-custom-blue"
                   >
                     {" "}
                     <option value="Select...">Select...</option>
