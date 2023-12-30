@@ -66,7 +66,7 @@ const HackathonMedia = () => {
   return (
     <div className="bg-white right-side min-h-screen flex justify-center">
       <div className="ml-60 mt-10 ">
-        <h1 className="text-gray-600 font-bold text-[24px] mb-9">
+        <h1 className="text-gray-600 font-bold text-[24px] mb-2">
           Hackathon media
         </h1>
         <p className="text-xs text-gray-500 flex flex-row mb-6">

@@ -187,15 +187,16 @@ const CreateHackathon = () => {
                   onChange={handleChange("description")}
                   name="description"
                   value={description}
+                  inputProps={{ maxLength: 100 }}
                 />
 
                 <label
                   className="font-semibold mt-5 mb-4 text-xs  "
                   name="projectName"
                 >
-                  Hackathon categories
+                  Hackathon Sub-Thematic Concerns
                 </label>
-                <div className="flex flex-row border-gray-200 rounded p-2 border gap-2 ">
+                <div className="flex flex-row border-gray-200 rounded p-2 border gap-2 mb-5 ">
                   <TagSelector func={readCategories} />
                 </div>
                 <div className="flex flex-row gap-5">
@@ -206,7 +207,6 @@ const CreateHackathon = () => {
                           <Stack key={index}>
                             <Grid
                               container
-                              // xs={12}
                               component="fieldset"
                               sx={{
                                 border: "solid 3px #295FAB",

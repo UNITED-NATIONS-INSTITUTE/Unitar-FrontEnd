@@ -29,7 +29,7 @@ const EmailValidation = () => {
   return (
     <div className="bg-white min-h-screen right-side">
       <div className="ml-80">
-        <h1 className=" text-gray-600 font-bold  text-[24px] mb-9 mt-10">
+        <h1 className=" text-gray-600 font-bold  text-[24px] mb-2 mt-10">
           Email Validation
         </h1>{" "}
         <p className="text-xs text-gray-500 flex flex-row mb-6">
@@ -64,7 +64,7 @@ const EmailValidation = () => {
             type="submit"
             className="py-2 px-2 bg-custom-blue rounded-md text-white  w-[150px] mt-10"
           >
-            Send email
+            Send Code
           </button>
         </form>
       </div>
