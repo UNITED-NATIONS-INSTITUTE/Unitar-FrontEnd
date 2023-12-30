@@ -16,6 +16,7 @@ export default {
       },
       screens: {
         xs: "400px",
+        sm: "200px",
       },
 
       fontFamily: {
