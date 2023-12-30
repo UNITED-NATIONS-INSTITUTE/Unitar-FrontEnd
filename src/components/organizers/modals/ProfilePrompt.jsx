@@ -34,29 +34,46 @@ export default function ProfilePrompt({ openModal, handleClose }) {
               height: 300,
             },
             "@media (min-width: 768px)": {
-              width: 900,
+              width: 600,
+              height: 350,
+            },
+            "@media (min-width: 1024px)": {
+              width: 800,
               height: 350,
             },
           }}
         >
           <Box className=" flex items-center justify-center">
             <Box>
-              <div className="flex justify-end mb-5">
-                <button onClick={handleClose}>
-                  <img
-                    src="/assets/Vector (2).svg"
-                    alt="close"
-                    className="w-[15px] h-[15px]"
-                  />
-                </button>
-              </div>
-              <Typography variant="h6" component="h4">
-                Complete account set up by creating your profile
+              <Typography
+                variant="h6"
+                component="h4"
+                sx={{
+                  "@media (max-width: 600px)": {
+                    fontSize: "20px",
+                    marginLeft: "28px",
+                    alignItems: "center",
+                    paddingTop: "20px",
+                  },
+                  "@media (min-width: 768px)": {
+                    fontSize: "32px",
+                    marginLeft: "28px",
+                    paddingTop: "23px",
+                  },
+                  "@media (min-width: 1024px)": {
+                    fontSize: "30px",
+                    marginLeft: "28px",
+                    paddingTop: "23px",
+                  },
+                }}
+              >
+                Complete account set up by
+                <br /> creating your profile
               </Typography>
               <Box className="flex space-x-4  mt-[40px]">
                 <button
                   onClick={() => navigate("profile/create")}
-                  className=" bg-custom-blue rounded-md md:w-full  ml-[60px]  w-[180px] text-center  py-6 md:text-[27px] text-[22px] text-white hover:bg-blue-500 lg:text-[16px] "
+                  className=" bg-custom-blue rounded-md md:w-full  ml-[60px] md:ml-[20px]  w-[180px] text-center  py-6 md:text-[27px] text-[22px] text-white hover:bg-blue-500 lg:text-[20px]"
                 >
                   Proceed
                 </button>
