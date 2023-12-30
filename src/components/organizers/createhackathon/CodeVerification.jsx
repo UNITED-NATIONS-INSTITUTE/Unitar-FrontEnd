@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { selectCurrentHackathonDetail } from "../../../features/hackathon/hackathonSlice";
 import { useNavigate } from "react-router-dom";
 import { validateHackathon } from "../../../api/hackathons/hackathons";
+import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
+
 const CodeVerification = () => {
   const [validationCode, setValidationCode] = useState("");
   const hackathonDetails = useSelector(selectCurrentHackathonDetail);
@@ -25,7 +27,7 @@ const CodeVerification = () => {
   return (
     <div className="min-h-screen bg-white right-side">
       <div className="ml-80">
-        <h1 className=" text-gray-600 font-bold  text-[24px] mb-9 mt-10">
+        <h1 className=" text-gray-600 font-bold  text-[24px] mb-2 mt-10">
           Code Verification
         </h1>{" "}
         <p className="text-xs text-gray-500 flex flex-row mb-6">
@@ -44,10 +46,13 @@ const CodeVerification = () => {
           <span>Verification</span>
         </p>
         <div>
-          <img
-            src="/assets/amico.svg"
-            className="w-[200px] h-[120px]"
-            alt="logo"
+          <MarkEmailReadIcon
+            sx={{
+              width: "200px",
+              height: "120px",
+              color: "#089BD9",
+              marginBottom: "5px",
+            }}
           />
         </div>
         <p className="font-semibold text-sm">
