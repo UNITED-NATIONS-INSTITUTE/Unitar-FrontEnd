@@ -29,16 +29,25 @@ export default function ProfilePrompt({ openModal, handleClose }) {
         <Box
           sx={{
             ...style,
+
             "@media (max-width: 600px)": {
-              width: 900,
+              width: 400,
               height: 300,
+            },
+            "@media (max-width: 280px)": {
+              width: 300,
+              height: 250,
+            },
+            "@media (max-width: 360px)": {
+              width: 340,
+              height: 250,
             },
             "@media (min-width: 768px)": {
               width: 600,
               height: 350,
             },
             "@media (min-width: 1024px)": {
-              width: 800,
+              width: 600,
               height: 350,
             },
           }}
@@ -61,19 +70,18 @@ export default function ProfilePrompt({ openModal, handleClose }) {
                     paddingTop: "23px",
                   },
                   "@media (min-width: 1024px)": {
-                    fontSize: "30px",
+                    fontSize: "24px",
                     marginLeft: "28px",
                     paddingTop: "23px",
                   },
                 }}
               >
-                Complete account set up by
-                <br /> creating your profile
+                Complete account set up by creating your profile
               </Typography>
               <Box className="flex space-x-4  mt-[40px]">
                 <button
                   onClick={() => navigate("profile/create")}
-                  className=" bg-custom-blue rounded-md md:w-full  ml-[60px] md:ml-[20px]  w-[180px] text-center  py-6 md:text-[27px] text-[22px] text-white hover:bg-blue-500 lg:text-[20px]"
+                  className=" bg-custom-blue lg:w-[400px] lg:ml-[80px] rounded-md w-full   md:ml-[20px]   text-center py-6 md:text-[27px] text-[22px] text-white hover:bg-blue-500 lg:text-[18px]"
                 >
                   Proceed
                 </button>
