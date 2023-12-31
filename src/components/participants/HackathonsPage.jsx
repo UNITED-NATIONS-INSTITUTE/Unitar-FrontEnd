@@ -40,12 +40,12 @@ const HackathonsPage = () => {
     <>
       {loading && <LinearProgress />}
       {!loading && (
-        <div className="flex flex-wrap space-x-4 mt-5 ml-4">
+        <div className="lg:flex flex-wrap lg:space-x-4 mt-5 lg:ml-4 ">
           {hackathonsPayload.length > 0 &&
             hackathonsPayload.map((field, index) => (
               <div
                 key={index}
-                className=" hover:border-custom-blue relative overflow-hidden border border-[#C7C7C7]  rounded-[20px] shadow mb-4 w-[300px] h-[380px] transition-transform transform hover:-translate-y-1"
+                className=" hover:border-custom-blue relative overflow-hidden border border-[#C7C7C7]  rounded-[20px] shadow mb-4 lg:w-[300px] w-full h-[380px] transition-transform transform hover:-translate-y-1"
               >
                 <HackathonMedia
                   cover_image_url={field.cover_image_url}
