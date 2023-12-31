@@ -52,20 +52,22 @@ const PartEditDetails = () => {
   }
 
   return (
-    <div className="bg-white p-8 md:right-side min-h-screen">
-      <div className="overflow-y-auto md:ml-60 flex profile-details">
+    <div className="bg-white p-8 lg:right-side min-h-screen">
+      <div className="lg:overflow-y-auto xl:ml-60  lg:flex profile-details">
         <div className="flex flex-col flex-1">
-          <h1 className="mt-0 text-gray-600 font-bold mb-10 text-[20px]">
+          <h1 className="mt-0 xl:text-sm md:text-[20px] text-[20px]   text-gray-600 font-bold mb-10 ">
             Profile
           </h1>
-          <span className="text-sm font-semibold">Profile</span>
-          <span className="text-sm text-gray-500 mt-2">
+          <span className="xl:text-sm md:text-[20px] text-[16px]  font-semibold">
+            Profile
+          </span>
+          <span className="xl:text-sm md:text-[20px] text-[16px]  text-gray-500 mt-2">
             Update your details and profile photo here.
           </span>
-          <hr className="w-[600px] mt-6" />
-          <div className="flex flex-col">
+          <hr className="lg:w-[600px] mt-6" />
+          <div className="lg:flex flex-col">
             <form className="flex flex-col" onSubmit={handleSubmit}>
-              <label className="mt-5 mb-2 text-sm text-gray-700">
+              <label className="mt-5 mb-2 xl:text-sm md:text-[20px] text-[16px]  text-gray-700">
                 Full Name
               </label>
               <input
@@ -73,34 +75,35 @@ const PartEditDetails = () => {
                 name="full_name"
                 value={formData.full_name || " "}
                 onChange={handleChange}
-                className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
+                className="lg:w-[500px]  xl:text-sm md:text-[16px] text-[14px]  px-3 py-2 border border-gray-400 rounded
           focus:outline-none focus:border-custom-blue"
                 placeholder="John"
               />
-
-              <label className="mt-5 mb-2 text-sm text-gray-700">Email</label>
+              <label className="mt-5 mb-2  xl:text-sm md:text-[20px] text-[16px]  text-gray-700">
+                Email
+              </label>
               <input
                 type="text"
                 name="email"
                 value={formData.email || " "}
                 onChange={handleChange}
-                className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
+                className="lg:w-[500px] px-3 py-2 border border-gray-400 rounded xl:text-sm md:text-[16px] text-[14px]
           focus:outline-none focus:border-custom-blue"
                 placeholder="Doe"
               />
-
-              <label className="mt-5 mb-2 text-sm text-gray-700">City</label>
+              <label className="mt-5 mb-2  xl:text-sm md:text-[20px] text-[16px]  text-gray-700">
+                City
+              </label>
               <input
                 type="text"
                 name="city"
                 value={formData.city || " "}
                 onChange={handleChange}
-                className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
+                className="lg:w-[500px] px-3 py-2 border border-gray-400 rounded xl:text-sm md:text-[16px] text-[14px]
           focus:outline-none focus:border-custom-blue"
                 placeholder="Lagos, Nigeria"
               />
-
-              <label className="mt-5 mb-2 text-sm text-gray-700">
+              <label className="mt-5 mb-2  xl:text-sm md:text-[20px] text-[16px]  text-gray-700">
                 Date of Birth
               </label>
               <input
@@ -108,14 +111,13 @@ const PartEditDetails = () => {
                 name="date_of_birth"
                 value={formData.date_of_birth || " "}
                 onChange={handleChange}
-                className="w-[500px] px-3 py-2 border border-gray-400 rounded text-xs
+                className="lg:w-[500px] px-3 py-2 border border-gray-400 rounded xl:text-sm md:text-[16px] text-[14px]
           focus:outline-none focus:border-custom-blue"
                 placeholder="YYYY-MM-DD"
-              />
-
+              />{" "}
               <button
                 type="submit"
-                className="text-white font-semibold bg-custom-blue rounded-md p-2 w-[150px] mt-5"
+                className="text-white font-semibold bg-custom-blue rounded-md p-2 w-[150px] mt-10"
               >
                 Update Profile
               </button>
@@ -123,20 +125,22 @@ const PartEditDetails = () => {
           </div>
         </div>
         <div className="flex-2 flex-col flex">
-          <div className="flex justify-end mt-0 user-profile">
+          {/* <div className="flex justify-end mt-0 user-profile">
             <UserProfile />
-          </div>
+          </div> */}
           <Avatar
             alt="Profile pic"
             src={formData.profile_image_url}
             sx={{ width: "100px", height: "100px", marginTop: "50px" }}
           />
-          <span className="text-sm mt-5">Your photo</span>
-          <span className="text-gray-500 text-xs mt-2">
+          <span className=" xl:text-sm md:text-[20px] text-[16px]  mt-5">
+            Your photo
+          </span>
+          <span className="text-gray-500  xl:text-sm md:text-[20px] text-[16px] mt-2">
             This will be displayed on your profile
           </span>
           <div className="flex gap-5 mt-5">
-            <label className="text-xs text-custom-purple">
+            <label className="xl:text-sm md:text-[16px] text-[14px] text-custom-purple">
               New Profile Image
               <input
                 type="file"
@@ -146,7 +150,7 @@ const PartEditDetails = () => {
               />
             </label>
             <button
-              className="text-red-600 text-xs"
+              className="text-red-600 xl:text-sm md:text-[16px] text-[14px]"
               onClick={handleProfileUpdate}
             >
               Update Image
