@@ -37,9 +37,9 @@ const HackathonDetailsPage = () => {
   }
 
   return (
-    <div className="bg-[#FAF9F6] p-8  min-h-screen right-side">
-      <div className="flex justify-between">
-        <div className="ml-60 mb-2">
+    <div className="bg-[#FAF9F6] p-8  min-h-screen lg:right-side">
+      <div className="lg:flex justify-between">
+        <div className="lg:ml-60 mb-2">
           {" "}
           <h1 className="mt-0 text-gray-600 font-bold  text-[20px] relative ">
             Hackathon
@@ -50,7 +50,7 @@ const HackathonDetailsPage = () => {
           <UserProfile />
         </div>
       </div>
-      <p className="text-xs text-gray-500  flex flex-row mb-10 ml-60">
+      <p className="text-xs text-gray-500  flex flex-row mb-10 lg:ml-60">
         <span>Hackathons</span>
         <img
           src="/assets/chevron-right-solid.svg"
@@ -59,13 +59,13 @@ const HackathonDetailsPage = () => {
         />
         <span>{hackathon.title}</span>
       </p>
-      <div className="ml-60">
+      <div className="lg:ml-60">
         <h1 className="mb-4 font-semibold text-gray-700">{hackathon.title}</h1>
-        <div className="flex flex-row gap-[150px] shadow-lg bg-white p-8  border rounded-md">
+        <div className="lg:flex flex-row gap-[150px] shadow-lg bg-white p-8  border rounded-md">
           <div className="relative">
             {" "}
             <img
-              className="shadow-lg"
+              className="shadow-lg mx-auto border lg:rounded-[50%] lg:ml-[30px] lg:w-[350px] h-[350px] w-full"
               src={
                 hackathon.cover_image_url
                   ? hackathon.cover_image_url
@@ -73,15 +73,11 @@ const HackathonDetailsPage = () => {
               }
               alt=""
               style={{
-                borderRadius: "50%",
-                marginLeft: "30px",
-                width: "350px",
-                height: "350px",
                 objectFit: "fill",
               }}
             />
           </div>
-          <div className="flex flex-col w-[500px] ">
+          <div className="lg:flex flex-col lg:w-[500px] ">
             <div>
               <p className="text-[16px]  font-semibold mt-5 ">Highlights</p>
               <p className="text-xs mt-5">{hackathon.highlight}</p>
@@ -100,10 +96,10 @@ const HackathonDetailsPage = () => {
             </div>
           </div>
         </div>
-        <div className="mt-[80px] ml-[30px]">
-          <div className="flex flex-row justify-around">
-            <div className="bg-white shadow-lg w-[200px] h-[100px] border rounded-md p-5 flex flex-row gap-10">
-              <div className="flex justify-center">
+        <div className="mt-[80px] lg:ml-[30px]">
+          <div className="lg:flex flex-row justify-around">
+            <div className="bg-white shadow-lg lg:w-[200px] h-[100px] border rounded-md p-5 flex flex-row gap-10">
+              <div className="lg:flex justify-center">
                 {" "}
                 <LocationOnIcon
                   style={{
@@ -118,7 +114,7 @@ const HackathonDetailsPage = () => {
                 <p className="mt-4 text-sm text-center">{hackathon.location}</p>
               </div>
             </div>
-            <div className="bg-white shadow-lg w-[200px] h-[100px] border rounded-md p-5 flex flex-row gap-10">
+            <div className="bg-white shadow-lg mt-5 lg:mt-0 lg:w-[200px] h-[100px] border rounded-md p-5 flex flex-row gap-10">
               <div className="flex justify-center">
                 <BookIcon
                   style={{
@@ -135,7 +131,7 @@ const HackathonDetailsPage = () => {
                 </p>
               </div>
             </div>
-            <div className="bg-white shadow-lg w-[300px] h-[100px] border rounded-md p-5 flex flex-row gap-10">
+            <div className="bg-white shadow-lg lg:w-[300px] h-[100px] mt-5 lg:mt-0 border rounded-md p-5 flex flex-row gap-10">
               <div className="flex justify-center">
                 <DateRangeIcon
                   style={{
@@ -159,8 +155,8 @@ const HackathonDetailsPage = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-row ml-[100px] gap-[150px] mb-10 items-center mt-10">
-            <div className="bg-white shadow-lg w-[400px] h-[100px] border rounded-md  gap-10 px-5">
+          <div className="lg:flex flex-row ml-[100px] gap-[150px] mb-10 items-center mt-10">
+            <div className="bg-white shadow-lg lg:w-[400px] h-[100px] border rounded-md  gap-10 px-5">
               <p className="font-semibold  text-[18px] mb-2 mt-4">Tags</p>
               <div className=" flex gap-5">
                 {hackathon.tags &&
@@ -175,7 +171,7 @@ const HackathonDetailsPage = () => {
               </div>
             </div>
 
-            <div className="bg-white shadow-lg w-[300px] h-[100px] border rounded-md p-5 flex flex-row gap-10">
+            <div className="bg-white shadow-lg lg:w-[300px] h-[100px] border rounded-md p-5 flex flex-row gap-10">
               <div className="flex justify-center">
                 <MilitaryTechIcon
                   style={{
