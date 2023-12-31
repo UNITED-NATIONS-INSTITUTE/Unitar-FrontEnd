@@ -103,7 +103,7 @@ const Sidebar = () => {
         <div
           className={`${
             !toggle ? "hidden" : "flex"
-          } p-12 xl:hidden fixed z-[1000] bg-black/90 top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl w-full h-screen`}
+          } p-12 xl:hidden fixed z-[1000] bg-black/70 top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl w-full h-screen`}
         >
           <div className="">
             <button
