@@ -155,8 +155,8 @@ const HackathonDetailsPage = () => {
               </div>
             </div>
           </div>
-          <div className="lg:flex flex-row ml-[100px] gap-[150px] mb-10 items-center mt-10">
-            <div className="bg-white shadow-lg lg:w-[400px] h-[100px] border rounded-md  gap-10 px-5">
+          <div className="lg:flex flex-row lg:ml-[100px] gap-[150px] mb-10 items-center mt-10">
+            <div className="bg-white shadow-lg lg:w-[400px] h-[100px] border rounded-md gap-10 px-5">
               <p className="font-semibold  text-[18px] mb-2 mt-4">Tags</p>
               <div className=" flex gap-5">
                 {hackathon.tags &&
@@ -171,7 +171,7 @@ const HackathonDetailsPage = () => {
               </div>
             </div>
 
-            <div className="bg-white shadow-lg lg:w-[300px] h-[100px] border rounded-md p-5 flex flex-row gap-10">
+            <div className="bg-white shadow-lg lg:w-[300px] h-[100px] mt-5 lg:mt-0 border rounded-md p-5 flex flex-row gap-10">
               <div className="flex justify-center">
                 <MilitaryTechIcon
                   style={{
