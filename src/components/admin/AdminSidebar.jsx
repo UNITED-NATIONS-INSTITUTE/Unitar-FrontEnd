@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import logo from "../../assets/unitar-logo.svg";
+import { useMediaQuery } from "@react-hook/media-query";
+
 import { align, layers, line1, users } from "../../assets";
 import { useLocation, useNavigate } from "react-router-dom";
 import WorkspacesIcon from "@mui/icons-material/Workspaces";
