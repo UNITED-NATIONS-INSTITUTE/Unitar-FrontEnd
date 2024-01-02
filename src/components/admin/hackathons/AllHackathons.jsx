@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import { setSelectedHackathonDetail } from "../../../features/hackathon/hackathonSlice";
 import { LinearProgress } from "@mui/material";
 import { green, red } from "@mui/material/colors";
+import DeleteHackModal from "./DeleteHackModal";
 
 function getChipProps(params) {
   if (params.value === "ACTIVE") {
@@ -42,8 +43,9 @@ function getChipProps(params) {
 }
 const AllHackathons = () => {
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
   const [hackathonsPayload, setHackathonsPayload] = useState([]);
+  const navigate = useNavigate();
+  const [isModalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
   const fetchHackathons = () => {
     getAllHackathons().then((res) => {
@@ -89,7 +91,7 @@ const AllHackathons = () => {
           </MenuButton>
           <Menu>
             <MenuItem onClick={() => navigate("view")}>View Hackathon</MenuItem>
-            <MenuItem onClick={() => navigate("delete")}>
+            <MenuItem onClick={() => setModalOpen(true)}>
               Delete Hackathon
             </MenuItem>
           </Menu>
@@ -114,6 +116,12 @@ const AllHackathons = () => {
               columns={columns}
             />
           </div>
+        )}
+        {isModalOpen && (
+          <DeleteHackModal
+            openModal={isModalOpen}
+            closeModal={() => setModalOpen(false)}
+          />
         )}
       </div>
     </div>
