@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Dropdown from "@mui/joy/Dropdown";
 import IconButton from "@mui/joy/IconButton";
 import Menu from "@mui/joy/Menu";
@@ -11,12 +11,22 @@ import { getSubmissions } from "../../../api/admins/admins";
 import CustomDataGrid from "../../common/utils/CustomDataGrid";
 import AdminProfile from "../AdminLogOut";
 import { LinearProgress } from "@mui/material";
-import { setCurrentSubscriptionDetail } from "../../../features/subscription/subscriptionSlice";
+import {
+  selectCurrentSubscriptionDetail,
+  setCurrentSubscriptionDetail,
+} from "../../../features/subscription/subscriptionSlice";
+import { deleteHackathonSubscription } from "../../../api/hackathons/hackathons";
+import DeleteSubmissionModal from "./DeleteSubmissionModal";
+import DeleteHackModal from "./DeleteModal";
 const AllSubmissions = () => {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [submissionsPayload, setSubmissionsPayload] = useState([]);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
+  const submissionDetails = useSelector(selectCurrentSubscriptionDetail);
+  const [errorMessage, setErrorMessage] = useState("");
   const fetchSubmissions = () => {
     getSubmissions().then((res) => {
       if (res.status === 200) {
@@ -33,7 +43,20 @@ const AllSubmissions = () => {
   useEffect(() => {
     fetchSubmissions();
   }, []);
-
+  const handleDelete = () => {
+    deleteHackathonSubscription(submissionDetails.id).then((res) => {
+      if (res.status === 204) {
+        setModalOpen(false);
+        setDeleteModalOpen(true);
+        setTimeout(() => {
+          setDeleteModalOpen(false);
+          navigate(-1);
+        }, 2000);
+      } else {
+        setErrorMessage("Error deleting submission");
+      }
+    });
+  };
   const columns = [
     {
       field: "live_url",
@@ -77,7 +100,7 @@ const AllSubmissions = () => {
             <MenuItem onClick={() => navigate("edit")}>
               Edit Submission
             </MenuItem>
-            <MenuItem onClick={() => navigate("delete")}>
+            <MenuItem onClick={() => setModalOpen(true)}>
               Delete Submission
             </MenuItem>
           </Menu>
@@ -99,6 +122,20 @@ const AllSubmissions = () => {
             sx={{ mt: 3 }}
             rows={submissionsPayload}
             columns={columns}
+          />
+        )}
+        {isModalOpen && (
+          <DeleteHackModal
+            openModal={isModalOpen}
+            closeModal={() => setModalOpen(false)}
+            deleteSub={handleDelete}
+            errorMessage={errorMessage}
+          />
+        )}{" "}
+        {isDeleteModalOpen && (
+          <DeleteSubmissionModal
+            openModal={isDeleteModalOpen}
+            closeModal={() => setDeleteModalOpen(false)}
           />
         )}
       </div>
