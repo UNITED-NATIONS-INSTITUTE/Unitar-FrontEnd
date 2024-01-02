@@ -12,11 +12,33 @@ import AdminProfile from "../AdminLogOut";
 import { useDispatch } from "react-redux";
 import { setCurrentParticipantDetail } from "../../../features/participant/participantSlice";
 import { LinearProgress } from "@mui/material";
+import DeleteModal from "./DeleteModal";
+import { deleteParticipantProfile } from "../../../api/accounts/accounts";
+import DeleteSuccessModal from "../hackathons/DeleteSuccessModal";
 const AllParticipants = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [participantsPayload, setParticipantsPayload] = useState([]);
+  const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [participantCode, setParticipantCode] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleDeleteUserAccount = (id) => {
+    deleteParticipantProfile(id).then((res) => {
+      if (res.status === 204) {
+        setModalOpen(false);
+        setDeleteModalOpen(true);
+        setTimeout(() => {
+          setDeleteModalOpen(false);
+          window.location.reload();
+        }, 2000);
+      } else {
+        setErrorMessage("Error Deleting Account");
+      }
+    });
+  };
   const fetchParticipants = () => {
     getParticipants().then((res) => {
       if (res.status === 200) {
@@ -26,6 +48,7 @@ const AllParticipants = () => {
     });
   };
   const handleActionClick = (params) => {
+    setParticipantCode(params.id);
     dispatch(setCurrentParticipantDetail({ currentParticipantDetail: params }));
   };
 
@@ -60,7 +83,7 @@ const AllParticipants = () => {
               View participant
             </MenuItem>
 
-            <MenuItem onClick={() => navigate("/admin/participants/delete")}>
+            <MenuItem onClick={() => setModalOpen(true)}>
               Delete participant
             </MenuItem>
           </Menu>
@@ -84,6 +107,21 @@ const AllParticipants = () => {
             sx={{ mt: 3 }}
             rows={participantsPayload}
             columns={columns}
+          />
+        )}
+        {isModalOpen && (
+          <DeleteModal
+            openModal={isModalOpen}
+            closeModal={() => setModalOpen(false)}
+            id={participantCode}
+            deleteAction={handleDeleteUserAccount}
+            errorMessage={errorMessage}
+          />
+        )}
+        {isDeleteModalOpen && (
+          <DeleteSuccessModal
+            openModal={isDeleteModalOpen}
+            closeModal={() => setDeleteModalOpen(false)}
           />
         )}
       </div>
