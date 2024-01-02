@@ -177,13 +177,19 @@ const OrgViewProject = () => {
 
             <div className="flex-col">
               <p className="font-semibold  text-[18px]">Timelines</p>
+              <div className="flex row gap-[50px]">
+                <p className="text-xs mt-2 font-bold">Activity</p>
+                <p className="text-xs mt-2 font-bold">Deadline</p>
+              </div>
               <div className="mb-5 gap-5">
                 {hackathon.timelines &&
                   hackathon.timelines.map((field, index) => (
-                    <p className="text-xs mt-2" key={index}>
-                      {field.period_name}: Start{" "}
-                      {moment(field.start_date).format("Do MMM YYYY")}
-                    </p>
+                    <div className="flex flex-row gap-10">
+                      <span className="text-xs mt-2"> {field.period_name}</span>
+                      <span className="text-xs mt-2">
+                        {moment(field.start_date).format("Do MMM YYYY")}
+                      </span>
+                    </div>
                   ))}
               </div>
             </div>

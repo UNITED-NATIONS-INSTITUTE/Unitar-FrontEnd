@@ -54,8 +54,7 @@ const AllSubmissions = () => {
       field: "participantFullName",
       headerName: "Participant",
       width: 250,
-      valueGetter: (params) =>
-        `${params.row.participant.first_name} ${params.row.participant.last_name}`,
+      valueGetter: (params) => `${params.row.participant.full_name} `,
     },
     { field: "title", headerName: "Project Name", width: 320 },
     {
