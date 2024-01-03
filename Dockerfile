@@ -5,12 +5,11 @@ FROM node:14.15.4-alpine AS builder
 WORKDIR /app
 
 # Install dependencies
-COPY ./package.json /app
-# COPY ./package-lock.json /app
+COPY package*.json ./
 RUN npm i
 
 # Copy source code
-COPY ./ /app
+COPY . .
 
 # Build app
 RUN npm run build
@@ -20,13 +19,13 @@ FROM nginx:1.21.3-alpine
 
 # Remove default Nginx website
 RUN rm -rf /usr/share/nginx/html/*
-RUN rm -rf /var/www/html/index.nginx-debian.html
+
+# Copy built app to Nginx web root
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Copy Nginx config file
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy built app to Nginx web root
-COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Expose port
 EXPOSE 80
