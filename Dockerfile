@@ -5,7 +5,7 @@ FROM node:14.15.4-alpine AS builder
 WORKDIR /app
 
 # Install dependencies
-COPY package*.json ./
+COPY package.json ./
 RUN npm i
 
 # Copy source code
