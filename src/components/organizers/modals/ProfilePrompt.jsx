@@ -43,7 +43,7 @@ export default function ProfilePrompt({ openModal, handleClose }) {
               </Typography>
               <Box className="flex space-x-4  mt-[40px]">
                 <button
-                  onClick={() => navigate("profile/create")}
+                  onClick={() => navigate("/organizer/profile/create")}
                   className="flex-1 bg-custom-blue rounded-md  py-2 text-white hover:bg-blue-500 text-[16px] "
                 >
                   Proceed
