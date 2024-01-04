@@ -29,7 +29,7 @@ const Banner = () => {
         <img src={natroma} />
       </div>
 
-      <div className="lg:block xs:hidden absolute right-0 bottom-[50px]">
+      <div className="lg:block hidden absolute right-0 bottom-[50px]">
         <img src={shape} />
       </div>
     </section>
