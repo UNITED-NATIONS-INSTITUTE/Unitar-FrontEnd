@@ -18,7 +18,7 @@ const LandingPage = () => {
         <div className="w-full h-screen text-center relative ">
           <div className=" mx-auto p-2 flex justify-center">
             <div className="mt-[60px]">
-              <h1 className=" text-[12141D] items-center text-center font-Lexend-Exa lg:text-6xl font-extrabold leading-11 tracking-wider  ">
+              <h1 className=" text-[#000] items-center text-center  lg:text-6xl font-extrabold leading-11 tracking-wider  ">
                 Unleashing Innovation, <br /> One Hackathon at a Time!
               </h1>
               <p className="text-center lg:w-[588px] mt-7 ml-20 font-normal">
