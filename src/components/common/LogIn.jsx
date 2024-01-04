@@ -86,8 +86,8 @@ const LogIn = () => {
     <div>
       <Navbar openModal={openModal} />
       <BasicModal openModal={openSignUpModal} handleClose={closeModal} />
-      <div className="min-h-screen flex items-center justify-center  bg-light-blue relative bottom-[20px]">
-        <div className="bg-white p-8 rounded shadow-md w-100 border border-custom-blue">
+      <div className="min-h-screen flex items-center justify-center  bg-white relative bottom-[10px]">
+        <div>
           <h2 className="mb-6 font-semibold">
             Login to unitar hackathon platform
           </h2>
@@ -106,7 +106,7 @@ const LogIn = () => {
               <label className="block text-md mb-2">Username</label>
               <input
                 type="text"
-                className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
+                className="w-full px-3 py-2 border border-grey-600 rounded-[6px] text-xs "
                 placeholder="Pschirano"
                 value={username}
                 onChange={handleChange("username")}
@@ -115,7 +115,7 @@ const LogIn = () => {
               <div className="relative">
                 <input
                   type={showPassword ? "text" : "password"}
-                  className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
+                  className="w-full px-3 py-2 border border-grey-600 rounded-[6px] text-xs"
                   placeholder="******"
                   value={password}
                   onChange={handleChange("password")}
@@ -130,15 +130,15 @@ const LogIn = () => {
               </div>
               <button
                 type="submit"
-                className="w-full  bg-custom-blue text-white py-2 mt-4 rounded hover:bg-white hover:text-custom-blue hover:border-2 hover:border-custom-blue"
+                className="w-full  bg-custom-blue text-white py-2 mt-4  hover:bg-white hover:text-custom-blue hover:border-2 hover:border-custom-blue"
               >
                 Sign me in
               </button>
-              <p className="mt-5 text-md text-gray-600">
+              <p className="mt-5 text-sm text-gray-600">
                 Don't have a unitar account?
                 <Link
                   onClick={() => openModal()}
-                  className="text-blue-500 ml-1"
+                  className="text-custom-blue ml-1"
                 >
                   Sign up here
                 </Link>
