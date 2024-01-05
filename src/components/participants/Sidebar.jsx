@@ -28,43 +28,24 @@ const Sidebar = () => {
   };
 
   return (
-    <>
-      {isMobile ? (
-        <div className="w-full xl:hidden   py-6 shadow-xl">
-          <div className=" flex justify-between ">
-            <img
-              src={logo}
-              alt="logo"
-              className="ml-5 w-[100px] md:w-[120px] lg:w-[140px] "
-            />{" "}
-            <img
-              src={toggle ? close : menu}
-              alt="menu"
-              className="w-[28px] h-[28px] object-contain text-custom-blue "
-              onClick={() => setToggle(!toggle)}
-            />
-          </div>{" "}
+    <div className=" flex ">
+      <div className="  bg-light-blue p-4 h-screen fixed left-0 top-0 w-[250px] ">
+        <div className="flex justify-between">
+          <img src={logo} alt="" className="w-[200px]" />
         </div>
-      ) : (
-        <div className="xl:flex hidden">
-          <div className="bg-light-blue p-4 h-screen fixed left-0 top-0 w-[250px]">
-            <div className="flex justify-between">
-              <img src={logo} alt="" />
-              {/* <img src="/assets/back.svg" alt="back" width="20" height="20" /> */}
-            </div>
-            <button
-              onClick={() => handleNavigation("dashboard")}
-              style={{
-                borderColor: activePage === "dashboard" ? "#089BD9" : "inherit",
-                transition: "border-color 0.3s",
-              }}
-              className="py-2 pl-6 pr-5 border rounded-md mt-16"
-            >
-              <div className="flex gap-5">
-                <img src={align} alt="" />
-                <span>Dashboard</span>
-              </div>
-            </button>
+        <button
+          onClick={() => navigate("/participant/dashboard")}
+          style={{
+            borderColor: activePage === "dashboard" ? "#089BD9" : "inherit",
+            transition: "border-color 0.3s",
+          }}
+          className="py-2 pl-6 pr-5 border rounded-md   mt-16"
+        >
+          <div className="flex gap-5">
+            <img src={align} alt="" />
+            <span>Dashboard</span>
+          </div>
+        </button>
 
             <button
               onClick={() => handleNavigation("hackathons")}

@@ -42,19 +42,15 @@ import CreateUser from "./components/admin/user/CreateUser";
 import ParticipantProfile from "./components/admin/participants/ParticipantProfile";
 import UsersTable from "./components/admin/user/UsersTable";
 import EditPartProfile from "./components/admin/participants/EditPartProfile";
-import DeleteParticipant from "./components/admin/participants/DeleteParticipant";
 import CreateOrgHackathon from "./components/admin/organizers/CreateOrgHackathon";
 import ViewHackathons from "./components/admin/organizers/ViewHackathons";
-import DeleteOrganization from "./components/admin/organizers/DeleteOrganization";
 import ViewHackDetails from "./components/admin/organizers/ViewHackDetails";
 import ViewHackathon from "./components/admin/hackathons/ViewHachathon";
 import ViewHackDetail from "./components/admin/hackathons/ViewHackDetail";
 import ActivateHack from "./components/admin/hackathons/ActivateHack.jsx";
 import Deactivate from "./components/admin/hackathons/Deactivate.jsx";
-import DeleteHack from "./components/admin/hackathons/DeleteHack";
 import ViewSubmissions from "./components/admin/allSubmissions/ViewSubmission";
 import EditSubmission from "./components/admin/allSubmissions/EditSubmission";
-import DeleteSubmission from "./components/admin/allSubmissions/DeleteSubmission";
 import VerifyUser from "./components/admin/user/VerifyUser";
 import DeleteUser from "./components/admin/user/DeleteUser";
 import Category from "./components/admin/category/Category";
@@ -133,7 +129,6 @@ const App = () => {
             <Route index element={<AllParticipants />} />
             <Route path="detail" element={<ParticipantProfile />} />
             <Route path="edit" element={<EditPartProfile />} />
-            <Route path="delete" element={<DeleteParticipant />} />
           </Route>
           <Route path="organizers" element={<Outlet />}>
             <Route index element={<AllOrganizers />} />
@@ -148,7 +143,6 @@ const App = () => {
               <Route index element={<ViewHackathons />} />
               <Route path="details" element={<ViewHackDetails />} />
             </Route>
-            <Route path="deletehackathon" element={<DeleteOrganization />} />
           </Route>
 
           <Route path="hackathons" element={<Outlet />}>
@@ -159,13 +153,11 @@ const App = () => {
             </Route>
             <Route path="activate" element={<ActivateHack />} />
             <Route path="deactivate" element={<Deactivate />} />
-            <Route path="delete" element={<DeleteHack />} />
           </Route>
           <Route path="submissions" element={<Outlet />}>
             <Route index element={<AllSubmissions />} />
             <Route path="view" element={<ViewSubmissions />} />
             <Route path="edit" element={<EditSubmission />} />
-            <Route path="delete" element={<DeleteSubmission />} />
           </Route>
           <Route path="users" element={<Outlet />}>
             <Route index element={<UsersTable />} />

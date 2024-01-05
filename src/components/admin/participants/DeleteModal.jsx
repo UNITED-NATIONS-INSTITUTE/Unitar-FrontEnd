@@ -22,6 +22,7 @@ export default function DeleteModal({
   closeModal,
   id,
   deleteAction,
+  errorMessage,
 }) {
   return (
     <Box>
@@ -39,6 +40,9 @@ export default function DeleteModal({
                   <h1 className="font-bold text-[20px] font-Lexend-Exa  text-center">
                     Delete Participant
                   </h1>
+                  {errorMessage && (
+                    <p className="text-sm text-red-500">{errorMessage}</p>
+                  )}
                   <div className="flex justify-center ">
                     <DeleteIcon
                       fontSize="large"

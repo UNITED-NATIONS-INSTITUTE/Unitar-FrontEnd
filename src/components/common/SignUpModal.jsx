@@ -10,7 +10,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 500,
-  height: 400,
+  height: 280,
   bgcolor: "background.paper",
   border: "2px solid #089BD9",
   boxShadow: 24,
@@ -19,9 +19,9 @@ const style = {
 };
 
 const customStyles = {
-  fontFamily: "Lexend, sans-serif",
-  marginTop: "20px",
+  marginTop: "10px",
   fontSize: "24px",
+  fontWeight: "bold",
 };
 
 export default function BasicModal({ openModal, handleClose }) {
@@ -41,16 +41,16 @@ export default function BasicModal({ openModal, handleClose }) {
               <Typography variant="h6" component="h2" sx={customStyles}>
                 Join as participant or an organizer{" "}
               </Typography>
-              <Box className="flex space-x-4 mt-[100px]">
+              <Box className="flex space-x-4 mt-[50px]">
                 <button
                   onClick={() => navigate("/part-signup")}
-                  className="flex-1 bg-custom-blue text-white py-2 rounded text-[16px] transition-transform transform hover:-translate-y-1 "
+                  className="flex-1 bg-custom-blue text-white py-2 rounded  text-[16px] transition-transform transform hover:-translate-y-1 "
                 >
                   For Participants
                 </button>
                 <button
                   onClick={() => navigate("/org-signup")}
-                  className="flex-1 btn-org  py-2 rounded transition-transform transform hover:-translate-y-1 text-[16px] "
+                  className="flex-1 btn-org text-custom-blue py-2 rounded  transition-transform transform hover:-translate-y-1 text-[16px] "
                 >
                   For Organizers
                 </button>

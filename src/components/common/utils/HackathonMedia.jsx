@@ -31,12 +31,12 @@ const HackathonMedia = ({ cover_image_url, avatar_url }) => {
       {cover_image_url ? (
         <img src={cover_image_url} alt="" style={coverStyle} />
       ) : (
-        <img src="/assets/no image (1).jpg" alt="" style={coverStyle} />
+        <img src="/assets/cover image.jpg" alt="" style={coverStyle} />
       )}
       {avatar_url ? (
         <img src={avatar_url} alt="" style={avatarStyle} />
       ) : (
-        <img src="/assets/no image (1).jpg" alt="" style={avatarStyle} />
+        <img src="/assets/avatar image.jpg" alt="" style={avatarStyle} />
       )}
     </div>
   );

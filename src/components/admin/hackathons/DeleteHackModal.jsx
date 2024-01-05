@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import { useNavigate } from "react-router-dom";
 import { selectSelectedHackathonDetail } from "../../../features/hackathon/hackathonSlice";
 import { deleteHackathon } from "../../../api/hackathons/hackathons";
 import DeleteSuccessModal from "./DeleteSuccessModal";
@@ -28,8 +27,6 @@ export default function DeleteHackModal({ openModal, closeModal }) {
   const [error, setError] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const navigate = useNavigate();
-
   function handleDelete(id) {
     deleteHackathon(id).then((res) => {
       if (res.status === 204) {
@@ -37,7 +34,7 @@ export default function DeleteHackModal({ openModal, closeModal }) {
         setDeleteModalOpen(true);
         setTimeout(() => {
           setDeleteModalOpen(false);
-          navigate(-1);
+          window.location.reload();
         }, 2000);
       } else {
         setErrorMessage("Error deleting hackathon");

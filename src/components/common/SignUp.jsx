@@ -118,9 +118,9 @@ const SignUp = () => {
     <div>
       {/* <Navbar /> */}
 
-      <div className="min-h-screen flex items-center justify-center mt-16 bg-light-blue">
-        <div className="bg-white p-8 rounded shadow-md w-100 border border-custom-blue overflow-y-auto ">
-          <h2 className="mb-6 font-semibold">
+      <div className="min-h-screen flex items-center justify-center mt-16 bg-white">
+        <div className="bg-white ">
+          <h2 className="mb-10 font-semibold">
             Sign up to UNITAR hackathon platform
           </h2>
 
@@ -191,13 +191,13 @@ const SignUp = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-custom-blue text-white py-2 mt-4 rounded hover:bg-white hover:text-custom-blue hover:border-2 hover:border-custom-blue "
+                className="w-full bg-custom-blue rounded  text-white py-2 mt-4  hover:bg-white hover:text-custom-blue hover:border-2 hover:border-custom-blue "
               >
                 Sign me up
               </button>
-              <p className="mt-5 text-md text-gray-600">
+              <p className="mt-5 text-sm text-gray-600">
                 Already have a unitar account?
-                <Link to="/login" className="text-blue-500 ml-1">
+                <Link to="/login" className="text-custom-blue ml-1">
                   Sign in here
                 </Link>
               </p>

@@ -12,12 +12,34 @@ import AdminProfile from "../AdminLogOut";
 import { useDispatch } from "react-redux";
 import { setCurrentOrganizerDetail } from "../../../features/organizer/organizerSlice";
 import { LinearProgress } from "@mui/material";
+import DeleteModal from "./DeleteModal";
+import { deleteOrganizerProfile } from "../../../api/accounts/accounts";
+import DeleteSuccessModal from "../hackathons/DeleteSuccessModal";
 
 const AllOrganizers = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [organizersPayload, setOrganizersPayload] = useState([]);
+  const [organizerCode, setOrganizerCode] = useState("");
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleDeleteUserAccount = (id) => {
+    deleteOrganizerProfile(id).then((res) => {
+      if (res.status === 204) {
+        setModalOpen(false);
+        setDeleteModalOpen(true);
+        setTimeout(() => {
+          setDeleteModalOpen(false);
+          window.location.reload();
+        }, 2000);
+      } else {
+        setErrorMessage("Error Deleting Account");
+      }
+    });
+  };
   const fetchOrganizers = () => {
     getOrganizers().then((res) => {
       if (res.status === 200) {
@@ -27,6 +49,7 @@ const AllOrganizers = () => {
     });
   };
   const handleActionClick = (params) => {
+    setOrganizerCode(params.id);
     dispatch(setCurrentOrganizerDetail({ currentOrganizerDetail: params }));
   };
 
@@ -62,7 +85,7 @@ const AllOrganizers = () => {
               Create Hackathon
             </MenuItem>
 
-            <MenuItem onClick={() => navigate("deletehackathon")}>
+            <MenuItem onClick={() => setModalOpen(true)}>
               Delete Organization
             </MenuItem>
           </Menu>
@@ -87,6 +110,21 @@ const AllOrganizers = () => {
               columns={columns}
             />
           </div>
+        )}
+        {isModalOpen && (
+          <DeleteModal
+            openModal={isModalOpen}
+            closeModal={() => setModalOpen(false)}
+            id={organizerCode}
+            deleteAction={handleDeleteUserAccount}
+            errorMessage={errorMessage}
+          />
+        )}
+        {isDeleteModalOpen && (
+          <DeleteSuccessModal
+            openModal={isDeleteModalOpen}
+            closeModal={() => setDeleteModalOpen(false)}
+          />
         )}
       </div>
     </div>

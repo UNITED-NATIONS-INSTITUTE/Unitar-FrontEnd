@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Forge from "./Forge";
-import { karen } from "../../assets/index";
+import ParticipantChart from "./charts/ParticipantChart";
 
 const ForParticipants = () => {
   return (
     <>
-      <div className="w-full p-2 relative bg-[#E2EDF1] ">
-        <p className="text-center text-[1C272E] font-lexend-exa text-[24px] mt-[50px] lg:mt-[20px] font-bold tracking-wider">
-          For Participants
-        </p>
-        <div className="lg:flex items-center justify-center lg:mt-11 ">
-          <img src="/assets/people.jpg" className="w-[700px] h-[700px]" />
-          <div className="lg:mt-[115px] lg:mr-[20px]">
-            <h5 className="text-[#12141D] font-lexend-exa  mb-5 lg:text-[28px] lg:text-left text-[24px] text-center font-bold lg:ml-[100px]   ">
+      <div className="w-full py-2 relative mt-10">
+        <div className="bg-custom-blue w-[600px] flex justify-center">
+          {" "}
+          <p className="text-center text-white  text-[32px] mt-5 font-bold tracking-wider">
+            FOR PARTICIPANTS
+          </p>
+        </div>
+        <div className="lg:flex flex justify-between">
+          <div>
+            <ParticipantChart />
+          </div>
+
+          <div className="lg:mt-[115px] mr-[20px]">
+            <h5 className="text-[#2e4161]  lg:text-[28px] lg:text-left text-[20px] text-center font-bold lg:ml-[100px] mt-10  ">
               Unlock Your Potential
             </h5>
-            <p className=" text-[#12141D] text-center lg:text-left  text-[18px] md:text-xl  lg:ml-[100px] ">
+            <p className="mt-5 text-[#4d4d4d] text-center lg:text-left  text-[18px] lg:ml-[100px] w-[600px]">
               Dive into a world of endless possibilities. Browse through a
               diverse range of hackathons hosted by top-notch organizations.
               Whether you're a coding prodigy, a design virtuoso, or a
@@ -25,6 +31,8 @@ const ForParticipants = () => {
         </div>{" "}
         <Forge />
       </div>
+      <Forge />
+      <Showcase />
     </>
   );
 };

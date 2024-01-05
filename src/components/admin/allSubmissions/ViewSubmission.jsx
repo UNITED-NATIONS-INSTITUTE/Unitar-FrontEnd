@@ -18,33 +18,65 @@ const ViewSubmissions = () => {
           </div>
         </div>
         <p className="mt-3 ">
-          Project Name:
-          <span className="text-sm  ml-3">{submissionDetails.title}</span>
+          <span className="text-sm  ml-3 font-semibold">
+            {submissionDetails.title}
+          </span>
         </p>
         <div className="flex flex-wrap  space-x-4 mt-5 ml-4">
           {submissionDetails && (
             <div
               key={submissionDetails.id}
-              className="flex gap-[100px] rounded-[6px] shadow flex-row border border-gray-100  p-10 w-[900px]  "
+              className="flex gap-[100px] rounded-[6px] shadow flex-row border border-gray-100  p-10   "
             >
-              <div className="flex-shrink-0 rounded-full mt-3 ml-3 mb-3">
+              <div className="relative">
+                {" "}
                 <img
-                  src={submissionDetails.hackathon.cover_image_url}
+                  src={
+                    submissionDetails.hackathon.cover_image_url
+                      ? submissionDetails.hackathon.cover_image_url
+                      : "/assets/no image (1).jpg"
+                  }
                   alt=""
                   style={{
-                    borderRadius: "50%",
-                    width: "350px",
-                    height: "350px",
-                    objectFit: "fill",
+                    width: "600px",
+                    height: "250px",
+                    objectFit: "cover",
                   }}
                 />
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: "90px",
+                    left: "20px",
+                    borderRadius: "50%",
+                    border: "2px solid #fff",
+                    width: "80px",
+                    height: "80px",
+                    objectFit: "cover",
+                  }}
+                >
+                  <img
+                    src={
+                      submissionDetails.hackathon.avatar_url
+                        ? submissionDetails.hackathon.avatar_url
+                        : "/assets/no image (1).jpg"
+                    }
+                    alt=""
+                    style={{
+                      borderRadius: "50%",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </div>
               </div>
               <div className="ml-4 mt-5">
                 <p className="mt-3 ">
-                  Description:{" "}
-                  <span className="text-sm text-gray-600 ml-3">
+                  Description
+                  <p className="text-sm text-gray-600 ">
                     {submissionDetails.desc}
-                  </span>
+                  </p>
                 </p>
                 <p className="mt-3 ">
                   Blog:
@@ -104,7 +136,7 @@ const ViewSubmissions = () => {
                   </span>
                 </p>
                 <p className="mt-3 ">
-                  Status:{" "}
+                  Status:
                   <span className="text-sm text-gray-600 ml-3">
                     {submissionDetails.hackathon.status}
                   </span>

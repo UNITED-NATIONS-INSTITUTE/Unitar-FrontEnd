@@ -21,7 +21,7 @@ const OrgSidebar = () => {
     <div className=" flex ">
       <div className="bg-light-blue w-[250px]  p-5 h-screen fixed left-0 top-0 ">
         <div className="flex justify-between">
-          <img src={logo} alt="" />
+          <img src={logo} alt="" className="w-[200px]" />
           {/* <img src="/assets/back.svg" alt="back" width="20" height="20" /> */}
         </div>
         <button
