@@ -19,9 +19,9 @@ const style = {
 };
 
 const customStyles = {
-  fontFamily: "Lexend, sans-serif",
   marginTop: "10px",
   fontSize: "24px",
+  fontWeight: "bold",
 };
 
 export default function BasicModal({ openModal, handleClose }) {
@@ -44,13 +44,13 @@ export default function BasicModal({ openModal, handleClose }) {
               <Box className="flex space-x-4 mt-[50px]">
                 <button
                   onClick={() => navigate("/part-signup")}
-                  className="flex-1 bg-custom-blue text-white py-2 rounded text-[16px] transition-transform transform hover:-translate-y-1 "
+                  className="flex-1 bg-custom-blue text-white py-2 rounded  text-[16px] transition-transform transform hover:-translate-y-1 "
                 >
                   For Participants
                 </button>
                 <button
                   onClick={() => navigate("/org-signup")}
-                  className="flex-1 btn-org text-custom-blue py-2 rounded transition-transform transform hover:-translate-y-1 text-[16px] "
+                  className="flex-1 btn-org text-custom-blue py-2 rounded  transition-transform transform hover:-translate-y-1 text-[16px] "
                 >
                   For Organizers
                 </button>
