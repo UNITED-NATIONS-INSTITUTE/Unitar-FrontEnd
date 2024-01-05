@@ -117,7 +117,7 @@ const CreateOrgProfile = () => {
               </label>
 
               <label className="block">
-                <span className="text-gray-700 text-xs">Indutry</span>
+                <span className="text-gray-700 text-xs">Industry</span>
                 <input
                   type="text"
                   name="industry"
