@@ -12,9 +12,9 @@ import {
 } from "../../assets";
 const Banner = () => {
   return (
-    <section className=" relative lg:mt-[170px] min-w-full md:h-[472px] bg-[#1c272e] ">
-      <p className=" text-center text-white font-lexend-exa text-24 font-semibold leading-34 tracking-wide pt-[100px]  ">
-        Brands that are collaborating with us
+    <section className=" relative mt-10 lg:mt-[170px] min-w-full md:h-[472px] bg-[#1c272e] ">
+      <p className=" text-center text-white font-lexend-exa md:text-[24px]  font-semibold leading-34 tracking-wide pt-[80px]  ">
+        Brands that are collaborating with us:
       </p>
       <div className="flex-wrap w-full gap-11 flex justify-center items-center flex-shrink-0 mt-10 ">
         <img src={waverio} /> <img src={square} />

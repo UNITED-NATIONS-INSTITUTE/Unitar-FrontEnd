@@ -10,7 +10,7 @@ const Forge = () => {
           <h4 className="text-[#12141D] text-center text-[24px] lg:text-left lg:text-4xl font-lexend-exa  font-semibold ">
             Forge Connections
           </h4>
-          <p className="text-[#12141D] text-[18px] mt-3 lg:text-left text-center">
+          <p className="text-[#12141D] text-[18px] md:text-xl  mt-3 lg:text-left text-center">
             Connect with diverse minds from around the globe. Form teams that
             blend expertise, creativity, and drive. Together, you'll redefine
             what's possible.

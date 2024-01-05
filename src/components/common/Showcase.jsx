@@ -13,9 +13,9 @@ const Showcase = () => {
           />
           <div>
             <h4 className="text-[#12141D] text-center text-[24px] lg:text-left lg:text-4xl font-lexend-exa  font-semibold ">
-              Showcase Your <br /> Skills
+              Showcase Your <br className="hidden lg:block " /> Skills
             </h4>
-            <p className="text-[#12141D]  text-[18px] mt-3 lg:text-left lg:w-[440px] text-center">
+            <p className="text-[#12141D]  text-[18px] md:text-xl  mt-3 lg:text-left lg:w-[440px] text-center">
               Make your mark in the tech and innovation landscape. Showcase your
               talents through innovative solutions, and grab the attention of
               potential employers and collaborators.
@@ -33,7 +33,7 @@ const Showcase = () => {
               <h5 className="text-[#12141D] font-lexend-exa lg:text-[28px] lg:text-left text-[24px] text-center font-bold lg:ml-[100px]   ">
                 Tap into Talent
               </h5>
-              <p className="mt-5 text-[#12141D] text-center lg:text-left  text-[18px] lg:ml-[100px] ">
+              <p className="mt-5 text-[#12141D] text-center lg:text-left  text-[18px] md:text-xl  lg:ml-[100px] ">
                 Discover the next generation of innovators. Post your hackathon
                 on UNITAR and connect with a global pool of talent. Watch as
                 diverse teams bring fresh perspectives to your challenges.
@@ -48,7 +48,7 @@ const Showcase = () => {
               <h4 className="text-[#12141D] text-[24px] text-center lg:text-left lg:text-4xl font-lexend-exa  font-semibold ">
                 Drive Innovation
               </h4>
-              <p className="text-[#12141D] text-[18px] mt-3 lg:text-left text-center">
+              <p className="text-[#12141D] text-[18px] md:text-xl  mt-3 lg:text-left text-center">
                 Challenge participants with real-world problems and witness
                 groundbreaking solutions. Fuel innovation within your
                 organization and be at the forefront of industry advancements.
@@ -68,7 +68,7 @@ const Showcase = () => {
               <h4 className="text-[#12141D]  mt-6 text-[24px] text-center lg:text-left lg:text-4xl font-lexend-exa   font-semibold ">
                 Boost Your Brand
               </h4>
-              <p className="text-[#12141D] text-[18px] mt-3 lg:text-left lg:w-[440px] text-center">
+              <p className="text-[#12141D] text-[18px] md:text-xl mb-6  mt-3 lg:text-left lg:w-[440px] text-center">
                 Associate your organization with innovation. Be a catalyst for
                 change and join a community that values pushing the boundaries
                 of what's possible.

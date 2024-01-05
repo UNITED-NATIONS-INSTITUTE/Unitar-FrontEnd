@@ -134,13 +134,13 @@ const HackathonDetailsPage = () => {
             </div>
             <div className="bg-white shadow-lg lg:w-[300px] h-[100px] mt-5 lg:mt-0 border rounded-md p-5 flex flex-row gap-10">
               <div className="flex justify-center">
-                <DateRangeIcon
+                {/* <DateRangeIcon
                   style={{
                     color: "#089BD9",
                     width: "40px",
                     height: "40px",
                   }}
-                />
+                /> */}
               </div>{" "}
               <div className="flex-col">
                 <p className="font-semibold  text-[18px]">Timelines</p>

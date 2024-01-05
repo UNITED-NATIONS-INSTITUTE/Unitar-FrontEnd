@@ -11,16 +11,16 @@ const LandingPage = () => {
   const closeModal = () => setOpenSignUpModal(false);
   const navigate = useNavigate();
   return (
-    <div className="">
+    <>
       <Navbar openModal={openModal} />
       <BasicModal openModal={openSignUpModal} handleClose={closeModal} />
       <div className="w-full h-screen text-center z-[1] relative">
         <div className=" mx-auto p-2 flex justify-center">
           <div className="mt-[80px]">
-            <h1 className=" text-[12141D] items-center text-center font-Lexend-Exa text-[24px] lg:text-6xl font-extrabold leading-11 tracking-wider  ">
+            <h1 className=" text-[#12141D] items-center text-center  mt-8 font-Lexend-Exa text-[24px] lg:text-6xl font-extrabold leading-11 tracking-wider  ">
               Unleashing Innovation, <br /> One Hackathon at a Time!
             </h1>
-            <p className="text-center lg:w-[588px] mt-7 lg:ml-20 font-normal text-[18px] ">
+            <p className="text-center lg:w-[588px] mt-7 lg:ml-20 font-normal text-[18px] md:text-xl ">
               Join a global community of thinkers, dreamers, and doers. Whether
               you're here to conquer challenges or host groundbreaking
               hackathons, this is where innovation takes center stage.
@@ -30,14 +30,14 @@ const LandingPage = () => {
         <div className="flex gap-10 items-center justify-center md:w-full mt-[100px]">
           <button
             onClick={() => navigate("/part-signup")}
-            className="bg-[#089BD9] rounded-[10px]  text-white py-4 px-[20px] lg:w-[239px]  transition-transform transform hover:-translate-y-1"
+            className="bg-[#089BD9] md:text-xl rounded-[10px]  text-white py-4 px-[20px] lg:w-[239px]  transition-transform transform hover:-translate-y-1"
           >
             For Participants
           </button>
 
           <button
             onClick={() => navigate("/org-signup")}
-            className="py-4 px-[20px]  rounded-[10px] border-2 lg:w-[239px] border-[#089BD9]  transition-transform transform hover:-translate-y-1"
+            className="py-4 px-[20px] md:text-xl rounded-[10px] border-2 lg:w-[239px] border-[#089BD9]  transition-transform transform hover:-translate-y-1"
           >
             For Organisers
           </button>
@@ -56,11 +56,11 @@ const LandingPage = () => {
         </div>
         <div className="absolute lg:flex  left-[760px]  hidden    w-[400px]  rounded-10  ">
           <img src={views} />
-        </div>
+        </div>{" "}
+        <Banner />
+        <ForParticipants />
       </div>
-      <Banner />
-      <ForParticipants />
-    </div>
+    </>
   );
 };
 

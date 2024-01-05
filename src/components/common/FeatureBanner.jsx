@@ -8,7 +8,9 @@ const FeatureBanner = ({ icon, heading, text }) => {
       <h4 className="text-white text-lg text-left font-inter font-bold mt-4">
         {heading}
       </h4>
-      <p className="text-white w-[314px] text-left mt-2">{text}</p>
+      <p className="text-white lg:w-[314px] md:text-xl lg:text-sm text-left mt-2">
+        {text}
+      </p>
     </div>
   );
 };
