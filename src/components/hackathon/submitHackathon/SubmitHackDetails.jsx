@@ -54,7 +54,9 @@ const SubmitHackDetails = () => {
         <h1 className="mt-5 text-gray-600 font-bold  text-[24px]">
           Hackathons
         </h1>
-        <UserProfile />
+        <div className="xl:flex hidden">
+          <UserProfile />
+        </div>
       </div>
       <p className="text-xs text-gray-500 flex mb-10 flex-row">
         <span>Hackathons</span>

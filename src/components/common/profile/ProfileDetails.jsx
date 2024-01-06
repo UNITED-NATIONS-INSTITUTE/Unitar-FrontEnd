@@ -41,7 +41,7 @@ const ProfileDetails = () => {
           <ProfileInputs />
         </div>
         <div className="flex-2 flex-col flex">
-          <div className="flex justify-end mt-0 user-profile">
+          <div className="xl:flex  hidden justify-end mt-0 user-profile">
             <UserProfile profilePic={profilePic} />
           </div>
 

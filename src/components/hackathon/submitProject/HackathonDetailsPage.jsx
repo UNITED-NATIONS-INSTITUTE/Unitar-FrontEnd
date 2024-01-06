@@ -46,8 +46,7 @@ const HackathonDetailsPage = () => {
             Hackathon
           </h1>
         </div>
-        <div>
-          {" "}
+        <div className="xl:flex hidden">
           <UserProfile />
         </div>
       </div>

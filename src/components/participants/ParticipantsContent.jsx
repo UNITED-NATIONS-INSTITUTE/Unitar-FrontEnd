@@ -14,12 +14,14 @@ const ParticipantsContent = () => {
     });
   }, []);
   return (
-    <div className=" xl:ml-60">
+    <div className=" lg:ml-60">
       <div className="md:flex justify-between">
         <h1 className="text-gray-600 pt-4 font-bold text-[28px]  md:text-[24px]">
           Dashboard
         </h1>
-        <UserProfile />
+        <div className="xl:flex hidden">
+          <UserProfile />
+        </div>
       </div>
 
       <div className="md:flex mt-7 md:mt-12">
