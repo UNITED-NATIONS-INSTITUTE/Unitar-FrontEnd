@@ -1,9 +1,10 @@
 import React from "react";
 import { project } from "../../assets";
+import Showcase from "./Showcase";
 
 const Forge = () => {
   return (
-    <div className="mt-[30px] bg-[#c6e2f4]  w-full min-h-screen p-2 ">
+    <div className="mt-[30px] xl:bg-[#c6e2f4]  w-full min-h-screen p-2 ">
       <div className=" lg:flex justify-center items-center ">
         <div className="lg:w-[494px] ">
           <h4 className="text-[#2e4161] text-center lg:text-left lg:text-4xl font-lexend-exa  font-semibold ">
