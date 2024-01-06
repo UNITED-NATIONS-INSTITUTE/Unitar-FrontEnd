@@ -28,58 +28,57 @@ const Sidebar = () => {
   };
 
   return (
-    <div className=" flex ">
-      <div className="  bg-light-blue p-4 h-screen fixed left-0 top-0 w-[250px] ">
-        <div className="flex justify-between">
-          <img src={logo} alt="" className="w-[200px]" />
-        </div>
-        <button
-          onClick={() => navigate("/participant/dashboard")}
-          style={{
-            borderColor: activePage === "dashboard" ? "#089BD9" : "inherit",
-            transition: "border-color 0.3s",
-          }}
-          className="py-2 pl-6 pr-5 border rounded-md   mt-16"
-        >
-          <div className="flex gap-5">
-            <img src={align} alt="" />
-            <span>Dashboard</span>
+    <>
+      <div className=" flex ">
+        <div className="  bg-light-blue p-4 h-screen fixed left-0 top-0 w-[250px] ">
+          <div className="flex justify-between">
+            <img src={logo} alt="" className="w-[200px]" />
           </div>
-        </button>
+          <button
+            onClick={() => navigate("/participant/dashboard")}
+            style={{
+              borderColor: activePage === "dashboard" ? "#089BD9" : "inherit",
+              transition: "border-color 0.3s",
+            }}
+            className="py-2 pl-6 pr-5 border rounded-md   mt-16"
+          >
+            <div className="flex gap-5">
+              <img src={align} alt="" />
+              <span>Dashboard</span>
+            </div>
+          </button>
 
-            <button
-              onClick={() => handleNavigation("hackathons")}
-              style={{
-                borderColor:
-                  activePage === "hackathons" ? "#089BD9" : "inherit",
-                transition: "border-color 0.3s",
-              }}
-              className="py-2 pl-6 pr-5 border rounded-md hover:border-custom-blue mt-5"
-            >
-              <div className="flex gap-5">
-                <img src={layers} alt="" />
-                <span>Hackathons</span>
-              </div>
-            </button>
+          <button
+            onClick={() => handleNavigation("hackathons")}
+            style={{
+              borderColor: activePage === "hackathons" ? "#089BD9" : "inherit",
+              transition: "border-color 0.3s",
+            }}
+            className="py-2 pl-6 pr-5 border rounded-md hover:border-custom-blue mt-5"
+          >
+            <div className="flex gap-5">
+              <img src={layers} alt="" />
+              <span>Hackathons</span>
+            </div>
+          </button>
 
-            <button
-              onClick={() => handleNavigation("myhackathons")}
-              style={{
-                borderColor:
-                  activePage === "myhackathons" ? "#089BD9" : "inherit",
-                transition: "border-color 0.3s",
-              }}
-              className="py-2 pl-6 pr-5 border rounded-md hover:border-custom-blue mt-5"
-            >
-              <div className="flex gap-4">
-                <img src={layers} alt="" />
-                <span>My Hackathons</span>
-              </div>
-            </button>
-          </div>
+          <button
+            onClick={() => handleNavigation("myhackathons")}
+            style={{
+              borderColor:
+                activePage === "myhackathons" ? "#089BD9" : "inherit",
+              transition: "border-color 0.3s",
+            }}
+            className="py-2 pl-6 pr-5 border rounded-md hover:border-custom-blue mt-5"
+          >
+            <div className="flex gap-4">
+              <img src={layers} alt="" />
+              <span>My Hackathons</span>
+            </div>
+          </button>
         </div>
-      )}
-
+      </div>
+      )
       {isMobile && (
         <div
           className={`${
@@ -133,7 +132,6 @@ const Sidebar = () => {
           </div>
         </div>
       )}
-
       <Outlet />
     </>
   );
