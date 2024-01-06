@@ -83,6 +83,7 @@ const renderActiveShape = (props) => {
 
 const OrganizerChart = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const isMobile = window.innerWidth <= 767;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -92,7 +93,7 @@ const OrganizerChart = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <PieChart width={600} height={600}>
+    <PieChart width={isMobile ? 300 : 600} height={isMobile ? 300 : 600}>
       <Pie
         activeIndex={activeIndex}
         activeShape={renderActiveShape}

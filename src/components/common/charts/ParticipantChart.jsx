@@ -83,7 +83,7 @@ const renderActiveShape = (props) => {
 
 const ParticipantChart = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-
+  const isMobile = window.innerWidth <= 767;
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % data.length);
@@ -92,19 +92,21 @@ const ParticipantChart = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <PieChart width={600} height={600}>
-      <Pie
-        activeIndex={activeIndex}
-        activeShape={renderActiveShape}
-        data={data}
-        cx="50%"
-        cy="50%"
-        innerRadius={180}
-        outerRadius={200}
-        fill="#089BD9"
-        dataKey="value"
-      />
-    </PieChart>
+    <div className="  ">
+      <PieChart width={isMobile ? 300 : 600} height={isMobile ? 300 : 600}>
+        <Pie
+          activeIndex={activeIndex}
+          activeShape={renderActiveShape}
+          data={data}
+          cx="50%"
+          cy="50%"
+          innerRadius={180}
+          outerRadius={200}
+          fill="#089BD9"
+          dataKey="value"
+        />
+      </PieChart>
+    </div>
   );
 };
 
