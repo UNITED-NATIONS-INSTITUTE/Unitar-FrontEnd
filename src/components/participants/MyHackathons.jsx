@@ -42,11 +42,11 @@ const MyHackathons = () => {
   };
 
   return (
-    <div className="bg-white md:right-side min-h-screen min-w-full">
-      <div className="md:ml-[280px]">
+    <div className="bg-white lg:right-side min-h-screen min-w-full">
+      <div className="lg:ml-[280px]">
         <div className="flex justify-between pt-10">
           <h1 className="text-gray-600 font-bold text-[24px]">My Hackathons</h1>
-          <div className="mr-10">
+          <div className="xl:flex hidden mr-10">
             <UserProfile />
           </div>
         </div>
