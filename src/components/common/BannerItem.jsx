@@ -3,50 +3,43 @@
 import React from "react";
 import FeatureBanner from "./FeatureBanner";
 import { icon1, icon2, icon3, icon4, icon5, icon6 } from "../../assets";
-import Footer from "./Footer";
 
 const BannerItem = () => {
   return (
-    <div className="bg-[#1C272E]">
-      <h3 className="text-white text-4xl font-bold text-center pt-20">
-        Check all features
-      </h3>
-
+    <div className="bg-banner">
       <div className=" grid grid-cols-3 gap-4 mx-auto pr-20 py-16">
         <FeatureBanner
-          icon={icon1}
-          heading="Diverse Hackathons"
-          text="Uncover a spectrum of challenges tailored to your expertise. Find hackathons that resonate with your skills and passions."
+          icon="/assets/icon1.png"
+          heading="Employment and Livelihoods Development"
+          text="Foster solutions that contribute to the development of sustainable employment opportunities and the enhancement of livelihoods.
+
+          "
         />
 
         <FeatureBanner
-          icon={icon2}
-          heading="Global Collaboration Hub"
-          text=" Connect with innovators from around the world. Build dynamic teams, exchange ideas, and collaborate seamlessly to tackle challenges that transcend borders."
+          icon="/assets/icon2.png"
+          heading="Emerging Technologies"
+          text=" Encourage the exploration and development of cutting-edge technologies that have the potential to transform industries."
         />
         <FeatureBanner
-          icon={icon3}
-          heading="Global Collaboration Hub"
-          text=" Connect with innovators from around the world. Build dynamic teams, exchange ideas, and collaborate seamlessly to tackle challenges that transcend borders."
+          icon="/assets/icon5.png"
+          heading="Climate Change"
+          text=" Foster solutions that contribute to mitigating the impact of climate change and promoting environmental sustainability.
+
+          "
         />
         <FeatureBanner
-          icon={icon4}
-          heading="Effortless Hosting for Organizations"
-          text=" Post and manage hackathons with intuitive tools, reaching a global audience and tapping into a diverse pool of talent."
+          icon="/assets/icon3.png"
+          heading="Accessibility and Inclusion"
+          text=" Advocate for projects that prioritize accessibility and inclusion for all individuals, regardless of abilities."
         />
 
         <FeatureBanner
-          icon={icon5}
-          heading="Secure Intellectual Property"
-          text=" Our platform prioritizes the security and confidentiality of all users, ensuring a safe space for creativity to flourish."
-        />
-        <FeatureBanner
-          icon={icon6}
-          heading=" Continuous Support and Resources"
-          text="  Access a wealth of resources, mentorship opportunities, and a dedicated support team to ensure a smooth experience for both participants and organizations."
+          icon="/assets/icon4.png"
+          heading="Social Impact"
+          text="Promote solutions that address social challenges and have a positive impact on communities."
         />
       </div>
-      <Footer />
     </div>
   );
 };
