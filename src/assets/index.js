@@ -48,8 +48,10 @@ import teams from "./teams.svg";
 import overlay from "./overlay.svg";
 import views from "./views.svg";
 import hack from "./aspiring.jpeg";
+import logo from "./logo.png";
 
 export {
+  logo,
   hack,
   views,
   overlay,
