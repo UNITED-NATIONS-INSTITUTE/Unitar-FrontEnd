@@ -27,8 +27,7 @@ const Footer = () => {
       </div>
 
       <div className="flex justify-between mt-[200px] ml-[40px] border-b-3 border-black">
-        <img src={logo} />
-
+        <img src={logo} className="w-[200px]" />
         <div className="flex justify-center gap-6 mr-[50px]">
           <FaFacebookF />
           <FaTwitter />
