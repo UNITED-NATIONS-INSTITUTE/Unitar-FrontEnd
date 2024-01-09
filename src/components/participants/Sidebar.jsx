@@ -21,7 +21,7 @@ const Sidebar = () => {
 
   const [toggle, setToggle] = useState(false);
 
-  const isMobile = useMediaQuery("(max-width: 900px)");
+  const isMobile = useMediaQuery("(max-width: 912px)");
 
   const handleNavigation = (page) => {
     navigate(`/participant/${page}`);
@@ -47,6 +47,8 @@ const Sidebar = () => {
         // Desktop code block
         <div className="lg:flex hidden">
           <div className="bg-light-blue p-4 h-screen fixed left-0 top-0 w-[250px]">
+            <img src={logo} />
+
             <button
               onClick={() => handleNavigation("dashboard")}
               className="py-2 pl-6 pr-5 border rounded-md mt-16 hover:border-custom-blue "
