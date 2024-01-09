@@ -15,23 +15,23 @@ const OrgDashboard = () => {
   }, []);
 
   return (
-    <div className="bg-white p-8 right-side min-h-screen">
-      <div className="overflow-y-auto  ml-60">
+    <div className="bg-white p-8 ml:right-side ml:min-h-screen">
+      <div className="overflow-y-auto  lg:ml-60">
         <div className="flex justify-between">
           <h1 className="text-gray-600 font-bold text-[24px]">Dashboard</h1>
-          <OrgProfile />
+          <OrgProfile className="hidden lg:flex" />
         </div>
-        <div className="flex mt-12">
+        <div className="md:flex lg:mt-12 mt-3">
           <div className="border bg-custom-blue rounded-md text-white pt-5 mr-5 pr-[40px] ">
-            <span className="text-xs p-5">Affiliated Participants</span>
+            <span className="md:text-xs p-5">Affiliated Participants</span>
             <p className="p-5 font-bold">{stats.total_participants}</p>
           </div>
-          <div className="border bg-custom-grey rounded-md   pr-[60px]  pt-5 mr-5">
-            <span className="text-xs p-5">Your Hackathons</span>
+          <div className="border bg-custom-grey text-black rounded-md  mt-5 pt-5 mr-5 pr-[40px] ">
+            <span className="md:text-xs  p-5 ">Your Hackathons</span>
             <p className="p-5 font-bold">{stats.total_hackathons}</p>
           </div>
-          <div className="border bg-custom-grey rounded-md  pr-[60px]  pt-5 mr-5">
-            <span className="text-xs p-5">Submitted Projects</span>
+          <div className="border bg-custom-grey text-black rounded-md mt-5 pt-5 mr-5 pr-[40px] ">
+            <span className="md:text-xs p-5">Submitted Projects</span>
             <p className="p-5 font-bold">{stats.total_submissions}</p>
           </div>
         </div>
