@@ -38,8 +38,8 @@ const Footer = () => {
       </div>
       <img src={line} className="mt-3" />
 
-      <div className="flex justify-between mt-5">
-        <p className="ml-11">
+      <div className="flex justify-between mt-5 text-sm">
+        <p className="lg:ml-11">
           {" "}
           © Copyright {currentYear}, All Rights Reserved
         </p>
