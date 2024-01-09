@@ -48,7 +48,7 @@ const Showcase = () => {
             </div>
           </div>
         </div>
-        <div className=" xl:bg-[#c6e2f4]  w-full min-h-screen p-2 ">
+        <div className=" xl:bg-[#c6e2f4]  w-full  p-2 ">
           <div className=" lg:flex justify-center items-center ">
             <div className="lg:w-[494px] ">
               <h4 className="text-[#2e4161] text-lg text-center lg:text-left lg:text-4xl font-lexend-exa  font-bold ">
