@@ -7,7 +7,7 @@ import Footer from "./Footer";
 
 const BannerItem = () => {
   return (
-    <div className="bg-[#1C272E] w-full min-w-full">
+    <div className="bg-[#1C272E] w-full min-w-full mt-5">
       <h3 className="text-white text-4xl font-bold text-[24px] text-center pt-20">
         Check all features
       </h3>
