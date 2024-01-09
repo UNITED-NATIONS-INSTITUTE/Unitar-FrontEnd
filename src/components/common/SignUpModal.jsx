@@ -35,7 +35,33 @@ export default function BasicModal({ openModal, handleClose }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} className=" overlay">
+        <Box
+          sx={{
+            ...style,
+
+            "@media (max-width: 600px)": {
+              width: 350,
+              height: 300,
+            },
+            "@media (max-width: 300px)": {
+              width: 300,
+              height: 250,
+            },
+            "@media (max-width: 360px)": {
+              width: 340,
+              height: 250,
+            },
+            "@media (min-width: 768px)": {
+              width: 600,
+              height: 350,
+            },
+            "@media (min-width: 1024px)": {
+              width: 600,
+              height: 350,
+            },
+          }}
+          className=" overlay"
+        >
           <Box className=" flex items-center justify-center">
             <Box>
               <Typography variant="h6" component="h2" sx={customStyles}>
@@ -59,6 +85,6 @@ export default function BasicModal({ openModal, handleClose }) {
           </Box>
         </Box>
       </Modal>
-    </Box>
+    </Box> ////
   );
 }
