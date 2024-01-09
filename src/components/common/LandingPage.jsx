@@ -16,7 +16,7 @@ const LandingPage = () => {
       <BasicModal openModal={openSignUpModal} handleClose={closeModal} />
       <div className="w-full h-screen text-center relative z-[1]  ">
         <div className=" mx-auto p-2 flex justify-center">
-          <div className="mt-[60px]">
+          <div className="lg:mt-[60px]">
             <h1 className="animated-text text-[#000] items-center text-center font-semibold text-lg lg:text-6xl md:text-2xl lg:font-bold leading-11 tracking-wider  ">
               Unleashing Innovation, <br className="" /> One Hackathon at a
               Time!
