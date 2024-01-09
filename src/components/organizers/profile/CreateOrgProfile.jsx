@@ -70,12 +70,12 @@ const CreateOrgProfile = () => {
         <SuccessModal openModal={openModal} handleClose={closeModal} />
       )}
 
-      <div className="right-side min-h-screen bg-pattern">
-        <form className="ml-80 mt-8" onSubmit={handleSubmit}>
+      <div className="lg:right-side lg:min-h-screen bg-pattern">
+        <form className="lg:ml-80  " onSubmit={handleSubmit}>
           <h1 className="text-gray-600 text-[24px] font-bold">
             Profile Details
           </h1>
-          <div className="w-[500px] h-[140px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5">
+          <div className="md:w-[500px] h-[140px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5">
             <div className="flex items-center ml-4 justify-between">
               <Avatar
                 alt="Profile pic"
@@ -101,7 +101,7 @@ const CreateOrgProfile = () => {
           <h1 className="mb-5 text-gray-600 font-semibold">
             Profile Information here
           </h1>
-          <div className="px-10 w-[500px]  h-[400px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5">
+          <div className="px-10 md:w-[500px]  h-[400px] rounded-md shadow-lg bg-[#f0f6ff] mt-5 mb-5">
             {" "}
             <div className="grid grid-cols-1 gap-6">
               <label className="block">
