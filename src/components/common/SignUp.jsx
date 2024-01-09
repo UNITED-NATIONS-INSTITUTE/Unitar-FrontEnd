@@ -116,10 +116,10 @@ const SignUp = () => {
 
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
 
-      <div className="min-h-screen flex items-center justify-center mt-16 bg-white">
-        <div className="bg-white ">
+      <div className=" flex items-center justify-center  mt-10 bg-white">
+        <div className="bg-white lg:w-[500px]  ">
           <h2 className="mb-10 font-semibold">
             Sign up to UNITAR hackathon platform
           </h2>
