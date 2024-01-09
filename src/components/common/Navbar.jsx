@@ -58,7 +58,7 @@ const Navbar = ({ openModal }) => {
         </button>
       </div>{" "}
       <div className="lg:hidden ml-auto gap-10" onClick={handleNav}>
-        <AiOutlineMenu size={50} className="flex" />
+        <AiOutlineMenu size={30} className="flex" />
       </div>
       <div
         className={
