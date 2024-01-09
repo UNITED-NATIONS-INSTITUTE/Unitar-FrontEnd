@@ -25,7 +25,7 @@ const ParticipantsContent = () => {
       </div>
 
       <div className="md:flex mt-7 md:mt-12">
-        <div className="border bg-custom-blue rounded-md text-white  w-full md:w-[250px] h-[130px] pt-5 md:mr-5">
+        <div className="border bg-custom-blue rounded-md text-white   md:w-[250px] h-[130px] pt-5 md:mr-5">
           <span className="md:text-xs text-[18px] pt-5 p-5">
             Your Hackathons
           </span>
@@ -40,8 +40,9 @@ const ParticipantsContent = () => {
         <div className="border bg-custom-grey rounded-md  mt-5 md:mt-0 w-full md:w-[250px] h-[130px] pt-5 md:mr-5">
           <span className="md:text-xs text-[18px] p-5">Submitted projects</span>
           <p className="p-5 font-bold">{stats.total_submissions}</p>
-        </div>
+        </div>{" "}
       </div>
+
       <div className="mt-10">
         <h1 className="text-gray-600 md:font-semibold font-bold text-[20px] text-center md:text-left">
           Ongoing hackathons
