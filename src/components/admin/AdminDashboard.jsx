@@ -55,9 +55,9 @@ const AdminDashboard = () => {
     });
   }, []);
   return (
-    <div className="bg-[#F5F5F5] p-8 right-side min-h-screen min-w-full ">
-      <div className="ml-60">
-        <div className="flex justify-end ">
+    <div className="bg-[#F5F5F5] p-8 lg:right-side lg:min-h-screen lg:min-w-full ">
+      <div className="lg:ml-60">
+        <div className="lg:flex hidden justify-end ">
           <AdminLogOut />
         </div>
         <div className="bg-custom-blue h-[120px] rounded-md mt-3  ">
@@ -66,7 +66,7 @@ const AdminDashboard = () => {
               <h1 className="text-white font-bold py-4 pl-5 text-[24px]">
                 Dashboard
               </h1>
-              <div className="mb-3">
+              <div className="mb-3 ml-4 lg:ml-0">
                 <Search>
                   <SearchIconWrapper>
                     <SearchIcon />
@@ -84,8 +84,8 @@ const AdminDashboard = () => {
             />
           </div>
         </div>
-        <div className="flex flex-row gap-[30px]">
-          <div className=" rounded-md bg-white shadow-md mt-[30px] w-[700px]">
+        <div className="md:flex flex-row gap-[30px]">
+          <div className=" rounded-md bg-white shadow-md mt-[30px] lg:w-[700px]">
             <h1 className="text-gray-700 font-semibold text-md mb-5 mt-10 ml-5">
               Top Five Most Participated in Hackathons
             </h1>
