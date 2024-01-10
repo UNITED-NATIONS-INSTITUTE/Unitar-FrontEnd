@@ -95,9 +95,9 @@ const AllOrganizers = () => {
   ];
 
   return (
-    <div className="bg-white p-8 right-side min-h-screen min-w-full ">
-      <div className="ml-60">
-        <div className="flex justify-end">
+    <div className="bg-white p-8 lg:right-side min-h-screen min-w-full ">
+      <div className="lg:ml-60">
+        <div className="lg:flex hidden justify-end">
           <AdminProfile />
         </div>
         <h1 className="text-[24px] font-bold text-gray-600">All Organizers</h1>
