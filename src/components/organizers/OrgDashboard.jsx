@@ -19,7 +19,9 @@ const OrgDashboard = () => {
       <div className="overflow-y-auto  lg:ml-60">
         <div className="flex justify-between">
           <h1 className="text-gray-600 font-bold text-[24px]">Dashboard</h1>
-          <OrgProfile className="hidden lg:flex" />
+          <div className="hidden lg:flex">
+            <OrgProfile />
+          </div>
         </div>
         <div className="md:flex lg:mt-12 mt-3">
           <div className="border bg-custom-blue rounded-md text-white pt-5 mr-5 pr-[40px] ">

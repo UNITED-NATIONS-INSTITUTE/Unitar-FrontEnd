@@ -23,6 +23,10 @@ const OrgSidebar = () => {
   }, [pathnameArray]);
   const [toggle, setToggle] = useState(false);
   const isMobile = useMediaQuery("(max-width: 912px)");
+  const handleNavigation = (page) => {
+    navigate(`/organizer/${page}`);
+    setToggle(false); // Close the mobile menu after navigation
+  };
 
   return (
     <>
@@ -47,7 +51,7 @@ const OrgSidebar = () => {
               {/* <img src="/assets/back.svg" alt="back" width="20" height="20" /> */}
             </div>
             <button
-              onClick={() => navigate("/organizer/dashboard")}
+              onClick={() => handleNavigation("dashboard")}
               style={{
                 borderColor: activePage === "dashboard" ? "#089BD9" : "inherit",
                 transition: "border-color 0.3s",
@@ -61,7 +65,7 @@ const OrgSidebar = () => {
             </button>
 
             <button
-              onClick={() => navigate("/organizer/hackathons")}
+              onClick={() => handleNavigation("hackathons")}
               style={{
                 borderColor:
                   activePage === "hackathons" ? "#089BD9" : "inherit",
@@ -117,7 +121,7 @@ const OrgSidebar = () => {
             </div>
             <div className="z-20 ml-10">
               <button
-                onClick={() => navigate("/organizer/dashboard")}
+                onClick={() => handleNavigation("dashboard")}
                 className="py-2 pl-6 pr-5 border rounded-md mt-16"
               >
                 <div className="flex gap-5">
@@ -128,7 +132,7 @@ const OrgSidebar = () => {
               <br />
 
               <button
-                onClick={() => navigate("/organizer/hackathons")}
+                onClick={() => handleNavigation("hackathons")}
                 className="py-2 pl-6 pr-5 border rounded-md hover:border-custom-blue mt-5"
               >
                 <div className="flex gap-5">
@@ -138,7 +142,7 @@ const OrgSidebar = () => {
               </button>
               <br />
               <button
-                onClick={() => navigate("/organizer/submissions")}
+                onClick={() => handleNavigation("submissions")}
                 className="py-2 pl-6 pr-5 border rounded-md hover:border-custom-blue mt-5"
               >
                 <div className="flex gap-4">
@@ -148,7 +152,7 @@ const OrgSidebar = () => {
               </button>
               <br />
               <button
-                onClick={() => navigate("/organizer/profile")}
+                onClick={() => handleNavigation("profile")}
                 className="py-2 pl-6 pr-5 border rounded-md hover:border-custom-blue mt-5"
               >
                 <div className="flex gap-4 text-custom-blue">

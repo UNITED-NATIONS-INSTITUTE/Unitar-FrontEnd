@@ -37,13 +37,15 @@ const OrgSubmissionPage = () => {
     fetchHackathons();
   }, []);
   return (
-    <div className="bg-white p-8 right-side min-h-screen ">
-      <div className="ml-60">
+    <div className="bg-white p-8 lg:right-side lg:min-h-screen ">
+      <div className="lg:ml-60">
         <div className="flex justify-between">
-          <h1 className="text-gray-600 font-bold text-[24px] mb-10 ">
+          <h1 className="text-gray-600 font-bold text-[24px] lg:mb-10 mb-5 ">
             Submissions
           </h1>
-          <OrgProfile />
+          <div className="hidden lg:block">
+            <OrgProfile />
+          </div>
         </div>
         <p className="text-gray-600 text-sm font-semibold">Our Hackathons</p>
         {loading && <LinearProgress />}

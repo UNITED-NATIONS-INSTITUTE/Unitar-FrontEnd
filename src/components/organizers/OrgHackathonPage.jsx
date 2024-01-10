@@ -7,12 +7,14 @@ import { LinearProgress } from "@mui/material";
 const OrgHackathonPage = () => {
   const navigate = useNavigate();
   return (
-    <div className="bg-white p-8 right-side min-h-screen">
-      <div className="ml-60">
+    <div className="bg-white p-8 lg:right-side lg:min-h-screen">
+      <div className="lg:ml-60">
         <div className="flex flex-col">
           <div className="flex justify-between">
             <h1 className="text-gray-600 font-bold  text-[24px]">Hackathons</h1>
-            <OrgProfile />
+            <div className="lg:flex hidden">
+              <OrgProfile />
+            </div>
           </div>
           <button
             onClick={() => navigate("create")}

@@ -96,9 +96,9 @@ const CreateHackathon = () => {
       });
   };
   return (
-    <div className="bg-white p-8 right-side min-h-screen min-w-full">
-      <div className="ml-60">
-        <div className="flex justify-between">
+    <div className="bg-white p-8 lg:right-side lg:min-h-screen lg:min-w-full">
+      <div className="lg:ml-60">
+        <div className="lg:flex justify-between">
           <h1 className="text-gray-600 font-bold text-[24px]">Hackathons</h1>
           <OrgProfile />
         </div>
@@ -118,11 +118,11 @@ const CreateHackathon = () => {
           <span>Basic details</span>
         </p>
 
-        <div className=" flex">
+        <div className=" lg:flex">
           <div>
             <ValidatorForm
               onSubmit={(e) => handleCreateHackathon(e)}
-              className="flex gap-[80px]"
+              className="lg:flex lg:gap-[80px]"
             >
               <div className="flex flex-col ">
                 <label
@@ -133,7 +133,7 @@ const CreateHackathon = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-[400px] px-3 py-2 border border-gray-400 rounded text-xs
+                  className="lg:w-[400px] px-3 py-2 border border-gray-400 rounded text-xs
                   focus:outline-none focus:border-custom-blue "
                   placeholder="Stack a Stake Competition"
                   required
@@ -150,7 +150,7 @@ const CreateHackathon = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-[400px] px-3 py-2 border border-gray-400 rounded text-xs
+                  className="lg:w-[400px] px-3 py-2 border border-gray-400 rounded text-xs
                   focus:outline-none focus:border-custom-blue "
                   placeholder="Building for the future"
                   required
@@ -166,7 +166,7 @@ const CreateHackathon = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-[400px] px-3 py-2 border border-gray-400 rounded text-xs
+                  className="lg:w-[400px] px-3 py-2 border border-gray-400 rounded text-xs
         focus:outline-none focus:border-custom-blue "
                   placeholder="virtual, hybrid, onsite, etc"
                   required
@@ -294,10 +294,11 @@ const CreateHackathon = () => {
                   id="outlined-multiline-static"
                   multiline
                   rows={4}
-                  sx={{ width: "400px" }}
+                  // sx={{ width: "400px" }}
                   onChange={handleChange("deliverables")}
                   name="deliverables"
                   value={deliverables}
+                  className="lg:w-[400px]"
                 />
                 <label
                   className="font-semibold mt-5 mb-2 text-xs "
