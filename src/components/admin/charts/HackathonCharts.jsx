@@ -9,6 +9,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  ResponsiveContainer,
 } from "recharts";
 
 const HackathonChart = () => {
@@ -19,31 +20,31 @@ const HackathonChart = () => {
       setHackathons(res.data);
     });
   }, []);
+
   return (
-    <div>
-      {" "}
-      <BarChart
-        width={700}
-        height={400}
-        data={hackathons}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" className="text-[8px]" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar
-          dataKey="sub_count"
-          fill="#089BD9"
-          activeBar={<Rectangle fill="#00588C" />}
-        />
-      </BarChart>
+    <div style={{ width: "100%", height: 400 }}>
+      <ResponsiveContainer>
+        <BarChart
+          data={hackathons}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" className="text-[8px]" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar
+            dataKey="sub_count"
+            fill="#089BD9"
+            activeBar={<Rectangle fill="#00588C" />}
+          />
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 };
