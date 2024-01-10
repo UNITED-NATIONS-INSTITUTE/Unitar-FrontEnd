@@ -27,9 +27,9 @@ export default function Category() {
   }, []);
 
   return (
-    <div className="bg-white p-8 right-side min-h-screen min-w-full ">
-      <div className="ml-60">
-        <div className="flex justify-end">
+    <div className="bg-white p-8 lg:right-side lg:min-h-screen min-w-full ">
+      <div className="lg:ml-60">
+        <div className="lg:flex hidden justify-end">
           <AdminLogOut />
         </div>
         <h1 className="text-[20px] font-bold text-gray-600">
@@ -41,7 +41,7 @@ export default function Category() {
         >
           New Category
         </button>
-        <div className="p-4 rounded-lg shadow-md  items-center border border-gray-100 w-[600px] h-[500px] ">
+        <div className="p-4 rounded-lg shadow-md  items-center border border-gray-100 lg:w-[600px] h-[500px] ">
           <h1 className=" text-[15px] text-center mb-3  font-bold mt-6">
             Configured Categories
           </h1>
