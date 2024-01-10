@@ -38,13 +38,13 @@ const CreateCategory = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white right-side">
+    <div className="lg:min-h-screen bg-white lg:right-side">
       <div className=" flex items-center justify-center mt-10  ">
-        <div className="ml-60">
-          <div className="flex  mb-10 ml-[800px]">
+        <div className="lg:ml-[400px]">
+          <div className="lg:flex hidden  mb-10 ml-[800px]">
             <AdminLogOut />
           </div>
-          <div className="w-[600px] h-[400px] rounded-lg shadow-md  items-center border border-gray-100">
+          <div className="md:w-[600px] h-[400px] rounded-lg shadow-md  items-center border border-gray-100">
             <h1 className=" text-[20px] text-center font-bold mt-6 text-custom-blue">
               Create a new hackathon category
             </h1>
